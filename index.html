@@ -2,7 +2,7 @@
 <html lang="hi">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
     <title>BighaWala.com | बिहार बीघा-कट्ठा कैलकुलेटर और भूमि सूचना केंद्र</title>
     
     <!-- SEO Meta Tags -->
@@ -53,10 +53,129 @@
       .hero-gradient {
         background: linear-gradient(135deg, #2E7D32 0%, #1B5E20 45%, #E65100 100%);
       }
+    
+      /* BEGIN RESPONSIVE FIXES */
+      * {
+        box-sizing: border-box;
+        max-width: 100%;
+      }
+
+      body {
+        overflow-x: hidden;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+      }
+
+      header, nav {
+        width: 100%;
+        max-width: 100vw;
+        overflow: hidden;
+        padding: 10px 15px;
+        box-sizing: border-box;
+      }
+
+      .logo-container {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        min-width: 0;
+        flex: 1;
+      }
+
+      .logo-text {
+        font-size: clamp(16px, 4vw, 24px);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .hero, .hero-section {
+        width: 100%;
+        max-width: 100vw;
+        overflow: hidden;
+        padding: 20px 15px;
+        box-sizing: border-box;
+      }
+
+      .hero h1, .hero-section h1 {
+        font-size: clamp(20px, 5vw, 40px);
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+      }
+
+      table {
+        width: 100%;
+        display: block;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .grid, [class*="grid"] {
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      }
+
+      @media (max-width: 480px) {
+        .grid-2, .grid-3, .grid-4 {
+          grid-template-columns: 1fr;
+        }
+        
+        .flex-row {
+          flex-direction: column;
+        }
+        
+        .card {
+          width: 100%;
+          margin: 5px 0;
+        }
+      }
+
+      @media (max-width: 768px) {
+        body {
+          font-size: 16px;
+        }
+        
+        h1 {
+          font-size: clamp(20px, 5vw, 32px);
+        }
+        
+        h2 {
+          font-size: clamp(18px, 4vw, 26px);
+        }
+        
+        p, li {
+          font-size: 16px;
+          line-height: 1.6;
+        }
+        
+        button, .btn {
+          width: 100%;
+          padding: 14px;
+          font-size: 16px;
+        }
+        
+        input, select, textarea {
+          width: 100%;
+          font-size: 16px;
+          padding: 12px;
+        }
+        
+        .grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+      /* END RESPONSIVE FIXES */
+
     </style>
   </head>
   <body class="bg-slate-50 text-slate-800 font-sans min-h-screen flex flex-col selection:bg-orange-100 selection:text-orange-900 relative">
 
+    <!-- STICKY HEADER -->
     <!-- STICKY HEADER -->
     <header class="sticky top-0 z-50 bg-white border-b border-slate-200/80 shadow-sm backdrop-blur-md bg-white/95">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
@@ -77,13 +196,13 @@
 
         <!-- Desktop Navigation Menu -->
         <nav class="hidden lg:flex items-center gap-1 xl:gap-2 font-bold lg:text-[11px] xl:text-[12px] 2xl:text-sm text-slate-600" id="desktop-nav">
-          <a href="index.html" class="text-primaryGreen bg-emerald-50 px-2.5 py-1.5 rounded-xl transition-all font-black border border-emerald-100/50 shrink-0">Home (मुख्य)</a>
+          <a href="index.html" class="px-2.5 py-1.5 rounded-xl hover:text-primaryGreen hover:bg-slate-50 transition-all shrink-0">Home</a>
           <a href="apna-khata-dekhe.html" class="px-2.5 py-1.5 rounded-xl hover:text-primaryGreen hover:bg-slate-50 transition-all shrink-0">अपना खाता</a>
           
           <!-- Tools Dropdown -->
           <div class="relative group shrink-0">
             <button class="px-2.5 py-1.5 rounded-xl hover:text-primaryGreen hover:bg-slate-50 transition-all font-bold flex items-center gap-1 focus:outline-none">
-              <span>Tools ⚡</span>
+              <span>Tools ▼</span>
               <svg class="w-3.5 h-3.5 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path>
               </svg>
@@ -101,13 +220,19 @@
               <a href="zameen-comparison.html" class="flex items-center gap-2 px-4 py-2.5 text-[12px] transition-all hover:bg-emerald-50 hover:text-primaryGreen text-slate-700 font-bold">
                 <span>⚖️</span> <span>Zameen Compare</span>
               </a>
+              <a href="bihar-land-quiz.html" class="flex items-center gap-2 px-4 py-2.5 text-[12px] transition-all hover:bg-emerald-50 hover:text-primaryGreen text-slate-700 font-bold">
+                <span>📝</span> <span>Land Quiz</span>
+              </a>
+              <a href="document-checker.html" class="flex items-center gap-2 px-4 py-2.5 text-[12px] transition-all hover:bg-emerald-50 hover:text-primaryGreen text-slate-700 font-bold">
+                <span>🔍</span> <span>Document Checker</span>
+              </a>
             </div>
           </div>
 
           <!-- Guides Dropdown -->
           <div class="relative group shrink-0">
             <button class="px-2.5 py-1.5 rounded-xl hover:text-primaryGreen hover:bg-slate-50 transition-all font-bold flex items-center gap-1 focus:outline-none">
-              <span>Guides 📋</span>
+              <span>Guides ▼</span>
               <svg class="w-3.5 h-3.5 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path>
               </svg>
@@ -120,13 +245,13 @@
                 <span>🗺️</span> <span>Bhulekh Bihar</span>
               </a>
               <a href="jamabandi.html" class="flex items-center gap-2 px-4 py-2.5 text-[12px] transition-all hover:bg-emerald-50 hover:text-primaryGreen text-slate-700 font-bold">
-                <span>📑</span> <span>Jamabandi Bihar</span>
+                <span>📑</span> <span>Jamabandi</span>
               </a>
               <a href="lpc-bihar.html" class="flex items-center gap-2 px-4 py-2.5 text-[12px] transition-all hover:bg-emerald-50 hover:text-primaryGreen text-slate-700 font-bold">
                 <span>📄</span> <span>LPC Bihar</span>
               </a>
               <a href="registry-bihar.html" class="flex items-center gap-2 px-4 py-2.5 text-[12px] transition-all hover:bg-emerald-50 hover:text-primaryGreen text-slate-700 font-bold">
-                <span>📜</span> <span>Registry Guide</span>
+                <span>📜</span> <span>Registry</span>
               </a>
             </div>
           </div>
@@ -134,7 +259,7 @@
           <!-- Rates Dropdown -->
           <div class="relative group shrink-0">
             <button class="px-2.5 py-1.5 rounded-xl hover:text-primaryGreen hover:bg-slate-50 transition-all font-bold flex items-center gap-1 focus:outline-none">
-              <span>Rates 💰</span>
+              <span>Rates ▼</span>
               <svg class="w-3.5 h-3.5 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path>
               </svg>
@@ -187,29 +312,29 @@
         </div>
 
         <div class="px-4 pt-2 pb-6 space-y-1 font-bold text-slate-700">
-          <a href="index.html" class="block px-4 py-2 rounded-xl text-primaryGreen bg-emerald-50 font-black text-[16px]">Home (मुख्य)</a>
+          <a href="index.html" class="block px-4 py-2 rounded-xl hover:text-primaryGreen hover:bg-slate-50 text-[16px]">Home</a>
           <a href="apna-khata-dekhe.html" class="block px-4 py-2 rounded-xl hover:text-primaryGreen hover:bg-slate-50 text-[16px]">अपना खाता देखें</a>
           
           <!-- Collapsible Tools -->
           <div class="border-b border-slate-100 pb-1.5">
-            <span class="block px-4 py-1.5 text-xs font-black text-slate-400 uppercase tracking-widest">Tools ⚡</span>
+            <span class="block px-4 py-1.5 text-xs font-black text-slate-400 uppercase tracking-widest">Tools ▼</span>
             <div class="pl-4 space-y-0.5">
               <a href="bigha-calculator.html" class="block px-4 py-1.5 text-sm text-slate-600 hover:text-primaryGreen">🧮 बीघा Calculator</a>
               <a href="zameen-moolyankan.html" class="block px-4 py-1.5 text-sm text-slate-600 hover:text-primaryGreen">🏡 Zameen Moolyankan</a>
               <a href="land-cost-calculator.html" class="block px-4 py-1.5 text-sm text-slate-600 hover:text-primaryGreen">💰 Cost Calculator</a>
               <a href="zameen-comparison.html" class="block px-4 py-1.5 text-sm text-slate-600 hover:text-primaryGreen">⚖️ Zameen Compare</a>
-              <a href="bihar-land-quiz.html" class="block px-4 py-1.5 text-sm text-slate-600 hover:text-primaryGreen">📝 Bihar Land Quiz</a>
+              <a href="bihar-land-quiz.html" class="block px-4 py-1.5 text-sm text-slate-600 hover:text-primaryGreen">📝 Land Quiz</a>
               <a href="document-checker.html" class="block px-4 py-1.5 text-sm text-slate-600 hover:text-primaryGreen">🔍 Document Checker</a>
             </div>
           </div>
 
           <!-- Collapsible Guides -->
           <div class="border-b border-slate-100 pb-1.5">
-            <span class="block px-4 py-1.5 text-xs font-black text-slate-400 uppercase tracking-widest">Guides 📋</span>
+            <span class="block px-4 py-1.5 text-xs font-black text-slate-400 uppercase tracking-widest">Guides ▼</span>
             <div class="pl-4 space-y-0.5">
               <a href="dakhil-kharij.html" class="block px-4 py-1.5 text-sm text-slate-600 hover:text-primaryGreen">📋 Dakhil Kharij</a>
               <a href="bhulekh.html" class="block px-4 py-1.5 text-sm text-slate-600 hover:text-primaryGreen">🗺️ Bhulekh Bihar</a>
-              <a href="jamabandi.html" class="block px-4 py-1.5 text-sm text-slate-600 hover:text-primaryGreen">📑 Jamabandi Bihar</a>
+              <a href="jamabandi.html" class="block px-4 py-1.5 text-sm text-slate-600 hover:text-primaryGreen">📑 Jamabandi</a>
               <a href="lpc-bihar.html" class="block px-4 py-1.5 text-sm text-slate-600 hover:text-primaryGreen">📄 LPC Bihar</a>
               <a href="registry-bihar.html" class="block px-4 py-1.5 text-sm text-slate-600 hover:text-primaryGreen">📜 Registry Guide</a>
             </div>
@@ -217,7 +342,7 @@
 
           <!-- Collapsible Rates -->
           <div class="border-b border-slate-100 pb-1.5">
-            <span class="block px-4 py-1.5 text-xs font-black text-slate-400 uppercase tracking-widest">Rates 💰</span>
+            <span class="block px-4 py-1.5 text-xs font-black text-slate-400 uppercase tracking-widest">Rates ▼</span>
             <div class="pl-4 space-y-0.5">
               <a href="land-rates.html" class="block px-4 py-1.5 text-sm text-slate-600 hover:text-primaryGreen">💰 Land Rates</a>
               <a href="mvr-rate-bihar.html" class="block px-4 py-1.5 text-sm text-slate-600 hover:text-primaryGreen">📊 MVR Rate</a>
@@ -226,8 +351,8 @@
             </div>
           </div>
 
-          <a href="bihar-land-news.html" class="block px-4 py-2 rounded-xl hover:text-primaryGreen hover:bg-slate-50 text-[16px]">Bihar Land News</a>
-          <a href="community-qa.html" class="block px-4 py-2 rounded-xl hover:text-primaryGreen hover:bg-slate-50 text-[16px]">Community Q&A</a>
+          <a href="bihar-land-news.html" class="block px-4 py-2 rounded-xl hover:text-primaryGreen hover:bg-slate-50 text-[16px]">News</a>
+          <a href="community-qa.html" class="block px-4 py-2 rounded-xl hover:text-primaryGreen hover:bg-slate-50 text-[16px]">Community</a>
           <a href="whatsapp-alerts.html" class="block px-4 py-2 rounded-xl hover:text-primaryGreen hover:bg-slate-50 text-[16px]">WhatsApp Alerts</a>
 
           <a href="ask-expert.html" class="block px-4 py-2.5 rounded-xl text-center bg-accentSaffron hover:bg-customSaffronHover text-white shadow-sm mt-3 font-black text-[16px]">
@@ -1257,61 +1382,70 @@
         document.getElementById('res-acre').innerText = Number(acre.toFixed(4)).toLocaleString('en-IN');
       }
 
-      // Mobile drawer toggle & interaction
-      const toggleBtn = document.getElementById('mobile-menu-toggle');
-      const drawer = document.getElementById('mobile-drawer');
-      const hamburgerIcon = document.getElementById('hamburger-icon');
-      const closeIcon = document.getElementById('close-icon');
-      const drawerCloseBtn = document.getElementById('mobile-drawer-close');
-
-      function openDrawer() {
-        drawer.classList.remove('hidden');
-        hamburgerIcon.classList.add('hidden');
-        closeIcon.classList.remove('hidden');
-      }
-
-      function closeDrawer() {
-        drawer.classList.add('hidden');
-        hamburgerIcon.classList.remove('hidden');
-        closeIcon.classList.add('hidden');
-      }
-
-      toggleBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        if (drawer.classList.contains('hidden')) {
-          openDrawer();
-        } else {
-          closeDrawer();
-        }
-      });
-
-      if (drawerCloseBtn) {
-        drawerCloseBtn.addEventListener('click', (e) => {
-          e.stopPropagation();
-          closeDrawer();
-        });
-      }
-
-      // Close when any link inside mobile drawer is clicked
-      const drawerLinks = drawer.querySelectorAll('a');
-      drawerLinks.forEach(link => {
-        link.addEventListener('click', () => {
-          closeDrawer();
-        });
-      });
-
-      // Close when clicking outside of the drawer and toggle button
-      document.addEventListener('click', (event) => {
-        const isClickInsideDrawer = drawer.contains(event.target);
-        const isClickOnToggle = toggleBtn.contains(event.target);
-        
-        if (!isClickInsideDrawer && !isClickOnToggle && !drawer.classList.contains('hidden')) {
-          closeDrawer();
-        }
-      });
-
       // Initial calculation run
       calculateBigha();
     </script>
+  <!-- START MOBILE DRAWER SCRIPT -->
+    <script id="mobile-drawer-script">
+      (function() {
+        const toggleBtn = document.getElementById('mobile-menu-toggle');
+        const drawer = document.getElementById('mobile-drawer');
+        const hamburgerIcon = document.getElementById('hamburger-icon');
+        const closeIcon = document.getElementById('close-icon');
+        const drawerCloseBtn = document.getElementById('mobile-drawer-close');
+
+        function openDrawer() {
+          if (drawer) drawer.classList.remove('hidden');
+          if (hamburgerIcon) hamburgerIcon.classList.add('hidden');
+          if (closeIcon) closeIcon.classList.remove('hidden');
+        }
+
+        function closeDrawer() {
+          if (drawer) drawer.classList.add('hidden');
+          if (hamburgerIcon) hamburgerIcon.classList.remove('hidden');
+          if (closeIcon) closeIcon.classList.add('hidden');
+        }
+
+        if (toggleBtn) {
+          toggleBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            if (drawer && drawer.classList.contains('hidden')) {
+              openDrawer();
+            } else {
+              closeDrawer();
+            }
+          });
+        }
+
+        if (drawerCloseBtn) {
+          drawerCloseBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            closeDrawer();
+          });
+        }
+
+        // Close when any link inside mobile drawer is clicked
+        if (drawer) {
+          const drawerLinks = drawer.querySelectorAll('a');
+          drawerLinks.forEach(link => {
+            link.addEventListener('click', () => {
+              closeDrawer();
+            });
+          });
+        }
+
+        // Close when clicking outside of the drawer and toggle button
+        document.addEventListener('click', (event) => {
+          if (!drawer || !toggleBtn) return;
+          const isClickInsideDrawer = drawer.contains(event.target);
+          const isClickOnToggle = toggleBtn.contains(event.target);
+          
+          if (!isClickInsideDrawer && !isClickOnToggle && !drawer.classList.contains('hidden')) {
+            closeDrawer();
+          }
+        });
+      })();
+    </script>
+    <!-- END MOBILE DRAWER SCRIPT -->
   </body>
 </html>
