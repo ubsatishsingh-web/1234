@@ -175,49 +175,62 @@
       </div>
 
       <!-- Mobile Navigation Drawer -->
-      <div id="mobile-drawer" class="hidden lg:hidden border-t border-slate-100 bg-white shadow-inner">
-        <div class="px-4 pt-3 pb-6 space-y-2 font-bold text-slate-700">
-          <a href="index.html" class="block px-4 py-3 rounded-xl text-primaryGreen bg-emerald-50 font-black">Home (मुख्य)</a>
-          <a href="apna-khata-dekhe.html" class="block px-4 py-3 rounded-xl hover:text-primaryGreen hover:bg-slate-50">अपना खाता देखें</a>
+      <div id="mobile-drawer" class="hidden lg:hidden border-t border-slate-100 bg-white shadow-inner overflow-y-auto max-h-[85vh]">
+        <!-- Drawer Header with title and close X button -->
+        <div class="flex items-center justify-between px-4 py-2.5 border-b border-slate-100 bg-slate-50/50">
+          <span class="text-xs font-black text-slate-400 uppercase tracking-widest">BighaWala Menu</span>
+          <button id="mobile-drawer-close" class="p-1.5 rounded-lg text-slate-500 hover:text-slate-900 hover:bg-slate-200 transition-colors focus:outline-none" aria-label="Close Menu">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+          </button>
+        </div>
+
+        <div class="px-4 pt-2 pb-6 space-y-1 font-bold text-slate-700">
+          <a href="index.html" class="block px-4 py-2 rounded-xl text-primaryGreen bg-emerald-50 font-black text-[16px]">Home (मुख्य)</a>
+          <a href="apna-khata-dekhe.html" class="block px-4 py-2 rounded-xl hover:text-primaryGreen hover:bg-slate-50 text-[16px]">अपना खाता देखें</a>
           
           <!-- Collapsible Tools -->
-          <div class="border-b border-slate-100 pb-2">
-            <span class="block px-4 py-2 text-xs font-black text-slate-400 uppercase tracking-widest">Tools ⚡</span>
-            <div class="pl-4 space-y-1">
-              <a href="bigha-calculator.html" class="block px-4 py-2 text-sm text-slate-600 hover:text-primaryGreen">🧮 बीघा Calculator</a>
-              <a href="zameen-moolyankan.html" class="block px-4 py-2 text-sm text-slate-600 hover:text-primaryGreen">🏡 Zameen Moolyankan</a>
-              <a href="land-cost-calculator.html" class="block px-4 py-2 text-sm text-slate-600 hover:text-primaryGreen">💰 Cost Calculator</a>
-              <a href="zameen-comparison.html" class="block px-4 py-2 text-sm text-slate-600 hover:text-primaryGreen">⚖️ Zameen Compare</a>
+          <div class="border-b border-slate-100 pb-1.5">
+            <span class="block px-4 py-1.5 text-xs font-black text-slate-400 uppercase tracking-widest">Tools ⚡</span>
+            <div class="pl-4 space-y-0.5">
+              <a href="bigha-calculator.html" class="block px-4 py-1.5 text-sm text-slate-600 hover:text-primaryGreen">🧮 बीघा Calculator</a>
+              <a href="zameen-moolyankan.html" class="block px-4 py-1.5 text-sm text-slate-600 hover:text-primaryGreen">🏡 Zameen Moolyankan</a>
+              <a href="land-cost-calculator.html" class="block px-4 py-1.5 text-sm text-slate-600 hover:text-primaryGreen">💰 Cost Calculator</a>
+              <a href="zameen-comparison.html" class="block px-4 py-1.5 text-sm text-slate-600 hover:text-primaryGreen">⚖️ Zameen Compare</a>
+              <a href="bihar-land-quiz.html" class="block px-4 py-1.5 text-sm text-slate-600 hover:text-primaryGreen">📝 Bihar Land Quiz</a>
+              <a href="document-checker.html" class="block px-4 py-1.5 text-sm text-slate-600 hover:text-primaryGreen">🔍 Document Checker</a>
             </div>
           </div>
 
           <!-- Collapsible Guides -->
-          <div class="border-b border-slate-100 pb-2">
-            <span class="block px-4 py-2 text-xs font-black text-slate-400 uppercase tracking-widest">Guides 📋</span>
-            <div class="pl-4 space-y-1">
-              <a href="dakhil-kharij.html" class="block px-4 py-2 text-sm text-slate-600 hover:text-primaryGreen">📋 Dakhil Kharij</a>
-              <a href="bhulekh.html" class="block px-4 py-2 text-sm text-slate-600 hover:text-primaryGreen">🗺️ Bhulekh Bihar</a>
-              <a href="jamabandi.html" class="block px-4 py-2 text-sm text-slate-600 hover:text-primaryGreen">📑 Jamabandi Bihar</a>
-              <a href="lpc-bihar.html" class="block px-4 py-2 text-sm text-slate-600 hover:text-primaryGreen">📄 LPC Bihar</a>
-              <a href="registry-bihar.html" class="block px-4 py-2 text-sm text-slate-600 hover:text-primaryGreen">📜 Registry Guide</a>
+          <div class="border-b border-slate-100 pb-1.5">
+            <span class="block px-4 py-1.5 text-xs font-black text-slate-400 uppercase tracking-widest">Guides 📋</span>
+            <div class="pl-4 space-y-0.5">
+              <a href="dakhil-kharij.html" class="block px-4 py-1.5 text-sm text-slate-600 hover:text-primaryGreen">📋 Dakhil Kharij</a>
+              <a href="bhulekh.html" class="block px-4 py-1.5 text-sm text-slate-600 hover:text-primaryGreen">🗺️ Bhulekh Bihar</a>
+              <a href="jamabandi.html" class="block px-4 py-1.5 text-sm text-slate-600 hover:text-primaryGreen">📑 Jamabandi Bihar</a>
+              <a href="lpc-bihar.html" class="block px-4 py-1.5 text-sm text-slate-600 hover:text-primaryGreen">📄 LPC Bihar</a>
+              <a href="registry-bihar.html" class="block px-4 py-1.5 text-sm text-slate-600 hover:text-primaryGreen">📜 Registry Guide</a>
             </div>
           </div>
 
           <!-- Collapsible Rates -->
-          <div class="border-b border-slate-100 pb-2">
-            <span class="block px-4 py-2 text-xs font-black text-slate-400 uppercase tracking-widest">Rates 💰</span>
-            <div class="pl-4 space-y-1">
-              <a href="land-rates.html" class="block px-4 py-2 text-sm text-slate-600 hover:text-primaryGreen">💰 Land Rates</a>
-              <a href="mvr-rate-bihar.html" class="block px-4 py-2 text-sm text-slate-600 hover:text-primaryGreen">📊 MVR Rate</a>
-              <a href="jamin-ka-rate-bihar.html" class="block px-4 py-2 text-sm text-slate-600 hover:text-primaryGreen">📈 Jamin Ka Rate</a>
-              <a href="circle-rate-bihar.html" class="block px-4 py-2 text-sm text-slate-600 hover:text-primaryGreen">⭕ Circle Rate</a>
+          <div class="border-b border-slate-100 pb-1.5">
+            <span class="block px-4 py-1.5 text-xs font-black text-slate-400 uppercase tracking-widest">Rates 💰</span>
+            <div class="pl-4 space-y-0.5">
+              <a href="land-rates.html" class="block px-4 py-1.5 text-sm text-slate-600 hover:text-primaryGreen">💰 Land Rates</a>
+              <a href="mvr-rate-bihar.html" class="block px-4 py-1.5 text-sm text-slate-600 hover:text-primaryGreen">📊 MVR Rate</a>
+              <a href="jamin-ka-rate-bihar.html" class="block px-4 py-1.5 text-sm text-slate-600 hover:text-primaryGreen">📈 Jamin Ka Rate</a>
+              <a href="circle-rate-bihar.html" class="block px-4 py-1.5 text-sm text-slate-600 hover:text-primaryGreen">⭕ Circle Rate</a>
             </div>
           </div>
 
-          <a href="bihar-land-news.html" class="block px-4 py-3 rounded-xl hover:text-primaryGreen hover:bg-slate-50">Bihar Land News</a>
-          <a href="community-qa.html" class="block px-4 py-3 rounded-xl hover:text-primaryGreen hover:bg-slate-50">Community Q&A</a>
+          <a href="bihar-land-news.html" class="block px-4 py-2 rounded-xl hover:text-primaryGreen hover:bg-slate-50 text-[16px]">Bihar Land News</a>
+          <a href="community-qa.html" class="block px-4 py-2 rounded-xl hover:text-primaryGreen hover:bg-slate-50 text-[16px]">Community Q&A</a>
+          <a href="whatsapp-alerts.html" class="block px-4 py-2 rounded-xl hover:text-primaryGreen hover:bg-slate-50 text-[16px]">WhatsApp Alerts</a>
 
-          <a href="ask-expert.html" class="block px-4 py-3 rounded-xl text-center bg-accentSaffron hover:bg-customSaffronHover text-white shadow-sm mt-4 font-black">
+          <a href="ask-expert.html" class="block px-4 py-2.5 rounded-xl text-center bg-accentSaffron hover:bg-customSaffronHover text-white shadow-sm mt-3 font-black text-[16px]">
             💬 Ask Expert 🤖
           </a>
         </div>
@@ -1244,16 +1257,57 @@
         document.getElementById('res-acre').innerText = Number(acre.toFixed(4)).toLocaleString('en-IN');
       }
 
-      // Mobile drawer toggle
+      // Mobile drawer toggle & interaction
       const toggleBtn = document.getElementById('mobile-menu-toggle');
       const drawer = document.getElementById('mobile-drawer');
       const hamburgerIcon = document.getElementById('hamburger-icon');
       const closeIcon = document.getElementById('close-icon');
+      const drawerCloseBtn = document.getElementById('mobile-drawer-close');
 
-      toggleBtn.addEventListener('click', () => {
-        drawer.classList.toggle('hidden');
-        hamburgerIcon.classList.toggle('hidden');
-        closeIcon.classList.toggle('hidden');
+      function openDrawer() {
+        drawer.classList.remove('hidden');
+        hamburgerIcon.classList.add('hidden');
+        closeIcon.classList.remove('hidden');
+      }
+
+      function closeDrawer() {
+        drawer.classList.add('hidden');
+        hamburgerIcon.classList.remove('hidden');
+        closeIcon.classList.add('hidden');
+      }
+
+      toggleBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        if (drawer.classList.contains('hidden')) {
+          openDrawer();
+        } else {
+          closeDrawer();
+        }
+      });
+
+      if (drawerCloseBtn) {
+        drawerCloseBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          closeDrawer();
+        });
+      }
+
+      // Close when any link inside mobile drawer is clicked
+      const drawerLinks = drawer.querySelectorAll('a');
+      drawerLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          closeDrawer();
+        });
+      });
+
+      // Close when clicking outside of the drawer and toggle button
+      document.addEventListener('click', (event) => {
+        const isClickInsideDrawer = drawer.contains(event.target);
+        const isClickOnToggle = toggleBtn.contains(event.target);
+        
+        if (!isClickInsideDrawer && !isClickOnToggle && !drawer.classList.contains('hidden')) {
+          closeDrawer();
+        }
       });
 
       // Initial calculation run
