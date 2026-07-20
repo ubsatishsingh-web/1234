@@ -184,204 +184,453 @@
       }
 
       /* DROPDOWN CUSTOM STYLES */
-      .dropdown { position: relative; }
-      .dropdown-menu {
-        display: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        background: white;
-        border: 1px solid #e0e0e0;
-        border-radius: 8px;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        min-width: 220px;
-        z-index: 1000;
-        padding: 8px 0;
-      }
-      .dropdown-menu.active { display: block; }
-      .dropdown-menu a {
-        display: block;
-        padding: 10px 16px;
-        color: #333;
-        text-decoration: none;
-        font-size: 14px;
-        border-bottom: 1px solid #f5f5f5;
-      }
-      .dropdown-menu a:hover {
-        background: #f0f7f0;
-        color: #2E7D32;
-      }
-      .dropdown-toggle {
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        gap: 4px;
-      }
-      .dropdown-toggle::after {
-        content: ' ▼';
-        font-size: 10px;
-      }
-      .dropdown-toggle.active::after {
-        content: ' ▲';
-      }
+      
+      
+      
+      
+      
+      
+      
+      
       /* END RESPONSIVE FIXES */
 
     </style>
   </head>
   <body class="bg-slate-50 text-slate-800 font-sans min-h-screen flex flex-col selection:bg-orange-100 selection:text-orange-900">
+<!-- NAVIGATION -->
+<style>
+* { box-sizing: border-box; }
+.nav-wrapper {
+  background: white;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 9999;
+  width: 100%;
+}
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+.nav-logo img {
+  width: 45px;
+  height: 45px;
+}
+.nav-logo-text {
+  display: flex;
+  flex-direction: column;
+}
+.nav-logo-name {
+  font-size: 22px;
+  font-weight: 800;
+  color: #FF6F00;
+  line-height: 1;
+}
+.nav-logo-name span { color: #2E7D32; }
+.nav-logo-tagline {
+  font-size: 11px;
+  color: #2E7D32;
+  font-weight: 500;
+}
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.nav-menu > li {
+  position: relative;
+}
+.nav-menu > li > a,
+.nav-menu > li > button {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 10px;
+  color: #333;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  background: none;
+  border: none;
+  cursor: pointer;
+  border-radius: 6px;
+  white-space: nowrap;
+}
+.nav-menu > li > a:hover,
+.nav-menu > li > button:hover {
+  background: #f0f7f0;
+  color: #2E7D32;
+}
+.nav-menu > li > a.active,
+.nav-menu > li > button.active {
+  background: #e8f5e9;
+  color: #2E7D32;
+}
+.dropdown-arrow {
+  font-size: 10px;
+  transition: transform 0.2s;
+}
+.dropdown-btn.open .dropdown-arrow {
+  transform: rotate(180deg);
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: calc(100% + 5px);
+  left: 0;
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+  min-width: 230px;
+  z-index: 99999;
+  overflow: hidden;
+}
+.dropdown-content.show {
+  display: block !important;
+}
+.dropdown-content a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 16px;
+  color: #333;
+  text-decoration: none;
+  font-size: 13px;
+  border-bottom: 1px solid #f5f5f5;
+  transition: background 0.15s;
+}
+.dropdown-content a:last-child {
+  border-bottom: none;
+}
+.dropdown-content a:hover {
+  background: #f0f7f0;
+  color: #2E7D32;
+}
+.ask-expert-btn {
+  background: #FF6F00 !important;
+  color: white !important;
+  border-radius: 20px !important;
+  padding: 8px 16px !important;
+  font-weight: 600 !important;
+}
+.ask-expert-btn:hover {
+  background: #e65c00 !important;
+  color: white !important;
+}
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 8px;
+  background: none;
+  border: none;
+}
+.hamburger span {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background: #333;
+  border-radius: 3px;
+  transition: all 0.3s;
+}
+.mobile-menu {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: white;
+  z-index: 99999;
+  overflow-y: auto;
+  padding: 20px;
+}
+.mobile-menu.open { display: block; }
+.mobile-menu-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid #e0e0e0;
+}
+.mobile-close {
+  font-size: 28px;
+  cursor: pointer;
+  color: #333;
+  background: none;
+  border: none;
+  line-height: 1;
+}
+.mobile-section {
+  margin-bottom: 15px;
+}
+.mobile-section-title {
+  font-size: 11px;
+  font-weight: 700;
+  color: #999;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 8px 0 5px;
+  border-bottom: 1px solid #f0f0f0;
+  margin-bottom: 5px;
+}
+.mobile-menu a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 5px;
+  color: #333;
+  text-decoration: none;
+  font-size: 16px;
+  border-bottom: 1px solid #f5f5f5;
+}
+.mobile-menu a:hover {
+  color: #2E7D32;
+}
+.mobile-ask-expert {
+  display: block;
+  background: #FF6F00;
+  color: white !important;
+  text-align: center;
+  padding: 14px !important;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 16px;
+  margin-top: 15px;
+}
 
-    <!-- STICKY HEADER -->
-    <!-- STICKY HEADER -->
-    <!-- STICKY HEADER -->
-    <header class="sticky top-0 z-50 bg-white border-b border-slate-200/80 shadow-sm backdrop-blur-md bg-white/95">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-        <!-- Logo and Tagline -->
-        <a href="index.html" class="flex items-center gap-3 group" id="logo-link">
-          <div class="w-12 h-12 rounded-2xl bg-emerald-50 border-2 border-primaryGreen flex items-center justify-center text-2xl shadow-sm group-hover:scale-105 transition-transform">
-            🏡
-          </div>
-          <div>
-            <div class="text-xl sm:text-2xl font-black tracking-tight text-slate-900 flex items-center gap-1 leading-none">
-              <span class="text-accentSaffron">Bigha</span><span class="text-slate-800">Wala</span><span class="text-primaryGreen">.com</span>
-            </div>
-            <div class="text-[10px] text-primaryGreen font-black uppercase tracking-wider mt-1">
-              बिहार की जमीन की हर जानकारी
-            </div>
-          </div>
-        </a>
+@media (max-width: 1024px) {
+  .nav-menu { display: none; }
+  .hamburger { display: flex; }
+}
+@media (min-width: 1025px) {
+  .mobile-menu { display: none !important; }
+}
+</style>
 
-        <!-- Desktop Navigation Menu -->
-        <nav class="hidden lg:flex items-center gap-1 xl:gap-2 font-bold lg:text-[11px] xl:text-[12px] 2xl:text-sm text-slate-600" id="desktop-nav">
-          <a href="index.html" class="px-2.5 py-1.5 rounded-xl hover:text-primaryGreen hover:bg-slate-50 transition-all shrink-0">Home</a>
-          <a href="apna-khata-dekhe.html" class="px-2.5 py-1.5 rounded-xl hover:text-primaryGreen hover:bg-slate-50 transition-all shrink-0">अपना खाता</a>
-          
-          <!-- Tools Dropdown -->
-          <div class="dropdown shrink-0">
-            <button class="dropdown-toggle px-2.5 py-1.5 rounded-xl hover:text-primaryGreen hover:bg-slate-50 transition-all font-bold flex items-center gap-1 focus:outline-none">
-              <span>Tools</span>
-            </button>
-            <div class="dropdown-menu">
-              <a href="bigha-calculator.html">🧮 बीघा Calculator</a>
-              <a href="zameen-moolyankan.html">🏡 Zameen Moolyankan</a>
-              <a href="land-cost-calculator.html">💰 Cost Calculator</a>
-              <a href="zameen-comparison.html">⚖️ Zameen Compare</a>
-              <a href="bihar-land-quiz.html">🎯 Land Quiz</a>
-              <a href="document-checker.html">📄 Document Checker</a>
-            </div>
-          </div>
+<div class="nav-wrapper">
+  <div class="nav-container">
+    <a href="index.html" class="nav-logo">
+      <img src="https://via.placeholder.com/45x45/2E7D32/white?text=BW" 
+           alt="BighaWala Logo" 
+           onerror="this.style.display='none'">
+      <div class="nav-logo-text">
+        <span class="nav-logo-name">
+          <span>Bigha</span> Wala .com
+        </span>
+        <span class="nav-logo-tagline">
+          बिहार की जमीन की हर जानकारी
+        </span>
+      </div>
+    </a>
 
-          <!-- Guides Dropdown -->
-          <div class="dropdown shrink-0">
-            <button class="dropdown-toggle px-2.5 py-1.5 rounded-xl hover:text-primaryGreen hover:bg-slate-50 transition-all font-bold flex items-center gap-1 focus:outline-none">
-              <span>Guides</span>
-            </button>
-            <div class="dropdown-menu">
-              <a href="dakhil-kharij.html">📋 Dakhil Kharij</a>
-              <a href="bhulekh.html">🗺️ Bhulekh Bihar</a>
-              <a href="jamabandi.html">📑 Jamabandi</a>
-              <a href="lpc-bihar.html">📄 LPC Bihar</a>
-              <a href="registry-bihar.html">📜 Registry</a>
-              <a href="kisan-credit-card-bihar.html">🌾 Kisan Credit Card</a>
-              <a href="pm-awas-yojana-bihar.html">🏠 PM Awas Yojana</a>
-            </div>
-          </div>
-
-          <!-- Rates Dropdown -->
-          <div class="dropdown shrink-0">
-            <button class="dropdown-toggle px-2.5 py-1.5 rounded-xl hover:text-primaryGreen hover:bg-slate-50 transition-all font-bold flex items-center gap-1 focus:outline-none">
-              <span>Rates</span>
-            </button>
-            <div class="dropdown-menu">
-              <a href="land-rates.html">💰 Land Rates</a>
-              <a href="mvr-rate-bihar.html">📊 MVR Rate</a>
-              <a href="jamin-ka-rate-bihar.html">🏘️ Jamin Ka Rate</a>
-              <a href="circle-rate-bihar.html">🔢 Circle Rate</a>
-            </div>
-          </div>
-
-          <a href="bihar-land-news.html" class="px-2.5 py-1.5 rounded-xl hover:text-primaryGreen hover:bg-slate-50 transition-all shrink-0">News</a>
-          <a href="community-qa.html" class="px-2.5 py-1.5 rounded-xl hover:text-primaryGreen hover:bg-slate-50 transition-all shrink-0">Community</a>
-
-          <a href="ask-expert.html" class="ml-1 bg-accentSaffron hover:bg-customSaffronHover text-white px-3 py-2 rounded-xl shadow-sm hover:shadow transition-all flex items-center gap-1 text-xs shrink-0 font-bold">
-            <span>💬 Ask Expert 🤖</span>
-          </a>
-        </nav>
-
-        <!-- Mobile Menu Toggle Button (Hamburger) -->
-        <button id="mobile-menu-toggle" class="lg:hidden p-2 rounded-xl text-slate-700 hover:bg-slate-100 focus:outline-none" aria-label="Toggle Menu">
-          <svg id="hamburger-icon" class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 6h16M4 12h16M4 18h16"></path>
-          </svg>
-          <svg id="close-icon" class="w-7 h-7 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"></path>
-          </svg>
+    <ul class="nav-menu">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="apna-khata-dekhe.html">अपना खाता</a></li>
+      
+      <li>
+        <button class="dropdown-btn" 
+                onclick="toggleDropdown('tools-dd')">
+          Tools ⚡ 
+          <span class="dropdown-arrow">▼</span>
         </button>
-      </div>
-
-      <!-- Mobile Navigation Drawer -->
-      <div id="mobile-drawer" class="hidden lg:hidden border-t border-slate-100 bg-white shadow-inner overflow-y-auto max-h-[85vh]">
-        <!-- Drawer Header with title and close X button -->
-        <div class="flex items-center justify-between px-4 py-2.5 border-b border-slate-100 bg-slate-50/50">
-          <span class="text-xs font-black text-slate-400 uppercase tracking-widest">BighaWala Menu</span>
-          <button id="mobile-drawer-close" class="p-1.5 rounded-lg text-slate-500 hover:text-slate-900 hover:bg-slate-200 transition-colors focus:outline-none" aria-label="Close Menu">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"></path>
-            </svg>
-          </button>
+        <div class="dropdown-content" id="tools-dd">
+          <a href="bigha-calculator.html">🧮 बीघा Calculator</a>
+          <a href="zameen-moolyankan.html">🏡 Zameen Moolyankan</a>
+          <a href="land-cost-calculator.html">💰 Cost Calculator</a>
+          <a href="zameen-comparison.html">⚖️ Zameen Compare</a>
+          <a href="bihar-land-quiz.html">🎯 Land Quiz</a>
+          <a href="document-checker.html">📄 Document Checker</a>
         </div>
+      </li>
 
-        <div class="px-4 pt-2 pb-6 space-y-1 font-bold text-slate-700">
-          <a href="index.html" class="block px-4 py-2 rounded-xl hover:text-primaryGreen hover:bg-slate-50 text-[16px]">Home</a>
-          <a href="apna-khata-dekhe.html" class="block px-4 py-2 rounded-xl hover:text-primaryGreen hover:bg-slate-50 text-[16px]">अपना खाता देखें</a>
-          
-          <!-- Collapsible Tools -->
-          <div class="border-b border-slate-100 pb-1.5">
-            <span class="block px-4 py-1.5 text-xs font-black text-slate-400 uppercase tracking-widest">Tools ▼</span>
-            <div class="pl-4 space-y-0.5">
-              <a href="bigha-calculator.html" class="block px-4 py-1.5 text-sm text-slate-600 hover:text-primaryGreen">🧮 बीघा Calculator</a>
-              <a href="zameen-moolyankan.html" class="block px-4 py-1.5 text-sm text-slate-600 hover:text-primaryGreen">🏡 Zameen Moolyankan</a>
-              <a href="land-cost-calculator.html" class="block px-4 py-1.5 text-sm text-slate-600 hover:text-primaryGreen">💰 Cost Calculator</a>
-              <a href="zameen-comparison.html" class="block px-4 py-1.5 text-sm text-slate-600 hover:text-primaryGreen">⚖️ Zameen Compare</a>
-              <a href="bihar-land-quiz.html" class="block px-4 py-1.5 text-sm text-slate-600 hover:text-primaryGreen">🎯 Land Quiz</a>
-              <a href="document-checker.html" class="block px-4 py-1.5 text-sm text-slate-600 hover:text-primaryGreen">📄 Document Checker</a>
-            </div>
-          </div>
-
-          <!-- Collapsible Guides -->
-          <div class="border-b border-slate-100 pb-1.5">
-            <span class="block px-4 py-1.5 text-xs font-black text-slate-400 uppercase tracking-widest">Guides ▼</span>
-            <div class="pl-4 space-y-0.5">
-              <a href="dakhil-kharij.html" class="block px-4 py-1.5 text-sm text-slate-600 hover:text-primaryGreen">📋 Dakhil Kharij</a>
-              <a href="bhulekh.html" class="block px-4 py-1.5 text-sm text-slate-600 hover:text-primaryGreen">🗺️ Bhulekh Bihar</a>
-              <a href="jamabandi.html" class="block px-4 py-1.5 text-sm text-slate-600 hover:text-primaryGreen">📑 Jamabandi</a>
-              <a href="lpc-bihar.html" class="block px-4 py-1.5 text-sm text-slate-600 hover:text-primaryGreen">📄 LPC Bihar</a>
-              <a href="registry-bihar.html" class="block px-4 py-1.5 text-sm text-slate-600 hover:text-primaryGreen">📜 Registry Guide</a>
-              <a href="kisan-credit-card-bihar.html" class="block px-4 py-1.5 text-sm text-slate-600 hover:text-primaryGreen">🌾 Kisan Credit Card</a>
-              <a href="pm-awas-yojana-bihar.html" class="block px-4 py-1.5 text-sm text-slate-600 hover:text-primaryGreen">🏠 PM Awas Yojana</a>
-            </div>
-          </div>
-
-          <!-- Collapsible Rates -->
-          <div class="border-b border-slate-100 pb-1.5">
-            <span class="block px-4 py-1.5 text-xs font-black text-slate-400 uppercase tracking-widest">Rates ▼</span>
-            <div class="pl-4 space-y-0.5">
-              <a href="land-rates.html" class="block px-4 py-1.5 text-sm text-slate-600 hover:text-primaryGreen">💰 Land Rates</a>
-              <a href="mvr-rate-bihar.html" class="block px-4 py-1.5 text-sm text-slate-600 hover:text-primaryGreen">📊 MVR Rate</a>
-              <a href="jamin-ka-rate-bihar.html" class="block px-4 py-1.5 text-sm text-slate-600 hover:text-primaryGreen">🏘️ Jamin Ka Rate</a>
-              <a href="circle-rate-bihar.html" class="block px-4 py-1.5 text-sm text-slate-600 hover:text-primaryGreen">🔢 Circle Rate</a>
-            </div>
-          </div>
-
-          <a href="bihar-land-news.html" class="block px-4 py-2 rounded-xl hover:text-primaryGreen hover:bg-slate-50 text-[16px]">News</a>
-          <a href="community-qa.html" class="block px-4 py-2 rounded-xl hover:text-primaryGreen hover:bg-slate-50 text-[16px]">Community</a>
-          <a href="whatsapp-alerts.html" class="block px-4 py-2 rounded-xl hover:text-primaryGreen hover:bg-slate-50 text-[16px]">WhatsApp Alerts</a>
-
-          <a href="ask-expert.html" class="block px-4 py-2.5 rounded-xl text-center bg-accentSaffron hover:bg-customSaffronHover text-white shadow-sm mt-3 font-black text-[16px]">
-            💬 Ask Expert 🤖
-          </a>
+      <li>
+        <button class="dropdown-btn"
+                onclick="toggleDropdown('guides-dd')">
+          Guides 📋
+          <span class="dropdown-arrow">▼</span>
+        </button>
+        <div class="dropdown-content" id="guides-dd">
+          <a href="dakhil-kharij.html">📋 Dakhil Kharij</a>
+          <a href="bhulekh.html">🗺️ Bhulekh Bihar</a>
+          <a href="jamabandi.html">📑 Jamabandi</a>
+          <a href="lpc-bihar.html">📄 LPC Bihar</a>
+          <a href="registry-bihar.html">📜 Registry Guide</a>
+          <a href="kisan-credit-card-bihar.html">🌾 Kisan Credit Card</a>
+          <a href="pm-awas-yojana-bihar.html">🏠 PM Awas Yojana</a>
         </div>
+      </li>
+
+      <li>
+        <button class="dropdown-btn"
+                onclick="toggleDropdown('rates-dd')">
+          Rates 💰
+          <span class="dropdown-arrow">▼</span>
+        </button>
+        <div class="dropdown-content" id="rates-dd">
+          <a href="land-rates.html">💰 Land Rates 2026</a>
+          <a href="mvr-rate-bihar.html">📊 MVR Rate Bihar</a>
+          <a href="jamin-ka-rate-bihar.html">🏘️ Jamin Ka Rate</a>
+          <a href="circle-rate-bihar.html">🔢 Circle Rate</a>
+        </div>
+      </li>
+
+      <li><a href="bihar-land-news.html">📰 News</a></li>
+      <li><a href="community-qa.html">🤝 Community</a></li>
+      <li>
+        <a href="ask-expert.html" class="ask-expert-btn">
+          🤖 Ask Expert
+        </a>
+      </li>
+    </ul>
+
+    <button class="hamburger" onclick="toggleMobile()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</div>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobile-menu">
+  <div class="mobile-menu-header">
+    <a href="index.html" class="nav-logo">
+      <div class="nav-logo-text">
+        <span class="nav-logo-name">
+          <span>Bigha</span> Wala .com
+        </span>
       </div>
-    </header>
+    </a>
+    <button class="mobile-close" 
+            onclick="toggleMobile()">✕</button>
+  </div>
+
+  <div class="mobile-section">
+    <a href="index.html">🏠 Home (मुख्य)</a>
+    <a href="apna-khata-dekhe.html">📋 अपना खाता देखें</a>
+  </div>
+
+  <div class="mobile-section">
+    <div class="mobile-section-title">⚡ Tools</div>
+    <a href="bigha-calculator.html">🧮 बीघा Calculator</a>
+    <a href="zameen-moolyankan.html">🏡 Zameen Moolyankan</a>
+    <a href="land-cost-calculator.html">💰 Cost Calculator</a>
+    <a href="zameen-comparison.html">⚖️ Zameen Compare</a>
+    <a href="bihar-land-quiz.html">🎯 Land Quiz</a>
+    <a href="document-checker.html">📄 Document Checker</a>
+  </div>
+
+  <div class="mobile-section">
+    <div class="mobile-section-title">📋 Guides</div>
+    <a href="dakhil-kharij.html">📋 Dakhil Kharij</a>
+    <a href="bhulekh.html">🗺️ Bhulekh Bihar</a>
+    <a href="jamabandi.html">📑 Jamabandi</a>
+    <a href="lpc-bihar.html">📄 LPC Bihar</a>
+    <a href="registry-bihar.html">📜 Registry Guide</a>
+    <a href="kisan-credit-card-bihar.html">🌾 Kisan Credit Card</a>
+    <a href="pm-awas-yojana-bihar.html">🏠 PM Awas Yojana</a>
+  </div>
+
+  <div class="mobile-section">
+    <div class="mobile-section-title">💰 Rates</div>
+    <a href="land-rates.html">💰 Land Rates 2026</a>
+    <a href="mvr-rate-bihar.html">📊 MVR Rate Bihar</a>
+    <a href="jamin-ka-rate-bihar.html">🏘️ Jamin Ka Rate</a>
+    <a href="circle-rate-bihar.html">🔢 Circle Rate</a>
+  </div>
+
+  <div class="mobile-section">
+    <div class="mobile-section-title">More</div>
+    <a href="bihar-land-news.html">📰 Bihar Land News</a>
+    <a href="community-qa.html">🤝 Community Q&A</a>
+    <a href="whatsapp-alerts.html">📱 WhatsApp Alerts</a>
+    <a href="about.html">ℹ️ About Us</a>
+    <a href="contact.html">📞 Contact</a>
+  </div>
+
+  <a href="ask-expert.html" class="mobile-ask-expert">
+    🤖 Ask Expert — AI Se Poochein
+  </a>
+</div>
+
+<!-- NAVIGATION JAVASCRIPT -->
+<script>
+function toggleDropdown(id) {
+  var dd = document.getElementById(id);
+  var allDDs = document.querySelectorAll('.dropdown-content');
+  var allBtns = document.querySelectorAll('.dropdown-btn');
+  
+  var isOpen = dd.classList.contains('show');
+  
+  // Close all
+  allDDs.forEach(function(d) { 
+    d.classList.remove('show'); 
+  });
+  allBtns.forEach(function(b) { 
+    b.classList.remove('open'); 
+  });
+  
+  // Open clicked if was closed
+  if (!isOpen) {
+    dd.classList.add('show');
+    dd.previousElementSibling.classList.add('open');
+  }
+}
+
+function toggleMobile() {
+  var menu = document.getElementById('mobile-menu');
+  menu.classList.toggle('open');
+  document.body.style.overflow = 
+    menu.classList.contains('open') ? 'hidden' : '';
+}
+
+// Close dropdown on outside click
+document.addEventListener('click', function(e) {
+  if (!e.target.closest('.dropdown-btn') && 
+      !e.target.closest('.dropdown-content')) {
+    document.querySelectorAll('.dropdown-content')
+      .forEach(function(d) { 
+        d.classList.remove('show'); 
+      });
+    document.querySelectorAll('.dropdown-btn')
+      .forEach(function(b) { 
+        b.classList.remove('open'); 
+      });
+  }
+});
+
+// Close mobile menu on link click
+document.querySelectorAll('.mobile-menu a')
+  .forEach(function(link) {
+    link.addEventListener('click', function() {
+      var m = document.getElementById('mobile-menu');
+      if (m) m.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+  });
+</script>
+
+    
+    
+    
+    
 
     <!-- HERO SECTION -->
     <section class="hero-gradient text-white py-12 sm:py-16 px-4 relative overflow-hidden">
@@ -1187,98 +1436,6 @@
       runStampCalc();
     </script>
   
-  <!-- START MOBILE DRAWER SCRIPT -->
-    <script id="mobile-drawer-script">
-      (function() {
-        // Dropdown toggle JS
-        document.querySelectorAll('.dropdown-toggle')
-        .forEach(toggle => {
-          toggle.addEventListener('click', function(e) {
-            e.stopPropagation();
-            const menu = this.nextElementSibling;
-            const isActive = menu.classList.contains('active');
-            
-            // Close all dropdowns first
-            document.querySelectorAll('.dropdown-menu')
-            .forEach(m => m.classList.remove('active'));
-            document.querySelectorAll('.dropdown-toggle')
-            .forEach(t => t.classList.remove('active'));
-            
-            // Open clicked dropdown
-            if (!isActive) {
-              menu.classList.add('active');
-              this.classList.add('active');
-            }
-          });
-        });
-
-        // Close dropdowns when clicking outside
-        document.addEventListener('click', function() {
-          document.querySelectorAll('.dropdown-menu')
-          .forEach(m => m.classList.remove('active'));
-          document.querySelectorAll('.dropdown-toggle')
-          .forEach(t => t.classList.remove('active'));
-        });
-
-        // Mobile drawer toggle & interaction
-        const toggleBtn = document.getElementById('mobile-menu-toggle');
-        const drawer = document.getElementById('mobile-drawer');
-        const hamburgerIcon = document.getElementById('hamburger-icon');
-        const closeIcon = document.getElementById('close-icon');
-        const drawerCloseBtn = document.getElementById('mobile-drawer-close');
-
-        function openDrawer() {
-          if (drawer) drawer.classList.remove('hidden');
-          if (hamburgerIcon) hamburgerIcon.classList.add('hidden');
-          if (closeIcon) closeIcon.classList.remove('hidden');
-        }
-
-        function closeDrawer() {
-          if (drawer) drawer.classList.add('hidden');
-          if (hamburgerIcon) hamburgerIcon.classList.remove('hidden');
-          if (closeIcon) closeIcon.classList.add('hidden');
-        }
-
-        if (toggleBtn) {
-          toggleBtn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            if (drawer && drawer.classList.contains('hidden')) {
-              openDrawer();
-            } else {
-              closeDrawer();
-            }
-          });
-        }
-
-        if (drawerCloseBtn) {
-          drawerCloseBtn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            closeDrawer();
-          });
-        }
-
-        // Close when any link inside mobile drawer is clicked
-        if (drawer) {
-          const drawerLinks = drawer.querySelectorAll('a');
-          drawerLinks.forEach(link => {
-            link.addEventListener('click', () => {
-              closeDrawer();
-            });
-          });
-        }
-
-        // Close when clicking outside of the drawer and toggle button
-        document.addEventListener('click', (event) => {
-          if (!drawer || !toggleBtn) return;
-          const isClickInsideDrawer = drawer.contains(event.target);
-          const isClickOnToggle = toggleBtn.contains(event.target);
-          
-          if (!isClickInsideDrawer && !isClickOnToggle && !drawer.classList.contains('hidden')) {
-            closeDrawer();
-          }
-        });
-      })();
-    </script>
-    <!-- END MOBILE DRAWER SCRIPT -->
+  
   </body>
 </html>
