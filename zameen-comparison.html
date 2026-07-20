@@ -98,6 +98,9 @@
       
 
     
+      
+
+    
       /* BEGIN RESPONSIVE FIXES */
       * {
         box-sizing: border-box;
@@ -213,12 +216,55 @@
         max-width: 100%;
         height: auto;
       }
+
+      /* DROPDOWN CUSTOM STYLES */
+      .dropdown { position: relative; }
+      .dropdown-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background: white;
+        border: 1px solid #e0e0e0;
+        border-radius: 8px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        min-width: 220px;
+        z-index: 1000;
+        padding: 8px 0;
+      }
+      .dropdown-menu.active { display: block; }
+      .dropdown-menu a {
+        display: block;
+        padding: 10px 16px;
+        color: #333;
+        text-decoration: none;
+        font-size: 14px;
+        border-bottom: 1px solid #f5f5f5;
+      }
+      .dropdown-menu a:hover {
+        background: #f0f7f0;
+        color: #2E7D32;
+      }
+      .dropdown-toggle {
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 4px;
+      }
+      .dropdown-toggle::after {
+        content: ' ▼';
+        font-size: 10px;
+      }
+      .dropdown-toggle.active::after {
+        content: ' ▲';
+      }
       /* END RESPONSIVE FIXES */
 
     </style>
   </head>
   <body class="bg-slate-50 text-slate-800 font-sans min-h-screen flex flex-col selection:bg-orange-100 selection:text-orange-900">
 
+    <!-- STICKY HEADER -->
     <!-- STICKY HEADER -->
     <!-- STICKY HEADER -->
     <header class="sticky top-0 z-50 bg-white border-b border-slate-200/80 shadow-sm backdrop-blur-md bg-white/95">
@@ -244,83 +290,46 @@
           <a href="apna-khata-dekhe.html" class="px-2.5 py-1.5 rounded-xl hover:text-primaryGreen hover:bg-slate-50 transition-all shrink-0">अपना खाता</a>
           
           <!-- Tools Dropdown -->
-          <div class="relative group shrink-0">
-            <button class="px-2.5 py-1.5 rounded-xl hover:text-primaryGreen hover:bg-slate-50 transition-all font-bold flex items-center gap-1 focus:outline-none">
-              <span>Tools ▼</span>
-              <svg class="w-3.5 h-3.5 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path>
-              </svg>
+          <div class="dropdown shrink-0">
+            <button class="dropdown-toggle px-2.5 py-1.5 rounded-xl hover:text-primaryGreen hover:bg-slate-50 transition-all font-bold flex items-center gap-1 focus:outline-none">
+              <span>Tools</span>
             </button>
-            <div class="absolute left-0 mt-1 w-56 rounded-2xl bg-white border border-slate-200 shadow-xl py-2 hidden group-hover:block z-50">
-              <a href="bigha-calculator.html" class="flex items-center gap-2 px-4 py-2.5 text-[12px] transition-all hover:bg-emerald-50 hover:text-primaryGreen text-slate-700 font-bold">
-                <span>🧮</span> <span>बीघा Calculator</span>
-              </a>
-              <a href="zameen-moolyankan.html" class="flex items-center gap-2 px-4 py-2.5 text-[12px] transition-all hover:bg-emerald-50 hover:text-primaryGreen text-slate-700 font-bold">
-                <span>🏡</span> <span>Zameen Moolyankan</span>
-              </a>
-              <a href="land-cost-calculator.html" class="flex items-center gap-2 px-4 py-2.5 text-[12px] transition-all hover:bg-emerald-50 hover:text-primaryGreen text-slate-700 font-bold">
-                <span>💰</span> <span>Cost Calculator</span>
-              </a>
-              <a href="zameen-comparison.html" class="flex items-center gap-2 px-4 py-2.5 text-[12px] transition-all hover:bg-emerald-50 hover:text-primaryGreen text-slate-700 font-bold">
-                <span>⚖️</span> <span>Zameen Compare</span>
-              </a>
-              <a href="bihar-land-quiz.html" class="flex items-center gap-2 px-4 py-2.5 text-[12px] transition-all hover:bg-emerald-50 hover:text-primaryGreen text-slate-700 font-bold">
-                <span>📝</span> <span>Land Quiz</span>
-              </a>
-              <a href="document-checker.html" class="flex items-center gap-2 px-4 py-2.5 text-[12px] transition-all hover:bg-emerald-50 hover:text-primaryGreen text-slate-700 font-bold">
-                <span>🔍</span> <span>Document Checker</span>
-              </a>
+            <div class="dropdown-menu">
+              <a href="bigha-calculator.html">🧮 बीघा Calculator</a>
+              <a href="zameen-moolyankan.html">🏡 Zameen Moolyankan</a>
+              <a href="land-cost-calculator.html">💰 Cost Calculator</a>
+              <a href="zameen-comparison.html">⚖️ Zameen Compare</a>
+              <a href="bihar-land-quiz.html">🎯 Land Quiz</a>
+              <a href="document-checker.html">📄 Document Checker</a>
             </div>
           </div>
 
           <!-- Guides Dropdown -->
-          <div class="relative group shrink-0">
-            <button class="px-2.5 py-1.5 rounded-xl hover:text-primaryGreen hover:bg-slate-50 transition-all font-bold flex items-center gap-1 focus:outline-none">
-              <span>Guides ▼</span>
-              <svg class="w-3.5 h-3.5 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path>
-              </svg>
+          <div class="dropdown shrink-0">
+            <button class="dropdown-toggle px-2.5 py-1.5 rounded-xl hover:text-primaryGreen hover:bg-slate-50 transition-all font-bold flex items-center gap-1 focus:outline-none">
+              <span>Guides</span>
             </button>
-            <div class="absolute left-0 mt-1 w-56 rounded-2xl bg-white border border-slate-200 shadow-xl py-2 hidden group-hover:block z-50">
-              <a href="dakhil-kharij.html" class="flex items-center gap-2 px-4 py-2.5 text-[12px] transition-all hover:bg-emerald-50 hover:text-primaryGreen text-slate-700 font-bold">
-                <span>📋</span> <span>Dakhil Kharij</span>
-              </a>
-              <a href="bhulekh.html" class="flex items-center gap-2 px-4 py-2.5 text-[12px] transition-all hover:bg-emerald-50 hover:text-primaryGreen text-slate-700 font-bold">
-                <span>🗺️</span> <span>Bhulekh Bihar</span>
-              </a>
-              <a href="jamabandi.html" class="flex items-center gap-2 px-4 py-2.5 text-[12px] transition-all hover:bg-emerald-50 hover:text-primaryGreen text-slate-700 font-bold">
-                <span>📑</span> <span>Jamabandi</span>
-              </a>
-              <a href="lpc-bihar.html" class="flex items-center gap-2 px-4 py-2.5 text-[12px] transition-all hover:bg-emerald-50 hover:text-primaryGreen text-slate-700 font-bold">
-                <span>📄</span> <span>LPC Bihar</span>
-              </a>
-              <a href="registry-bihar.html" class="flex items-center gap-2 px-4 py-2.5 text-[12px] transition-all hover:bg-emerald-50 hover:text-primaryGreen text-slate-700 font-bold">
-                <span>📜</span> <span>Registry</span>
-              </a>
+            <div class="dropdown-menu">
+              <a href="dakhil-kharij.html">📋 Dakhil Kharij</a>
+              <a href="bhulekh.html">🗺️ Bhulekh Bihar</a>
+              <a href="jamabandi.html">📑 Jamabandi</a>
+              <a href="lpc-bihar.html">📄 LPC Bihar</a>
+              <a href="registry-bihar.html">📜 Registry</a>
+              <a href="kisan-credit-card-bihar.html">🌾 Kisan Credit Card</a>
+              <a href="pm-awas-yojana-bihar.html">🏠 PM Awas Yojana</a>
             </div>
           </div>
 
           <!-- Rates Dropdown -->
-          <div class="relative group shrink-0">
-            <button class="px-2.5 py-1.5 rounded-xl hover:text-primaryGreen hover:bg-slate-50 transition-all font-bold flex items-center gap-1 focus:outline-none">
-              <span>Rates ▼</span>
-              <svg class="w-3.5 h-3.5 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path>
-              </svg>
+          <div class="dropdown shrink-0">
+            <button class="dropdown-toggle px-2.5 py-1.5 rounded-xl hover:text-primaryGreen hover:bg-slate-50 transition-all font-bold flex items-center gap-1 focus:outline-none">
+              <span>Rates</span>
             </button>
-            <div class="absolute left-0 mt-1 w-56 rounded-2xl bg-white border border-slate-200 shadow-xl py-2 hidden group-hover:block z-50">
-              <a href="land-rates.html" class="flex items-center gap-2 px-4 py-2.5 text-[12px] transition-all hover:bg-emerald-50 hover:text-primaryGreen text-slate-700 font-bold">
-                <span>💰</span> <span>Land Rates</span>
-              </a>
-              <a href="mvr-rate-bihar.html" class="flex items-center gap-2 px-4 py-2.5 text-[12px] transition-all hover:bg-emerald-50 hover:text-primaryGreen text-slate-700 font-bold">
-                <span>📊</span> <span>MVR Rate</span>
-              </a>
-              <a href="jamin-ka-rate-bihar.html" class="flex items-center gap-2 px-4 py-2.5 text-[12px] transition-all hover:bg-emerald-50 hover:text-primaryGreen text-slate-700 font-bold">
-                <span>📈</span> <span>Jamin Ka Rate</span>
-              </a>
-              <a href="circle-rate-bihar.html" class="flex items-center gap-2 px-4 py-2.5 text-[12px] transition-all hover:bg-emerald-50 hover:text-primaryGreen text-slate-700 font-bold">
-                <span>⭕</span> <span>Circle Rate</span>
-              </a>
+            <div class="dropdown-menu">
+              <a href="land-rates.html">💰 Land Rates</a>
+              <a href="mvr-rate-bihar.html">📊 MVR Rate</a>
+              <a href="jamin-ka-rate-bihar.html">🏘️ Jamin Ka Rate</a>
+              <a href="circle-rate-bihar.html">🔢 Circle Rate</a>
             </div>
           </div>
 
@@ -367,8 +376,8 @@
               <a href="zameen-moolyankan.html" class="block px-4 py-1.5 text-sm text-slate-600 hover:text-primaryGreen">🏡 Zameen Moolyankan</a>
               <a href="land-cost-calculator.html" class="block px-4 py-1.5 text-sm text-slate-600 hover:text-primaryGreen">💰 Cost Calculator</a>
               <a href="zameen-comparison.html" class="block px-4 py-1.5 text-sm text-slate-600 hover:text-primaryGreen">⚖️ Zameen Compare</a>
-              <a href="bihar-land-quiz.html" class="block px-4 py-1.5 text-sm text-slate-600 hover:text-primaryGreen">📝 Land Quiz</a>
-              <a href="document-checker.html" class="block px-4 py-1.5 text-sm text-slate-600 hover:text-primaryGreen">🔍 Document Checker</a>
+              <a href="bihar-land-quiz.html" class="block px-4 py-1.5 text-sm text-slate-600 hover:text-primaryGreen">🎯 Land Quiz</a>
+              <a href="document-checker.html" class="block px-4 py-1.5 text-sm text-slate-600 hover:text-primaryGreen">📄 Document Checker</a>
             </div>
           </div>
 
@@ -381,6 +390,8 @@
               <a href="jamabandi.html" class="block px-4 py-1.5 text-sm text-slate-600 hover:text-primaryGreen">📑 Jamabandi</a>
               <a href="lpc-bihar.html" class="block px-4 py-1.5 text-sm text-slate-600 hover:text-primaryGreen">📄 LPC Bihar</a>
               <a href="registry-bihar.html" class="block px-4 py-1.5 text-sm text-slate-600 hover:text-primaryGreen">📜 Registry Guide</a>
+              <a href="kisan-credit-card-bihar.html" class="block px-4 py-1.5 text-sm text-slate-600 hover:text-primaryGreen">🌾 Kisan Credit Card</a>
+              <a href="pm-awas-yojana-bihar.html" class="block px-4 py-1.5 text-sm text-slate-600 hover:text-primaryGreen">🏠 PM Awas Yojana</a>
             </div>
           </div>
 
@@ -390,8 +401,8 @@
             <div class="pl-4 space-y-0.5">
               <a href="land-rates.html" class="block px-4 py-1.5 text-sm text-slate-600 hover:text-primaryGreen">💰 Land Rates</a>
               <a href="mvr-rate-bihar.html" class="block px-4 py-1.5 text-sm text-slate-600 hover:text-primaryGreen">📊 MVR Rate</a>
-              <a href="jamin-ka-rate-bihar.html" class="block px-4 py-1.5 text-sm text-slate-600 hover:text-primaryGreen">📈 Jamin Ka Rate</a>
-              <a href="circle-rate-bihar.html" class="block px-4 py-1.5 text-sm text-slate-600 hover:text-primaryGreen">⭕ Circle Rate</a>
+              <a href="jamin-ka-rate-bihar.html" class="block px-4 py-1.5 text-sm text-slate-600 hover:text-primaryGreen">🏘️ Jamin Ka Rate</a>
+              <a href="circle-rate-bihar.html" class="block px-4 py-1.5 text-sm text-slate-600 hover:text-primaryGreen">🔢 Circle Rate</a>
             </div>
           </div>
 
@@ -1534,9 +1545,41 @@
         window.open(url, '_blank');
       }
     </script>
+  
   <!-- START MOBILE DRAWER SCRIPT -->
     <script id="mobile-drawer-script">
       (function() {
+        // Dropdown toggle JS
+        document.querySelectorAll('.dropdown-toggle')
+        .forEach(toggle => {
+          toggle.addEventListener('click', function(e) {
+            e.stopPropagation();
+            const menu = this.nextElementSibling;
+            const isActive = menu.classList.contains('active');
+            
+            // Close all dropdowns first
+            document.querySelectorAll('.dropdown-menu')
+            .forEach(m => m.classList.remove('active'));
+            document.querySelectorAll('.dropdown-toggle')
+            .forEach(t => t.classList.remove('active'));
+            
+            // Open clicked dropdown
+            if (!isActive) {
+              menu.classList.add('active');
+              this.classList.add('active');
+            }
+          });
+        });
+
+        // Close dropdowns when clicking outside
+        document.addEventListener('click', function() {
+          document.querySelectorAll('.dropdown-menu')
+          .forEach(m => m.classList.remove('active'));
+          document.querySelectorAll('.dropdown-toggle')
+          .forEach(t => t.classList.remove('active'));
+        });
+
+        // Mobile drawer toggle & interaction
         const toggleBtn = document.getElementById('mobile-menu-toggle');
         const drawer = document.getElementById('mobile-drawer');
         const hamburgerIcon = document.getElementById('hamburger-icon');
