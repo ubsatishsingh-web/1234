@@ -601,6 +601,26 @@ app.get(["/jehanabad-land-rate", "/jehanabad-land-rate/", "/jehanabad-land-rate.
   serveHtmlPage(req, res, "jehanabad-land-rate.html");
 });
 
+app.get(["/arwal-land-rate", "/arwal-land-rate/", "/arwal-land-rate.html"], (req, res) => {
+  serveHtmlPage(req, res, "arwal-land-rate.html");
+});
+
+app.get(["/sheikhpura-land-rate", "/sheikhpura-land-rate/", "/sheikhpura-land-rate.html"], (req, res) => {
+  serveHtmlPage(req, res, "sheikhpura-land-rate.html");
+});
+
+app.get(["/lakhisarai-land-rate", "/lakhisarai-land-rate/", "/lakhisarai-land-rate.html"], (req, res) => {
+  serveHtmlPage(req, res, "lakhisarai-land-rate.html");
+});
+
+app.get(["/jamui-land-rate", "/jamui-land-rate/", "/jamui-land-rate.html"], (req, res) => {
+  serveHtmlPage(req, res, "jamui-land-rate.html");
+});
+
+app.get(["/banka-land-rate", "/banka-land-rate/", "/banka-land-rate.html"], (req, res) => {
+  serveHtmlPage(req, res, "banka-land-rate.html");
+});
+
 app.get(["/land-rates", "/land-rates/", "/land-rates.html"], (req, res) => {
   serveHtmlPage(req, res, "land-rates.html");
 });

@@ -1,6 +1,25 @@
 <!DOCTYPE html>
 <html lang="hi">
   <head>
+    <!-- Open Graph for WhatsApp/Facebook -->
+    <meta property="og:title" content="East Champaran Mein Zameen Ki Kimat 2026 | East Champaran Land Rate | BighaWala.com">
+    <meta property="og:description" content="Bihar ka #1 Land Information Platform. Bigha Calculator, Dakhil Kharij, Bhulekh, Land Rates — सब कुछ मुफ्त। 38 Districts Covered.">
+    <meta property="og:image" content="https://www.bighawala.com/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:url" content="https://www.bighawala.com/east-champaran-land-rate.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="BighaWala.com">
+    <meta property="og:locale" content="hi_IN">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="East Champaran Mein Zameen Ki Kimat 2026 | East Champaran Land Rate | BighaWala.com">
+    <meta name="twitter:description" content="Bihar ka #1 Land Information Platform. Free Bigha Calculator, Dakhil Kharij Guide, Bhulekh Bihar, Land Rates 2026.">
+    <meta name="twitter:image" content="https://www.bighawala.com/og-image.jpg">
+
+    <!-- WhatsApp specific -->
+    <meta property="og:image:type" content="image/jpeg">
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
     <title>East Champaran Mein Zameen Ki Kimat 2026 | East Champaran Land Rate | BighaWala.com</title>
@@ -112,7 +131,7 @@
 .nav-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 10px 20px;
+  padding: 8px 12px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -124,24 +143,36 @@
   text-decoration: none;
 }
 .nav-logo img {
-  width: 45px;
-  height: 45px;
+  width: 35px;
+  height: 35px;
+  min-width: 35px;
 }
 .nav-logo-text {
   display: flex;
   flex-direction: column;
 }
 .nav-logo-name {
-  font-size: 22px;
+  font-size: clamp(16px, 4vw, 22px);
+  white-space: nowrap;
+  overflow: hidden;
   font-weight: 800;
   color: #FF6F00;
   line-height: 1;
 }
 .nav-logo-name span { color: #2E7D32; }
 .nav-logo-tagline {
-  font-size: 11px;
+  font-size: clamp(9px, 2vw, 11px);
+  white-space: nowrap;
   color: #2E7D32;
   font-weight: 500;
+}
+@media (max-width: 380px) {
+  .nav-logo-name {
+    font-size: 14px;
+  }
+  .nav-logo-tagline {
+    display: none;
+  }
 }
 .nav-menu {
   display: flex;

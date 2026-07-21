@@ -43,6 +43,11 @@ export default defineConfig(() => {
           aurangabadLandRate: path.resolve(__dirname, 'aurangabad-land-rate.html'),
           nawadaLandRate: path.resolve(__dirname, 'nawada-land-rate.html'),
           jehanabadLandRate: path.resolve(__dirname, 'jehanabad-land-rate.html'),
+          arwalLandRate: path.resolve(__dirname, 'arwal-land-rate.html'),
+          sheikhpuraLandRate: path.resolve(__dirname, 'sheikhpura-land-rate.html'),
+          lakhisaraiLandRate: path.resolve(__dirname, 'lakhisarai-land-rate.html'),
+          jamuiLandRate: path.resolve(__dirname, 'jamui-land-rate.html'),
+          bankaLandRate: path.resolve(__dirname, 'banka-land-rate.html'),
         }
       }
     },
