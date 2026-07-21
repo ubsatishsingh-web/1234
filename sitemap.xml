@@ -1,96 +1,68 @@
-Create a complete updated sitemap.xml for
-BighaWala.com including ALL pages and
-all 39 new district pages.
-
-Output ONLY the sitemap.xml content.
-Nothing else.
-
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
-MAIN PAGES (priority 1.0, changefreq daily):
-https://www.bighawala.com/
-https://www.bighawala.com/apna-khata-dekhe.html
-
-TOOL PAGES (priority 0.9, changefreq weekly):
-https://www.bighawala.com/bigha-calculator.html
-https://www.bighawala.com/zameen-moolyankan.html
-https://www.bighawala.com/land-cost-calculator.html
-https://www.bighawala.com/zameen-comparison.html
-https://www.bighawala.com/bihar-land-quiz.html
-https://www.bighawala.com/document-checker.html
-https://www.bighawala.com/ask-expert.html
-
-GUIDE PAGES (priority 0.8, changefreq weekly):
-https://www.bighawala.com/bhulekh.html
-https://www.bighawala.com/dakhil-kharij.html
-https://www.bighawala.com/jamabandi.html
-https://www.bighawala.com/lpc-bihar.html
-https://www.bighawala.com/registry-bihar.html
-https://www.bighawala.com/land-rates.html
-https://www.bighawala.com/mvr-rate-bihar.html
-https://www.bighawala.com/jamin-ka-rate-bihar.html
-https://www.bighawala.com/circle-rate-bihar.html
-https://www.bighawala.com/kisan-credit-card-bihar.html
-https://www.bighawala.com/pm-awas-yojana-bihar.html
-
-ENGAGEMENT PAGES (priority 0.7, changefreq daily):
-https://www.bighawala.com/bihar-land-news.html
-https://www.bighawala.com/community-qa.html
-https://www.bighawala.com/whatsapp-alerts.html
-
-DISTRICT MASTER PAGE (priority 0.9, changefreq weekly):
-https://www.bighawala.com/bihar-all-districts-land-rate.html
-
-DISTRICT PAGES (priority 0.8, changefreq monthly):
-https://www.bighawala.com/patna-land-rate.html
-https://www.bighawala.com/gaya-land-rate.html
-https://www.bighawala.com/muzaffarpur-land-rate.html
-https://www.bighawala.com/darbhanga-land-rate.html
-https://www.bighawala.com/bhagalpur-land-rate.html
-https://www.bighawala.com/nalanda-land-rate.html
-https://www.bighawala.com/vaishali-land-rate.html
-https://www.bighawala.com/sitamarhi-land-rate.html
-https://www.bighawala.com/madhubani-land-rate.html
-https://www.bighawala.com/samastipur-land-rate.html
-https://www.bighawala.com/begusarai-land-rate.html
-https://www.bighawala.com/munger-land-rate.html
-https://www.bighawala.com/purnia-land-rate.html
-https://www.bighawala.com/araria-land-rate.html
-https://www.bighawala.com/supaul-land-rate.html
-https://www.bighawala.com/saharsa-land-rate.html
-https://www.bighawala.com/khagaria-land-rate.html
-https://www.bighawala.com/madhepura-land-rate.html
-https://www.bighawala.com/east-champaran-land-rate.html
-https://www.bighawala.com/west-champaran-land-rate.html
-https://www.bighawala.com/gopalganj-land-rate.html
-https://www.bighawala.com/siwan-land-rate.html
-https://www.bighawala.com/saran-land-rate.html
-https://www.bighawala.com/bhojpur-land-rate.html
-https://www.bighawala.com/buxar-land-rate.html
-https://www.bighawala.com/rohtas-land-rate.html
-https://www.bighawala.com/kaimur-land-rate.html
-https://www.bighawala.com/aurangabad-land-rate.html
-https://www.bighawala.com/nawada-land-rate.html
-https://www.bighawala.com/jehanabad-land-rate.html
-https://www.bighawala.com/arwal-land-rate.html
-https://www.bighawala.com/sheikhpura-land-rate.html
-https://www.bighawala.com/lakhisarai-land-rate.html
-https://www.bighawala.com/jamui-land-rate.html
-https://www.bighawala.com/banka-land-rate.html
-https://www.bighawala.com/kishanganj-land-rate.html
-https://www.bighawala.com/katihar-land-rate.html
-https://www.bighawala.com/sheohar-land-rate.html
-
-INFORMATION PAGES (priority 0.6, changefreq monthly):
-https://www.bighawala.com/about.html
-https://www.bighawala.com/contact.html
-https://www.bighawala.com/disclaimer.html
-
-Use lastmod: 2026-07-21 for all pages.
-
-Generate complete proper XML sitemap
-with all urls, priorities, changefreq
-and lastmod dates.
-
-Output ONLY the XML — nothing else.
+<url><loc>https://www.bighawala.com/</loc><lastmod>2026-07-21</lastmod><changefreq>daily</changefreq><priority>1.0</priority></url>
+<url><loc>https://www.bighawala.com/apna-khata-dekhe.html</loc><lastmod>2026-07-21</lastmod><changefreq>daily</changefreq><priority>1.0</priority></url>
+<url><loc>https://www.bighawala.com/bigha-calculator.html</loc><lastmod>2026-07-21</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+<url><loc>https://www.bighawala.com/zameen-moolyankan.html</loc><lastmod>2026-07-21</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+<url><loc>https://www.bighawala.com/land-cost-calculator.html</loc><lastmod>2026-07-21</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+<url><loc>https://www.bighawala.com/zameen-comparison.html</loc><lastmod>2026-07-21</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+<url><loc>https://www.bighawala.com/bihar-land-quiz.html</loc><lastmod>2026-07-21</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+<url><loc>https://www.bighawala.com/document-checker.html</loc><lastmod>2026-07-21</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+<url><loc>https://www.bighawala.com/ask-expert.html</loc><lastmod>2026-07-21</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+<url><loc>https://www.bighawala.com/bhulekh.html</loc><lastmod>2026-07-21</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+<url><loc>https://www.bighawala.com/dakhil-kharij.html</loc><lastmod>2026-07-21</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+<url><loc>https://www.bighawala.com/jamabandi.html</loc><lastmod>2026-07-21</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+<url><loc>https://www.bighawala.com/lpc-bihar.html</loc><lastmod>2026-07-21</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+<url><loc>https://www.bighawala.com/registry-bihar.html</loc><lastmod>2026-07-21</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+<url><loc>https://www.bighawala.com/land-rates.html</loc><lastmod>2026-07-21</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+<url><loc>https://www.bighawala.com/mvr-rate-bihar.html</loc><lastmod>2026-07-21</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+<url><loc>https://www.bighawala.com/jamin-ka-rate-bihar.html</loc><lastmod>2026-07-21</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+<url><loc>https://www.bighawala.com/circle-rate-bihar.html</loc><lastmod>2026-07-21</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+<url><loc>https://www.bighawala.com/kisan-credit-card-bihar.html</loc><lastmod>2026-07-21</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+<url><loc>https://www.bighawala.com/pm-awas-yojana-bihar.html</loc><lastmod>2026-07-21</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+<url><loc>https://www.bighawala.com/bihar-land-news.html</loc><lastmod>2026-07-21</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://www.bighawala.com/community-qa.html</loc><lastmod>2026-07-21</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://www.bighawala.com/whatsapp-alerts.html</loc><lastmod>2026-07-21</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+<url><loc>https://www.bighawala.com/bihar-all-districts-land-rate.html</loc><lastmod>2026-07-21</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+<url><loc>https://www.bighawala.com/patna-land-rate.html</loc><lastmod>2026-07-21</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://www.bighawala.com/gaya-land-rate.html</loc><lastmod>2026-07-21</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://www.bighawala.com/muzaffarpur-land-rate.html</loc><lastmod>2026-07-21</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://www.bighawala.com/darbhanga-land-rate.html</loc><lastmod>2026-07-21</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://www.bighawala.com/bhagalpur-land-rate.html</loc><lastmod>2026-07-21</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://www.bighawala.com/nalanda-land-rate.html</loc><lastmod>2026-07-21</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://www.bighawala.com/vaishali-land-rate.html</loc><lastmod>2026-07-21</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://www.bighawala.com/sitamarhi-land-rate.html</loc><lastmod>2026-07-21</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://www.bighawala.com/madhubani-land-rate.html</loc><lastmod>2026-07-21</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://www.bighawala.com/samastipur-land-rate.html</loc><lastmod>2026-07-21</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://www.bighawala.com/begusarai-land-rate.html</loc><lastmod>2026-07-21</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://www.bighawala.com/munger-land-rate.html</loc><lastmod>2026-07-21</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://www.bighawala.com/purnia-land-rate.html</loc><lastmod>2026-07-21</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://www.bighawala.com/araria-land-rate.html</loc><lastmod>2026-07-21</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://www.bighawala.com/supaul-land-rate.html</loc><lastmod>2026-07-21</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://www.bighawala.com/saharsa-land-rate.html</loc><lastmod>2026-07-21</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://www.bighawala.com/khagaria-land-rate.html</loc><lastmod>2026-07-21</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://www.bighawala.com/madhepura-land-rate.html</loc><lastmod>2026-07-21</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://www.bighawala.com/east-champaran-land-rate.html</loc><lastmod>2026-07-21</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://www.bighawala.com/west-champaran-land-rate.html</loc><lastmod>2026-07-21</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://www.bighawala.com/gopalganj-land-rate.html</loc><lastmod>2026-07-21</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://www.bighawala.com/siwan-land-rate.html</loc><lastmod>2026-07-21</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://www.bighawala.com/saran-land-rate.html</loc><lastmod>2026-07-21</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://www.bighawala.com/bhojpur-land-rate.html</loc><lastmod>2026-07-21</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://www.bighawala.com/buxar-land-rate.html</loc><lastmod>2026-07-21</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://www.bighawala.com/rohtas-land-rate.html</loc><lastmod>2026-07-21</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://www.bighawala.com/kaimur-land-rate.html</loc><lastmod>2026-07-21</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://www.bighawala.com/aurangabad-land-rate.html</loc><lastmod>2026-07-21</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://www.bighawala.com/nawada-land-rate.html</loc><lastmod>2026-07-21</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://www.bighawala.com/jehanabad-land-rate.html</loc><lastmod>2026-07-21</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://www.bighawala.com/arwal-land-rate.html</loc><lastmod>2026-07-21</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://www.bighawala.com/sheikhpura-land-rate.html</loc><lastmod>2026-07-21</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://www.bighawala.com/lakhisarai-land-rate.html</loc><lastmod>2026-07-21</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://www.bighawala.com/jamui-land-rate.html</loc><lastmod>2026-07-21</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://www.bighawala.com/banka-land-rate.html</loc><lastmod>2026-07-21</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://www.bighawala.com/kishanganj-land-rate.html</loc><lastmod>2026-07-21</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://www.bighawala.com/katihar-land-rate.html</loc><lastmod>2026-07-21</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://www.bighawala.com/sheohar-land-rate.html</loc><lastmod>2026-07-21</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://www.bighawala.com/about.html</loc><lastmod>2026-07-21</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+<url><loc>https://www.bighawala.com/contact.html</loc><lastmod>2026-07-21</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+<url><loc>https://www.bighawala.com/disclaimer.html</loc><lastmod>2026-07-21</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+</urlset>
