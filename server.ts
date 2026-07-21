@@ -581,6 +581,26 @@ app.get(["/land-rate-patna", "/land-rate-patna/", "/land-rate-patna.html"], (req
   serveHtmlPage(req, res, "land-rate-patna.html");
 });
 
+app.get(["/rohtas-land-rate", "/rohtas-land-rate/", "/rohtas-land-rate.html"], (req, res) => {
+  serveHtmlPage(req, res, "rohtas-land-rate.html");
+});
+
+app.get(["/kaimur-land-rate", "/kaimur-land-rate/", "/kaimur-land-rate.html"], (req, res) => {
+  serveHtmlPage(req, res, "kaimur-land-rate.html");
+});
+
+app.get(["/aurangabad-land-rate", "/aurangabad-land-rate/", "/aurangabad-land-rate.html"], (req, res) => {
+  serveHtmlPage(req, res, "aurangabad-land-rate.html");
+});
+
+app.get(["/nawada-land-rate", "/nawada-land-rate/", "/nawada-land-rate.html"], (req, res) => {
+  serveHtmlPage(req, res, "nawada-land-rate.html");
+});
+
+app.get(["/jehanabad-land-rate", "/jehanabad-land-rate/", "/jehanabad-land-rate.html"], (req, res) => {
+  serveHtmlPage(req, res, "jehanabad-land-rate.html");
+});
+
 app.get(["/land-rates", "/land-rates/", "/land-rates.html"], (req, res) => {
   serveHtmlPage(req, res, "land-rates.html");
 });

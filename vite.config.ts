@@ -38,6 +38,11 @@ export default defineConfig(() => {
           biharLandQuiz: path.resolve(__dirname, 'bihar-land-quiz.html'),
           landCostCalculator: path.resolve(__dirname, 'land-cost-calculator.html'),
           communityQa: path.resolve(__dirname, 'community-qa.html'),
+          rohtasLandRate: path.resolve(__dirname, 'rohtas-land-rate.html'),
+          kaimurLandRate: path.resolve(__dirname, 'kaimur-land-rate.html'),
+          aurangabadLandRate: path.resolve(__dirname, 'aurangabad-land-rate.html'),
+          nawadaLandRate: path.resolve(__dirname, 'nawada-land-rate.html'),
+          jehanabadLandRate: path.resolve(__dirname, 'jehanabad-land-rate.html'),
         }
       }
     },
