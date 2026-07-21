@@ -1,9 +1,13 @@
 {
-  "outputDirectory": ".",
+  "version": 2,
+  "builds": [
+    {
+      "src": "*.html",
+      "use": "@vercel/static"
+    }
+  ],
   "routes": [
-    {"src": "/sitemap.xml", "dest": "/sitemap.xml"},
-    {"src": "/robots.txt", "dest": "/robots.txt"},
-    {"src": "/og-image.jpg", "dest": "/og-image.jpg"},
+    {"src": "/", "dest": "/index.html"},
     {"src": "/apna-khata-dekhe", "dest": "/apna-khata-dekhe.html"},
     {"src": "/bigha-calculator", "dest": "/bigha-calculator.html"},
     {"src": "/bhulekh", "dest": "/bhulekh.html"},
@@ -30,7 +34,6 @@
     {"src": "/contact", "dest": "/contact.html"},
     {"src": "/disclaimer", "dest": "/disclaimer.html"},
     {"src": "/setup-guide", "dest": "/setup-guide.html"},
-    {"src": "/bihar-all-districts-land-rate", "dest": "/bihar-all-districts-land-rate.html"},
     {"src": "/patna-land-rate", "dest": "/patna-land-rate.html"},
     {"src": "/gaya-land-rate", "dest": "/gaya-land-rate.html"},
     {"src": "/muzaffarpur-land-rate", "dest": "/muzaffarpur-land-rate.html"},
@@ -69,6 +72,7 @@
     {"src": "/kishanganj-land-rate", "dest": "/kishanganj-land-rate.html"},
     {"src": "/katihar-land-rate", "dest": "/katihar-land-rate.html"},
     {"src": "/sheohar-land-rate", "dest": "/sheohar-land-rate.html"},
+    {"src": "/bihar-all-districts-land-rate", "dest": "/bihar-all-districts-land-rate.html"},
     {"src": "/(.*)", "dest": "/$1"}
   ]
 }
