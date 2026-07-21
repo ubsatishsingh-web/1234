@@ -1,3 +1,9 @@
+Update vercel.json file for BighaWala.com
+to include ALL pages including 39 new 
+district pages.
+
+Replace entire vercel.json with this:
+
 {
   "version": 2,
   "builds": [
@@ -76,3 +82,6 @@
     {"src": "/(.*)", "dest": "/$1"}
   ]
 }
+
+Output: Complete vercel.json file only.
+Nothing else — just the JSON content.
