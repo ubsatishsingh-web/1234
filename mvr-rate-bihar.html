@@ -67,7 +67,8 @@
      crossorigin="anonymous"></script>
 
     
-  </head>
+    <link rel="stylesheet" href="css/premium-style.css?v=1.0.12">
+</head>
   <body class="bg-slate-50 text-slate-800 font-sans min-h-screen flex flex-col selection:bg-orange-100 selection:text-orange-900">
 <!-- NAVIGATION -->
 <style>
@@ -307,9 +308,7 @@
   .mobile-menu { display: none !important; }
 }
 </style>
-  <link rel="stylesheet" href="/css/premium-style.css">
-
-<div class="nav-wrapper">
+  <div class="nav-wrapper">
   <div class="nav-container">
     <a href="index.html" class="nav-logo">
       <img src="https://via.placeholder.com/45x45/2E7D32/white?text=BW" 
@@ -518,19 +517,19 @@ document.querySelectorAll('.mobile-menu a')
     
 
     <!-- HERO SECTION -->
-    <section class="hero-gradient text-white py-12 sm:py-16 px-4 relative overflow-hidden">
+    <section class="hero-gradient text-slate-900 py-12 sm:py-16 px-4 relative overflow-hidden border-b border-emerald-500/10">
       <!-- Decorative Backdrop Circles -->
       <div class="absolute -top-12 -left-12 w-64 h-64 rounded-full bg-white/5 blur-2xl"></div>
       <div class="absolute -bottom-20 -right-20 w-80 h-80 rounded-full bg-orange-500/10 blur-3xl"></div>
 
       <div class="max-w-4xl mx-auto text-center space-y-4 relative z-10">
-        <span class="inline-block bg-orange-500/20 text-orange-200 border border-orange-400/30 text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full">
+        <span class="inline-block bg-orange-50 text-orange-800 border border-orange-200/60 shadow-xs text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full">
           📈 न्यूनतम सरकारी मूल्यांकन दर (MVR) 2026
         </span>
         <h1 class="text-2xl sm:text-4xl md:text-5xl font-extrabold tracking-tight leading-tight">
           Bihar Mein Jamin Ka Sarkari Rate 2026 | MVR Rate — बिहार जमीन का न्यूनतम मूल्यांकन दर
         </h1>
-        <p class="text-sm sm:text-base text-emerald-100 max-w-2xl mx-auto font-medium">
+        <p class="text-sm sm:text-base text-slate-600 max-w-2xl mx-auto font-medium">
           बिहार के सभी 38 जिलों का नया एमवीआर रेट (MVR Rate), जमीन का सरकारी भाव, स्टांप शुल्क (Stamp Duty) और निबंधन शुल्क कैलकुलेटर की पूरी जानकारी यहाँ देखें।
         </p>
       </div>
@@ -596,14 +595,14 @@ document.querySelectorAll('.mobile-menu a')
             <!-- INPUTS -->
             <div class="space-y-4">
               <div>
-                <label class="block text-xs sm:text-sm font-black text-emerald-100 mb-1" for="calc-katha">
+                <label class="block text-xs sm:text-sm font-black text-slate-600 mb-1" for="calc-katha">
                   1. Land Size in Katha (जमीन का आकार - बीघा/कट्ठा में)
                 </label>
                 <input type="number" id="calc-katha" class="w-full bg-emerald-950 border-2 border-emerald-700 rounded-xl px-4 py-3 text-white font-extrabold text-base focus:border-orange-400 focus:outline-none" value="5" min="0" oninput="calculateMVRRegistry()" />
               </div>
 
               <div>
-                <label class="block text-xs sm:text-sm font-black text-emerald-100 mb-1" for="calc-rate">
+                <label class="block text-xs sm:text-sm font-black text-slate-600 mb-1" for="calc-rate">
                   2. MVR Rate per Katha (₹) (कट्ठा का सरकारी दर)
                 </label>
                 <input type="number" id="calc-rate" class="w-full bg-emerald-950 border-2 border-emerald-700 rounded-xl px-4 py-3 text-white font-extrabold text-base focus:border-orange-400 focus:outline-none" value="100000" min="0" oninput="calculateMVRRegistry()" />
@@ -611,7 +610,7 @@ document.querySelectorAll('.mobile-menu a')
               </div>
 
               <div>
-                <label class="block text-xs sm:text-sm font-black text-emerald-100 mb-2">
+                <label class="block text-xs sm:text-sm font-black text-slate-600 mb-2">
                   3. Buyer Gender (क्रेता का लिंग)
                 </label>
                 <div class="flex gap-4">
@@ -627,7 +626,7 @@ document.querySelectorAll('.mobile-menu a')
               </div>
 
               <div>
-                <label class="block text-xs sm:text-sm font-black text-emerald-100 mb-1">
+                <label class="block text-xs sm:text-sm font-black text-slate-600 mb-1">
                   4. Property Type (संपत्ति का प्रकार)
                 </label>
                 <select id="calc-prop-type" class="w-full bg-emerald-950 border-2 border-emerald-700 rounded-xl px-4 py-3 text-white font-extrabold text-base focus:border-orange-400 focus:outline-none" onchange="calculateMVRRegistry()">

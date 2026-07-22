@@ -67,7 +67,8 @@
      crossorigin="anonymous"></script>
 
     
-  </head>
+    <link rel="stylesheet" href="css/premium-style.css?v=1.0.12">
+</head>
   <body class="bg-slate-50 text-slate-800 font-sans min-h-screen flex flex-col selection:bg-orange-100 selection:text-orange-900">
 <!-- NAVIGATION -->
 <style>
@@ -307,9 +308,7 @@
   .mobile-menu { display: none !important; }
 }
 </style>
-  <link rel="stylesheet" href="/css/premium-style.css">
-
-<div class="nav-wrapper">
+  <div class="nav-wrapper">
   <div class="nav-container">
     <a href="index.html" class="nav-logo">
       <img src="https://via.placeholder.com/45x45/2E7D32/white?text=BW" 
@@ -518,19 +517,19 @@ document.querySelectorAll('.mobile-menu a')
     
 
     <!-- HERO SECTION -->
-    <section class="hero-gradient text-white py-12 sm:py-16 px-4 relative overflow-hidden">
+    <section class="hero-gradient text-slate-900 py-12 sm:py-16 px-4 relative overflow-hidden border-b border-emerald-500/10">
       <!-- Traditional Design Backdrop Elements -->
       <div class="absolute -top-12 -left-12 w-64 h-64 rounded-full bg-white/5 blur-2xl"></div>
       <div class="absolute -bottom-20 -right-20 w-80 h-80 rounded-full bg-orange-500/10 blur-3xl"></div>
 
       <div class="max-w-4xl mx-auto text-center space-y-4 relative z-10">
-        <span class="inline-block bg-orange-500/20 text-orange-200 border border-orange-400/30 text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full">
+        <span class="inline-block bg-orange-50 text-orange-800 border border-orange-200/60 shadow-xs text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full">
           📜 बिहार भूमि निबंधन मार्गदर्शिका 2026 (Bihar Property Registration)
         </span>
         <h1 class="text-2xl sm:text-4xl md:text-5xl font-extrabold tracking-tight leading-tight">
           Bihar Mein Zameen Ki Registry 2026 | रजिस्ट्री कैसे करें?
         </h1>
-        <p class="text-sm sm:text-base text-emerald-100 max-w-2xl mx-auto font-medium">
+        <p class="text-sm sm:text-base text-slate-600 max-w-2xl mx-auto font-medium">
           बिहार में अपनी जमीन, मकान या फ्लैट की कानूनी रजिस्ट्री करने की संपूर्ण विधि। स्टाम्प ड्यूटी दरें, सरकारी फीस, जरूरी दस्तावेज और ऑनलाइन अपॉइंटमेंट स्लॉट बुक करने का आसान तरीका।
         </p>
 
@@ -553,7 +552,7 @@ document.querySelectorAll('.mobile-menu a')
     <main class="max-w-4xl mx-auto px-4 -mt-8 sm:-mt-10 mb-16 relative z-20 space-y-12">
       
       <!-- IMPORTANT INFO BOX -->
-      <div class="bg-emerald-800 text-emerald-50 rounded-3xl border border-emerald-700/80 p-6 shadow-xl custom-green-gradient">
+      <div class="bg-emerald-800 text-slate-600 font-semibold rounded-3xl border border-emerald-700/80 p-6 shadow-xl custom-green-gradient">
         <div class="flex flex-col sm:flex-row items-center gap-4 text-center sm:text-left">
           <div class="w-14 h-14 shrink-0 rounded-2xl bg-white/10 border border-white/20 flex items-center justify-center text-3xl">
             ✅
@@ -562,7 +561,7 @@ document.querySelectorAll('.mobile-menu a')
             <h3 class="text-base sm:text-lg font-black text-white leading-tight">
               आधिकारिक सरकारी निबंधन पोर्टल (Official Registration Portal)
             </h3>
-            <p class="text-xs sm:text-sm text-emerald-100 font-bold">
+            <p class="text-xs sm:text-sm text-slate-600 font-bold">
               Bihar mein zameen registry ke liye official portal: <a href="https://nibandhan.bihar.gov.in" target="_blank" rel="noopener noreferrer" class="underline text-yellow-300 font-black hover:text-yellow-200 transition-colors">nibandhan.bihar.gov.in</a> — Registry ke baad hi zameen legally aapki hoti hai.
             </p>
           </div>
@@ -783,7 +782,7 @@ document.querySelectorAll('.mobile-menu a')
                 Interactive Tool
               </span>
               <h3 class="text-lg sm:text-xl font-black">💸 बिहार स्टाम्प ड्यूटी कैलकुलेटर 2026</h3>
-              <p class="text-xs text-emerald-100 font-medium">नीचे अपनी जमीन का सही मूल्य और जेंडर चुनें, वास्तविक सरकारी फीस की तुरंत गणना करें:</p>
+              <p class="text-xs text-slate-600 font-medium">नीचे अपनी जमीन का सही मूल्य और जेंडर चुनें, वास्तविक सरकारी फीस की तुरंत गणना करें:</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-end">
@@ -851,15 +850,15 @@ document.querySelectorAll('.mobile-menu a')
             <!-- Calculation Output Cards -->
             <div class="grid grid-cols-1 sm:grid-cols-4 gap-4 pt-4 border-t border-white/20">
               <div class="bg-white/10 rounded-2xl p-4 text-center border border-white/10">
-                <p class="text-[10px] uppercase font-black tracking-wider text-emerald-100">Stamp Duty (<span id="output-sd-rate">6%</span>)</p>
+                <p class="text-[10px] uppercase font-black tracking-wider text-slate-600">Stamp Duty (<span id="output-sd-rate">6%</span>)</p>
                 <p class="text-lg sm:text-xl font-black mt-1" id="output-sd-value">₹60,000</p>
               </div>
               <div class="bg-white/10 rounded-2xl p-4 text-center border border-white/10">
-                <p class="text-[10px] uppercase font-black tracking-wider text-emerald-100">Registration Fee (2%)</p>
+                <p class="text-[10px] uppercase font-black tracking-wider text-slate-600">Registration Fee (2%)</p>
                 <p class="text-lg sm:text-xl font-black mt-1" id="output-rf-value">₹20,000</p>
               </div>
               <div class="bg-white/10 rounded-2xl p-4 text-center border border-white/10">
-                <p class="text-[10px] uppercase font-black tracking-wider text-emerald-100">Additional Charges</p>
+                <p class="text-[10px] uppercase font-black tracking-wider text-slate-600">Additional Charges</p>
                 <p class="text-lg sm:text-xl font-black mt-1">₹1,500</p>
               </div>
               <div class="bg-yellow-400 text-slate-900 rounded-2xl p-4 text-center border border-yellow-300 shadow-md">
