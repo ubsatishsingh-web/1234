@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
 
+Sitemap: https://www.bighawala.com/sitemap.xml
 Sitemap: https://bighawala.com/sitemap.xml
