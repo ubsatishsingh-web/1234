@@ -689,80 +689,106 @@ document.querySelectorAll('.mobile-menu a')
     <!-- MAIN GRID CONTAINER -->
     <main class="max-w-4xl mx-auto px-4 -mt-8 sm:-mt-10 mb-16 relative z-20 space-y-10 w-full text-[16px]">
 
-      <!-- TWO PORTAL BOXES AT TOP -->
-      <section class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <!-- Box 1 (Green) -->
-        <div class="bg-white rounded-3xl border border-slate-200 p-6 shadow-md flex flex-col justify-between space-y-4">
-          <div class="space-y-2">
-            <span class="inline-block bg-emerald-50 text-emerald-800 border border-emerald-200/50 text-xs font-bold uppercase tracking-wide px-3 py-1 rounded-full">
-              📔 खतियान व अधिकार अभिलेख
-            </span>
-            <h3 class="text-lg sm:text-xl font-black text-slate-900 leading-snug">
-              📋 अपना खाता / Khatyan देखने के लिए:
-            </h3>
-            <p class="text-xs sm:text-sm text-slate-500 font-semibold leading-relaxed">
-              यदि आप जमीन के असली मालिक की सूची, पैतृक अधिकार खतियान या खाता नंबर चेक करना चाहते हैं, तो राजस्व विभाग के इस विशेष डिजिटल पोर्टल का उपयोग करें।
-            </p>
-          </div>
-          <div class="space-y-2 pt-2">
-            <a href="https://land.bihar.gov.in/Ror2025/RoR.aspx" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-black text-sm sm:text-base px-6 py-4 rounded-xl shadow-md hover:scale-[1.01] transition-transform w-full text-center">
-              <span>🟢 APNA KHATA DEKHE — OFFICIAL PORTAL</span>
-            </a>
-            <p class="text-[11px] text-center text-emerald-700 font-black">
-              ✅ यह बिल्कुल मुफ्त सरकारी सेवा है
-            </p>
-          </div>
-        </div>
+      <!-- SECTION 1 — HERO SUB-HEADING (Text link instead of prominent button) -->
+      <section class="bg-amber-50 rounded-2xl border border-amber-200 p-4 text-center space-y-1">
+        <p class="text-sm sm:text-base text-amber-950 font-extrabold">
+          नीचे Step by Step Guide पढ़ें — फिर Official Portal खोलें।
+        </p>
+        <p class="text-xs text-slate-500 font-bold">
+          सीधे सरकारी पोर्टल पर जाना चाहते हैं? 
+          <a href="#official-portal-section" class="text-emerald-700 underline font-extrabold hover:text-emerald-800">यहाँ click करें ➜</a>
+        </p>
+      </section>
 
-        <!-- Box 2 (Saffron) -->
-        <div class="bg-white rounded-3xl border border-slate-200 p-6 shadow-md flex flex-col justify-between space-y-4">
-          <div class="space-y-2">
-            <span class="inline-block bg-orange-50 text-orange-800 border border-orange-200/50 text-xs font-bold uppercase tracking-wide px-3 py-1 rounded-full">
-              📄 दाखिल खारिज व चालू जमाबंदी
-            </span>
-            <h3 class="text-lg sm:text-xl font-black text-slate-900 leading-snug">
-              📝 Dakhil Kharij | LPC | Jamabandi | eMapi के लिए:
-            </h3>
-            <p class="text-xs sm:text-sm text-slate-500 font-semibold leading-relaxed">
-              यदि आपको दाखिल खारिज स्थिति, एलपीसी (LPC), जमीन की रसीद का लगान, चालू जमाबंदी पंजी संख्या या सरकारी नापी ई-मापी चेक करनी हो, तो मुख्य भूमि पोर्टल पर जाएं।
+      <!-- SECTION 2 — IMPORTANT INFO FIRST -->
+      <section class="bg-white rounded-3xl border border-slate-200 p-6 sm:p-8 shadow-md space-y-6">
+        <h2 class="text-xl sm:text-2xl font-black text-slate-900 flex items-center gap-2 border-b border-slate-100 pb-3">
+          <span class="text-primaryGreen">📌</span> भूलेख बिहार (Bhulekh) चेक करने से पहले यह जानें:
+        </h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <!-- Card 1 -->
+          <div class="bg-slate-50 border border-slate-200/60 rounded-2xl p-5 space-y-3">
+            <div class="w-10 h-10 rounded-xl bg-emerald-100 text-primaryGreen flex items-center justify-center text-xl font-bold">📂</div>
+            <h3 class="font-extrabold text-sm sm:text-base text-slate-900">1. आवश्यक विवरण</h3>
+            <p class="text-xs text-slate-600 font-semibold leading-relaxed">
+              भूलेख खतौनी ऑनलाइन खोजने के लिए आपके पास अपने **जिला (District)**, **अंचल (Block/Anchal)**, **हल्का (Halka)** और **गाँव/मौजा (Mauja)** का नाम होना आवश्यक है।
             </p>
           </div>
-          <div class="space-y-2 pt-2">
-            <a href="https://biharbhumi.bihar.gov.in/Biharbhumi/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 bg-orange-600 hover:bg-orange-700 text-white font-black text-sm sm:text-base px-6 py-4 rounded-xl shadow-md hover:scale-[1.01] transition-transform w-full text-center">
-              <span>🟠 BIHAR BHUMI PORTAL खोलें</span>
-            </a>
-            <p class="text-[11px] text-center text-orange-700 font-black">
-              दाखिल खारिज, एलपीसी, जमाबंदी सब यहाँ मिलेगा
+
+          <!-- Card 2 -->
+          <div class="bg-slate-50 border border-slate-200/60 rounded-2xl p-5 space-y-3">
+            <div class="w-10 h-10 rounded-xl bg-orange-100 text-accentSaffron flex items-center justify-center text-xl font-bold">🔍</div>
+            <h3 class="font-extrabold text-sm sm:text-base text-slate-900">2. सर्च करने के विकल्प</h3>
+            <p class="text-xs text-slate-600 font-semibold leading-relaxed">
+              आप अपनी जमीन को **खाता नंबर (Khata)**, **खेसरा नंबर (Khesra/Plot)**, **खाताधारी के नाम (Owner Name)** या पूरे मौजा के अनुसार खोज सकते हैं।
+            </p>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="bg-slate-50 border border-slate-200/60 rounded-2xl p-5 space-y-3">
+            <div class="w-10 h-10 rounded-xl bg-blue-100 text-blue-600 flex items-center justify-center text-xl font-bold">📜</div>
+            <h3 class="font-extrabold text-sm sm:text-base text-slate-900">3. दस्तावेजी महत्व</h3>
+            <p class="text-xs text-slate-600 font-semibold leading-relaxed">
+              ऑनलाइन मिलने वाला रिकॉर्ड सूचनात्मक (for reference only) है। कानूनी कार्यों के लिए कोर्ट मुहर वाली **Certified Copy (प्रमाणित प्रति)** ही मान्य होती है।
             </p>
           </div>
         </div>
       </section>
 
-      <!-- CLARIFICATION BOX (AMBER) -->
-      <section class="bg-amber-50 border-2 border-amber-500/30 rounded-3xl p-6 sm:p-8 space-y-4">
-        <h3 class="text-base sm:text-lg font-black text-amber-950 flex items-center gap-2">
-          <span>⚠️</span> Important: Bihar mein do alag portals hain —
-        </h3>
-        <p class="text-xs sm:text-sm text-slate-700 font-bold leading-relaxed">
-          बिहार सरकार ने जमीन की सेवाओं को सुगम बनाने के लिए दो अलग-अलग डिजिटल सर्वर बनाए हैं। दोनों ही सेवाएँ पूर्णतः निःशुल्क हैं परंतु इनके कार्य बिलकुल भिन्न हैं:
-        </p>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 font-bold text-xs sm:text-sm pt-2">
-          <div class="p-4 bg-white rounded-xl border border-amber-200/60">
-            <p class="text-emerald-800">1️⃣ Apna Khata/Khatyan dekhne ke liye:</p>
-            <p class="text-slate-600 text-[11px] mt-1 break-all bg-slate-50 p-2 rounded">
-              👉 <a href="https://land.bihar.gov.in/Ror2025/RoR.aspx" target="_blank" rel="noopener noreferrer" class="underline hover:text-emerald-600">land.bihar.gov.in/Ror2025/RoR.aspx</a>
-            </p>
-          </div>
-          <div class="p-4 bg-white rounded-xl border border-amber-200/60">
-            <p class="text-orange-800">2️⃣ Dakhil Kharij, LPC, Jamabandi ke liye:</p>
-            <p class="text-slate-600 text-[11px] mt-1 break-all bg-slate-50 p-2 rounded">
-              👉 <a href="https://biharbhumi.bihar.gov.in/Biharbhumi/" target="_blank" rel="noopener noreferrer" class="underline hover:text-orange-600">biharbhumi.bihar.gov.in/Biharbhumi/</a>
-            </p>
-          </div>
+      <!-- SECTION 3 — MINI BIGHA CALCULATOR WIDGET -->
+      <section class="bg-white rounded-3xl border border-slate-200 p-6 sm:p-8 shadow-md space-y-4">
+        <div class="flex items-center gap-2">
+          <span class="text-xl sm:text-2xl">🧮</span>
+          <h2 class="text-xl sm:text-2xl font-black text-slate-900">BighaWala Mini बीघा & डिसमिल कनवर्टर</h2>
         </div>
-        <p class="text-xs text-amber-900 font-black text-center mt-2">
-          💡 Dono free hain — dono alag kaam karte hain। अपनी आवश्यकतानुसार सही पोर्टल चुनें।
+        <p class="text-xs sm:text-sm text-slate-600 font-bold leading-relaxed">
+          बिहार के अलग-अलग जिलों में कट्टा और धूर की माप अलग-अलग होती है (जैसे 1.5, 2, 2.5, या 3 डेसिमल प्रति कट्टा)। अपनी जमीन का साइज यहाँ तुरंत कनवर्ट करें:
         </p>
+
+        <div class="bg-gradient-to-br from-emerald-50 to-emerald-100/40 rounded-2xl border border-emerald-200/50 p-5 space-y-4">
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div>
+              <label class="block text-[11px] font-black text-emerald-950 uppercase tracking-wider mb-1">डेसिमल दर्ज करें (Dismil)</label>
+              <input type="number" id="mini-dismil" value="100" class="w-full px-4 py-2.5 bg-white border border-slate-200 rounded-xl text-xs sm:text-sm font-semibold focus:outline-none focus:border-emerald-500" oninput="calculateBighaMini()" />
+            </div>
+            <div>
+              <label class="block text-[11px] font-black text-emerald-950 uppercase tracking-wider mb-1">कट्टा साइज (Dismil per Katha)</label>
+              <select id="mini-katha-size" class="w-full px-4 py-2.5 bg-white border border-slate-200 rounded-xl text-xs sm:text-sm font-semibold focus:outline-none focus:border-emerald-500" onchange="calculateBighaMini()">
+                <option value="3.125">3.125 Dismil (Standard Patna, Gaya)</option>
+                <option value="4.0">4.0 Dismil (Nalanda, Rohtas)</option>
+                <option value="2.5">2.5 Dismil (Darbhanga, Madhubani)</option>
+                <option value="2.0">2.0 Dismil (Bhagalpur, Purnia)</option>
+                <option value="1.5">1.5 Dismil (Muzaffarpur)</option>
+              </select>
+            </div>
+            <div class="bg-white p-4 rounded-xl border border-emerald-100 flex flex-col justify-center">
+              <span class="text-[10px] font-black text-slate-400 uppercase tracking-wider">कनवर्टेड रिजल्ट</span>
+              <span id="mini-calc-result" class="text-sm sm:text-base font-black text-emerald-800 mt-0.5">Calculating...</span>
+            </div>
+          </div>
+          <script>
+            function calculateBighaMini() {
+              const dismil = parseFloat(document.getElementById('mini-dismil').value) || 0;
+              const kathaSize = parseFloat(document.getElementById('mini-katha-size').value) || 3.125;
+              const totalKatha = dismil / kathaSize;
+              const bigha = Math.floor(totalKatha / 20);
+              const remainingKatha = Math.floor(totalKatha % 20);
+              const remainingDhur = Math.round(((totalKatha % 20) - remainingKatha) * 20);
+              
+              let text = "";
+              if (bigha > 0) {
+                text += bigha + " बीघा ";
+              }
+              text += remainingKatha + " कट्टा " + remainingDhur + " धूर";
+              document.getElementById('mini-calc-result').innerText = text;
+            }
+            // run once on load
+            window.addEventListener('DOMContentLoaded', () => {
+              calculateBighaMini();
+            });
+          </script>
+        </div>
       </section>
 
       <!-- SECTION 1 — Bhulekh Bihar Kya Hai? (H2) -->
@@ -1209,6 +1235,62 @@ document.querySelectorAll('.mobile-menu a')
             <span class="w-7 h-7 bg-emerald-800 text-white rounded-full flex items-center justify-center font-black text-xs shrink-0">4</span>
             <p class="text-xs sm:text-sm text-slate-600 font-semibold leading-relaxed">
               <strong>Step 4:</strong> "सर्च" दबाकर प्रमाण पत्र स्वीकृत होने पर उसे तुरंत डाउनलोड कर लें।
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- OFFICIAL PORTAL SECTION (Target of top link, positioned down for maximum engagement) -->
+      <section id="official-portal-section" class="bg-gradient-to-br from-emerald-950 via-slate-900 to-emerald-900 text-white rounded-3xl p-6 sm:p-8 shadow-xl space-y-6">
+        <div class="space-y-2">
+          <span class="inline-block bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-xs font-black uppercase tracking-wider px-3.5 py-1.5 rounded-full">
+            🔗 OFFICIAL PORTAL DIRECT LINKS
+          </span>
+          <h2 class="text-xl sm:text-3xl font-black text-white leading-tight">
+            बिहार भूमि अधिकारिक पोर्टल लिंक (2026)
+          </h2>
+          <p class="text-xs sm:text-sm text-emerald-100/80 font-semibold leading-relaxed">
+            बिहार सरकार के अधिकारिक भूमि राजस्व विभाग की वेबसाइट पर जाने के लिए नीचे दिए गए बटन पर क्लिक करें। ये दोनों लिंक सीधे सरकारी सर्वर पर खुलते हैं:
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5 pt-2">
+          <!-- Button 1 (Emerald) -->
+          <div class="bg-white/5 border border-white/10 rounded-2xl p-5 flex flex-col justify-between space-y-4 hover:border-emerald-500/40 transition-colors">
+            <div class="space-y-1.5">
+              <span class="text-xs font-black text-emerald-400 uppercase tracking-widest">SERVER 1 (Khatyan & RoR)</span>
+              <h3 class="font-extrabold text-base sm:text-lg text-white">अपना खाता / खतियान देखें</h3>
+              <p class="text-[11px] text-slate-300 font-semibold leading-relaxed">
+                यदि आप अपनी जमीन का पुराना या नया खतियान, अधिकार अभिलेख, खतियानी रसीद या खाता विवरण देखना चाहते हैं।
+              </p>
+            </div>
+            <a href="https://land.bihar.gov.in/Ror2025/RoR.aspx" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white font-black text-xs sm:text-sm py-3.5 px-5 rounded-xl shadow-md transition-all hover:scale-[1.01]">
+              <span>खतियान देखें (Official Server) ➜</span>
+            </a>
+          </div>
+
+          <!-- Button 2 (Orange) -->
+          <div class="bg-white/5 border border-white/10 rounded-2xl p-5 flex flex-col justify-between space-y-4 hover:border-orange-500/40 transition-colors">
+            <div class="space-y-1.5">
+              <span class="text-xs font-black text-orange-400 uppercase tracking-widest">SERVER 2 (Mutation, LPC & Lagan)</span>
+              <h3 class="font-extrabold text-base sm:text-lg text-white">दाखिल खारिज, LPC व लगान रसीद</h3>
+              <p class="text-[11px] text-slate-300 font-semibold leading-relaxed">
+                यदि आपको दाखिल खारिज स्थिति (Mutation Status), एलपीसी प्रमाण पत्र, चालू जमाबंदी पंजी या भू-लगान रसीद काटनी हो।
+              </p>
+            </div>
+            <a href="https://biharbhumi.bihar.gov.in/Biharbhumi/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 bg-orange-600 hover:bg-orange-500 text-white font-black text-xs sm:text-sm py-3.5 px-5 rounded-xl shadow-md transition-all hover:scale-[1.01]">
+              <span>जमाबंदी / दाखिल खारिज खोलें ➜</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Extra Trust Security Warning Card -->
+        <div class="bg-white/5 border border-white/10 rounded-2xl p-4 flex gap-3 items-start">
+          <span class="text-xl">🛡️</span>
+          <div class="space-y-1">
+            <h4 class="font-bold text-xs text-amber-400">सुरक्षा चेतावनी व महत्वपूर्ण सूचना:</h4>
+            <p class="text-[11px] text-slate-300 leading-relaxed font-semibold">
+              बिहार सरकार की ये दोनों सेवाएँ **पूर्णतः निःशुल्क** हैं। इंटरनेट पर कई फर्जी वेबसाइटें पैसे मांग सकती हैं, उनसे सावधान रहें। हमेशा वेब एड्रेस में `.gov.in` होना सुनिश्चित करें।
             </p>
           </div>
         </div>

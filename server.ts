@@ -565,6 +565,10 @@ app.get(["/bigha-calculator", "/bigha-calculator/", "/bigha-calculator.html"], (
   serveHtmlPage(req, res, "bigha-calculator.html");
 });
 
+app.get(["/bihar-bhumi-portal", "/bihar-bhumi-portal/", "/bihar-bhumi-portal.html"], (req, res) => {
+  serveHtmlPage(req, res, "bihar-bhumi-portal.html");
+});
+
 app.get(["/zameen-moolyankan", "/zameen-moolyankan/", "/zameen-moolyankan.html"], (req, res) => {
   serveHtmlPage(req, res, "zameen-moolyankan.html");
 });

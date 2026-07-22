@@ -387,474 +387,707 @@
     </div>
 
     <!-- MAIN CONTAINER -->
-    <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-12">
+    <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-12">
       
+      <!-- STICKY PORTAL QUICK ACCESS SUB-NAV -->
+      <div class="sticky top-[58px] z-40 bg-white/95 backdrop-blur-md border border-slate-200/80 rounded-2xl overflow-x-auto scrollbar-hide py-3 px-4 shadow-sm">
+        <div class="flex items-center gap-2 text-xs font-bold whitespace-nowrap">
+          <span class="text-slate-400 select-none">Quick Jump:</span>
+          <a href="#all-portals" class="bg-emerald-50 text-emerald-800 hover:bg-emerald-100 px-3 py-1.5 rounded-lg transition-all">🏠 All Portals</a>
+          <a href="#which-portal" class="bg-amber-50 text-amber-800 hover:bg-amber-100 px-3 py-1.5 rounded-lg transition-all">📊 Decision Table</a>
+          <a href="#dakhil-kharij-guide" class="bg-blue-50 text-blue-800 hover:bg-blue-100 px-3 py-1.5 rounded-lg transition-all">📋 Dakhil Kharij</a>
+          <a href="#lpc-guide" class="bg-teal-50 text-teal-800 hover:bg-teal-100 px-3 py-1.5 rounded-lg transition-all">📄 LPC Guide</a>
+          <a href="#jamabandi-guide" class="bg-purple-50 text-purple-800 hover:bg-purple-100 px-3 py-1.5 rounded-lg transition-all">📑 Jamabandi</a>
+          <a href="#bhu-lagan-guide" class="bg-rose-50 text-rose-800 hover:bg-rose-100 px-3 py-1.5 rounded-lg transition-all">💰 Bhu Lagan</a>
+          <a href="#maps-guide" class="bg-cyan-50 text-cyan-800 hover:bg-cyan-100 px-3 py-1.5 rounded-lg transition-all">🗺️ eMapi & Maps</a>
+          <a href="#jan-shikayat-guide" class="bg-red-50 text-red-800 hover:bg-red-100 px-3 py-1.5 rounded-lg transition-all">⚖️ Jan Shikayat</a>
+          <a href="#parimarjan-guide" class="bg-orange-50 text-orange-800 hover:bg-orange-100 px-3 py-1.5 rounded-lg transition-all">✏️ Parimarjan</a>
+          <a href="#aadhar-seeding-guide" class="bg-indigo-50 text-indigo-800 hover:bg-indigo-100 px-3 py-1.5 rounded-lg transition-all">📱 Aadhar Seeding</a>
+          <a href="#faq" class="bg-slate-50 text-slate-800 hover:bg-slate-100 px-3 py-1.5 rounded-lg transition-all">❓ FAQ & Help</a>
+        </div>
+      </div>
+
       <!-- HERO & H1 -->
-      <div class="text-center space-y-4">
-        <span class="inline-block bg-emerald-100 text-emerald-800 text-xs font-extrabold uppercase tracking-widest px-4 py-1.5 rounded-full">Sarkari Portals Master Directory 2026</span>
+      <div class="text-center space-y-4 pt-4">
+        <span class="inline-block bg-emerald-100 text-emerald-800 text-xs font-black uppercase tracking-widest px-4 py-1.5 rounded-full">Master Land Directory 2026</span>
         <h1 class="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 tracking-tight leading-tight">
           Bihar Bhumi Portal 2026 | बिहार के सभी भूमि पोर्टल — एक जगह पूरी जानकारी
         </h1>
-        <p class="text-base sm:text-lg text-slate-500 font-semibold max-w-3xl mx-auto">
+        <p class="text-sm sm:text-base text-slate-500 font-semibold max-w-3xl mx-auto">
           बिहार सरकार के अलग-अलग आधिकारिक विभागों के ऑनलाइन लैंड रिकॉर्ड पोर्टल्स की विश्वसनीय सूची एवं विस्तृत हिंदी मार्गदर्शिका।
         </p>
       </div>
 
+      <!-- RED BREAKING NEWS TICKER -->
+      <div class="bg-red-600 text-white font-bold text-xs sm:text-sm py-2 px-4 rounded-xl shadow-inner overflow-hidden flex items-center">
+        <span class="bg-white text-red-600 px-2.5 py-0.5 rounded text-[10px] sm:text-xs font-black uppercase tracking-wider animate-pulse mr-3 shrink-0">LATEST</span>
+        <marquee class="font-semibold" scrollamount="4">
+          🔴 Active Users on Bihar Bhumi Portal: 12,785+ | Jamabandi ab online available hai | LPC status ghar baithe check karein | Jan Shikayat portal par complaint darj karein
+        </marquee>
+      </div>
+
       <!-- INTRO BOX (green) -->
-      <div class="bg-emerald-50 border-2 border-emerald-500/20 rounded-3xl p-6 sm:p-8 flex flex-col md:flex-row items-center gap-6 shadow-xs">
-        <div class="bg-emerald-500 text-white rounded-2xl p-4 shrink-0 shadow-md">
-          <span class="text-3xl">💡</span>
-        </div>
-        <div class="space-y-2">
-          <h3 class="text-lg sm:text-xl font-bold text-emerald-950">महत्वपूर्ण सूचना (Important Announcement)</h3>
-          <p class="text-sm sm:text-base text-emerald-900/90 font-medium leading-relaxed">
-            बिहार सरकार के अलग-अलग portals पर अलग-अलग land services available हैं। यहाँ सभी portals के direct links और step by step guide मिलेगी — बिल्कुल free!
+      <div class="bg-emerald-50 border border-emerald-500/20 rounded-3xl p-6 flex flex-col md:flex-row items-center gap-5 shadow-xs">
+        <div class="bg-emerald-600 text-white rounded-2xl p-3.5 shrink-0 shadow-sm text-2xl">💡</div>
+        <div class="space-y-1 text-center md:text-left">
+          <h3 class="text-base sm:text-lg font-black text-emerald-950">बिहार सरकार की 12+ अलग-अलग Land Services अलग-अलग Portals पर हैं।</h3>
+          <p class="text-xs sm:text-sm text-emerald-900 font-semibold leading-relaxed">
+            यहाँ सभी का Direct Link और Step by Step Guide मिलेगी — बिल्कुल Free! किस काम के लिए कौन सा Portal — सब यहाँ है।
           </p>
         </div>
       </div>
 
       <!-- SECTION 1 — ALL PORTALS QUICK ACCESS (H2) -->
-      <section id="all-portals-grid" class="space-y-8">
+      <section id="all-portals" class="space-y-6 scroll-mt-20">
         <div class="text-center space-y-2">
-          <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">बिहार भूमि पोर्टल — Quick Access</h2>
-          <p class="text-sm sm:text-base text-slate-500 font-medium">नीचे दिए गए किसी भी पोर्टल पर सीधे जाने के लिए बटन दबाएं।</p>
+          <h2 class="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">सभी बिहार भूमि पोर्टल — Quick Access</h2>
+          <p class="text-xs sm:text-sm text-slate-500 font-semibold">आधिकारिक सरकारी वेबसाइटों पर जाने के लिए नीचे दिए गए संबंधित बटन दबाएं।</p>
         </div>
 
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
           
           <!-- Card 1 (Green) -->
-          <div class="bg-white border border-slate-200 rounded-3xl p-5 hover:shadow-xl transition-all flex flex-col justify-between group border-t-4 border-t-emerald-600">
-            <div>
-              <span class="text-3xl mb-2 block">🗺️</span>
-              <h3 class="text-base sm:text-lg font-extrabold text-slate-900">भू अभिलेख (Bhu Abhilekh)</h3>
-              <p class="text-xs sm:text-sm text-slate-500 font-medium mt-1">Digitized land records dekhen</p>
-              <div class="mt-2 bg-emerald-50 text-emerald-800 text-[10px] font-bold px-2 py-1 rounded inline-block">Service: Khatyan, RoR online</div>
+          <div class="bg-white border border-slate-200 hover:border-emerald-500 rounded-3xl p-4 sm:p-5 hover:shadow-lg transition-all flex flex-col justify-between group border-t-4 border-t-emerald-600">
+            <div class="space-y-2">
+              <span class="text-2xl sm:text-3xl">🏠</span>
+              <h3 class="text-sm sm:text-base font-black text-slate-900 leading-snug">Bihar Bhumi (Main Portal)</h3>
+              <p class="text-[11px] sm:text-xs text-slate-500 font-semibold">"Dakhil Kharij + LPC apply karein"</p>
+              <div class="flex flex-wrap gap-1.5 items-center">
+                <span class="bg-emerald-50 text-emerald-700 text-[10px] font-bold px-2 py-0.5 rounded-md">Users: 12,785+</span>
+                <span class="bg-green-100 text-green-800 text-[9px] font-extrabold px-1.5 py-0.5 rounded-md flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-green-500 animate-ping"></span>ACTIVE</span>
+              </div>
             </div>
-            <a href="https://bhuabhilekh.bihar.gov.in/bhu-lekh/" target="_blank" rel="noopener noreferrer" class="mt-5 w-full bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold py-2.5 px-4 rounded-xl text-center transition-colors block">
+            <a href="https://biharbhumi.bihar.gov.in/Biharbhumi/" target="_blank" rel="noopener noreferrer" class="mt-4 w-full bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-extrabold py-2 px-3 rounded-xl text-center transition-colors block">
               Portal Kholen →
             </a>
           </div>
 
           <!-- Card 2 (Saffron) -->
-          <div class="bg-white border border-slate-200 rounded-3xl p-5 hover:shadow-xl transition-all flex flex-col justify-between group border-t-4 border-t-amber-600">
-            <div>
-              <span class="text-3xl mb-2 block">🔄</span>
-              <h3 class="text-base sm:text-lg font-extrabold text-slate-900">जमाबंदी देखें</h3>
-              <p class="text-xs sm:text-sm text-slate-500 font-medium mt-1">Panjee-II — Jamabandi online</p>
-              <div class="mt-2 bg-amber-50 text-amber-800 text-[10px] font-bold px-2 py-1 rounded inline-block">Service: Jamabandi nakal download</div>
+          <div class="bg-white border border-slate-200 hover:border-orange-500 rounded-3xl p-4 sm:p-5 hover:shadow-lg transition-all flex flex-col justify-between group border-t-4 border-t-amber-500">
+            <div class="space-y-2">
+              <span class="text-2xl sm:text-3xl">📋</span>
+              <h3 class="text-sm sm:text-base font-black text-slate-900 leading-snug">जमाबंदी देखें (Panjee-II)</h3>
+              <p class="text-[11px] sm:text-xs text-slate-500 font-semibold">"Apni Jamabandi/RoR online dekhen"</p>
+              <span class="bg-amber-50 text-amber-700 text-[10px] font-bold px-2 py-0.5 rounded-md inline-block">Official Report</span>
             </div>
-            <a href="https://emutation.bihar.gov.in/biharBhumireport/ViewJamabandi" target="_blank" rel="noopener noreferrer" class="mt-5 w-full bg-amber-600 hover:bg-amber-700 text-white text-xs font-bold py-2.5 px-4 rounded-xl text-center transition-colors block">
+            <a href="https://emutation.bihar.gov.in/biharBhumireport/ViewJamabandi" target="_blank" rel="noopener noreferrer" class="mt-4 w-full bg-amber-500 hover:bg-amber-600 text-white text-xs font-extrabold py-2 px-3 rounded-xl text-center transition-colors block">
               Jamabandi Dekhen →
             </a>
           </div>
 
           <!-- Card 3 (Blue) -->
-          <div class="bg-white border border-slate-200 rounded-3xl p-5 hover:shadow-xl transition-all flex flex-col justify-between group border-t-4 border-t-blue-600">
-            <div>
-              <span class="text-3xl mb-2 block">📋</span>
-              <h3 class="text-base sm:text-lg font-extrabold text-slate-900">दाखिल खारिज Status</h3>
-              <p class="text-xs sm:text-sm text-slate-500 font-medium mt-1">Mutation application status</p>
-              <div class="mt-2 bg-blue-50 text-blue-800 text-[10px] font-bold px-2 py-1 rounded inline-block">Service: Dakhil Kharij check</div>
+          <div class="bg-white border border-slate-200 hover:border-blue-500 rounded-3xl p-4 sm:p-5 hover:shadow-lg transition-all flex flex-col justify-between group border-t-4 border-t-blue-600">
+            <div class="space-y-2">
+              <span class="text-2xl sm:text-3xl">🔄</span>
+              <h3 class="text-sm sm:text-base font-black text-slate-900 leading-snug">दाखिल खारिज Status</h3>
+              <p class="text-[11px] sm:text-xs text-slate-500 font-semibold">"Mutation application status check"</p>
+              <span class="bg-blue-50 text-blue-700 text-[10px] font-bold px-2 py-0.5 rounded-md inline-block">eMutation Track</span>
             </div>
-            <a href="https://emutation.bihar.gov.in/biharBhumireport/MutationStatusNew" target="_blank" rel="noopener noreferrer" class="mt-5 w-full bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold py-2.5 px-4 rounded-xl text-center transition-colors block">
+            <a href="https://emutation.bihar.gov.in/biharBhumireport/MutationStatusNew" target="_blank" rel="noopener noreferrer" class="mt-4 w-full bg-blue-600 hover:bg-blue-700 text-white text-xs font-extrabold py-2 px-3 rounded-xl text-center transition-colors block">
               Status Dekhen →
             </a>
           </div>
 
           <!-- Card 4 (Purple) -->
-          <div class="bg-white border border-slate-200 rounded-3xl p-5 hover:shadow-xl transition-all flex flex-col justify-between group border-t-4 border-t-violet-600">
-            <div>
-              <span class="text-3xl mb-2 block">💰</span>
-              <h3 class="text-base sm:text-lg font-extrabold text-slate-900">भू लगान (Bhu Lagan)</h3>
-              <p class="text-xs sm:text-sm text-slate-500 font-medium mt-1">Land tax online payment</p>
-              <div class="mt-2 bg-violet-50 text-violet-800 text-[10px] font-bold px-2 py-1 rounded inline-block">Service: Lagaan pay karein online</div>
+          <div class="bg-white border border-slate-200 hover:border-violet-500 rounded-3xl p-4 sm:p-5 hover:shadow-lg transition-all flex flex-col justify-between group border-t-4 border-t-violet-600">
+            <div class="space-y-2">
+              <span class="text-2xl sm:text-3xl">📍</span>
+              <h3 class="text-sm sm:text-base font-black text-slate-900 leading-snug">आवेदन की स्थिति</h3>
+              <p class="text-[11px] sm:text-xs text-slate-500 font-semibold">"Track any Bihar Bhumi application"</p>
+              <span class="bg-violet-50 text-violet-700 text-[10px] font-bold px-2 py-0.5 rounded-md inline-block">Universal Track</span>
             </div>
-            <a href="https://www.bhulagan.bihar.gov.in/" target="_blank" rel="noopener noreferrer" class="mt-5 w-full bg-violet-600 hover:bg-violet-700 text-white text-xs font-bold py-2.5 px-4 rounded-xl text-center transition-colors block">
-              Lagaan Bharein →
+            <a href="https://biharbhumi.bihar.gov.in/Biharbhumi/trackapplication" target="_blank" rel="noopener noreferrer" class="mt-4 w-full bg-violet-600 hover:bg-violet-700 text-white text-xs font-extrabold py-2 px-3 rounded-xl text-center transition-colors block">
+              Track Karein →
             </a>
           </div>
 
           <!-- Card 5 (Teal) -->
-          <div class="bg-white border border-slate-200 rounded-3xl p-5 hover:shadow-xl transition-all flex flex-col justify-between group border-t-4 border-t-teal-600">
-            <div>
-              <span class="text-3xl mb-2 block">🗺️</span>
-              <h3 class="text-base sm:text-lg font-extrabold text-slate-900">ई-मैपी (eMapi)</h3>
-              <p class="text-xs sm:text-sm text-slate-500 font-medium mt-1">Land map online dekhen</p>
-              <div class="mt-2 bg-teal-50 text-teal-800 text-[10px] font-bold px-2 py-1 rounded inline-block">Service: Plot ka naksha online</div>
+          <div class="bg-white border border-slate-200 hover:border-teal-500 rounded-3xl p-4 sm:p-5 hover:shadow-lg transition-all flex flex-col justify-between group border-t-4 border-t-teal-600">
+            <div class="space-y-2">
+              <span class="text-2xl sm:text-3xl">📄</span>
+              <h3 class="text-sm sm:text-base font-black text-slate-900 leading-snug">LPC Apply Online</h3>
+              <p class="text-[11px] sm:text-xs text-slate-500 font-semibold">"Land Possession Certificate apply"</p>
+              <span class="bg-teal-50 text-teal-700 text-[10px] font-bold px-2 py-0.5 rounded-md inline-block">Online Apply</span>
             </div>
-            <a href="https://emapi.bihar.gov.in/default.aspx" target="_blank" rel="noopener noreferrer" class="mt-5 w-full bg-teal-600 hover:bg-teal-700 text-white text-xs font-bold py-2.5 px-4 rounded-xl text-center transition-colors block">
-              Naksha Dekhen →
+            <a href="https://biharbhumi.bihar.gov.in/Biharbhumi/UserLogin" target="_blank" rel="noopener noreferrer" class="mt-4 w-full bg-teal-600 hover:bg-teal-700 text-white text-xs font-extrabold py-2 px-3 rounded-xl text-center transition-colors block">
+              LPC Apply →
             </a>
           </div>
 
           <!-- Card 6 (Orange) -->
-          <div class="bg-white border border-slate-200 rounded-3xl p-5 hover:shadow-xl transition-all flex flex-col justify-between group border-t-4 border-t-orange-600">
-            <div>
-              <span class="text-3xl mb-2 block">✏️</span>
-              <h3 class="text-base sm:text-lg font-extrabold text-slate-900">परिमार्जन (Parimarjan)</h3>
-              <p class="text-xs sm:text-sm text-slate-500 font-medium mt-1">Land record correction</p>
-              <div class="mt-2 bg-orange-50 text-orange-800 text-[10px] font-bold px-2 py-1 rounded inline-block">Service: Record mein galti theek</div>
+          <div class="bg-white border border-slate-200 hover:border-orange-500 rounded-3xl p-4 sm:p-5 hover:shadow-lg transition-all flex flex-col justify-between group border-t-4 border-t-orange-500">
+            <div class="space-y-2">
+              <span class="text-2xl sm:text-3xl">✅</span>
+              <h3 class="text-sm sm:text-base font-black text-slate-900 leading-snug">LPC Status Check</h3>
+              <p class="text-[11px] sm:text-xs text-slate-500 font-semibold">"LPC application status dekhen"</p>
+              <span class="bg-orange-50 text-orange-700 text-[10px] font-bold px-2 py-0.5 rounded-md inline-block">LPC Track</span>
             </div>
-            <a href="https://parimarjanplus.bihar.gov.in/ParimarjanNew/trackapplication.aspx" target="_blank" rel="noopener noreferrer" class="mt-5 w-full bg-orange-600 hover:bg-orange-700 text-white text-xs font-bold py-2.5 px-4 rounded-xl text-center transition-colors block">
-              Application Track →
+            <a href="https://emutation.bihar.gov.in/biharBhumireport/frm_LPC_StatusNew" target="_blank" rel="noopener noreferrer" class="mt-4 w-full bg-orange-500 hover:bg-orange-600 text-white text-xs font-extrabold py-2 px-3 rounded-xl text-center transition-colors block">
+              LPC Status →
             </a>
           </div>
 
           <!-- Card 7 (Red) -->
-          <div class="bg-white border border-slate-200 rounded-3xl p-5 hover:shadow-xl transition-all flex flex-col justify-between group border-t-4 border-t-red-600">
-            <div>
-              <span class="text-3xl mb-2 block">📱</span>
-              <h3 class="text-base sm:text-lg font-extrabold text-slate-900">Aadhar Seeding</h3>
-              <p class="text-xs sm:text-sm text-slate-500 font-medium mt-1">Aadhar se mobile link karein</p>
-              <div class="mt-2 bg-red-50 text-red-800 text-[10px] font-bold px-2 py-1 rounded inline-block">Service: Aadhar seeding status check</div>
+          <div class="bg-white border border-slate-200 hover:border-red-500 rounded-3xl p-4 sm:p-5 hover:shadow-lg transition-all flex flex-col justify-between group border-t-4 border-t-red-600">
+            <div class="space-y-2">
+              <span class="text-2xl sm:text-3xl">📅</span>
+              <h3 class="text-sm sm:text-base font-black text-slate-900 leading-snug">Cause List (Hearing)</h3>
+              <p class="text-[11px] sm:text-xs text-slate-500 font-semibold">"Dakhil Kharij ki sunwai ki tarikh"</p>
+              <span class="bg-red-50 text-red-700 text-[10px] font-bold px-2 py-0.5 rounded-md inline-block">Hearing Dates</span>
             </div>
-            <a href="https://emutation.bihar.gov.in/biharBhumireport/Aadhar_Mobile_Seeding_Status" target="_blank" rel="noopener noreferrer" class="mt-5 w-full bg-red-600 hover:bg-red-700 text-white text-xs font-bold py-2.5 px-4 rounded-xl text-center transition-colors block">
-              Status Dekhen →
+            <a href="https://emutation.bihar.gov.in/biharBhumireport/View_Cause_List" target="_blank" rel="noopener noreferrer" class="mt-4 w-full bg-red-600 hover:bg-red-700 text-white text-xs font-extrabold py-2 px-3 rounded-xl text-center transition-colors block">
+              Cause List Dekhen →
             </a>
           </div>
 
           <!-- Card 8 (Indigo) -->
-          <div class="bg-white border border-slate-200 rounded-3xl p-5 hover:shadow-xl transition-all flex flex-col justify-between group border-t-4 border-t-indigo-600">
-            <div>
-              <span class="text-3xl mb-2 block">🏛️</span>
-              <h3 class="text-base sm:text-lg font-extrabold text-slate-900">Bihar Bhumi Main</h3>
-              <p class="text-xs sm:text-sm text-slate-500 font-medium mt-1">Sabhi services ek jagah</p>
-              <div class="mt-2 bg-indigo-50 text-indigo-800 text-[10px] font-bold px-2 py-1 rounded inline-block">Service: Dakhil Kharij, LPC apply</div>
+          <div class="bg-white border border-slate-200 hover:border-indigo-500 rounded-3xl p-4 sm:p-5 hover:shadow-lg transition-all flex flex-col justify-between group border-t-4 border-t-indigo-600">
+            <div class="space-y-2">
+              <span class="text-2xl sm:text-3xl">⚠️</span>
+              <h3 class="text-sm sm:text-base font-black text-slate-900 leading-snug">Defect Applications</h3>
+              <p class="text-[11px] sm:text-xs text-slate-500 font-semibold">"CO ne lauta diya — kya karein?"</p>
+              <span class="bg-indigo-50 text-indigo-700 text-[10px] font-bold px-2 py-0.5 rounded-md inline-block">Defect Check</span>
             </div>
-            <a href="https://biharbhumi.bihar.gov.in/Biharbhumi/" target="_blank" rel="noopener noreferrer" class="mt-5 w-full bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold py-2.5 px-4 rounded-xl text-center transition-colors block">
-              Portal Kholen →
+            <a href="https://biharbhumi.bihar.gov.in/Biharbhumi/MutationDefectCheckList" target="_blank" rel="noopener noreferrer" class="mt-4 w-full bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-extrabold py-2 px-3 rounded-xl text-center transition-colors block">
+              Defect List Dekhen →
+            </a>
+          </div>
+
+          <!-- Card 9 (Pink) -->
+          <div class="bg-white border border-slate-200 hover:border-pink-500 rounded-3xl p-4 sm:p-5 hover:shadow-lg transition-all flex flex-col justify-between group border-t-4 border-t-pink-500">
+            <div class="space-y-2">
+              <span class="text-2xl sm:text-3xl">📢</span>
+              <h3 class="text-sm sm:text-base font-black text-slate-900 leading-snug">Aam Soochna (Notice)</h3>
+              <p class="text-[11px] sm:text-xs text-slate-500 font-semibold">"Mutation ki public notice dekhen"</p>
+              <span class="bg-pink-50 text-pink-700 text-[10px] font-bold px-2 py-0.5 rounded-md inline-block">Public Notices</span>
+            </div>
+            <a href="https://biharbhumi.bihar.gov.in/Biharbhumi/MutationReport" target="_blank" rel="noopener noreferrer" class="mt-4 w-full bg-pink-500 hover:bg-pink-600 text-white text-xs font-extrabold py-2 px-3 rounded-xl text-center transition-colors block">
+              Notice Dekhen →
+            </a>
+          </div>
+
+          <!-- Card 10 (Brown) -->
+          <div class="bg-white border border-slate-200 hover:border-amber-700 rounded-3xl p-4 sm:p-5 hover:shadow-lg transition-all flex flex-col justify-between group border-t-4 border-t-amber-700">
+            <div class="space-y-2">
+              <span class="text-2xl sm:text-3xl">💰</span>
+              <h3 class="text-sm sm:text-base font-black text-slate-900 leading-snug">भू लगान (Land Tax)</h3>
+              <p class="text-[11px] sm:text-xs text-slate-500 font-semibold">"Land tax online bharein"</p>
+              <span class="bg-amber-100 text-amber-900 text-[10px] font-bold px-2 py-0.5 rounded-md inline-block">Bhu Lagan</span>
+            </div>
+            <a href="https://www.bhulagan.bihar.gov.in/" target="_blank" rel="noopener noreferrer" class="mt-4 w-full bg-amber-700 hover:bg-amber-800 text-white text-xs font-extrabold py-2 px-3 rounded-xl text-center transition-colors block">
+              Lagaan Bharein →
+            </a>
+          </div>
+
+          <!-- Card 11 (Lime) -->
+          <div class="bg-white border border-slate-200 hover:border-lime-500 rounded-3xl p-4 sm:p-5 hover:shadow-lg transition-all flex flex-col justify-between group border-t-4 border-t-lime-500">
+            <div class="space-y-2">
+              <span class="text-2xl sm:text-3xl">🗺️</span>
+              <h3 class="text-sm sm:text-base font-black text-slate-900 leading-snug">eMapi (Land Map)</h3>
+              <p class="text-[11px] sm:text-xs text-slate-500 font-semibold">"Zameen ka naksha online"</p>
+              <span class="bg-lime-50 text-lime-700 text-[10px] font-bold px-2 py-0.5 rounded-md inline-block">Online Map</span>
+            </div>
+            <a href="https://emapi.bihar.gov.in/default.aspx" target="_blank" rel="noopener noreferrer" class="mt-4 w-full bg-lime-600 hover:bg-lime-700 text-white text-xs font-extrabold py-2 px-3 rounded-xl text-center transition-colors block">
+              Naksha Dekhen →
+            </a>
+          </div>
+
+          <!-- Card 12 (Cyan) -->
+          <div class="bg-white border border-slate-200 hover:border-cyan-500 rounded-3xl p-4 sm:p-5 hover:shadow-lg transition-all flex flex-col justify-between group border-t-4 border-t-cyan-500">
+            <div class="space-y-2">
+              <span class="text-2xl sm:text-3xl">🗺️</span>
+              <h3 class="text-sm sm:text-base font-black text-slate-900 leading-snug">भू-मानचित्र</h3>
+              <p class="text-[11px] sm:text-xs text-slate-500 font-semibold">"Digital land map/survey"</p>
+              <span class="bg-cyan-50 text-cyan-700 text-[10px] font-bold px-2 py-0.5 rounded-md inline-block">Bhu Manchitra</span>
+            </div>
+            <a href="https://bhuabhilekh.bihar.gov.in/login?ref=aW5kZXgucGhw" target="_blank" rel="noopener noreferrer" class="mt-4 w-full bg-cyan-600 hover:bg-cyan-700 text-white text-xs font-extrabold py-2 px-3 rounded-xl text-center transition-colors block">
+              Manchitra Dekhen →
             </a>
           </div>
 
         </div>
       </section>
 
-      <!-- SECTION 2 — BHU ABHILEKH PORTAL GUIDE -->
-      <section id="bhu-abhilekh-guide" class="bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 space-y-6">
-        <h2 class="text-xl sm:text-2xl font-black text-slate-900 flex items-center gap-3">
-          <span class="bg-emerald-100 text-emerald-800 text-sm px-2.5 py-1 rounded-lg">Sec 2</span>
-          भू अभिलेख Portal — Digitized Land Records
-        </h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div class="space-y-4">
-            <h3 class="font-extrabold text-slate-900 text-base">पोर्टल क्या काम करता है? (What it does)</h3>
-            <ul class="space-y-2 text-sm text-slate-600 font-semibold list-disc list-inside">
-              <li>Digitized scanned copies of old land records</li>
-              <li>Khatyan (RoR) ke purane records</li>
-              <li>Public login se free access</li>
-              <li>Scanned images of original documents</li>
-            </ul>
-            <div class="bg-amber-50 border border-amber-200 rounded-2xl p-4 text-xs text-amber-950 font-semibold space-y-1">
-              <span class="font-black text-amber-800 block">⚠️ महत्वपूर्ण ध्यान दें (Important Note)</span>
-              Is portal par scanned images hain — ye reference ke liye hain. Court aur bank ke liye certified copy Anchal Office se leni hogi.
-            </div>
-          </div>
-          <div class="space-y-3 bg-slate-50 p-5 rounded-2xl border border-slate-200">
-            <h3 class="font-bold text-slate-900 text-sm">Step by Step Guide (हिंदी में)</h3>
-            <ol class="space-y-2 text-xs font-bold text-slate-700">
-              <li><span class="text-primaryGreen">Step 1:</span> bhuabhilekh.bihar.gov.in/bhu-lekh/ open karein</li>
-              <li><span class="text-primaryGreen">Step 2:</span> "Accept Disclaimer" checkbox tick karein</li>
-              <li><span class="text-primaryGreen">Step 3:</span> "Public Login" par click karein</li>
-              <li><span class="text-primaryGreen">Step 4:</span> Mobile number se register karein</li>
-              <li><span class="text-primaryGreen">Step 5:</span> OTP verify karein</li>
-              <li><span class="text-primaryGreen">Step 6:</span> Apna district, anchal, halka, mauja select karein</li>
-              <li><span class="text-primaryGreen">Step 7:</span> Khata ya naam se search karein</li>
-              <li><span class="text-primaryGreen">Step 8:</span> Scanned record dekhen aur download karein</li>
-            </ol>
-          </div>
+
+      <!-- SECTION 2 — WHICH PORTAL FOR WHAT? (H2) -->
+      <section id="which-portal" class="space-y-6 scroll-mt-20">
+        <div class="text-center md:text-left space-y-2">
+          <h2 class="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">कौन सा काम — कौन से Portal पर? Quick Guide</h2>
+          <p class="text-xs sm:text-sm text-slate-500 font-semibold">बिहार भूमि संबंधी सभी प्रमुख सेवाओं और उनके संबंधित पोर्टल व सीधे लिंक की सूची:</p>
         </div>
-        <div class="pt-2">
-          <a href="https://bhuabhilekh.bihar.gov.in/bhu-lekh/" target="_blank" rel="noopener noreferrer" class="inline-block bg-primaryGreen hover:bg-customGreenHover text-white text-sm font-extrabold px-6 py-3 rounded-2xl shadow-md transition-all">
-            Bhu Abhilekh Portal Kholen 🌐
-          </a>
+
+        <div class="bg-white border border-slate-200 rounded-3xl overflow-hidden shadow-xs">
+          <div class="overflow-x-auto">
+            <table class="min-w-full divide-y divide-slate-100 text-left text-sm whitespace-nowrap">
+              <thead class="bg-slate-50 font-bold text-slate-700 text-xs uppercase tracking-wider">
+                <tr>
+                  <th class="px-5 py-4">आपका काम (Aapka Kaam)</th>
+                  <th class="px-5 py-4">पोर्टल (Portal Name)</th>
+                  <th class="px-5 py-4 text-right">सीधा लिंक (Direct Link)</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-100 font-semibold text-slate-700 text-xs sm:text-sm">
+                <tr class="hover:bg-emerald-50/45 transition-colors">
+                  <td class="px-5 py-3 text-slate-900">🏠 Dakhil Kharij Apply</td>
+                  <td class="px-5 py-3 text-emerald-800">Bihar Bhumi</td>
+                  <td class="px-5 py-3 text-right"><a href="https://biharbhumi.bihar.gov.in/Biharbhumi/UserLogin" target="_blank" rel="noopener noreferrer" class="inline-block bg-emerald-600 hover:bg-emerald-700 text-white text-[11px] font-extrabold px-3 py-1.5 rounded-lg transition-colors">Kholen →</a></td>
+                </tr>
+                <tr class="hover:bg-amber-50/45 transition-colors">
+                  <td class="px-5 py-3 text-slate-900">📋 Dakhil Kharij Status</td>
+                  <td class="px-5 py-3 text-amber-800">eMutation</td>
+                  <td class="px-5 py-3 text-right"><a href="https://emutation.bihar.gov.in/biharBhumireport/MutationStatusNew" target="_blank" rel="noopener noreferrer" class="inline-block bg-amber-500 hover:bg-amber-600 text-white text-[11px] font-extrabold px-3 py-1.5 rounded-lg transition-colors">Kholen →</a></td>
+                </tr>
+                <tr class="hover:bg-amber-50/45 transition-colors">
+                  <td class="px-5 py-3 text-slate-900">📅 Dakhil Kharij Cause List</td>
+                  <td class="px-5 py-3 text-amber-800">eMutation</td>
+                  <td class="px-5 py-3 text-right"><a href="https://emutation.bihar.gov.in/biharBhumireport/View_Cause_List" target="_blank" rel="noopener noreferrer" class="inline-block bg-amber-500 hover:bg-amber-600 text-white text-[11px] font-extrabold px-3 py-1.5 rounded-lg transition-colors">Kholen →</a></td>
+                </tr>
+                <tr class="hover:bg-indigo-50/45 transition-colors">
+                  <td class="px-5 py-3 text-slate-900">⚠️ Defective/Returned App</td>
+                  <td class="px-5 py-3 text-indigo-800">Bihar Bhumi</td>
+                  <td class="px-5 py-3 text-right"><a href="https://biharbhumi.bihar.gov.in/Biharbhumi/MutationDefectCheckList" target="_blank" rel="noopener noreferrer" class="inline-block bg-indigo-600 hover:bg-indigo-700 text-white text-[11px] font-extrabold px-3 py-1.5 rounded-lg transition-colors">Kholen →</a></td>
+                </tr>
+                <tr class="hover:bg-pink-50/45 transition-colors">
+                  <td class="px-5 py-3 text-slate-900">📢 Public Notice Check</td>
+                  <td class="px-5 py-3 text-pink-800">Bihar Bhumi</td>
+                  <td class="px-5 py-3 text-right"><a href="https://biharbhumi.bihar.gov.in/Biharbhumi/MutationReport" target="_blank" rel="noopener noreferrer" class="inline-block bg-pink-500 hover:bg-pink-600 text-white text-[11px] font-extrabold px-3 py-1.5 rounded-lg transition-colors">Kholen →</a></td>
+                </tr>
+                <tr class="hover:bg-teal-50/45 transition-colors">
+                  <td class="px-5 py-3 text-slate-900">📄 LPC Apply</td>
+                  <td class="px-5 py-3 text-teal-800">Bihar Bhumi</td>
+                  <td class="px-5 py-3 text-right"><a href="https://biharbhumi.bihar.gov.in/Biharbhumi/UserLogin" target="_blank" rel="noopener noreferrer" class="inline-block bg-teal-600 hover:bg-teal-700 text-white text-[11px] font-extrabold px-3 py-1.5 rounded-lg transition-colors">Kholen →</a></td>
+                </tr>
+                <tr class="hover:bg-orange-50/45 transition-colors">
+                  <td class="px-5 py-3 text-slate-900">✅ LPC Status</td>
+                  <td class="px-5 py-3 text-orange-800">eMutation</td>
+                  <td class="px-5 py-3 text-right"><a href="https://emutation.bihar.gov.in/biharBhumireport/frm_LPC_StatusNew" target="_blank" rel="noopener noreferrer" class="inline-block bg-orange-500 hover:bg-orange-600 text-white text-[11px] font-extrabold px-3 py-1.5 rounded-lg transition-colors">Kholen →</a></td>
+                </tr>
+                <tr class="hover:bg-amber-50/45 transition-colors">
+                  <td class="px-5 py-3 text-slate-900">📑 Jamabandi Dekhen</td>
+                  <td class="px-5 py-3 text-amber-800">eMutation</td>
+                  <td class="px-5 py-3 text-right"><a href="https://emutation.bihar.gov.in/biharBhumireport/ViewJamabandi" target="_blank" rel="noopener noreferrer" class="inline-block bg-amber-500 hover:bg-amber-600 text-white text-[11px] font-extrabold px-3 py-1.5 rounded-lg transition-colors">Kholen →</a></td>
+                </tr>
+                <tr class="hover:bg-violet-50/45 transition-colors">
+                  <td class="px-5 py-3 text-slate-900">📍 Track Any Application</td>
+                  <td class="px-5 py-3 text-violet-800">Bihar Bhumi</td>
+                  <td class="px-5 py-3 text-right"><a href="https://biharbhumi.bihar.gov.in/Biharbhumi/trackapplication" target="_blank" rel="noopener noreferrer" class="inline-block bg-violet-600 hover:bg-violet-700 text-white text-[11px] font-extrabold px-3 py-1.5 rounded-lg transition-colors">Kholen →</a></td>
+                </tr>
+                <tr class="hover:bg-lime-50/45 transition-colors">
+                  <td class="px-5 py-3 text-slate-900">🗺️ Land Map (Naksha)</td>
+                  <td class="px-5 py-3 text-lime-800">eMapi</td>
+                  <td class="px-5 py-3 text-right"><a href="https://emapi.bihar.gov.in/default.aspx" target="_blank" rel="noopener noreferrer" class="inline-block bg-lime-600 hover:bg-lime-700 text-white text-[11px] font-extrabold px-3 py-1.5 rounded-lg transition-colors">Kholen →</a></td>
+                </tr>
+                <tr class="hover:bg-cyan-50/45 transition-colors">
+                  <td class="px-5 py-3 text-slate-900">🗺️ Bhu Manchitra</td>
+                  <td class="px-5 py-3 text-cyan-800">Bhu Abhilekh</td>
+                  <td class="px-5 py-3 text-right"><a href="https://bhuabhilekh.bihar.gov.in/login?ref=aW5kZXgucGhw" target="_blank" rel="noopener noreferrer" class="inline-block bg-cyan-600 hover:bg-cyan-700 text-white text-[11px] font-extrabold px-3 py-1.5 rounded-lg transition-colors">Kholen →</a></td>
+                </tr>
+                <tr class="hover:bg-amber-50/45 transition-colors">
+                  <td class="px-5 py-3 text-slate-900">💰 Bhu Lagan Pay</td>
+                  <td class="px-5 py-3 text-amber-850">Bhu Lagan</td>
+                  <td class="px-5 py-3 text-right"><a href="https://www.bhulagan.bihar.gov.in/" target="_blank" rel="noopener noreferrer" class="inline-block bg-amber-700 hover:bg-amber-800 text-white text-[11px] font-extrabold px-3 py-1.5 rounded-lg transition-colors">Kholen →</a></td>
+                </tr>
+                <tr class="hover:bg-orange-50/45 transition-colors">
+                  <td class="px-5 py-3 text-slate-900">✏️ Record Correction</td>
+                  <td class="px-5 py-3 text-orange-800">Parimarjan</td>
+                  <td class="px-5 py-3 text-right"><a href="https://parimarjanplus.bihar.gov.in/ParimarjanNew/trackapplication.aspx" target="_blank" rel="noopener noreferrer" class="inline-block bg-orange-600 hover:bg-orange-700 text-white text-[11px] font-extrabold px-3 py-1.5 rounded-lg transition-colors">Kholen →</a></td>
+                </tr>
+                <tr class="hover:bg-red-50/45 transition-colors">
+                  <td class="px-5 py-3 text-slate-900">⚖️ Complaint/Grievance</td>
+                  <td class="px-5 py-3 text-red-800">Jan Shikayat</td>
+                  <td class="px-5 py-3 text-right"><a href="https://biharbhumiplus.bihar.gov.in/pg/" target="_blank" rel="noopener noreferrer" class="inline-block bg-red-600 hover:bg-red-700 text-white text-[11px] font-extrabold px-3 py-1.5 rounded-lg transition-colors">Kholen →</a></td>
+                </tr>
+                <tr class="hover:bg-red-50/45 transition-colors">
+                  <td class="px-5 py-3 text-slate-900">📱 Aadhar-Mobile Seeding</td>
+                  <td class="px-5 py-3 text-red-800">eMutation</td>
+                  <td class="px-5 py-3 text-right"><a href="https://emutation.bihar.gov.in/biharBhumireport/Aadhar_Mobile_Seeding_Status" target="_blank" rel="noopener noreferrer" class="inline-block bg-red-600 hover:bg-red-700 text-white text-[11px] font-extrabold px-3 py-1.5 rounded-lg transition-colors">Kholen →</a></td>
+                </tr>
+                <tr class="hover:bg-emerald-50/45 transition-colors">
+                  <td class="px-5 py-3 text-slate-900">📜 Old Records/Khatyan</td>
+                  <td class="px-5 py-3 text-emerald-800">Bhu Abhilekh</td>
+                  <td class="px-5 py-3 text-right"><a href="https://bhuabhilekh.bihar.gov.in/bhu-lekh/" target="_blank" rel="noopener noreferrer" class="inline-block bg-emerald-600 hover:bg-emerald-700 text-white text-[11px] font-extrabold px-3 py-1.5 rounded-lg transition-colors">Kholen →</a></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </section>
 
-      <!-- SECTION 3 — JAMABANDI DEKHEN GUIDE -->
-      <section id="jamabandi-guide" class="bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 space-y-6">
-        <h2 class="text-xl sm:text-2xl font-black text-slate-900 flex items-center gap-3">
-          <span class="bg-emerald-100 text-emerald-800 text-sm px-2.5 py-1 rounded-lg">Sec 3</span>
-          जमाबंदी (Panjee-II) Online Kaise Dekhen?
-        </h2>
+      <!-- SECTION 3 — DAKHIL KHARIJ COMPLETE GUIDE (H2) -->
+      <section id="dakhil-kharij-guide" class="space-y-6 scroll-mt-20">
+        <div class="text-center md:text-left space-y-2">
+          <h2 class="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">दाखिल खारिज — Apply से Approval तक पूरी जानकारी</h2>
+          <p class="text-xs sm:text-sm text-slate-500 font-semibold">दाखिल खारिज (Mutation) की पूरी प्रक्रिया और हर कदम के लिए सही गाइड:</p>
+        </div>
+
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div class="space-y-4">
-            <h3 class="font-extrabold text-slate-900 text-base">पोर्टल क्या काम करता है? (What it does)</h3>
-            <ul class="space-y-2 text-sm text-slate-600 font-semibold list-disc list-inside">
-              <li>Online Jamabandi (Panjee-II) dekhen</li>
-              <li>Raiyat ka naam, plot, raqba sabkuch</li>
-              <li>Dakhil Kharij ke baad automatically update hoti hai</li>
-              <li>Free service — koi fees nahi</li>
-            </ul>
-            <div class="bg-emerald-50 border border-emerald-200 rounded-2xl p-4 text-xs text-emerald-950 font-semibold space-y-1">
-              <span class="font-black text-emerald-800 block">✅ सुगम समाधान (Tip)</span>
-              Dakhil Kharij hone ke baad Jamabandi automatically update hoti hai. Galti hone par Parimarjan portal par correction ke liye apply karein: http://parimarjan.bihar.gov.in/
+          
+          <!-- Sub-section A -->
+          <div class="bg-white border border-slate-200 rounded-3xl p-5 hover:shadow-md transition-all space-y-4">
+            <div class="flex items-center justify-between">
+              <span class="bg-emerald-50 text-emerald-800 text-xs font-black px-2.5 py-1 rounded-lg uppercase tracking-wide">Sub-section A</span>
+              <a href="https://biharbhumi.bihar.gov.in/Biharbhumi/UserLogin" target="_blank" rel="noopener noreferrer" class="text-xs text-primaryGreen font-black hover:underline">Direct Link 🌐</a>
             </div>
-          </div>
-          <div class="space-y-3 bg-slate-50 p-5 rounded-2xl border border-slate-200">
-            <h3 class="font-bold text-slate-900 text-sm">Step by Step Guide (हिंदी में)</h3>
-            <ol class="space-y-2 text-xs font-bold text-slate-700">
-              <li><span class="text-primaryGreen">Step 1:</span> Portal link open karein (new tab mein)</li>
-              <li><span class="text-primaryGreen">Step 2:</span> Apna Jila select karein</li>
-              <li><span class="text-primaryGreen">Step 3:</span> Anchal select karein</li>
-              <li><span class="text-primaryGreen">Step 4:</span> Halka select karein</li>
-              <li><span class="text-primaryGreen">Step 5:</span> Mauja (gaon) select karein</li>
-              <li><span class="text-primaryGreen">Step 6:</span> Search method chunein:
-                <ul class="list-none pl-3 mt-1 space-y-1 text-slate-500">
-                  <li>• Raiyat ka naam se khojein</li>
-                  <li>• Plot number se khojein</li>
-                  <li>• Khata number se khojein</li>
-                  <li>• Jamabandi number se khojein</li>
-                  <li>• computerized Jamabandi number se</li>
-                </ul>
-              </li>
-              <li><span class="text-primaryGreen">Step 7:</span> Security code enter karein</li>
-              <li><span class="text-primaryGreen">Step 8:</span> Search karein aur result dekhen</li>
+            <h3 class="text-base sm:text-lg font-black text-slate-900">✍️ दाखिल खारिज ऑनलाइन आवेदन कैसे करें?</h3>
+            <ol class="space-y-2 text-xs sm:text-sm font-semibold text-slate-600">
+              <li><span class="text-primaryGreen font-bold">Step 1:</span> <a href="https://biharbhumi.bihar.gov.in/Biharbhumi/" target="_blank" rel="noopener noreferrer" class="text-emerald-700 hover:underline font-bold">biharbhumi.bihar.gov.in</a> खोलें।</li>
+              <li><span class="text-primaryGreen font-bold">Step 2:</span> होमपेज पर <span class="text-slate-900 font-bold">"ऑनलाइन दाखिल खारिज आवेदन करें"</span> (User Login) बटन पर क्लिक करें।</li>
+              <li><span class="text-primaryGreen font-bold">Step 3:</span> अपना मोबाइल नंबर और पासवर्ड डालकर लॉगिन या रजिस्ट्रेशन करें।</li>
+              <li><span class="text-primaryGreen font-bold">Step 4:</span> अपना जिला और अंचल चुनकर <span class="text-slate-900 font-bold">"Apply Online Dakhil Kharij"</span> पर क्लिक करें।</li>
+              <li><span class="text-primaryGreen font-bold">Step 5:</span> आवेदन फॉर्म में क्रेता (Buyer), विक्रेता (Seller), और भूमि का खता-खेसरा पूर्णतः भरें।</li>
+              <li><span class="text-primaryGreen font-bold">Step 6:</span> रजिस्ट्री दस्तावेज की स्पष्ट PDF फाइल बनाकर अपलोड करें।</li>
+              <li><span class="text-primaryGreen font-bold">Step 7:</span> फाइनल सबमिट करें और <span class="text-emerald-700 font-black">Case Number</span> नोट करें।</li>
             </ol>
           </div>
-        </div>
-        <div class="pt-2">
-          <a href="https://emutation.bihar.gov.in/biharBhumireport/ViewJamabandi" target="_blank" rel="noopener noreferrer" class="inline-block bg-primaryGreen hover:bg-customGreenHover text-white text-sm font-extrabold px-6 py-3 rounded-2xl shadow-md transition-all">
-            Jamabandi Portal Kholen 🌐
-          </a>
+
+          <!-- Sub-section B -->
+          <div class="bg-white border border-slate-200 rounded-3xl p-5 hover:shadow-md transition-all space-y-4">
+            <div class="flex items-center justify-between">
+              <span class="bg-amber-50 text-amber-800 text-xs font-black px-2.5 py-1 rounded-lg uppercase tracking-wide">Sub-section B</span>
+              <a href="https://emutation.bihar.gov.in/biharBhumireport/MutationStatusNew" target="_blank" rel="noopener noreferrer" class="text-xs text-amber-600 font-black hover:underline">Direct Link 🌐</a>
+            </div>
+            <h3 class="text-base sm:text-lg font-black text-slate-900">🔄 दाखिल खारिज का Status कैसे चेक करें?</h3>
+            <ol class="space-y-2 text-xs sm:text-sm font-semibold text-slate-600">
+              <li><span class="text-primaryGreen font-bold">Step 1:</span> eMutation स्थिति पोर्टल लिंक खोलें।</li>
+              <li><span class="text-primaryGreen font-bold">Step 2:</span> अपना संबंधित जिला (District) और अंचल (Anchal) चुनें।</li>
+              <li><span class="text-primaryGreen font-bold">Step 3:</span> सही वित्तीय वर्ष (Financial Year) चुनें, जैसे <span class="text-slate-900 font-bold">2026-2027</span>।</li>
+              <li><span class="text-primaryGreen font-bold">Step 4:</span> खोजने के तरीके को चुनें: <span class="text-slate-800 font-bold">Case Number / Deed Number / Mauja / Plot Number</span>।</li>
+              <li><span class="text-primaryGreen font-bold">Step 5:</span> कैप्चा या सुरक्षा कोड दर्ज करें और 'Search' पर क्लिक करें।</li>
+              <li><span class="text-primaryGreen font-bold">Step 6:</span> लिस्ट में अपने नाम के आगे 'View' पर क्लिक करके विस्तृत स्थिति देखें।</li>
+            </ol>
+          </div>
+
+          <!-- Sub-section C -->
+          <div class="bg-white border border-slate-200 rounded-3xl p-5 hover:shadow-md transition-all space-y-4">
+            <div class="flex items-center justify-between">
+              <span class="bg-red-50 text-red-800 text-xs font-black px-2.5 py-1 rounded-lg uppercase tracking-wide">Sub-section C</span>
+              <a href="https://emutation.bihar.gov.in/biharBhumireport/View_Cause_List" target="_blank" rel="noopener noreferrer" class="text-xs text-red-600 font-black hover:underline">Direct Link 🌐</a>
+            </div>
+            <h3 class="text-base sm:text-lg font-black text-slate-900">📅 Cause List (सुनवाई की तारीख) कैसे देखें?</h3>
+            <p class="text-xs text-slate-500 font-bold bg-slate-50 p-2.5 rounded-xl">दाखिल-खारिज विवादों की सुनवाई (Hearing) कब होगी, यह ऑनलाइन जानें:</p>
+            <ol class="space-y-2 text-xs sm:text-sm font-semibold text-slate-600">
+              <li><span class="text-primaryGreen font-bold">Step 1:</span> eMutation Cause List पोर्टल पर जाएं।</li>
+              <li><span class="text-primaryGreen font-bold">Step 2:</span> अपना जिला और अंचल (Circle) सेलेक्ट करें।</li>
+              <li><span class="text-primaryGreen font-bold">Step 3:</span> कैलेंडर से वह तारीख चुनें जिसकी सुनवाई देखना चाहते हैं।</li>
+              <li><span class="text-primaryGreen font-bold">Step 4:</span> खोजें बटन दबाएं, आपके सामने उस दिन के सभी मामलों की सूची आ जाएगी।</li>
+            </ol>
+          </div>
+
+          <!-- Sub-section D -->
+          <div class="bg-white border border-slate-200 rounded-3xl p-5 hover:shadow-md transition-all space-y-4">
+            <div class="flex items-center justify-between">
+              <span class="bg-purple-50 text-purple-800 text-xs font-black px-2.5 py-1 rounded-lg uppercase tracking-wide">Sub-section D</span>
+              <a href="https://biharbhumi.bihar.gov.in/Biharbhumi/trackapplication" target="_blank" rel="noopener noreferrer" class="text-xs text-purple-600 font-black hover:underline">Direct Link 🌐</a>
+            </div>
+            <h3 class="text-base sm:text-lg font-black text-slate-900">📍 Universal Application Track कैसे करें?</h3>
+            <ol class="space-y-2 text-xs sm:text-sm font-semibold text-slate-600">
+              <li><span class="text-primaryGreen font-bold">Step 1:</span> Track Application पोर्टल लिंक खोलें।</li>
+              <li><span class="text-primaryGreen font-bold">Step 2:</span> अपना जिला और अंचल सेलेक्ट करें।</li>
+              <li><span class="text-primaryGreen font-bold">Step 3:</span> अपना आवेदन पंजीकरण संख्या (Application ID) भरें।</li>
+              <li><span class="text-primaryGreen font-bold">Step 4:</span> कैप्चा भरकर 'Search' करें, करंट विभाग स्तर का पता लगाएं।</li>
+            </ol>
+          </div>
+
+          <!-- Sub-section E -->
+          <div class="bg-white border border-slate-200 rounded-3xl p-5 hover:shadow-md transition-all space-y-4">
+            <div class="flex items-center justify-between">
+              <span class="bg-indigo-50 text-indigo-800 text-xs font-black px-2.5 py-1 rounded-lg uppercase tracking-wide">Sub-section E</span>
+              <a href="https://biharbhumi.bihar.gov.in/Biharbhumi/MutationDefectCheckList" target="_blank" rel="noopener noreferrer" class="text-xs text-indigo-600 font-black hover:underline">Direct Link 🌐</a>
+            </div>
+            <h3 class="text-base sm:text-lg font-black text-slate-900">⚠️ Defective / CO Returned Application का क्या करें?</h3>
+            <p class="text-xs text-slate-500 font-bold bg-amber-50 text-amber-900 p-2.5 rounded-xl">यदि अंचल अधिकारी (CO) ने आपकी अर्जी लौटा दी है:</p>
+            <ol class="space-y-2 text-xs sm:text-sm font-semibold text-slate-600">
+              <li><span class="text-primaryGreen font-bold">Step 1:</span> Mutation Defect Checklist लिंक पर क्लिक करें।</li>
+              <li><span class="text-primaryGreen font-bold">Step 2:</span> जिला, अंचल, हल्का और मौजा चुनें।</li>
+              <li><span class="text-primaryGreen font-bold">Step 3:</span> सिक्योरिटी कोड भरकर खोजें, आपके आवेदन में CO द्वारा लगाया गया 'Defect Reason' दिख जाएगा।</li>
+              <li><span class="text-primaryGreen font-bold">Step 4:</span> दस्तावेजों को संशोधित करके पुनः लॉगिन करके सबमिट करें।</li>
+            </ol>
+          </div>
+
+          <!-- Sub-section F -->
+          <div class="bg-white border border-slate-200 rounded-3xl p-5 hover:shadow-md transition-all space-y-4">
+            <div class="flex items-center justify-between">
+              <span class="bg-pink-50 text-pink-800 text-xs font-black px-2.5 py-1 rounded-lg uppercase tracking-wide">Sub-section F</span>
+              <a href="https://biharbhumi.bihar.gov.in/Biharbhumi/MutationReport" target="_blank" rel="noopener noreferrer" class="text-xs text-pink-600 font-black hover:underline">Direct Link 🌐</a>
+            </div>
+            <h3 class="text-base sm:text-lg font-black text-slate-900">📢 Aam Soochna (Public Notice) कैसे देखें?</h3>
+            <ol class="space-y-2 text-xs sm:text-sm font-semibold text-slate-600">
+              <li><span class="text-primaryGreen font-bold">Step 1:</span> Aam Soochna/Notice पोर्टल खोलें।</li>
+              <li><span class="text-primaryGreen font-bold">Step 2:</span> अपना डिस्ट्रिक्ट और सर्कल चुनें।</li>
+              <li><span class="text-primaryGreen font-bold">Step 3:</span> अपने मौजा का चयन करें।</li>
+              <li><span class="text-primaryGreen font-bold">Step 4:</span> उस क्षेत्र के सभी जारी किए गए पब्लिक नोटिस आपके सामने होंगे, जिस पर आपत्ति दर्ज कराई जा सकती है।</li>
+            </ol>
+          </div>
+
         </div>
       </section>
 
-      <!-- SECTION 4 — DAKHIL KHARIJ STATUS CHECK -->
-      <section id="dakhil-kharij-status-guide" class="bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 space-y-6">
-        <h2 class="text-xl sm:text-2xl font-black text-slate-900 flex items-center gap-3">
-          <span class="bg-emerald-100 text-emerald-800 text-sm px-2.5 py-1 rounded-lg">Sec 4</span>
-          दाखिल खारिज (Mutation) Status Kaise Check Karein?
-        </h2>
+
+      <!-- SECTION 4 — LPC COMPLETE GUIDE (H2) -->
+      <section id="lpc-guide" class="space-y-6 scroll-mt-20">
+        <div class="text-center md:text-left space-y-2">
+          <h2 class="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">LPC (Land Possession Certificate) गाइड</h2>
+          <p class="text-xs sm:text-sm text-slate-500 font-semibold">एलपीसी (भूमि स्वामित्व प्रमाण पत्र) के ऑनलाइन आवेदन और स्थिति की जाँच:</p>
+        </div>
+
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div class="space-y-4">
-            <h3 class="font-extrabold text-slate-900 text-base">पोर्टल क्या काम करता है? (What it does)</h3>
-            <ul class="space-y-2 text-sm text-slate-600 font-semibold list-disc list-inside">
-              <li>Mutation application ka status check</li>
-              <li>Case number ya Deed number se search</li>
-              <li>Financial year wise status</li>
-              <li>Plot number ya Mauja se bhi search</li>
-            </ul>
-            
-            <div class="space-y-2">
-              <span class="font-extrabold text-slate-900 text-sm block">Status Meanings (स्टेटस का मतलब)</span>
-              <div class="grid grid-cols-2 gap-2 text-xs font-bold">
-                <div class="bg-yellow-50 border border-yellow-200 text-yellow-800 px-3 py-2 rounded-xl">🟡 Pending — Application received</div>
-                <div class="bg-blue-50 border border-blue-200 text-blue-800 px-3 py-2 rounded-xl">🔵 Under Process — Verification on</div>
-                <div class="bg-orange-50 border border-orange-200 text-orange-800 px-3 py-2 rounded-xl">🟠 Hearing Scheduled — Sunwai</div>
-                <div class="bg-emerald-50 border border-emerald-200 text-emerald-800 px-3 py-2 rounded-xl">🟢 Approved — Done</div>
-                <div class="bg-red-50 border border-red-200 text-red-800 px-3 py-2 rounded-xl col-span-2">🔴 Rejected — Application Rejected (Karan dekhen)</div>
+          
+          <!-- Sub-section A -->
+          <div class="bg-white border border-slate-200 rounded-3xl p-5 hover:shadow-md transition-all space-y-4">
+            <span class="bg-teal-50 text-teal-800 text-xs font-black px-2.5 py-1 rounded-lg uppercase tracking-wide">Sub-section A</span>
+            <h3 class="text-base sm:text-lg font-black text-slate-900">📄 LPC Online Apply कैसे करें?</h3>
+            <ol class="space-y-2 text-xs sm:text-sm font-semibold text-slate-600">
+              <li><span class="text-teal-600 font-bold">Step 1:</span> <a href="https://biharbhumi.bihar.gov.in/Biharbhumi/" target="_blank" rel="noopener noreferrer" class="text-teal-700 hover:underline font-bold">Bihar Bhumi Main Portal</a> खोलें।</li>
+              <li><span class="text-teal-600 font-bold">Step 2:</span> अपना अकाउंट लॉगिन करके <span class="text-slate-900 font-bold">"LPC Apply"</span> बटन का चयन करें।</li>
+              <li><span class="text-teal-600 font-bold">Step 3:</span> अपना मौजा चुनें और जमाबंदी सर्च करके <span class="text-slate-900 font-bold">"Apply for LPC"</span> पर क्लिक करें।</li>
+              <li><span class="text-teal-600 font-bold">Step 4:</span> आवेदक का विवरण भरें और शपथ पत्र (Affidavit Form) अपलोड करें।</li>
+              <li><span class="text-teal-600 font-bold">Step 5:</span> फॉर्म सबमिट करके प्राप्त पावती (Receipt Number) सुरक्षित रखें।</li>
+            </ol>
+          </div>
+
+          <!-- Sub-section B -->
+          <div class="bg-white border border-slate-200 rounded-3xl p-5 hover:shadow-md transition-all space-y-4">
+            <span class="bg-orange-50 text-orange-800 text-xs font-black px-2.5 py-1 rounded-lg uppercase tracking-wide">Sub-section B</span>
+            <h3 class="text-base sm:text-lg font-black text-slate-900">✅ LPC Status Check एवं रंगों का अर्थ</h3>
+            <p class="text-xs text-slate-500 font-bold bg-slate-50 p-2 rounded-xl">एलपीसी स्थिति में विभिन्न रंगों का क्या अर्थ होता है, इसे ध्यान से समझें:</p>
+            <div class="grid grid-cols-2 gap-2 text-[10px] sm:text-xs font-bold">
+              <div class="bg-yellow-50 border border-yellow-200 text-yellow-800 px-2 py-1.5 rounded-xl">🟡 Yellow: Applied (आवेदन प्राप्त हुआ)</div>
+              <div class="bg-blue-50 border border-blue-200 text-blue-800 px-2 py-1.5 rounded-xl">🔵 Blue: Under Process (अंचल स्तर पर लंबित)</div>
+              <div class="bg-orange-50 border border-orange-200 text-orange-800 px-2 py-1.5 rounded-xl">🟠 Orange: Field Verification (जांच जारी)</div>
+              <div class="bg-emerald-50 border border-emerald-200 text-emerald-800 px-2 py-1.5 rounded-xl">🟢 Green: Approved (स्वीकृत)</div>
+              <div class="bg-teal-50 border border-teal-200 text-teal-800 px-2 py-1.5 rounded-xl col-span-2">🌐 Check-marked: Certificate Ready (डाउनलोड के लिए उपलब्ध)</div>
+              <div class="bg-red-50 border border-red-200 text-red-800 px-2 py-1.5 rounded-xl col-span-2">🔴 Red: Rejected (रद्द - अस्वीकृति का कारण देखें)</div>
+            </div>
+            <a href="https://emutation.bihar.gov.in/biharBhumireport/frm_LPC_StatusNew" target="_blank" rel="noopener noreferrer" class="mt-2 inline-block bg-orange-500 hover:bg-orange-600 text-white text-xs font-extrabold py-2 px-4 rounded-xl text-center transition-colors">LPC Status Check 🔍</a>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- SECTION 5 — JAMABANDI GUIDE (H2) -->
+      <section id="jamabandi-guide" class="space-y-6 scroll-mt-20">
+        <div class="text-center md:text-left space-y-2">
+          <h2 class="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">जमाबंदी (Panjee-II) ऑनलाइन कैसे देखें?</h2>
+          <p class="text-xs sm:text-sm text-slate-500 font-semibold">अपनी भूमि की डिजिटल खतयान और पंजी-II की वर्तमान स्थिति देखें:</p>
+        </div>
+
+        <div class="bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 space-y-6">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="space-y-4">
+              <h3 class="font-extrabold text-slate-900 text-base">जमाबंदी क्या है और यह क्यों आवश्यक है?</h3>
+              <ul class="space-y-2 text-xs sm:text-sm text-slate-600 font-semibold list-disc list-inside">
+                <li>यह भूमि के वर्तमान रसीद और वास्तविक मालिकाना हक का मुख्य प्रमाण है।</li>
+                <li>रजिस्ट्री के समय अपनी जमाबंदी को ऑनलाइन दिखाना अनिवार्य होता है।</li>
+                <li>इसमें खाता, खेसरा, कुल रकबा, and रैयत का नाम स्पष्ट दर्ज रहता है।</li>
+              </ul>
+              <div class="bg-emerald-50 border border-emerald-200 rounded-2xl p-4 text-xs text-emerald-950 font-semibold space-y-1">
+                <span class="font-black text-emerald-800 block">✅ सुगम समाधान (Tip)</span>
+                यदि जमाबंदी में खता-खेसरा या नाम में स्पेलिंग की गलती है, तो सुधार के लिए परिमार्जन पोर्टल पर आवेदन करें।
               </div>
             </div>
-          </div>
-          <div class="space-y-3 bg-slate-50 p-5 rounded-2xl border border-slate-200">
-            <h3 class="font-bold text-slate-900 text-sm">Step by Step Guide (हिंदी में)</h3>
-            <ol class="space-y-2 text-xs font-bold text-slate-700">
-              <li><span class="text-primaryGreen">Step 1:</span> Portal link open karein</li>
-              <li><span class="text-primaryGreen">Step 2:</span> Apna Jila select karein</li>
-              <li><span class="text-primaryGreen">Step 3:</span> Anchal select karein</li>
-              <li><span class="text-primaryGreen">Step 4:</span> Financial year select karein (2026-2027)</li>
-              <li><span class="text-primaryGreen">Step 5:</span> Search method chunein:
-                <ul class="list-none pl-3 mt-1 space-y-1 text-slate-500">
-                  <li>• Option A: Case Number se khojein</li>
-                  <li>• Option B: Deed Number se khojein</li>
-                  <li>• Option C: Mauja se khojein</li>
-                  <li>• Option D: Plot Number se khojein</li>
-                </ul>
-              </li>
-              <li><span class="text-primaryGreen">Step 6:</span> Security code enter karein</li>
-              <li><span class="text-primaryGreen">Step 7:</span> Search karein</li>
-            </ol>
-          </div>
-        </div>
-        <div class="pt-2">
-          <a href="https://emutation.bihar.gov.in/biharBhumireport/MutationStatusNew" target="_blank" rel="noopener noreferrer" class="inline-block bg-primaryGreen hover:bg-customGreenHover text-white text-sm font-extrabold px-6 py-3 rounded-2xl shadow-md transition-all">
-            Dakhil Kharij Status Dekhen 🌐
-          </a>
-        </div>
-      </section>
-
-      <!-- SECTION 5 — BHU LAGAN GUIDE -->
-      <section id="bhu-lagan-guide" class="bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 space-y-6">
-        <h2 class="text-xl sm:text-2xl font-black text-slate-900 flex items-center gap-3">
-          <span class="bg-emerald-100 text-emerald-800 text-sm px-2.5 py-1 rounded-lg">Sec 5</span>
-          भू लगान Online Kaise Bharein?
-        </h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div class="space-y-4">
-            <h3 class="font-extrabold text-slate-900 text-base">भू लगान क्या है? (What is Bhu Lagan)</h3>
-            <ul class="space-y-2 text-sm text-slate-600 font-semibold list-disc list-inside">
-              <li>Zameen par lagane wala annual tax</li>
-              <li>Online payment ki suvidha</li>
-              <li>Ghar baithe pay karein</li>
-              <li>Receipt download karein</li>
-            </ul>
-            <div class="bg-slate-100 p-4 rounded-2xl space-y-2 text-xs font-bold text-slate-700">
-              <span class="text-slate-900">🔄 Failed Payment Check (अपूर्ण भुगतान जाँच):</span>
-              Agar payment fail ho gayi ho:
-              <ol class="list-decimal list-inside pl-2 space-y-1 text-slate-600">
-                <li>'लंबित भुगतान देखें' par click karein</li>
-                <li>Transaction ID enter karein</li>
-                <li>Status verify karein</li>
-                <li>Dobara payment tab karein jab pehli payment confirm fail ho</li>
+            <div class="space-y-3 bg-slate-50 p-5 rounded-2xl border border-slate-200">
+              <h3 class="font-bold text-slate-900 text-xs">खोजने के चरण (Step by Step):</h3>
+              <ol class="space-y-2 text-xs sm:text-sm font-bold text-slate-700">
+                <li><span class="text-primaryGreen">Step 1:</span> <a href="https://emutation.bihar.gov.in/biharBhumireport/ViewJamabandi" target="_blank" rel="noopener noreferrer" class="text-emerald-700 hover:underline">Jamabandi Portal</a> पर जाएं।</li>
+                <li><span class="text-primaryGreen">Step 2:</span> अपना जिला, अंचल, हल्का और मौजा चुनें।</li>
+                <li><span class="text-primaryGreen">Step 3:</span> रैयत के नाम / खाता नंबर / कंप्यूटर जमाबंदी संख्या से खोजें।</li>
+                <li><span class="text-primaryGreen">Step 4:</span> सर्च करने के बाद अपने नाम के सामने 'देखें (आई-आइकन)' पर क्लिक करके रसीद प्रिंट करें।</li>
               </ol>
             </div>
-            <div class="bg-red-50 border border-red-200 text-red-950 font-semibold text-xs p-4 rounded-2xl">
-              <span class="text-red-700 block font-black">⚠️ चेतावनी (Warning)</span>
-              Failed ya pending payment hone par DOBARA PAYMENT MAT KAREIN! Pehle transaction status check karein.
-            </div>
           </div>
-          <div class="space-y-3 bg-slate-50 p-5 rounded-2xl border border-slate-200">
-            <h3 class="font-bold text-slate-900 text-sm">Step by Step Guide (हिंदी में)</h3>
-            <ol class="space-y-2 text-xs font-bold text-slate-700">
-              <li><span class="text-primaryGreen">Step 1:</span> bhulagan.bihar.gov.in open karein</li>
-              <li><span class="text-primaryGreen">Step 2:</span> "ऑनलाइन भुगतान करें" par click karein</li>
-              <li><span class="text-primaryGreen">Step 3:</span> Apna Jila select karein</li>
-              <li><span class="text-primaryGreen">Step 4:</span> Halka aur Mauja select karein</li>
-              <li><span class="text-primaryGreen">Step 5:</span> Khata number ya naam se search karein</li>
-              <li><span class="text-primaryGreen">Step 6:</span> Apni Jamabandi select karein</li>
-              <li><span class="text-primaryGreen">Step 7:</span> Lagaan amount check karein</li>
-              <li><span class="text-primaryGreen">Step 8:</span> Online payment karein (Net banking, UPI, Debit card)</li>
-              <li><span class="text-primaryGreen">Step 9:</span> Receipt download karein</li>
-            </ol>
-          </div>
-        </div>
-        <div class="pt-2">
-          <a href="https://www.bhulagan.bihar.gov.in/" target="_blank" rel="noopener noreferrer" class="inline-block bg-primaryGreen hover:bg-customGreenHover text-white text-sm font-extrabold px-6 py-3 rounded-2xl shadow-md transition-all">
-            Bhu Lagan Portal Kholen 🌐
-          </a>
         </div>
       </section>
 
-      <!-- SECTION 6 — EMAPI GUIDE -->
-      <section id="emapi-guide" class="bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 space-y-6">
-        <h2 class="text-xl sm:text-2xl font-black text-slate-900 flex items-center gap-3">
-          <span class="bg-emerald-100 text-emerald-800 text-sm px-2.5 py-1 rounded-lg">Sec 6</span>
-          ई-मैपी (eMapi) — जमीन का नक्शा Online
-        </h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div class="space-y-4">
-            <h3 class="font-extrabold text-slate-900 text-base">ई-मैपी क्या है? (What is eMapi)</h3>
-            <ul class="space-y-2 text-sm text-slate-600 font-semibold list-disc list-inside">
-              <li>Bihar ki zameen ka digital naksha</li>
-              <li>Plot ki boundaries online dekhen</li>
-              <li>Khesra number se plot dhundhen</li>
-              <li>Download aur print kar sakte hain</li>
-            </ul>
+      <!-- SECTION 6 — BHU LAGAN GUIDE (H2) -->
+      <section id="bhu-lagan-guide" class="space-y-6 scroll-mt-20">
+        <div class="text-center md:text-left space-y-2">
+          <h2 class="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">भू लगान (Land Tax) ऑनलाइन भुगतान गाइड</h2>
+          <p class="text-xs sm:text-sm text-slate-500 font-semibold">घर बैठे अपनी जमीन का वार्षिक कर (रसीद) भुगतान करें:</p>
+        </div>
 
-            <div class="space-y-2">
-              <span class="font-extrabold text-slate-900 text-sm block">eMapi Use Cases (उपयोग के मामले):</span>
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs font-bold text-slate-700">
-                <div class="bg-slate-50 border border-slate-200 p-2.5 rounded-xl">🔍 Zameen ki exact boundary check karein</div>
-                <div class="bg-slate-50 border border-slate-200 p-2.5 rounded-xl">📏 Plot ka shape aur size verify karein</div>
-                <div class="bg-slate-50 border border-slate-200 p-2.5 rounded-xl">🏘️ Padosi plots kaun se hain</div>
-                <div class="bg-slate-50 border border-slate-200 p-2.5 rounded-xl">🏗️ Construction se pehle layout check</div>
+        <div class="bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 space-y-6">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="space-y-4">
+              <h3 class="font-extrabold text-slate-900 text-base">ऑनलाइन लगान भुगतान प्रक्रिया:</h3>
+              <ol class="space-y-2 text-xs sm:text-sm font-semibold text-slate-600">
+                <li><span class="text-amber-800 font-bold">Step 1:</span> <a href="https://www.bhulagan.bihar.gov.in/" target="_blank" rel="noopener noreferrer" class="text-amber-700 hover:underline font-bold font-semibold">bhulagan.bihar.gov.in</a> खोलें।</li>
+                <li><span class="text-amber-800 font-bold">Step 2:</span> <span class="text-slate-900 font-bold font-semibold">"ऑनलाइन भुगतान करें"</span> विकल्प चुनें।</li>
+                <li><span class="text-amber-800 font-bold">Step 3:</span> जिला, अंचल, हल्का और मौजा सेलेक्ट करें।</li>
+                <li><span class="text-amber-800 font-bold">Step 4:</span> अपना खता नंबर भरें और 'सर्च' करें, अपनी कुल बकाया राशि देखें।</li>
+                <li><span class="text-amber-800 font-bold">Step 5:</span> नेट बैंकिंग या यूपीआई (UPI) के माध्यम से भुगतान करके रसीद डाउनलोड करें।</li>
+              </ol>
+              <div class="bg-red-50 border border-red-200 text-red-950 font-semibold text-xs p-4 rounded-2xl">
+                <span class="text-red-700 block font-black">⚠️ चेतावनी (Warning)</span>
+                यदि भुगतान के बाद बैंक से पैसे कट गए और रसीद नहीं मिली, तो दोबारा पेमेंट न करें! 48 घंटे इंतजार करें या "लंबित भुगतान देखें" विकल्प पर जाकर ट्रांजैक्शन वेरीफाई करें।
               </div>
             </div>
-          </div>
-          <div class="space-y-3 bg-slate-50 p-5 rounded-2xl border border-slate-200">
-            <h3 class="font-bold text-slate-900 text-sm">Step by Step Guide (हिंदी में)</h3>
-            <ol class="space-y-2 text-xs font-bold text-slate-700">
-              <li><span class="text-primaryGreen">Step 1:</span> emapi.bihar.gov.in open karein</li>
-              <li><span class="text-primaryGreen">Step 2:</span> Login karein ya public access use karein</li>
-              <li><span class="text-primaryGreen">Step 3:</span> District, Anchal, Halka, Mauja select karein</li>
-              <li><span class="text-primaryGreen">Step 4:</span> Plot/Khesra number enter karein</li>
-              <li><span class="text-primaryGreen">Step 5:</span> Map par apna plot dekhen</li>
-              <li><span class="text-primaryGreen">Step 6:</span> Download ya print karein</li>
-            </ol>
-          </div>
-        </div>
-        <div class="pt-2">
-          <a href="https://emapi.bihar.gov.in/default.aspx" target="_blank" rel="noopener noreferrer" class="inline-block bg-primaryGreen hover:bg-customGreenHover text-white text-sm font-extrabold px-6 py-3 rounded-2xl shadow-md transition-all">
-            eMapi Portal Kholen 🌐
-          </a>
-        </div>
-      </section>
-
-      <!-- SECTION 7 — PARIMARJAN GUIDE -->
-      <section id="parimarjan-guide" class="bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 space-y-6">
-        <h2 class="text-xl sm:text-2xl font-black text-slate-900 flex items-center gap-3">
-          <span class="bg-emerald-100 text-emerald-800 text-sm px-2.5 py-1 rounded-lg">Sec 7</span>
-          परिमार्जन — Land Record Correction Online
-        </h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div class="space-y-4">
-            <h3 class="font-extrabold text-slate-900 text-base">परिमार्जन क्या है? (What is Parimarjan)</h3>
-            <ul class="space-y-2 text-sm text-slate-600 font-semibold list-disc list-inside">
-              <li>Land record mein galti theek karne ka portal</li>
-              <li>Naam ki spelling correction, size correction</li>
-              <li>Malik ka naam update, khata/khesra correction</li>
-              <li>Ghar baithe digital correction application</li>
-            </ul>
-
-            <div class="space-y-2">
-              <span class="font-extrabold text-slate-900 text-sm block">Common Corrections (संशोधन श्रेणियां):</span>
-              <div class="flex flex-wrap gap-1.5">
-                <span class="bg-orange-50 text-orange-800 border border-orange-200 text-[11px] font-bold px-2.5 py-1 rounded-lg">✏️ Naam Spelling</span>
-                <span class="bg-orange-50 text-orange-800 border border-orange-200 text-[11px] font-bold px-2.5 py-1 rounded-lg">📏 Area Size</span>
-                <span class="bg-orange-50 text-orange-800 border border-orange-200 text-[11px] font-bold px-2.5 py-1 rounded-lg">👤 Owner Name</span>
-                <span class="bg-orange-50 text-orange-800 border border-orange-200 text-[11px] font-bold px-2.5 py-1 rounded-lg">🔢 Khata/Khesra</span>
-                <span class="bg-orange-50 text-orange-800 border border-orange-200 text-[11px] font-bold px-2.5 py-1 rounded-lg">📝 Land Type</span>
-              </div>
+            <div class="space-y-3 bg-slate-50 p-5 rounded-2xl border border-slate-200">
+              <h3 class="font-bold text-slate-900 text-xs">Failed Payment Verification:</h3>
+              <p class="text-xs text-slate-500 font-semibold leading-relaxed">
+                यदि भुगतान असफल या लंबित हो जाता है, तो भू लगान होमपेज पर "लंबित भुगतान देखें" (Pending Payments) पर जाकर अपनी Transaction ID और बैंक रेफेरेंस नंबर डालकर रसीद पुनः प्राप्त कर सकते हैं।
+              </p>
             </div>
           </div>
-          <div class="space-y-3 bg-slate-50 p-5 rounded-2xl border border-slate-200">
-            <h3 class="font-bold text-slate-900 text-sm">How to Track Application (आवेदन कैसे ट्रैक करें?)</h3>
-            <ol class="space-y-2 text-xs font-bold text-slate-700">
-              <li><span class="text-primaryGreen">Step 1:</span> parimarjanplus.bihar.gov.in open karein</li>
-              <li><span class="text-primaryGreen">Step 2:</span> "Track Application" select karein</li>
-              <li><span class="text-primaryGreen">Step 3:</span> Application number enter karein</li>
-              <li><span class="text-primaryGreen">Step 4:</span> Status dekhen (Submitted, Under Review, Approved, Rejected)</li>
-            </ol>
-          </div>
-        </div>
-        <div class="flex flex-wrap gap-3 pt-2">
-          <a href="https://parimarjanplus.bihar.gov.in/ParimarjanNew/trackapplication.aspx" target="_blank" rel="noopener noreferrer" class="inline-block bg-primaryGreen hover:bg-customGreenHover text-white text-sm font-extrabold px-6 py-3 rounded-2xl shadow-md transition-all">
-            Application Track Karein 🔍
-          </a>
-          <a href="https://parimarjanplus.bihar.gov.in/ParimarjanNew/userDashboard.aspx" target="_blank" rel="noopener noreferrer" class="inline-block bg-slate-200 hover:bg-slate-300 text-slate-900 text-sm font-extrabold px-6 py-3 rounded-2xl shadow-md transition-all">
-            Dashboard Dekhen 📊
-          </a>
         </div>
       </section>
 
-      <!-- SECTION 8 — AADHAR MOBILE SEEDING -->
-      <section id="aadhar-seeding-guide" class="bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 space-y-6">
-        <h2 class="text-xl sm:text-2xl font-black text-slate-900 flex items-center gap-3">
-          <span class="bg-emerald-100 text-emerald-800 text-sm px-2.5 py-1 rounded-lg">Sec 8</span>
-          Aadhar-Mobile Seeding Status Bihar
-        </h2>
+      <!-- SECTION 7 — EMAPI & BHU MANCHITRA (H2) -->
+      <section id="maps-guide" class="space-y-6 scroll-mt-20">
+        <div class="text-center md:text-left space-y-2">
+          <h2 class="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">eMapi एवं भू-मानचित्र — डिजिटल लैंड मैप्स</h2>
+          <p class="text-xs sm:text-sm text-slate-500 font-semibold">बिहार की भूमि के डिजिटल नक्शे (Maps) डाउनलोड करने और सीमाओं की ऑनलाइन पैमाइश की गाइड:</p>
+        </div>
+
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div class="space-y-4">
-            <h3 class="font-extrabold text-slate-900 text-base">आधार मोबाइल सीडिंग क्या है? (What is Seeding)</h3>
-            <p class="text-sm text-slate-600 font-semibold leading-relaxed">
-              यह आपके आधार और मोबाइल नंबर को जमीन के डिजिटल दस्तावेजों (Panjee-II/Jamabandi) से जोड़ने की प्रक्रिया है।
+          <div class="bg-white border border-slate-200 rounded-3xl p-5 hover:shadow-md transition-all space-y-4">
+            <h3 class="text-base sm:text-lg font-black text-slate-900">🗺️ eMapi — सरकारी अमीन से पैमाइश</h3>
+            <p class="text-xs sm:text-sm text-slate-600 font-semibold leading-relaxed">
+              यह बिहार सरकार का आधिकारिक पोर्टल है जहां आप अपने खेत/प्लॉट की पैमाइश (Mapi) के लिए सरकारी अमीन हेतु ऑनलाइन आवेदन और सरकारी शुल्क का भुगतान कर सकते हैं।
             </p>
-            <div class="space-y-1 bg-emerald-50 border border-emerald-200 p-4 rounded-2xl text-xs font-bold text-emerald-950">
-              <span class="text-emerald-800 block">💡 लाभ (Benefits):</span>
-              <ul class="list-disc list-inside space-y-1">
-                <li>PM Kisan payment directly account mein</li>
-                <li>Sarkari schemes ka turant labh</li>
-                <li>Land record aur identity link hoti hai</li>
-                <li>Fraud registry and mutation se protection</li>
-              </ul>
-            </div>
+            <a href="https://emapi.bihar.gov.in/default.aspx" target="_blank" rel="noopener noreferrer" class="inline-block bg-lime-600 hover:bg-lime-700 text-white text-xs font-extrabold py-2 px-4 rounded-xl transition-colors">eMapi Portal Kholen →</a>
           </div>
-          <div class="space-y-3 bg-slate-50 p-5 rounded-2xl border border-slate-200">
-            <h3 class="font-bold text-slate-900 text-sm">Status Kaise Check Karein? (How to Check)</h3>
-            <ol class="space-y-2 text-xs font-bold text-slate-700">
-              <li><span class="text-primaryGreen">Step 1:</span> Portal link open karein</li>
-              <li><span class="text-primaryGreen">Step 2:</span> Apna Aadhar number enter karein</li>
-              <li><span class="text-primaryGreen">Step 3:</span> Ya mobile number se check karein</li>
-              <li><span class="text-primaryGreen">Step 4:</span> Seeding status dekhen</li>
-            </ol>
+
+          <div class="bg-white border border-slate-200 rounded-3xl p-5 hover:shadow-md transition-all space-y-4">
+            <h3 class="text-base sm:text-lg font-black text-slate-900">🗺️ भू-मानचित्र — डिजिटल कैडस्ट्रल नक्शा</h3>
+            <p class="text-xs sm:text-sm text-slate-600 font-semibold leading-relaxed">
+              राजस्व एवं भूमि सुधार विभाग का भू-अभिलेख पोर्टल जहां आप अपने गांव का पुराना या नया नक्शा (Sheet wise) ऑनलाइन देख और सुरक्षित डाउनलोड कर सकते हैं।
+            </p>
+            <a href="https://bhuabhilekh.bihar.gov.in/login?ref=aW5kZXgucGhw" target="_blank" rel="noopener noreferrer" class="inline-block bg-cyan-600 hover:bg-cyan-700 text-white text-xs font-extrabold py-2 px-4 rounded-xl transition-colors">Bhu Manchitra Kholen →</a>
           </div>
-        </div>
-        <div class="pt-2">
-          <a href="https://emutation.bihar.gov.in/biharBhumireport/Aadhar_Mobile_Seeding_Status" target="_blank" rel="noopener noreferrer" class="inline-block bg-primaryGreen hover:bg-customGreenHover text-white text-sm font-extrabold px-6 py-3 rounded-2xl shadow-md transition-all">
-            Seeding Status Dekhen 📱
-          </a>
         </div>
       </section>
+
+      <!-- SECTION 8 — JAN SHIKAYAT PORTAL (H2) -->
+      <section id="jan-shikayat-guide" class="space-y-6 scroll-mt-20">
+        <div class="text-center md:text-left space-y-2">
+          <h2 class="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">जन शिकायत निवारण (Jan Shikayat Portal)</h2>
+          <p class="text-xs sm:text-sm text-slate-500 font-semibold">जमीन से जुड़े विवादों, गड़बड़ियों या भ्रष्टाचार की शिकायत ऑनलाइन दर्ज कराएं:</p>
+        </div>
+
+        <div class="bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 space-y-6">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="space-y-4">
+              <h3 class="font-extrabold text-slate-900 text-base">किस प्रकार की शिकायतें दर्ज की जा सकती हैं?</h3>
+              <ul class="space-y-2 text-xs sm:text-sm text-slate-600 font-semibold list-disc list-inside">
+                <li>दाखिल खारिज में अत्यधिक समय लगने या बिना कारण खारिज करने पर।</li>
+                <li>अंचल अधिकारी (CO) या राजस्व कर्मचारी द्वारा अनुचित मांग किए जाने पर।</li>
+                <li>भूमि सीमाओं से जुड़ा अतिक्रमण या अवैध कब्ज़े का विवाद।</li>
+              </ul>
+              <a href="https://biharbhumiplus.bihar.gov.in/pg/" target="_blank" rel="noopener noreferrer" class="inline-block bg-red-600 hover:bg-red-700 text-white text-xs font-extrabold py-2.5 px-5 rounded-2xl shadow-md transition-all">Grievance Ticket Raise Link ⚖️</a>
+            </div>
+            <div class="space-y-3 bg-slate-50 p-5 rounded-2xl border border-slate-200">
+              <h3 class="font-bold text-slate-900 text-xs">शिकायत करने और ट्रैक करने की प्रक्रिया:</h3>
+              <ol class="space-y-2 text-xs sm:text-sm font-bold text-slate-700">
+                <li><span class="text-red-600">Step 1:</span> जन शिकायत पोर्टल पर जाएं।</li>
+                <li><span class="text-red-600">Step 2:</span> "नया शिकायत दर्ज करें" पर क्लिक करके अपनी मूलभूत जानकारी भरें।</li>
+                <li><span class="text-red-600">Step 3:</span> शिकायत विवरण लिखकर अपने सहायक दस्तावेज (PDF) अपलोड करें।</li>
+                <li><span class="text-red-600">Step 4:</span> प्राप्त टोकन नंबर की मदद से शिकायत की वर्तमान जांच प्रगति को ट्रैक करें।</li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 9 — PARIMARJAN GUIDE (H2) -->
+      <section id="parimarjan-guide" class="space-y-6 scroll-mt-20">
+        <div class="text-center md:text-left space-y-2">
+          <h2 class="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">परिमार्जन — डिजिटल भूमि रिकॉर्ड में गड़बड़ियों का सुधार</h2>
+          <p class="text-xs sm:text-sm text-slate-500 font-semibold">जमाबंदी (पंजी-II) में किसी भी प्रकार की त्रुटि सुधारने का ऑनलाइन समाधान:</p>
+        </div>
+
+        <div class="bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 space-y-6">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="space-y-4">
+              <h3 class="font-extrabold text-slate-900 text-base">क्या-क्या सुधारा जा सकता है?</h3>
+              <div class="flex flex-wrap gap-1.5 text-xs font-extrabold text-orange-900">
+                <span class="bg-orange-50 border border-orange-200/50 px-2.5 py-1 rounded-lg">👤 रैयत का नाम सुधार</span>
+                <span class="bg-orange-50 border border-orange-200/50 px-2.5 py-1 rounded-lg">🔢 खाता-खेसरा सुधार</span>
+                <span class="bg-orange-50 border border-orange-200/50 px-2.5 py-1 rounded-lg">📏 रकबा (क्षेत्रफल) सुधार</span>
+                <span class="bg-orange-50 border border-orange-200/50 px-2.5 py-1 rounded-lg">📝 लगान की राशि सुधार</span>
+              </div>
+              <p class="text-xs text-slate-500 font-semibold">
+                परिमार्जन आवेदन के साथ अपनी मूल रजिस्ट्री डीड या पूर्व की ऑफलाइन रसीदों की प्रति साक्ष्य के तौर पर अपलोड करना आवश्यक है।
+              </p>
+              <div class="flex flex-wrap gap-2.5 pt-2">
+                <a href="https://parimarjanplus.bihar.gov.in/ParimarjanNew/trackapplication.aspx" target="_blank" rel="noopener noreferrer" class="inline-block bg-orange-600 hover:bg-orange-700 text-white text-xs font-extrabold py-2 px-4 rounded-xl transition-colors">Application Track 🔍</a>
+                <a href="https://parimarjanplus.bihar.gov.in/ParimarjanNew/userDashboard.aspx" target="_blank" rel="noopener noreferrer" class="inline-block bg-slate-200 hover:bg-slate-300 text-slate-900 text-xs font-extrabold py-2 px-4 rounded-xl transition-colors">User Dashboard 📊</a>
+              </div>
+            </div>
+            <div class="space-y-3 bg-slate-50 p-5 rounded-2xl border border-slate-200">
+              <h3 class="font-bold text-slate-900 text-xs">सुधार के सरल चरण (Step by Step):</h3>
+              <ol class="space-y-2 text-xs sm:text-sm font-bold text-slate-700">
+                <li><span class="text-primaryGreen">Step 1:</span> <a href="https://parimarjanplus.bihar.gov.in/ParimarjanNew/" target="_blank" rel="noopener noreferrer" class="text-emerald-700 hover:underline">Parimarjan Portal</a> खोलें।</li>
+                <li><span class="text-primaryGreen">Step 2:</span> "ऑनलाइन सुधार के लिए आवेदन करें" चुनें।</li>
+                <li><span class="text-primaryGreen">Step 3:</span> अपना नाम, ईमेल, मोबाइल भरकर ओटीपी सत्यापन करें।</li>
+                <li><span class="text-primaryGreen">Step 4:</span> जिला, अंचल, हल्का और मौजा सेलेक्ट करें।</li>
+                <li><span class="text-primaryGreen">Step 5:</span> सुधार की श्रेणी चुनकर साक्ष्य दस्तावेज अपलोड करें और सबमिट करें।</li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 10 — AADHAR MOBILE SEEDING (H2) -->
+      <section id="aadhar-seeding-guide" class="space-y-6 scroll-mt-20">
+        <div class="text-center md:text-left space-y-2">
+          <h2 class="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">आधार एवं मोबाइल सीडिंग स्थिति की जाँच</h2>
+          <p class="text-xs sm:text-sm text-slate-500 font-semibold">जमाबंदी को आधार और चालू मोबाइल नंबर से लिंक करना क्यों ज़रूरी है:</p>
+        </div>
+
+        <div class="bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 space-y-6">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="space-y-4">
+              <h3 class="font-extrabold text-slate-900 text-base">सीडिंग के मुख्य फायदे (Benefits of Seeding):</h3>
+              <ul class="space-y-2 text-xs sm:text-sm text-slate-600 font-semibold list-disc list-inside">
+                <li>PM Kisan सम्मान निधि की DBT राशि सीधे आपके बैंक खाते में सुरक्षित आएगी।</li>
+                <li>जमीन की धोखाधड़ी, फर्जी रजिस्ट्री और अवांछित म्यूटेशन पर रोक लगती है।</li>
+                <li>जब भी आपकी जमीन से जुड़ा कोई ऑनलाइन आवेदन होगा, आपको SMS अलर्ट मिलेगा।</li>
+              </ul>
+              <a href="https://emutation.bihar.gov.in/biharBhumireport/Aadhar_Mobile_Seeding_Status" target="_blank" rel="noopener noreferrer" class="inline-block bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-extrabold py-2.5 px-5 rounded-2xl shadow-md transition-all">Seeding Status Portal 📱</a>
+            </div>
+            <div class="space-y-3 bg-slate-50 p-5 rounded-2xl border border-slate-200">
+              <h3 class="font-bold text-slate-900 text-xs">स्थिति जाँचने की प्रक्रिया (How to Check):</h3>
+              <ol class="space-y-2 text-xs sm:text-sm font-bold text-slate-700">
+                <li><span class="text-primaryGreen">Step 1:</span> ऊपर दिए गए स्थिति लिंक पर क्लिक करें।</li>
+                <li><span class="text-primaryGreen">Step 2:</span> अपना 12 अंकों का आधार संख्या दर्ज करें।</li>
+                <li><span class="text-primaryGreen">Step 3:</span> सुरक्षा कोड दर्ज करके 'Search' करें।</li>
+                <li><span class="text-primaryGreen">Step 4:</span> आपकी जमाबंदी किस मोबाइल नंबर और आधार से लिंक है, उसका विवरण दिख जाएगा।</li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 11 — COMPLETE PORTAL REFERENCE (H2) -->
+      <section id="portal-reference-list" class="space-y-6 scroll-mt-20">
+        <div class="text-center md:text-left space-y-2">
+          <h2 class="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">सभी आधिकारिक बिहार भूमि पोर्टल्स की विश्वसनीय सूची</h2>
+          <p class="text-xs sm:text-sm text-slate-500 font-semibold">एक ही स्थान पर सभी डायरेक्ट लिंक जो सुरक्षित रूप से नए टैब में खुलते हैं:</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="bg-emerald-950 text-white rounded-3xl p-6 sm:p-8 space-y-4">
+            <h3 class="text-base sm:text-lg font-bold text-emerald-400 flex items-center gap-2"><span>🏠</span> All Official Direct Portals</h3>
+            <ul class="space-y-2.5 text-xs sm:text-sm font-semibold opacity-90">
+              <li>• <strong class="text-emerald-300">Bhu Abhilekh:</strong> bhuabhilekh.bihar.gov.in/bhu-lekh/</li>
+              <li>• <strong class="text-emerald-300">Jamabandi:</strong> emutation.bihar.gov.in/ViewJamabandi</li>
+              <li>• <strong class="text-emerald-300">Dakhil Kharij Status:</strong> emutation.bihar.gov.in/MutationStatusNew</li>
+              <li>• <strong class="text-emerald-300">Bihar Bhumi:</strong> biharbhumi.bihar.gov.in/Biharbhumi/</li>
+              <li>• <strong class="text-emerald-300">Bhu Lagan:</strong> bhulagan.bihar.gov.in</li>
+              <li>• <strong class="text-emerald-300">eMapi:</strong> emapi.bihar.gov.in</li>
+              <li>• <strong class="text-emerald-300">Parimarjan:</strong> parimarjanplus.bihar.gov.in</li>
+              <li>• <strong class="text-emerald-300">Aadhar Seeding:</strong> emutation.bihar.gov.in/Aadhar_Seeding</li>
+            </ul>
+          </div>
+
+          <div class="bg-slate-900 text-white rounded-3xl p-6 sm:p-8 space-y-4">
+            <h3 class="text-base sm:text-lg font-bold text-amber-400 flex items-center gap-2"><span>ℹ️</span> Additional Help Channels</h3>
+            <p class="text-xs sm:text-sm font-semibold text-slate-300 leading-relaxed">
+              यह डायरेक्ट सूची आपको विभिन्न सेवाओं को खोजने में मदद करती है। किसी भी समस्या के समाधान हेतु अंचल कार्यालय से संपर्क करना सबसे श्रेष्ठ माध्यम है।
+            </p>
+          </div>
+        </div>
+
 
       <!-- SECTION 9 — WHICH PORTAL FOR WHAT? -->
       <section id="which-portal-table" class="space-y-6">
