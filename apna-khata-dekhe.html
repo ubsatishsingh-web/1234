@@ -53,8 +53,7 @@
       }
     </script>
 
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z1T8BNYBTE"></script>
+    
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
@@ -68,8 +67,77 @@
 
     
     <link rel="stylesheet" href="css/premium-style.css?v=1.0.12">
+<!-- Google Analytics GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Z1T8BNYBTE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-Z1T8BNYBTE', {
+    'send_page_view': true,
+    'engagement_time_msec': 100
+  });
+  
+  // Force engagement event after 10 seconds
+  setTimeout(function() {
+    gtag('event', 'user_engagement', {
+      'engagement_time_msec': 10000
+    });
+  }, 10000);
+
+  // Track scroll depth
+  var scrollTracked = false;
+  window.addEventListener('scroll', function() {
+    if (!scrollTracked && window.scrollY > 200) {
+      scrollTracked = true;
+      gtag('event', 'scroll', {
+        'percent_scrolled': 25
+      });
+    }
+  });
+
+  // Track all internal link clicks
+  document.addEventListener('click', function(e) {
+    var link = e.target.closest('a');
+    if (link && link.href && link.href.includes('bighawala.com')) {
+      gtag('event', 'internal_click', {
+        'link_url': link.href
+      });
+    }
+  });
+
+  // Track external portal clicks
+  document.addEventListener('click', function(e) {
+    var link = e.target.closest('a');
+    if (link && link.href && !link.href.includes('bighawala.com') && !link.href.includes('wa.me')) {
+      gtag('event', 'portal_click', {
+        'portal_url': link.href
+      });
+    }
+  });
+</script>
+
+<script>
+// Auto open external links in new tab
+document.addEventListener('DOMContentLoaded', function() {
+  var links = document.querySelectorAll('a[href]');
+  links.forEach(function(link) {
+    var href = link.getAttribute('href');
+    if (href && 
+        !href.startsWith('#') &&
+        !href.startsWith('/') &&
+        !href.includes('bighawala.com') &&
+        !href.startsWith('tel:') &&
+        !href.startsWith('mailto:') &&
+        !href.startsWith('javascript')) {
+      link.setAttribute('target', '_blank');
+      link.setAttribute('rel', 'noopener noreferrer');
+    }
+  });
+});
+</script>
 </head>
-  <body class="bg-slate-50 text-slate-800 font-sans min-h-screen flex flex-col selection:bg-orange-100 selection:text-orange-900">
+  <body class="pb-16 bg-slate-50 text-slate-800 font-sans min-h-screen flex flex-col selection:bg-orange-100 selection:text-orange-900">
 <!-- NAVIGATION -->
 <style>
 * { box-sizing: border-box; }
@@ -537,12 +605,364 @@ document.querySelectorAll('.mobile-menu a')
     <!-- MAIN GRID CONTAINER -->
     <main class="max-w-4xl mx-auto px-4 -mt-8 sm:-mt-10 mb-16 relative z-20 space-y-10 w-full text-[16px]">
 
-      <!-- SECTION 1 — HERO SUB-HEADING (Text link instead of prominent button) -->
+      <!-- SECTION 1 — HERO SUB-HEADING -->
       <section class="bg-amber-50 rounded-2xl border border-amber-200 p-4 text-center shadow-sm">
         <p class="text-sm sm:text-base text-amber-950 font-extrabold">
-          नीचे Step by Step Guide पढ़ें — फिर Official Portal खोलें।
+          नीचे दिए गए 3 आसान स्टेप्स पूरे करें — फिर Official Portal खोलें!
         </p>
       </section>
+
+      <!-- ENGAGEMENT BOOSTERS (FIX 3) -->
+      
+      <!-- ELEMENT A — Interactive District Selector: "अपना जिला चुनें — Step 1" -->
+      <section id="step-district-section" class="bg-gradient-to-br from-emerald-900 to-slate-900 text-white rounded-3xl p-6 sm:p-8 shadow-xl border border-emerald-500/30 space-y-6 relative overflow-hidden">
+        <div class="absolute -right-10 -bottom-10 w-40 h-40 bg-emerald-500/10 rounded-full blur-2xl pointer-events-none"></div>
+        <div class="space-y-2">
+          <div class="inline-flex items-center gap-2 bg-emerald-500/20 text-emerald-300 border border-emerald-400/30 font-extrabold text-xs px-3 py-1 rounded-full uppercase tracking-wider">
+            <span>📍 Step 1 — Select District</span>
+          </div>
+          <h2 class="text-xl sm:text-2xl font-black tracking-tight text-white flex items-center gap-2">
+            अपना जिला चुनें (Select Your District)
+          </h2>
+          <p class="text-xs sm:text-sm text-emerald-100 font-semibold leading-relaxed">
+            बिहार के सभी 38 जिलों की सूची नीचे दी गई है। अपने जिले पर क्लिक करके खतियान/खाता प्रक्रिया शुरू करें:
+          </p>
+        </div>
+
+        <!-- Selected District Confirmation Alert Box -->
+        <div id="district-confirmation-alert" class="hidden bg-emerald-500/20 border-2 border-emerald-400 text-emerald-100 p-4 rounded-2xl flex items-center justify-between gap-3 animate-in fade-in">
+          <div class="flex items-center gap-3">
+            <span class="text-2xl">✅</span>
+            <div>
+              <p class="font-extrabold text-sm sm:text-base text-white" id="selected-district-text">
+                [District] चुना गया!
+              </p>
+              <p class="text-xs text-emerald-200 font-medium">
+                अब नीचे Step 2 (Quick Quiz) और Checklist को पूरा करें।
+              </p>
+            </div>
+          </div>
+          <a href="#step-quiz-section" class="bg-emerald-400 hover:bg-emerald-300 text-slate-950 font-black text-xs px-3.5 py-2 rounded-xl transition-all shadow-xs shrink-0">
+            Step 2 देखें ↓
+          </a>
+        </div>
+
+        <!-- 38 District Buttons Grid -->
+        <div id="districts-grid-container" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2 pt-1 max-h-72 overflow-y-auto p-1 scrollbar-thin scrollbar-thumb-emerald-600">
+        </div>
+      </section>
+
+      <!-- ELEMENT B — Quick Quiz before Portal -->
+      <section id="step-quiz-section" class="bg-white rounded-3xl border border-slate-200 p-6 sm:p-8 shadow-md space-y-5">
+        <div class="border-b border-slate-100 pb-3 flex items-center justify-between flex-wrap gap-2">
+          <h2 class="text-lg sm:text-xl font-black text-slate-900 flex items-center gap-2">
+            <span class="text-orange-500">❓</span> Step 2: पहले यह Check करें (Quick Quiz)
+          </h2>
+          <span class="text-xs font-bold text-slate-400 bg-slate-100 px-2.5 py-1 rounded-full">2 Quick Questions</span>
+        </div>
+
+        <!-- Q1 -->
+        <div class="bg-slate-50 border border-slate-200 rounded-2xl p-4 sm:p-5 space-y-3">
+          <p class="font-extrabold text-sm sm:text-base text-slate-900">
+            Q1: क्या आपके पास अपना Khata Number या Khesra Number है?
+          </p>
+          <div class="flex items-center gap-3 flex-wrap">
+            <button onclick="handleQuizQ1(true)" id="quiz-q1-yes" class="bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-xs sm:text-sm px-5 py-2.5 rounded-xl shadow-xs transition-all">
+              क. हाँ, है (Yes)
+            </button>
+            <button onclick="handleQuizQ1(false)" id="quiz-q1-no" class="bg-slate-200 hover:bg-slate-300 text-slate-800 font-extrabold text-xs sm:text-sm px-5 py-2.5 rounded-xl transition-all">
+              ख. नहीं पता (Don't know)
+            </button>
+          </div>
+          <div id="quiz-q1-result" class="hidden p-3.5 rounded-xl text-xs sm:text-sm font-extrabold transition-all"></div>
+        </div>
+
+        <!-- Q2 -->
+        <div class="bg-slate-50 border border-slate-200 rounded-2xl p-4 sm:p-5 space-y-3">
+          <p class="font-extrabold text-sm sm:text-base text-slate-900">
+            Q2: क्या आप अपनी जमीन का रिकॉर्ड नाम (Owner Name) से खोजना चाहते हैं?
+          </p>
+          <div class="flex items-center gap-3 flex-wrap">
+            <button onclick="handleQuizQ2(true)" id="quiz-q2-yes" class="bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-xs sm:text-sm px-5 py-2.5 rounded-xl shadow-xs transition-all">
+              हाँ, नाम से खोजना है
+            </button>
+            <button onclick="handleQuizQ2(false)" id="quiz-q2-no" class="bg-slate-200 hover:bg-slate-300 text-slate-800 font-extrabold text-xs sm:text-sm px-5 py-2.5 rounded-xl transition-all">
+              खाता / खेसरा से खोजना है
+            </button>
+          </div>
+          <div id="quiz-q2-result" class="hidden p-3.5 rounded-xl text-xs sm:text-sm font-extrabold transition-all"></div>
+        </div>
+      </section>
+
+      <!-- ELEMENT C — Preparation Checklist & Gated Portal Button -->
+      <section id="step-checklist-section" class="bg-gradient-to-br from-amber-500/10 via-orange-500/5 to-emerald-500/10 rounded-3xl border-2 border-orange-200 p-6 sm:p-8 shadow-md space-y-6">
+        <div class="space-y-2">
+          <span class="bg-orange-100 text-orange-950 font-black text-xs px-3 py-1 rounded-full">
+            📋 Step 3 — Preparation Checklist
+          </span>
+          <h2 class="text-xl sm:text-2xl font-black text-slate-900 tracking-tight">
+            Portal खोलने से पहले यह तैयार रखें:
+          </h2>
+          <p class="text-xs sm:text-sm text-slate-600 font-bold">
+            नीचे दिए गए 5 बिन्दुओं को टिक (tick) करें। सभी 5 बिंदु पूरे होने पर ही "Official Portal Button" अनलॉक होगा:
+          </p>
+        </div>
+
+        <!-- Checklist items -->
+        <div class="space-y-2.5 bg-white p-4 sm:p-6 rounded-2xl border border-orange-200 shadow-xs">
+          <label class="flex items-center gap-3 cursor-pointer p-2.5 rounded-xl hover:bg-orange-50/50 transition-all">
+            <input type="checkbox" class="prep-check w-5 h-5 text-emerald-600 rounded focus:ring-emerald-500 border-slate-300" onchange="updateChecklistProgress()">
+            <span class="text-xs sm:text-sm font-extrabold text-slate-800">1. Apna District (जिला) नाम पता है</span>
+          </label>
+          <label class="flex items-center gap-3 cursor-pointer p-2.5 rounded-xl hover:bg-orange-50/50 transition-all">
+            <input type="checkbox" class="prep-check w-5 h-5 text-emerald-600 rounded focus:ring-emerald-500 border-slate-300" onchange="updateChecklistProgress()">
+            <span class="text-xs sm:text-sm font-extrabold text-slate-800">2. Apna Anchal/Block (अंचल) नाम पता है</span>
+          </label>
+          <label class="flex items-center gap-3 cursor-pointer p-2.5 rounded-xl hover:bg-orange-50/50 transition-all">
+            <input type="checkbox" class="prep-check w-5 h-5 text-emerald-600 rounded focus:ring-emerald-500 border-slate-300" onchange="updateChecklistProgress()">
+            <span class="text-xs sm:text-sm font-extrabold text-slate-800">3. Apna Gaon/Mauja (मौजा) नाम पता है</span>
+          </label>
+          <label class="flex items-center gap-3 cursor-pointer p-2.5 rounded-xl hover:bg-orange-50/50 transition-all">
+            <input type="checkbox" class="prep-check w-5 h-5 text-emerald-600 rounded focus:ring-emerald-500 border-slate-300" onchange="updateChecklistProgress()">
+            <span class="text-xs sm:text-sm font-extrabold text-slate-800">4. Khata number या मालिक का नाम पता है</span>
+          </label>
+          <label class="flex items-center gap-3 cursor-pointer p-2.5 rounded-xl hover:bg-orange-50/50 transition-all">
+            <input type="checkbox" class="prep-check w-5 h-5 text-emerald-600 rounded focus:ring-emerald-500 border-slate-300" onchange="updateChecklistProgress()">
+            <span class="text-xs sm:text-sm font-extrabold text-slate-800">5. Mobile ready hai (for screenshot)</span>
+          </label>
+        </div>
+
+        <!-- Progress Bar -->
+        <div class="space-y-2">
+          <div class="flex justify-between items-center text-xs font-black">
+            <span id="checklist-status-text" class="text-slate-700">0/5 items ready</span>
+            <span id="checklist-percent-text" class="text-emerald-700">0%</span>
+          </div>
+          <div class="w-full bg-slate-200 h-3 rounded-full overflow-hidden">
+            <div id="checklist-progress-bar" class="bg-emerald-500 h-full w-0 transition-all duration-300"></div>
+          </div>
+        </div>
+
+        <!-- Gated Portal Button -->
+        <div class="pt-2 text-center">
+          <a id="gated-portal-btn" href="https://land.bihar.gov.in/Ror2025/RoR.aspx" target="_blank" rel="noopener noreferrer" onclick="handlePortalButtonClick(event)" class="w-full inline-flex items-center justify-center gap-2 bg-slate-300 text-slate-500 font-black text-base py-4 rounded-2xl shadow-none cursor-not-allowed transition-all border border-slate-300">
+            <span id="gated-btn-text">🔒 Pehle Upar Ki List Complete Karein (0/5 Checked)</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- ELEMENT D — Portal Toast & Common Problems FAQ -->
+      <!-- Portal Launch Toast Popup (shown when portal button is clicked) -->
+      <div id="portal-launch-toast" class="hidden fixed top-20 left-1/2 -translate-x-1/2 z-50 bg-slate-950 text-emerald-100 border-2 border-emerald-400 px-6 py-4 rounded-2xl shadow-2xl max-w-md w-11/12 text-center space-y-2 animate-in fade-in">
+        <div class="text-2xl">🟢</div>
+        <p class="font-extrabold text-sm sm:text-base text-white">
+          Portal nayi tab mein khul raha hai!
+        </p>
+        <p class="text-xs text-emerald-200 font-semibold leading-relaxed">
+          BighaWala tab band mat karna — koi samasya aane par wapas aakar niche FAQ guide padhen 🙏
+        </p>
+        <button onclick="document.getElementById('portal-launch-toast').classList.add('hidden')" class="text-xs text-emerald-400 font-bold underline pt-1">
+          ठीक है (Got it)
+        </button>
+      </div>
+
+      <!-- FAQ Section: Portal Common Problems -->
+      <section class="bg-white rounded-3xl border border-slate-200 p-6 sm:p-8 shadow-md space-y-5">
+        <h2 class="text-lg sm:text-xl font-black text-slate-900 flex items-center gap-2 border-b border-slate-100 pb-3">
+          <span class="text-rose-500">⚠️</span> Portal use karte waqt common problems aur solution:
+        </h2>
+
+        <div class="space-y-3 text-xs sm:text-sm font-semibold">
+          <div class="bg-slate-50 border border-slate-200 p-4 rounded-2xl space-y-1">
+            <p class="font-extrabold text-slate-900 text-sm">1. Website Slow / Server Not Responding</p>
+            <p class="text-slate-600 leading-relaxed">
+              बिहार भूमि पोर्टल पर दोपहर 12 बजे से 4 बजे के बीच अत्यधिक ट्रैफिक रहता है। यदि पेज लोड न हो तो सुबह 8-10 बजे या रात 9 बजे के बाद प्रयास करें।
+            </p>
+          </div>
+
+          <div class="bg-slate-50 border border-slate-200 p-4 rounded-2xl space-y-1">
+            <p class="font-extrabold text-slate-900 text-sm">2. Record Not Found (डेटा प्रदर्शित नहीं हुआ)</p>
+            <p class="text-slate-600 leading-relaxed">
+              हिन्दी नाम की स्पेलिंग में अंतर के कारण ऐसा होता है। नाम के बजाय केवल खाता नंबर (Khata Number) या खेसरा नंबर दर्ज करके सर्च करें।
+            </p>
+          </div>
+
+          <div class="bg-slate-50 border border-slate-200 p-4 rounded-2xl space-y-1">
+            <p class="font-extrabold text-slate-900 text-sm">3. Session Expired Error</p>
+            <p class="text-slate-600 leading-relaxed">
+              पोर्टल 5 मिनट से अधिक निष्क्रिय रहने पर सेशन एक्सपायर कर देता है। BighaWala पर वापस आकर दोबारा पोर्टल बटन दबाएं।
+            </p>
+          </div>
+
+          <div class="bg-slate-50 border border-slate-200 p-4 rounded-2xl space-y-1">
+            <p class="font-extrabold text-slate-900 text-sm">4. Internal Server Error 500</p>
+            <p class="text-slate-600 leading-relaxed">
+              सरकारी सर्वर में डेटाबेस अपडेट जारी रहने पर यह त्रुटि आती है। 15 मिनट प्रतीक्षा करके पुनः प्रयास करें।
+            </p>
+          </div>
+
+          <div class="bg-slate-50 border border-slate-200 p-4 rounded-2xl space-y-1">
+            <p class="font-extrabold text-slate-900 text-sm">5. Mobile Display Issue / Map Not Opening</p>
+            <p class="text-slate-600 leading-relaxed">
+              मोबाइल क्रोम ब्राउज़र के ऊपर 3 डॉट्स पर क्लिक करके "Desktop Site" चालू करें, जिससे पूरा नक्शा व खाता सूची साफ दिखाई देगी।
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <script>
+        const biharDistrictsList = [
+          "Patna", "Nalanda", "Bhojpur", "Buxar", "Rohtas", "Kaimur", "Gaya", "Jehanabad", 
+          "Arwal", "Nawada", "Aurangabad", "Muzaffarpur", "Sitamarhi", "Sheohar", "Vaishali", 
+          "Darbhanga", "Madhubani", "Samastipur", "Begusarai", "Munger", "Lakhisarai", "Sheikhpura", 
+          "Jamui", "Khagaria", "Bhagalpur", "Banka", "Saharsa", "Supaul", "Madhepura", "Purnia", 
+          "Araria", "Kishanganj", "Katihar", "Saran", "Siwan", "Gopalganj", "East Champaran", "West Champaran"
+        ];
+
+        var selectedDistrictName = "";
+        function renderDistrictsGrid() {
+          var container = document.getElementById("districts-grid-container");
+          if (!container) return;
+          container.innerHTML = "";
+          biharDistrictsList.forEach(function(dist) {
+            var btn = document.createElement("button");
+            btn.type = "button";
+            btn.className = "district-select-btn bg-emerald-800/60 hover:bg-emerald-600 text-emerald-100 font-bold text-xs py-2 px-2.5 rounded-xl border border-emerald-600/40 transition-all text-center truncate";
+            btn.textContent = dist;
+            btn.onclick = function() {
+              selectDistrict(dist, btn);
+            };
+            container.appendChild(btn);
+          });
+        }
+
+        function selectDistrict(distName, clickedBtn) {
+          selectedDistrictName = distName;
+          document.querySelectorAll(".district-select-btn").forEach(function(b) {
+            b.className = "district-select-btn bg-emerald-800/60 hover:bg-emerald-600 text-emerald-100 font-bold text-xs py-2 px-2.5 rounded-xl border border-emerald-600/40 transition-all text-center truncate";
+          });
+          if (clickedBtn) {
+            clickedBtn.className = "district-select-btn bg-emerald-400 text-slate-950 font-black text-xs py-2 px-2.5 rounded-xl border-2 border-white shadow-md transition-all text-center truncate scale-105";
+          }
+          var alertBox = document.getElementById("district-confirmation-alert");
+          var alertText = document.getElementById("selected-district-text");
+          if (alertBox && alertText) {
+            alertText.textContent = "✅ " + distName + " चुना गया!";
+            alertBox.classList.remove("hidden");
+          }
+          
+          if (typeof gtag === 'function') {
+            gtag('event', 'district_selected', {
+              'district_name': distName
+            });
+          }
+
+          var quizSec = document.getElementById("step-quiz-section");
+          if (quizSec) {
+            quizSec.scrollIntoView({ behavior: 'smooth' });
+          }
+        }
+
+        function handleQuizQ1(hasKhata) {
+          var yesBtn = document.getElementById("quiz-q1-yes");
+          var noBtn = document.getElementById("quiz-q1-no");
+          var resBox = document.getElementById("quiz-q1-result");
+          if (!resBox) return;
+          resBox.classList.remove("hidden");
+          if (hasKhata) {
+            yesBtn.className = "bg-emerald-700 text-white font-extrabold text-xs sm:text-sm px-5 py-2.5 rounded-xl shadow-xs transition-all ring-2 ring-emerald-400";
+            noBtn.className = "bg-slate-200 text-slate-600 font-bold text-xs sm:text-sm px-5 py-2.5 rounded-xl opacity-60";
+            resBox.className = "p-3.5 rounded-xl text-xs sm:text-sm font-extrabold bg-emerald-100 text-emerald-950 border border-emerald-300";
+            resBox.textContent = "✅ बढ़िया! Khata number se directly search kar sakte hain. Step 3 checklist complete karein.";
+          } else {
+            noBtn.className = "bg-orange-600 text-white font-extrabold text-xs sm:text-sm px-5 py-2.5 rounded-xl shadow-xs transition-all ring-2 ring-orange-400";
+            yesBtn.className = "bg-slate-200 text-slate-600 font-bold text-xs sm:text-sm px-5 py-2.5 rounded-xl opacity-60";
+            resBox.className = "p-3.5 rounded-xl text-xs sm:text-sm font-extrabold bg-orange-100 text-orange-950 border border-orange-300";
+            resBox.textContent = "💡 Koi baat nahi! Naam (Owner Name) se bhi khatiyan search ho sakta hai.";
+          }
+        }
+
+        function handleQuizQ2(isNameSearch) {
+          var yesBtn = document.getElementById("quiz-q2-yes");
+          var noBtn = document.getElementById("quiz-q2-no");
+          var resBox = document.getElementById("quiz-q2-result");
+          if (!resBox) return;
+          resBox.classList.remove("hidden");
+          if (isNameSearch) {
+            yesBtn.className = "bg-emerald-700 text-white font-extrabold text-xs sm:text-sm px-5 py-2.5 rounded-xl shadow-xs transition-all ring-2 ring-emerald-400";
+            noBtn.className = "bg-slate-200 text-slate-600 font-bold text-xs sm:text-sm px-5 py-2.5 rounded-xl opacity-60";
+            resBox.className = "p-3.5 rounded-xl text-xs sm:text-sm font-extrabold bg-emerald-100 text-emerald-950 border border-emerald-300";
+            resBox.textContent = "✅ Portal par 'समस्त खातों को नामानुसार देखें' ऑप्शन सिलेक्ट करें!";
+          } else {
+            noBtn.className = "bg-blue-600 text-white font-extrabold text-xs sm:text-sm px-5 py-2.5 rounded-xl shadow-xs transition-all ring-2 ring-blue-400";
+            yesBtn.className = "bg-slate-200 text-slate-600 font-bold text-xs sm:text-sm px-5 py-2.5 rounded-xl opacity-60";
+            resBox.className = "p-3.5 rounded-xl text-xs sm:text-sm font-extrabold bg-blue-100 text-blue-950 border border-blue-300";
+            resBox.textContent = "✅ Portal par 'खाता संख्या से खोजें' या 'खेसरा संख्या से खोजें' चुनें!";
+          }
+        }
+
+        var checklistCompleted = false;
+        function updateChecklistProgress() {
+          var checkboxes = document.querySelectorAll(".prep-check");
+          var total = checkboxes.length;
+          var checkedCount = 0;
+          checkboxes.forEach(function(cb) {
+            if (cb.checked) checkedCount++;
+          });
+
+          var percent = Math.round((checkedCount / total) * 100);
+          var statusText = document.getElementById("checklist-status-text");
+          var percentText = document.getElementById("checklist-percent-text");
+          var progressBar = document.getElementById("checklist-progress-bar");
+          var portalBtn = document.getElementById("gated-portal-btn");
+          var btnText = document.getElementById("gated-btn-text");
+
+          if (statusText) statusText.textContent = checkedCount + "/" + total + " items ready";
+          if (percentText) percentText.textContent = percent + "%";
+          if (progressBar) progressBar.style.width = percent + "%";
+
+          if (checkedCount === total) {
+            checklistCompleted = true;
+            if (statusText) statusText.textContent = "5/5 items ready — Ab Portal Kholen! ✅";
+            if (portalBtn) {
+              portalBtn.className = "w-full inline-flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-black text-base py-4 rounded-2xl shadow-lg hover:shadow-xl transition-all border border-emerald-500 animate-bounce";
+            }
+            if (btnText) btnText.textContent = "✅ Aap Taiyaar Hain! Portal Kholen 🔗";
+          } else {
+            checklistCompleted = false;
+            if (portalBtn) {
+              portalBtn.className = "w-full inline-flex items-center justify-center gap-2 bg-slate-300 text-slate-500 font-black text-base py-4 rounded-2xl shadow-none cursor-not-allowed transition-all border border-slate-300";
+            }
+            if (btnText) btnText.textContent = "🔒 Pehle Upar Ki List Complete Karein (" + checkedCount + "/5 Checked)";
+          }
+        }
+
+        function handlePortalButtonClick(e) {
+          if (!checklistCompleted) {
+            e.preventDefault();
+            alert("कृपया पहले ऊपर दिए गए 5 चेकलिस्ट आइटम्स को टिक (tick) करके पूरा करें!");
+            var chkSec = document.getElementById("step-checklist-section");
+            if (chkSec) chkSec.scrollIntoView({ behavior: 'smooth' });
+            return false;
+          }
+          var toast = document.getElementById("portal-launch-toast");
+          if (toast) {
+            toast.classList.remove("hidden");
+            setTimeout(function() {
+              toast.classList.add("hidden");
+            }, 12000);
+          }
+          if (typeof gtag === 'function') {
+            gtag('event', 'portal_unlocked_and_clicked', {
+              'district': selectedDistrictName || 'none'
+            });
+          }
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+          renderDistrictsGrid();
+        });
+      </script>
 
       <!-- SECTION 2: IMPORTANT INFO FIRST -->
       <section class="bg-white rounded-3xl border border-slate-200 p-6 sm:p-8 shadow-md space-y-6">
@@ -1648,5 +2068,94 @@ document.querySelectorAll('.mobile-menu a')
     </script>
   
   
-  </body>
+  
+<!-- STICKY BOTTOM BAR (FIX 4) -->
+<div id="sticky-bottom-bar" class="fixed bottom-0 left-0 right-0 z-40 bg-slate-900/95 backdrop-blur-md text-white border-t border-emerald-500/30 px-3 py-2.5 shadow-2xl transition-all duration-300">
+  <div class="max-w-5xl mx-auto flex items-center justify-between gap-2 text-xs sm:text-sm font-bold overflow-x-auto no-scrollbar">
+    <a href="ask-expert.html" class="flex items-center gap-1.5 bg-emerald-600/90 hover:bg-emerald-500 text-white px-3 py-1.5 rounded-xl whitespace-nowrap transition-all shadow-xs shrink-0">
+      <span>🤖</span> <span>Koi sawaal?</span>
+    </a>
+    <a href="https://wa.me/919835102324" target="_blank" rel="noopener noreferrer" class="flex items-center gap-1.5 bg-green-600 hover:bg-green-500 text-white px-3 py-1.5 rounded-xl whitespace-nowrap transition-all shadow-xs shrink-0">
+      <span>📱</span> <span>WhatsApp: 9835102324</span>
+    </a>
+    <a href="bigha-calculator.html" class="flex items-center gap-1.5 bg-slate-800 hover:bg-slate-700 text-slate-200 hover:text-white px-3 py-1.5 rounded-xl whitespace-nowrap transition-all border border-slate-700 shrink-0">
+      <span>🧮</span> <span>Bigha Calculator</span>
+    </a>
+    <a href="dakhil-kharij.html" class="flex items-center gap-1.5 bg-slate-800 hover:bg-slate-700 text-slate-200 hover:text-white px-3 py-1.5 rounded-xl whitespace-nowrap transition-all border border-slate-700 shrink-0">
+      <span>📋</span> <span>Dakhil Kharij</span>
+    </a>
+  </div>
+</div>
+
+<!-- EXIT INTENT POPUP (FIX 5) -->
+<div id="exit-intent-modal" class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-xs flex items-center justify-center p-4 hidden transition-opacity duration-300">
+  <div class="bg-white rounded-3xl max-w-md w-full p-6 sm:p-8 border border-slate-200 shadow-2xl relative space-y-5 text-slate-800 animate-in fade-in zoom-in-95">
+    <button onclick="closeExitPopup()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-700 bg-slate-100 hover:bg-slate-200 w-8 h-8 rounded-full flex items-center justify-center font-bold transition-all" aria-label="Close">✕</button>
+    <div class="text-center space-y-2">
+      <div class="text-4xl">रुकिए! 🙏</div>
+      <h3 class="text-xl sm:text-2xl font-black text-slate-900 tracking-tight leading-snug">
+        क्या आपको अपनी जमीन के बारे में कोई और जानकारी चाहिए?
+      </h3>
+      <p class="text-xs sm:text-sm text-slate-600 font-semibold">
+        जाने से पहले हमारे इन मुफ्त टूल्स का उपयोग करें:
+      </p>
+    </div>
+    <div class="grid grid-cols-1 gap-2.5 pt-1">
+      <a href="bigha-calculator.html" class="flex items-center justify-between bg-emerald-50 hover:bg-emerald-100 border border-emerald-200/80 p-3.5 rounded-xl font-extrabold text-emerald-950 text-sm transition-all shadow-xs">
+        <span>🧮 Bigha Calculate करें</span>
+        <span class="text-emerald-700 font-extrabold text-xs">खोलें →</span>
+      </a>
+      <a href="dakhil-kharij.html" class="flex items-center justify-between bg-orange-50 hover:bg-orange-100 border border-orange-200/80 p-3.5 rounded-xl font-extrabold text-orange-950 text-sm transition-all shadow-xs">
+        <span>📋 Dakhil Kharij Guide</span>
+        <span class="text-orange-700 font-extrabold text-xs">देखें →</span>
+      </a>
+      <a href="land-rates.html" class="flex items-center justify-between bg-blue-50 hover:bg-blue-100 border border-blue-200/80 p-3.5 rounded-xl font-extrabold text-blue-950 text-sm transition-all shadow-xs">
+        <span>💰 Land Rates देखें</span>
+        <span class="text-blue-700 font-extrabold text-xs">रेट देखें →</span>
+      </a>
+    </div>
+    <div class="pt-2 text-center">
+      <button onclick="closeExitPopup()" class="text-xs text-slate-400 hover:text-slate-600 font-bold underline transition-all">
+        ❌ नहीं, जाना है
+      </button>
+    </div>
+  </div>
+</div>
+
+<script>
+var exitShown = false;
+function showExitPopup() {
+  if (exitShown) return;
+  var modal = document.getElementById('exit-intent-modal');
+  if (modal) {
+    exitShown = true;
+    modal.classList.remove('hidden');
+    if (typeof gtag === 'function') {
+      gtag('event', 'exit_intent_shown');
+    }
+  }
+}
+function closeExitPopup() {
+  var modal = document.getElementById('exit-intent-modal');
+  if (modal) {
+    modal.classList.add('hidden');
+  }
+}
+
+// Mouseleave top detection
+document.addEventListener('mouseleave', function(e) {
+  if (e.clientY < 10 && !exitShown) {
+    showExitPopup();
+  }
+});
+
+// Mobile back button detection
+window.addEventListener('popstate', function() {
+  if (!exitShown) {
+    showExitPopup();
+    history.pushState(null, '', window.location.href);
+  }
+});
+</script>
+</body>
 </html>

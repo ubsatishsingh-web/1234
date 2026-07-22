@@ -53,8 +53,7 @@
       }
     </script>
 
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z1T8BNYBTE"></script>
+    
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
@@ -67,8 +66,77 @@
 
     
     <link rel="stylesheet" href="css/premium-style.css?v=1.0.12">
+<!-- Google Analytics GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Z1T8BNYBTE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-Z1T8BNYBTE', {
+    'send_page_view': true,
+    'engagement_time_msec': 100
+  });
+  
+  // Force engagement event after 10 seconds
+  setTimeout(function() {
+    gtag('event', 'user_engagement', {
+      'engagement_time_msec': 10000
+    });
+  }, 10000);
+
+  // Track scroll depth
+  var scrollTracked = false;
+  window.addEventListener('scroll', function() {
+    if (!scrollTracked && window.scrollY > 200) {
+      scrollTracked = true;
+      gtag('event', 'scroll', {
+        'percent_scrolled': 25
+      });
+    }
+  });
+
+  // Track all internal link clicks
+  document.addEventListener('click', function(e) {
+    var link = e.target.closest('a');
+    if (link && link.href && link.href.includes('bighawala.com')) {
+      gtag('event', 'internal_click', {
+        'link_url': link.href
+      });
+    }
+  });
+
+  // Track external portal clicks
+  document.addEventListener('click', function(e) {
+    var link = e.target.closest('a');
+    if (link && link.href && !link.href.includes('bighawala.com') && !link.href.includes('wa.me')) {
+      gtag('event', 'portal_click', {
+        'portal_url': link.href
+      });
+    }
+  });
+</script>
+
+<script>
+// Auto open external links in new tab
+document.addEventListener('DOMContentLoaded', function() {
+  var links = document.querySelectorAll('a[href]');
+  links.forEach(function(link) {
+    var href = link.getAttribute('href');
+    if (href && 
+        !href.startsWith('#') &&
+        !href.startsWith('/') &&
+        !href.includes('bighawala.com') &&
+        !href.startsWith('tel:') &&
+        !href.startsWith('mailto:') &&
+        !href.startsWith('javascript')) {
+      link.setAttribute('target', '_blank');
+      link.setAttribute('rel', 'noopener noreferrer');
+    }
+  });
+});
+</script>
 </head>
-  <body class="bg-slate-50 text-slate-800 font-sans min-h-screen flex flex-col selection:bg-orange-100 selection:text-orange-900">
+  <body class="pb-16 bg-slate-50 text-slate-800 font-sans min-h-screen flex flex-col selection:bg-orange-100 selection:text-orange-900">
 
 <!-- NAVIGATION -->
 <style>
@@ -1067,5 +1135,94 @@
 
       calculateRegistryCosts();
     </script>
-  </body>
+  
+<!-- STICKY BOTTOM BAR (FIX 4) -->
+<div id="sticky-bottom-bar" class="fixed bottom-0 left-0 right-0 z-40 bg-slate-900/95 backdrop-blur-md text-white border-t border-emerald-500/30 px-3 py-2.5 shadow-2xl transition-all duration-300">
+  <div class="max-w-5xl mx-auto flex items-center justify-between gap-2 text-xs sm:text-sm font-bold overflow-x-auto no-scrollbar">
+    <a href="ask-expert.html" class="flex items-center gap-1.5 bg-emerald-600/90 hover:bg-emerald-500 text-white px-3 py-1.5 rounded-xl whitespace-nowrap transition-all shadow-xs shrink-0">
+      <span>🤖</span> <span>Koi sawaal?</span>
+    </a>
+    <a href="https://wa.me/919835102324" target="_blank" rel="noopener noreferrer" class="flex items-center gap-1.5 bg-green-600 hover:bg-green-500 text-white px-3 py-1.5 rounded-xl whitespace-nowrap transition-all shadow-xs shrink-0">
+      <span>📱</span> <span>WhatsApp: 9835102324</span>
+    </a>
+    <a href="bigha-calculator.html" class="flex items-center gap-1.5 bg-slate-800 hover:bg-slate-700 text-slate-200 hover:text-white px-3 py-1.5 rounded-xl whitespace-nowrap transition-all border border-slate-700 shrink-0">
+      <span>🧮</span> <span>Bigha Calculator</span>
+    </a>
+    <a href="dakhil-kharij.html" class="flex items-center gap-1.5 bg-slate-800 hover:bg-slate-700 text-slate-200 hover:text-white px-3 py-1.5 rounded-xl whitespace-nowrap transition-all border border-slate-700 shrink-0">
+      <span>📋</span> <span>Dakhil Kharij</span>
+    </a>
+  </div>
+</div>
+
+<!-- EXIT INTENT POPUP (FIX 5) -->
+<div id="exit-intent-modal" class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-xs flex items-center justify-center p-4 hidden transition-opacity duration-300">
+  <div class="bg-white rounded-3xl max-w-md w-full p-6 sm:p-8 border border-slate-200 shadow-2xl relative space-y-5 text-slate-800 animate-in fade-in zoom-in-95">
+    <button onclick="closeExitPopup()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-700 bg-slate-100 hover:bg-slate-200 w-8 h-8 rounded-full flex items-center justify-center font-bold transition-all" aria-label="Close">✕</button>
+    <div class="text-center space-y-2">
+      <div class="text-4xl">रुकिए! 🙏</div>
+      <h3 class="text-xl sm:text-2xl font-black text-slate-900 tracking-tight leading-snug">
+        क्या आपको अपनी जमीन के बारे में कोई और जानकारी चाहिए?
+      </h3>
+      <p class="text-xs sm:text-sm text-slate-600 font-semibold">
+        जाने से पहले हमारे इन मुफ्त टूल्स का उपयोग करें:
+      </p>
+    </div>
+    <div class="grid grid-cols-1 gap-2.5 pt-1">
+      <a href="bigha-calculator.html" class="flex items-center justify-between bg-emerald-50 hover:bg-emerald-100 border border-emerald-200/80 p-3.5 rounded-xl font-extrabold text-emerald-950 text-sm transition-all shadow-xs">
+        <span>🧮 Bigha Calculate करें</span>
+        <span class="text-emerald-700 font-extrabold text-xs">खोलें →</span>
+      </a>
+      <a href="dakhil-kharij.html" class="flex items-center justify-between bg-orange-50 hover:bg-orange-100 border border-orange-200/80 p-3.5 rounded-xl font-extrabold text-orange-950 text-sm transition-all shadow-xs">
+        <span>📋 Dakhil Kharij Guide</span>
+        <span class="text-orange-700 font-extrabold text-xs">देखें →</span>
+      </a>
+      <a href="land-rates.html" class="flex items-center justify-between bg-blue-50 hover:bg-blue-100 border border-blue-200/80 p-3.5 rounded-xl font-extrabold text-blue-950 text-sm transition-all shadow-xs">
+        <span>💰 Land Rates देखें</span>
+        <span class="text-blue-700 font-extrabold text-xs">रेट देखें →</span>
+      </a>
+    </div>
+    <div class="pt-2 text-center">
+      <button onclick="closeExitPopup()" class="text-xs text-slate-400 hover:text-slate-600 font-bold underline transition-all">
+        ❌ नहीं, जाना है
+      </button>
+    </div>
+  </div>
+</div>
+
+<script>
+var exitShown = false;
+function showExitPopup() {
+  if (exitShown) return;
+  var modal = document.getElementById('exit-intent-modal');
+  if (modal) {
+    exitShown = true;
+    modal.classList.remove('hidden');
+    if (typeof gtag === 'function') {
+      gtag('event', 'exit_intent_shown');
+    }
+  }
+}
+function closeExitPopup() {
+  var modal = document.getElementById('exit-intent-modal');
+  if (modal) {
+    modal.classList.add('hidden');
+  }
+}
+
+// Mouseleave top detection
+document.addEventListener('mouseleave', function(e) {
+  if (e.clientY < 10 && !exitShown) {
+    showExitPopup();
+  }
+});
+
+// Mobile back button detection
+window.addEventListener('popstate', function() {
+  if (!exitShown) {
+    showExitPopup();
+    history.pushState(null, '', window.location.href);
+  }
+});
+</script>
+</body>
 </html>
