@@ -38,7 +38,6 @@ import SeoKeywordPlanner from "./components/SeoKeywordPlanner";
 import SeoMetaManager from "./components/SeoMetaManager";
 import LandDocumentExplainer from "./components/LandDocumentExplainer";
 import PatnaDistrictFaq from "./components/PatnaDistrictFaq";
-import OgImageGenerator from "./components/OgImageGenerator";
 
 export default function App() {
   // --- STATE FOR CONVERTER 1: Bigha to Everything ---
@@ -406,11 +405,6 @@ export default function App() {
           <p className="text-stone-600 text-sm sm:text-base font-medium">
             बिहार के किसानों और जमीन खरीदार-विक्रेताओं के लिए पूर्ण ऑनलाइन कैलकुलेटर टूल। बीघा, कट्ठा, धूर, डिस्मिल, और एकड़ की मापी की त्वरित एवं सटीक गणना करें।
           </p>
-        </section>
-
-        {/* OFFICIAL OPEN GRAPH (OG) SOCIAL CARD SECTION */}
-        <section id="og-image-section">
-          <OgImageGenerator />
         </section>
 
         {/* ==========================================

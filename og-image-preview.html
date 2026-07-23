@@ -2,194 +2,337 @@
 <html lang="hi">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BighaWala.com — Official Open Graph (OG) Social Media Preview Card (1200x630)</title>
-  
-  <!-- Open Graph Meta Tags -->
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://bighawala.com/">
-  <meta property="og:title" content="बिहार का #1 जमीन पोर्टल — BighaWala.com">
-  <meta property="og:description" content="Bigha Calculator | Dakhil Kharij | Bhulekh | Jamabandi — 100% Free | 5,00,000+ Users">
-  <meta property="og:image" content="https://bighawala.com/og-image.jpg">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-
-  <!-- Google Fonts -->
+  <title>BighaWala.com OG Image Preview</title>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@700;800;900&family=Poppins:wght@700;800;900&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="bg-slate-950 text-slate-100 min-h-screen p-4 sm:p-8 font-sans antialiased">
+  
+      <link rel="stylesheet" href="css/premium-style.css?v=1.0.12">
+<!-- Google Analytics GA4 -->
 
-  <div class="max-w-6xl mx-auto space-y-8">
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var links = document.querySelectorAll('a[href]');
+  links.forEach(function(link) {
+    var href = link.getAttribute('href');
+    if (!href) return;
     
-    <!-- Page Header -->
-    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-800 pb-6">
-      <div>
-        <span class="bg-amber-500/20 text-amber-400 font-black text-xs px-3 py-1 rounded-full uppercase tracking-wider border border-amber-500/30">
-          Official Social Media Asset
+    // These are EXTERNAL — open in new tab
+    var externalDomains = [
+      'bihar.gov.in',
+      'nic.in',
+      'pmayg.nic.in',
+      'pmaymis.gov.in',
+      'bankbazaar.com',
+      'sbi.co.in',
+      'bankofindia.co.in',
+      'wa.me',
+      'nibandhan.bihar.gov.in',
+      'bhulagan.bihar.gov.in',
+      'emapi.bihar.gov.in',
+      'land.bihar.gov.in',
+      'emutation.bihar.gov.in',
+      'bhuabhilekh.bihar.gov.in',
+      'parimarjanplus.bihar.gov.in',
+      'biharbhumiplus.bihar.gov.in',
+      'biharbhumi.bihar.gov.in',
+      'pmkisan.gov.in',
+      'agriculture.bihar.gov.in'
+    ];
+    
+    var isExternal = externalDomains.some(function(domain) {
+      return href.includes(domain);
+    });
+    
+    if (isExternal) {
+      link.setAttribute('target', '_blank');
+      link.setAttribute('rel', 'noopener noreferrer');
+    } else {
+      // Internal links — same tab
+      link.removeAttribute('target');
+    }
+  });
+});
+</script>
+<!-- Google Analytics 4 — BighaWala.com -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Z1T8BNYBTE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-Z1T8BNYBTE', {
+    'send_page_view': true
+  });
+
+  // Fire engagement event after 5 seconds
+  // This tells GA4 user is engaged
+  setTimeout(function() {
+    gtag('event', 'user_engagement', {
+      'engagement_time_msec': 5000
+    });
+  }, 5000);
+
+  // Track scroll — fires when user scrolls
+  var scrollFired = false;
+  window.addEventListener('scroll', function() {
+    if (!scrollFired) {
+      scrollFired = true;
+      gtag('event', 'scroll', {
+        'percent_scrolled': 10
+      });
+    }
+  }, {passive: true});
+</script>
+</head>
+<body class="pb-16 relative flex flex-col justify-between select-none">
+  <!-- Subtle background accent circles -->
+  <div class="absolute -top-40 -left-40 w-96 h-96 rounded-full bg-white/5 blur-3xl pointer-events-none"></div>
+  <div class="absolute -bottom-20 right-20 w-80 h-80 rounded-full bg-orange-500/10 blur-3xl pointer-events-none"></div>
+  <div class="absolute top-20 right-40 w-64 h-64 rounded-full bg-emerald-500/10 blur-3xl pointer-events-none"></div>
+
+  <!-- Main Content Area -->
+  <div class="flex-grow flex flex-col justify-center px-16 pt-12 relative z-10">
+    <!-- Header / Branding -->
+    <div class="flex items-center gap-4 mb-8">
+      <div class="text-5xl drop-shadow-md">🏡</div>
+      <div class="flex flex-col">
+        <span class="text-5xl font-black tracking-tight text-white leading-none">
+          <span class="text-orange-500">Bigha</span>Wala<span class="text-emerald-400">.com</span>
         </span>
-        <h1 class="text-2xl sm:text-4xl font-black text-white mt-2 tracking-tight">
-          BighaWala.com Open Graph Image (1200 x 630 px)
-        </h1>
-        <p class="text-slate-400 text-sm mt-1">
-          WhatsApp, Facebook, Twitter, Telegram और LinkedIn लिंक प्रीव्यू के लिए बिल्कुल अनुकूलित थंबनेल।
-        </p>
-      </div>
-
-      <div class="flex items-center gap-3">
-        <a href="og-image.jpg" download="bighawala-og-image.jpg" class="bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold px-5 py-2.5 rounded-xl shadow-lg transition text-sm flex items-center gap-2">
-          <span>⬇️ Download JPG (~150KB)</span>
-        </a>
-        <a href="index.html" class="bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold px-4 py-2.5 rounded-xl text-sm transition">
-          ← Main Site
-        </a>
       </div>
     </div>
 
-    <!-- EXACT 1200x630 HTML / CSS CARD PREVIEW -->
-    <div class="space-y-3">
-      <div class="flex items-center justify-between text-xs font-mono text-slate-400">
-        <span>Exact Aspect Ratio: 1200 × 630 pixels (16:9)</span>
-        <span class="text-emerald-400 font-bold">Optimized under 300KB</span>
-      </div>
+    <!-- Hero Headline -->
+    <h1 class="text-6xl font-black text-white leading-tight drop-shadow-lg mb-6" style="font-family: 'Noto Sans Devanagari', sans-serif;">
+      बिहार की जमीन की <span class="text-yellow-400">हर जानकारी</span>
+    </h1>
 
-      <!-- Card Container (Scale responsively with max-w-full) -->
-      <div id="og-card-container" className="relative w-full aspect-[1200/630] rounded-3xl overflow-hidden shadow-2xl border-2 border-slate-800 select-none" style="background: linear-gradient(180deg, #2E7D32 0%, #1B5E20 100%); font-family: 'Poppins', 'Noto Sans Devanagari', sans-serif;">
-        
-        <!-- Subtle Faint Bihar State Map Background Overlay -->
-        <div class="absolute inset-0 opacity-10 pointer-events-none flex items-center justify-center">
-          <svg viewBox="0 0 600 400" class="w-full h-full text-white fill-current">
-            <path d="M100,50 L250,40 L380,70 L480,110 L520,200 L450,280 L390,310 L300,340 L180,330 L90,290 L40,210 L60,120 Z" opacity="0.3" stroke="#FFFFFF" stroke-width="4" fill="none" />
-            <line x1="100" y1="50" x2="450" y2="280" stroke="#FFFFFF" stroke-width="2" stroke-dasharray="6,6" />
-            <line x1="250" y1="40" x2="300" y2="340" stroke="#FFFFFF" stroke-width="2" stroke-dasharray="6,6" />
-          </svg>
-        </div>
-
-        <!-- Grid Pattern Overlay -->
-        <div class="absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.06)_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none"></div>
-
-        <!-- Card Content Grid: Left 60%, Right 40% -->
-        <div class="relative z-10 w-full h-full p-[6%] flex flex-col justify-between">
-          
-          <!-- Top Row -->
-          <div class="flex items-center justify-between">
-            <div class="bg-white/10 backdrop-blur-md px-4 py-1.5 rounded-full border border-white/20 text-white font-bold text-[2.2%] tracking-wide">
-              🇮🇳 बिहार का सबसे विश्वसनीय भू-सूचना पोर्टल
-            </div>
-          </div>
-
-          <!-- Middle Row: Left 60% Text + Right 40% Icon -->
-          <div class="grid grid-cols-12 gap-6 items-center flex-grow py-4">
-            
-            <!-- Left Side (60% = 7 cols) -->
-            <div class="col-span-7 space-y-3">
-              <h1 class="text-[5.2vw] lg:text-[52px] font-black text-white leading-tight drop-shadow-md" style="font-family: 'Noto Sans Devanagari', sans-serif;">
-                बिहार का #1 जमीन पोर्टल
-              </h1>
-              
-              <p class="text-[2.6vw] lg:text-[24px] font-extrabold text-[#FFE082] tracking-wide leading-snug">
-                Bigha Calculator | Dakhil Kharij | Bhulekh | Jamabandi
-              </p>
-
-              <div class="flex flex-col gap-1.5 pt-1 text-[1.8vw] lg:text-[18px] text-white/90 font-bold">
-                <p>✓ बीघा-कट्ठा-धूर सटीक मापी कैलकुलेटर</p>
-                <p>✓ ऑनलाइन दाखिल-खारिज व जमाबंदी पंजी २</p>
-              </div>
-            </div>
-
-            <!-- Right Side (40% = 5 cols): Clean Bigha Land Measurement Tool Illustration -->
-            <div class="col-span-5 flex items-center justify-center">
-              <div class="relative w-[85%] aspect-square rounded-3xl bg-amber-500/10 border-2 border-[#FF6F00]/50 p-6 flex flex-col items-center justify-center text-center shadow-2xl backdrop-blur-xs">
-                
-                <!-- Stylized Land Parcel Graphic -->
-                <div class="relative w-full h-full flex flex-col items-center justify-center">
-                  <div class="w-24 h-24 sm:w-32 sm:h-32 rounded-2xl bg-[#FF6F00] text-white flex items-center justify-center text-4xl sm:text-6xl font-black shadow-xl border-2 border-white/40 transform -rotate-3 hover:rotate-0 transition-transform">
-                    📐
-                  </div>
-                  <span class="mt-3 text-white font-black text-[2vw] lg:text-[18px] uppercase tracking-wider bg-black/40 px-3 py-1 rounded-full border border-white/20">
-                    Bigha Measuring Rod
-                  </span>
-                </div>
-
-              </div>
-            </div>
-
-          </div>
-
-          <!-- Bottom Row: Left Logo & Right Badge -->
-          <div class="flex items-center justify-between pt-2 border-t border-white/10">
-            
-            <!-- Bottom Left: Logo + Green Checkmark -->
-            <div class="flex items-center gap-3">
-              <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-emerald-500 text-white font-black text-lg sm:text-xl flex items-center justify-center shadow-lg border border-white/40">
-                ✓
-              </div>
-              <span class="text-[3vw] lg:text-[28px] font-black text-white tracking-tight">
-                BighaWala<span class="text-[#FFE082]">.com</span>
-              </span>
-            </div>
-
-            <!-- Bottom Right: "100% Free | 5,00,000+ Users" Badge -->
-            <div class="bg-[#FF6F00] text-white font-black text-[2.2vw] lg:text-[20px] px-6 py-2.5 rounded-2xl shadow-xl border border-orange-300/40 tracking-wider">
-              100% Free | 5,00,000+ Users
-            </div>
-
-          </div>
-
-        </div>
-
-      </div>
-    </div>
-
-    <!-- Scaled Down WhatsApp Preview Simulator -->
-    <div class="bg-slate-900 p-6 rounded-2xl border border-slate-800 space-y-4">
-      <h3 class="text-base font-bold text-slate-200 flex items-center gap-2">
-        <span>📱 WhatsApp Thumbnail Scaled Test (Small Screen Readability):</span>
-      </h3>
-      
-      <div class="flex flex-wrap items-center gap-6">
-        <!-- 120px Small Thumbnail -->
-        <div class="space-y-1">
-          <p class="text-xs text-slate-400 font-mono">120px Thumbnail:</p>
-          <div class="w-32 aspect-[16/9] rounded-lg overflow-hidden border border-emerald-500/50 shadow-md">
-            <img src="og-image.jpg" alt="120px preview" class="w-full h-full object-cover">
-          </div>
-        </div>
-
-        <!-- 240px Medium Thumbnail -->
-        <div class="space-y-1">
-          <p class="text-xs text-slate-400 font-mono">240px Chat Preview:</p>
-          <div class="w-60 aspect-[16/9] rounded-xl overflow-hidden border border-emerald-500/50 shadow-md">
-            <img src="og-image.jpg" alt="240px preview" class="w-full h-full object-cover">
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- HTML Meta Tags Ready to Paste -->
-    <div class="bg-slate-900 p-6 rounded-2xl border border-slate-800 space-y-3">
-      <h3 class="text-base font-bold text-purple-300">
-        HTML Meta Tags Code (Insert in &lt;head&gt;):
-      </h3>
-      <pre class="bg-slate-950 p-4 rounded-xl text-xs font-mono text-purple-200 overflow-x-auto">
-&lt;!-- Open Graph / WhatsApp / Facebook --&gt;
-&lt;meta property="og:type" content="website" /&gt;
-&lt;meta property="og:url" content="https://bighawala.com/" /&gt;
-&lt;meta property="og:title" content="बिहार का #1 जमीन पोर्टल — BighaWala.com" /&gt;
-&lt;meta property="og:description" content="Bigha Calculator | Dakhil Kharij | Bhulekh | Jamabandi" /&gt;
-&lt;meta property="og:image" content="https://bighawala.com/og-image.jpg" /&gt;
-&lt;meta property="og:image:width" content="1200" /&gt;
-&lt;meta property="og:image:height" content="630" /&gt;
-
-&lt;!-- Twitter Card --&gt;
-&lt;meta name="twitter:card" content="summary_large_image" /&gt;
-&lt;meta name="twitter:title" content="बिहार का #1 जमीन पोर्टल — BighaWala.com" /&gt;
-&lt;meta name="twitter:description" content="Bigha Calculator | Dakhil Kharij | Bhulekh | Jamabandi" /&gt;
-&lt;meta name="twitter:image" content="https://bighawala.com/og-image.jpg" /&gt;
-      </pre>
-    </div>
-
+    <!-- Core Features / Subtext -->
+    <p class="text-xl font-bold text-slate-600/90 tracking-wide bg-emerald-950/40 py-3.5 px-6 rounded-2xl border border-emerald-800/50 inline-block self-start">
+      Bigha Calculator &nbsp;|&nbsp; Dakhil Kharij &nbsp;|&nbsp; Bhulekh &nbsp;|&nbsp; Land Rates
+    </p>
   </div>
+
+  <!-- Bottom Saffron Bar -->
+  <div class="h-20 bg-[#FF6F00] flex items-center justify-between px-16 relative z-10 border-t-4 border-orange-400 shadow-2xl">
+    <span class="text-xl font-extrabold text-white uppercase tracking-wider">
+      🇮🇳 Bihar ka #1 Land Platform
+    </span>
+    <span class="bg-white text-[#FF6F00] font-black px-6 py-2 rounded-full text-base uppercase tracking-widest shadow-md">
+      100% Free / मुफ्त
+    </span>
+  </div>
+
+<!-- STICKY BOTTOM BAR (FIX 4) -->
+<div id="sticky-bottom-bar" class="fixed bottom-0 left-0 right-0 z-40 bg-slate-900/95 backdrop-blur-md text-white border-t border-emerald-500/30 px-3 py-2.5 shadow-2xl transition-all duration-300">
+  <div class="max-w-5xl mx-auto flex items-center justify-between gap-2 text-xs sm:text-sm font-bold overflow-x-auto no-scrollbar">
+    <a href="ask-expert.html" class="flex items-center gap-1.5 bg-emerald-600/90 hover:bg-emerald-500 text-white px-3 py-1.5 rounded-xl whitespace-nowrap transition-all shadow-xs shrink-0">
+      <span>🤖</span> <span>Koi sawaal?</span>
+    </a>
+    <a href="https://wa.me/919835102324" target="_blank" rel="noopener noreferrer" class="flex items-center gap-1.5 bg-green-600 hover:bg-green-500 text-white px-3 py-1.5 rounded-xl whitespace-nowrap transition-all shadow-xs shrink-0">
+      <span>📱</span> <span>WhatsApp: 9835102324</span>
+    </a>
+    <a href="bigha-calculator.html" class="flex items-center gap-1.5 bg-slate-800 hover:bg-slate-700 text-slate-200 hover:text-white px-3 py-1.5 rounded-xl whitespace-nowrap transition-all border border-slate-700 shrink-0">
+      <span>🧮</span> <span>Bigha Calculator</span>
+    </a>
+    <a href="dakhil-kharij.html" class="flex items-center gap-1.5 bg-slate-800 hover:bg-slate-700 text-slate-200 hover:text-white px-3 py-1.5 rounded-xl whitespace-nowrap transition-all border border-slate-700 shrink-0">
+      <span>📋</span> <span>Dakhil Kharij</span>
+    </a>
+  </div>
+</div>
+
+<!-- EXIT INTENT POPUP (FIX 5) -->
+<div id="exit-intent-modal" class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-xs flex items-center justify-center p-4 hidden transition-opacity duration-300">
+  <div class="bg-white rounded-3xl max-w-md w-full p-6 sm:p-8 border border-slate-200 shadow-2xl relative space-y-5 text-slate-800 animate-in fade-in zoom-in-95">
+    <button onclick="closeExitPopup()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-700 bg-slate-100 hover:bg-slate-200 w-8 h-8 rounded-full flex items-center justify-center font-bold transition-all" aria-label="Close">✕</button>
+    <div class="text-center space-y-2">
+      <div class="text-4xl">रुकिए! 🙏</div>
+      <h3 class="text-xl sm:text-2xl font-black text-slate-900 tracking-tight leading-snug">
+        क्या आपको अपनी जमीन के बारे में कोई और जानकारी चाहिए?
+      </h3>
+      <p class="text-xs sm:text-sm text-slate-600 font-semibold">
+        जाने से पहले हमारे इन मुफ्त टूल्स का उपयोग करें:
+      </p>
+    </div>
+    <div class="grid grid-cols-1 gap-2.5 pt-1">
+      <a href="bigha-calculator.html" class="flex items-center justify-between bg-emerald-50 hover:bg-emerald-100 border border-emerald-200/80 p-3.5 rounded-xl font-extrabold text-emerald-950 text-sm transition-all shadow-xs">
+        <span>🧮 Bigha Calculate करें</span>
+        <span class="text-emerald-700 font-extrabold text-xs">खोलें →</span>
+      </a>
+      <a href="dakhil-kharij.html" class="flex items-center justify-between bg-orange-50 hover:bg-orange-100 border border-orange-200/80 p-3.5 rounded-xl font-extrabold text-orange-950 text-sm transition-all shadow-xs">
+        <span>📋 Dakhil Kharij Guide</span>
+        <span class="text-orange-700 font-extrabold text-xs">देखें →</span>
+      </a>
+      <a href="land-rates.html" class="flex items-center justify-between bg-blue-50 hover:bg-blue-100 border border-blue-200/80 p-3.5 rounded-xl font-extrabold text-blue-950 text-sm transition-all shadow-xs">
+        <span>💰 Land Rates देखें</span>
+        <span class="text-blue-700 font-extrabold text-xs">रेट देखें →</span>
+      </a>
+    </div>
+    <div class="pt-2 text-center">
+      <button onclick="closeExitPopup()" class="text-xs text-slate-400 hover:text-slate-600 font-bold underline transition-all">
+        ❌ नहीं, जाना है
+      </button>
+    </div>
+  </div>
+</div>
+
+<script>
+var exitShown = false;
+function showExitPopup() {
+  if (exitShown) return;
+  var modal = document.getElementById('exit-intent-modal');
+  if (modal) {
+    exitShown = true;
+    modal.classList.remove('hidden');
+    if (typeof gtag === 'function') {
+      gtag('event', 'exit_intent_shown');
+    }
+  }
+}
+function closeExitPopup() {
+  var modal = document.getElementById('exit-intent-modal');
+  if (modal) {
+    modal.classList.add('hidden');
+  }
+}
+
+// Mouseleave top detection
+document.addEventListener('mouseleave', function(e) {
+  if (e.clientY < 10 && !exitShown) {
+    showExitPopup();
+  }
+});
+
+// Mobile back button detection
+window.addEventListener('popstate', function() {
+  if (!exitShown) {
+    showExitPopup();
+    history.pushState(null, '', window.location.href);
+  }
+});
+</script>
+
+<style>
+.sticky-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #1B5E20;
+  color: white;
+  padding: 8px 15px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 9999;
+  box-shadow: 0 -2px 10px rgba(0,0,0,0.2);
+}
+.sticky-bar a {
+  color: white;
+  text-decoration: none;
+  font-size: 11px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+.sticky-bar .bar-icon {
+  font-size: 18px;
+}
+@media (min-width: 768px) {
+  .sticky-bar { display: none; }
+}
+</style>
+
+<div class="sticky-bar">
+  <a href="index.html">
+    <span class="bar-icon">🏠</span>
+    <span>Home</span>
+  </a>
+  <a href="bigha-calculator.html">
+    <span class="bar-icon">🧮</span>
+    <span>Calculator</span>
+  </a>
+  <a href="ask-expert.html">
+    <span class="bar-icon">🤖</span>
+    <span>AI Expert</span>
+  </a>
+  <a href="community-qa.html">
+    <span class="bar-icon">🤝</span>
+    <span>Community</span>
+  </a>
+  <a href="javascript:void(0)" onclick="window.open('https://wa.me/919835102324','_blank')">
+    <span class="bar-icon">📱</span>
+    <span>WhatsApp</span>
+  </a>
+</div>
+
+<script>
+// Open external links in new tab only
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('a[href]').forEach(function(link) {
+    var href = link.href || '';
+    var isExternal = (
+      href.includes('bihar.gov.in') ||
+      href.includes('nic.in') ||
+      href.includes('bhulagan') ||
+      href.includes('emapi') ||
+      href.includes('nibandhan') ||
+      href.includes('pmayg') ||
+      href.includes('pmaymis') ||
+      href.includes('bankbazaar') ||
+      href.includes('sbi.co.in') ||
+      href.includes('wa.me')
+    );
+    var isInternal = (
+      href.includes('bighawala.com') ||
+      href.startsWith('/') ||
+      href.endsWith('.html') ||
+      href.startsWith('#') ||
+      href.startsWith('tel:') ||
+      href.startsWith('mailto:')
+    );
+    if (isExternal && !isInternal) {
+      link.target = '_blank';
+      link.rel = 'noopener noreferrer';
+    } else if (isInternal) {
+      link.target = '_self';
+    }
+  });
+});
+</script>
+
+<script>
+setTimeout(function() {
+  var popup = document.createElement('div');
+  popup.innerHTML = 
+    '<div style="position:fixed;bottom:80px;' +
+    'right:15px;background:#2E7D32;color:white;' +
+    'padding:12px 15px;border-radius:10px;' +
+    'max-width:220px;z-index:9998;' +
+    'box-shadow:0 4px 15px rgba(0,0,0,0.2);' +
+    'font-size:13px;">' +
+    '<div style="font-weight:bold;margin-bottom:5px;">' +
+    '💡 यह भी देखें:</div>' +
+    '<a href="bigha-calculator.html" ' +
+    'style="color:#FFD54F;display:block;' +
+    'margin:3px 0;">🧮 Bigha Calculator</a>' +
+    '<a href="dakhil-kharij.html" ' +
+    'style="color:#FFD54F;display:block;' +
+    'margin:3px 0;">📋 Dakhil Kharij Guide</a>' +
+    '<a href="land-rates.html" ' +
+    'style="color:#FFD54F;display:block;' +
+    'margin:3px 0;">💰 Land Rates 2026</a>' +
+    '<div onclick="this.parentElement.' +
+    'parentElement.remove()" ' +
+    'style="text-align:right;cursor:pointer;' +
+    'margin-top:5px;opacity:0.7;">✕ बंद करें</div>' +
+    '</div>';
+  document.body.appendChild(popup);
+}, 30000);
+</script>
 
 </body>
 </html>
