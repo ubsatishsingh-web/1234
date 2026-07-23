@@ -69,6 +69,11 @@
     { "src": "/katihar-land-rate", "dest": "/katihar-land-rate.html" },
     { "src": "/sheohar-land-rate", "dest": "/sheohar-land-rate.html" },
     { "src": "/bihar-all-districts-land-rate", "dest": "/bihar-all-districts-land-rate.html" },
+    { "src": "/dakhil-kharij-fees", "dest": "/dakhil-kharij-fees.html" },
+    { "src": "/lpc-validity-renewal", "dest": "/lpc-validity-renewal.html" },
+    { "src": "/bigha-to-decimal", "dest": "/bigha-to-decimal.html" },
+    { "src": "/zameen-registry-charges", "dest": "/zameen-registry-charges.html" },
+    { "src": "/self-declaration-form-bihar", "dest": "/self-declaration-form-bihar.html" },
     { "src": "/(.*)", "dest": "/$1" }
   ]
 }
