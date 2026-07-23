@@ -69,6 +69,7 @@
     { "src": "/katihar-land-rate", "dest": "/katihar-land-rate.html" },
     { "src": "/sheohar-land-rate", "dest": "/sheohar-land-rate.html" },
     { "src": "/bihar-all-districts-land-rate", "dest": "/bihar-all-districts-land-rate.html" },
+    {"src": "/saathi-bot", "dest": "/saathi-bot.html"},
     { "src": "/(.*)", "dest": "/$1" }
   ]
 }
