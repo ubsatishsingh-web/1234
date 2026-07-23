@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BighaWala AI Expert — Bihar Land Chatbot Widget</title>
+  <!-- 
+    ===================================================================
+    BIGHAMALA.COM — AI EXPERT CHATBOT EMBEDDABLE WIDGET
+    Website: https://www.bighawala.com
+    Description: Production-ready standalone AI Chatbot overlay widget for Bihar Land & Property info.
+    Languages Supported: Hindi (हिंदी), Bhojpuri (भोजपुरी), Maithili (मैथिली), English
+
+    INSTRUCTIONS TO EMBED ON YOUR WEBSITE:
+    1. Copy the code block starting from BighaWala AI Chatbot Widget Start
+       to BighaWala AI Chatbot Widget End.
+    2. Paste it right before the closing </body> tag of any page on https://www.bighawala.com
+    3. No external APIs or backend required — everything works client-side and offline!
+    ===================================================================
+  -->
+</head>
+<body style="font-family: Arial, sans-serif; background-color: #f4f6f8; margin: 0; padding: 40px; color: #333;">
+
+  <div style="max-width: 800px; margin: 0 auto; background: #ffffff; padding: 32px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08);">
+    <h1 style="color: #2E7D32; margin-top: 0;">🏡 BighaWala AI Expert Chatbot Widget</h1>
+    <p style="font-size: 16px; line-height: 1.6;">
+      यह BighaWala.com के लिए एक स्टैंडअलोन (Standalone) AI चैटबॉट विजेट है। यह बिहार की जमीन की मापी (बीघा, कट्ठा, धुर), दाखिल-खारिज (Mutation), जमाबंदी (Bhulekh), सरकारी रेट (MVR 2026) और जमीन रजिस्ट्री खर्च से जुड़े सभी प्रश्नों का उत्तर <strong>हिंदी, भोजपुरी, मैथिली और English</strong> में स्वतः देता है।
+    </p>
+
+    <div style="background: #e8f5e9; border-left: 4px solid #2E7D32; padding: 16px; margin: 24px 0; border-radius: 0 8px 8px 0;">
+      <h3 style="margin-top: 0; color: #1B5E20;">🚀 विजेट को अपनी वेबसाइट पर कैसे जोड़ें (Embedding Guide):</h3>
+      <ol style="margin-bottom: 0; padding-left: 20px; line-height: 1.8;">
+        <li>नीचे दिए गए विजेट कोड (Widget Code) को कॉपी करें।</li>
+        <li>अपनी वेबसाइट (https://www.bighawala.com) के किसी भी HTML पेज पर <code>&lt;/body&gt;</code> टैग के ठीक पहले पेस्ट करें।</li>
+        <li>पेज रिफ्रेश करें — स्क्रीन के निचले दाहिने कोने (Bottom-Right) में हरा फ्लोटिंग चैट बटन दिखाई देगा!</li>
+      </ol>
+    </div>
+
+    <p style="font-size: 14px; color: #666;">
+      <em>नीचे दिए गए फ्लोटिंग बटन (Bottom-Right Floating Icon) पर क्लिक करके लाइव चैटबॉट को टेस्ट करें!</em>
+    </p>
+  </div>
+
+
+  <!-- BighaWala AI Chatbot Widget Start -->
+  <style>
+    /* BighaWala Chatbot Widget Styles */
+    #bighawala-widget-root * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', 'Noto Sans Devanagari', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+
+    #bighawala-widget-root {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 999999;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+    }
+
+    /* Floating Toggle Button */
+    #bw-floating-btn {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #1B5E20 0%, #2E7D32 100%);
+      color: #ffffff;
+      border: 2px solid #A5D6A7;
+      cursor: pointer;
+      box-shadow: 0 8px 24px rgba(46, 125, 50, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+      position: relative;
+    }
+
+    #bw-floating-btn:hover {
+      transform: scale(1.08) rotate(-4deg);
+      box-shadow: 0 12px 28px rgba(46, 125, 50, 0.5);
+    }
+
+    #bw-live-badge {
+      position: absolute;
+      top: -2px;
+      right: -2px;
+      width: 16px;
+      height: 16px;
+      background-color: #FF6F00;
+      border: 2px solid #ffffff;
+      border-radius: 50%;
+      animation: bw-pulse-ring 2s infinite;
+    }
+
+    @keyframes bw-pulse-ring {
+      0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 111, 0, 0.7); }
+      70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(255, 111, 0, 0); }
+      100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 111, 0, 0); }
+    }
+
+    /* Main Chat Window Overlay */
+    #bw-chat-box {
+      display: none;
+      width: 380px;
+      height: 540px;
+      max-height: calc(100vh - 100px);
+      background: #ffffff;
+      border-radius: 20px;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(46, 125, 50, 0.15);
+      overflow: hidden;
+      flex-direction: column;
+      margin-bottom: 16px;
+      transform: translateY(20px) scale(0.95);
+      opacity: 0;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    #bw-chat-box.open {
+      display: flex;
+      transform: translateY(0) scale(1);
+      opacity: 1;
+    }
+
+    /* Header */
+    .bw-w-header {
+      background: linear-gradient(135deg, #1B5E20 0%, #2E7D32 100%);
+      color: #ffffff;
+      padding: 16px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 2px solid #A5D6A7;
+    }
+
+    .bw-w-title-wrap {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .bw-w-avatar {
+      width: 40px;
+      height: 40px;
+      background: rgba(255, 255, 255, 0.2);
+      border: 1.5px solid #ffffff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+    }
+
+    .bw-w-title {
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 0.2px;
+      color: #ffffff;
+    }
+
+    .bw-w-sub {
+      font-size: 11px;
+      opacity: 0.9;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      color: #E8F5E9;
+    }
+
+    .bw-w-dot {
+      width: 7px;
+      height: 7px;
+      background-color: #69F0AE;
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    .bw-w-act-btn {
+      background: rgba(255, 255, 255, 0.15);
+      border: none;
+      color: #ffffff;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      transition: background 0.2s;
+    }
+
+    .bw-w-act-btn:hover {
+      background: rgba(255, 255, 255, 0.3);
+    }
+
+    /* Language Control Toolbar */
+    .bw-w-lang-bar {
+      background: #F1F8E9;
+      padding: 8px 12px;
+      border-bottom: 1px solid #C8E6C9;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 11px;
+      color: #1B5E20;
+    }
+
+    .bw-w-lang-pills {
+      display: flex;
+      gap: 4px;
+    }
+
+    .bw-w-lang-btn {
+      padding: 2px 8px;
+      border-radius: 12px;
+      border: 1px solid #A5D6A7;
+      background: #ffffff;
+      color: #2E7D32;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 10.5px;
+      transition: all 0.2s;
+    }
+
+    .bw-w-lang-btn.active {
+      background: #2E7D32;
+      color: #ffffff;
+      border-color: #2E7D32;
+    }
+
+    /* Message Stream */
+    .bw-w-messages {
+      flex: 1;
+      padding: 16px;
+      overflow-y: auto;
+      background-color: #F9FAF7;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      scroll-behavior: smooth;
+    }
+
+    .bw-w-msg-row {
+      display: flex;
+      flex-direction: column;
+      max-width: 88%;
+    }
+
+    .bw-w-msg-row.user {
+      align-self: flex-end;
+    }
+
+    .bw-w-msg-row.bot {
+      align-self: flex-start;
+    }
+
+    .bw-w-bubble {
+      padding: 12px 16px;
+      font-size: 13.5px;
+      line-height: 1.55;
+      border-radius: 16px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+      word-break: break-word;
+    }
+
+    .bw-w-msg-row.user .bw-w-bubble {
+      background: #E8F5E9;
+      color: #1B5E20;
+      border: 1px solid #A5D6A7;
+      border-bottom-right-radius: 4px;
+    }
+
+    .bw-w-msg-row.bot .bw-w-bubble {
+      background: #ffffff;
+      color: #212121;
+      border: 1px solid #E0E0E0;
+      border-bottom-left-radius: 4px;
+    }
+
+    .bw-w-tag {
+      font-size: 9.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 4px;
+      color: #2E7D32;
+    }
+
+    /* Quick Action Pills */
+    .bw-w-quick-pills {
+      display: flex;
+      gap: 6px;
+      overflow-x: auto;
+      padding: 8px 12px;
+      background: #ffffff;
+      border-top: 1px solid #EEEEEE;
+      scrollbar-width: none;
+    }
+
+    .bw-w-quick-pills::-webkit-scrollbar {
+      display: none;
+    }
+
+    .bw-w-quick-btn {
+      white-space: nowrap;
+      padding: 6px 12px;
+      border-radius: 16px;
+      background: #F1F8E9;
+      border: 1px solid #C8E6C9;
+      color: #2E7D32;
+      font-size: 11.5px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .bw-w-quick-btn:hover {
+      background: #2E7D32;
+      color: #ffffff;
+    }
+
+    /* Input Footer */
+    .bw-w-input-form {
+      padding: 12px;
+      border-top: 1px solid #E0E0E0;
+      display: flex;
+      gap: 8px;
+      background: #ffffff;
+      align-items: center;
+    }
+
+    .bw-w-input {
+      flex: 1;
+      padding: 10px 14px;
+      border: 1.5px solid #C8E6C9;
+      border-radius: 24px;
+      font-size: 13.5px;
+      outline: none;
+      transition: border-color 0.2s;
+      background: #FAFAFA;
+    }
+
+    .bw-w-input:focus {
+      border-color: #2E7D32;
+      background: #ffffff;
+    }
+
+    .bw-w-send {
+      background: #2E7D32;
+      border: none;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: #ffffff;
+      transition: background 0.2s, transform 0.1s;
+      flex-shrink: 0;
+    }
+
+    .bw-w-send:hover {
+      background: #1B5E20;
+      transform: scale(1.05);
+    }
+
+    /* Typing Dots */
+    .bw-w-typing {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      padding: 10px 14px;
+      background: #ffffff;
+      border: 1px solid #E0E0E0;
+      border-radius: 16px;
+      width: fit-content;
+    }
+
+    .bw-w-dot-anim {
+      width: 6px;
+      height: 6px;
+      background-color: #2E7D32;
+      border-radius: 50%;
+      animation: bw-w-bounce 1.4s infinite ease-in-out both;
+    }
+
+    .bw-w-dot-anim:nth-child(1) { animation-delay: -0.32s; }
+    .bw-w-dot-anim:nth-child(2) { animation-delay: -0.16s; }
+
+    @keyframes bw-w-bounce {
+      0%, 80%, 100% { transform: scale(0); }
+      40% { transform: scale(1); }
+    }
+
+    @media (max-width: 640px) {
+      #bighawala-widget-root {
+        bottom: 12px;
+        right: 12px;
+      }
+      #bw-chat-box {
+        width: calc(100vw - 24px);
+        height: calc(100vh - 80px);
+        max-height: 580px;
+      }
+    }
+  </style>
+
+  <div id="bighawala-widget-root">
+    <!-- Chat Window -->
+    <div id="bw-chat-box">
+      <!-- Header -->
+      <div class="bw-w-header">
+        <div class="bw-w-title-wrap">
+          <div class="bw-w-avatar">🏡</div>
+          <div>
+            <div class="bw-w-title">BighaWala AI Expert — 24/7</div>
+            <div class="bw-w-sub">
+              <span class="bw-w-dot"></span> बिहार ज़मीन एवं संपत्ति सलाहकार
+            </div>
+          </div>
+        </div>
+        <div style="display: flex; gap: 6px;">
+          <button id="bw-btn-clear" class="bw-w-act-btn" title="Clear Chat">🧹</button>
+          <button id="bw-btn-close" class="bw-w-act-btn" title="Close">✕</button>
+        </div>
+      </div>
+
+      <!-- Language Switcher -->
+      <div class="bw-w-lang-bar">
+        <span>भाषा (Language):</span>
+        <div class="bw-w-lang-pills">
+          <button class="bw-w-lang-btn active" data-lang="auto">Auto</button>
+          <button class="bw-w-lang-btn" data-lang="hi">हिंदी</button>
+          <button class="bw-w-lang-btn" data-lang="bho">भोजपुरी</button>
+          <button class="bw-w-lang-btn" data-lang="mai">मैथिली</button>
+          <button class="bw-w-lang-btn" data-lang="en">EN</button>
+        </div>
+      </div>
+
+      <!-- Message History -->
+      <div id="bw-w-messages" class="bw-w-messages">
+        <div class="bw-w-msg-row bot">
+          <div class="bw-w-tag">🌐 AUTO DETECT MODE</div>
+          <div class="bw-w-bubble">
+            नमस्ते! मैं <strong>BighaWala AI Expert</strong> हूँ। 🌾<br><br>
+            बिहार की ज़मीन की मापी (बीघा, कट्ठा, धुर), दाखिल-खारिज, जमाबंदी, सरकारी रेट (MVR) या रजिस्ट्री नियम से जुड़ा कोई भी सवाल पूछें — <strong>हिंदी, भोजपुरी, मैथिली या English</strong> में।
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Action Buttons -->
+      <div class="bw-w-quick-pills">
+        <button class="bw-w-quick-btn" data-query="1 bigha me kitna katha hota hai?">1 बीघा = कितना कट्ठा?</button>
+        <button class="bw-w-quick-btn" data-query="dakhil kharij kaise karein?">दाखिल खारिज प्रक्रिया</button>
+        <button class="bw-w-quick-btn" data-query="bhulekh kaise check karein?">जमाबंदी / भूलेख देखें</button>
+        <button class="bw-w-quick-btn" data-query="land rate in patna 2026">पटना जमीन रेट 2026</button>
+        <button class="bw-w-quick-btn" data-query="mutation fees in bihar">रजिस्ट्री खर्च & स्टाम्प ड्यूटी</button>
+        <button class="bw-w-quick-btn" data-query="भोजपुरी में बताइए 1 बीघा में कत्था">भोजपुरी मापी</button>
+        <button class="bw-w-quick-btn" data-query="मैथिली मे 1 बीघा मे कति कट्ठा अछि?">मैथिली मापी</button>
+      </div>
+
+      <!-- Form -->
+      <form id="bw-w-form" class="bw-w-input-form">
+        <input type="text" id="bw-w-input" class="bw-w-input" placeholder="ज़मीन का सवाल पूछें..." required autocomplete="off" />
+        <button type="submit" class="bw-w-send" title="Send">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="22" y1="2" x2="11" y2="13"></line>
+            <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+          </svg>
+        </button>
+      </form>
+    </div>
+
+    <!-- Floating Launcher Button -->
+    <button id="bw-floating-btn" title="BighaWala AI Expert">
+      <span id="bw-live-badge"></span>
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+      </svg>
+    </button>
+  </div>
+
+  <script>
+    (function () {
+      let currentLang = 'auto';
+
+      function detectLang(text) {
+        if (currentLang !== 'auto') return currentLang;
+        const bho = ['भोजपुरी', 'बताईं', 'कइसे', 'खातिर', 'रोउआ', 'रउरा', 'कइल जाला', 'होखेला', 'बाटे', 'हटे', 'होला', 'कतना', 'कत्था'];
+        const mai = ['मैथिली', 'कति', 'अछि', 'हमरा', 'आहाँ', 'अहां', 'कतेक', 'अछी', 'भेल', 'छै', 'कट्ठा अछि'];
+        for (let w of bho) { if (text.includes(w)) return 'bho'; }
+        for (let w of mai) { if (text.includes(w)) return 'mai'; }
+        if (/^[a-zA-Z0-9\s\?\.\,\!\-\_\/\:\₹\$]+$/.test(text.trim()) && /[a-zA-Z]/.test(text)) return 'en';
+        return 'hi';
+      }
+
+      function processCalc(q, lang) {
+        const query = q.toLowerCase().replace(/,/g, '');
+        // Bigha
+        const b = query.match(/(\d+(?:\.\d+)?)\s*(bigha|बीघा|बीहा)/i);
+        if (b) {
+          const v = parseFloat(b[1]);
+          const k = v * 20;
+          const d = v * 400;
+          const dec = v * 20;
+          const sqPatna = Math.round(v * 27225);
+          const sqNorth = Math.round(v * 32400);
+
+          if (lang === 'bho') {
+            return `<strong>📐 ${v} बीघा के मापी (बिहार):</strong><br><br>• <strong>कट्ठा:</strong> ${k} कट्ठा<br>• <strong>धुर:</strong> ${d} धुर<br>• <strong>डिसमिल:</strong> ${dec} डिसमिल<br>• <strong>स्क्वायर फिट (5.5 हाथ लगी):</strong> ${sqPatna.toLocaleString('en-IN')} sq ft<br>• <strong>स्क्वायर फिट (6 हाथ लगी):</strong> ${sqNorth.toLocaleString('en-IN')} sq ft`;
+          } else if (lang === 'mai') {
+            return `<strong>📐 ${v} बीघा के मापी:</strong><br><br>• <strong>कट्ठा:</strong> ${k} कट्ठा अछि<br>• <strong>धुर:</strong> ${d} धुर<br>• <strong>डिसमिल:</strong> ${dec} डिसमिल<br>• <strong>वर्ग फिट (6 हाथ लगि):</strong> ${sqNorth.toLocaleString('en-IN')} sq ft`;
+          } else if (lang === 'en') {
+            return `<strong>📐 ${v} Bigha Conversion:</strong><br><br>• <strong>Katha:</strong> ${k} Katha<br>• <strong>Dhur:</strong> ${d} Dhur<br>• <strong>Decimal:</strong> ${dec} Decimal<br>• <strong>Sq Ft (Patna / 5.5 Laggi):</strong> ${sqPatna.toLocaleString('en-IN')} sq ft<br>• <strong>Sq Ft (North Bihar / 6 Laggi):</strong> ${sqNorth.toLocaleString('en-IN')} sq ft`;
+          } else {
+            return `<strong>📐 ${v} बीघा की मापी (बिहार मान):</strong><br><br>• <strong>कट्ठा:</strong> ${k} कट्ठा<br>• <strong>धुर:</strong> ${d} धुर<br>• <strong>डेसिमल (डिसमिल):</strong> ${dec} डिसमिल<br>• <strong>स्क्वायर फीट (पटना / 5.5 हाथ लगी):</strong> ${sqPatna.toLocaleString('en-IN')} sq ft<br>• <strong>स्क्वायर फीट (उत्तर बिहार / 6 हाथ लगी):</strong> ${sqNorth.toLocaleString('en-IN')} sq ft<br>• <strong>एकड़:</strong> ${(v / 1.6).toFixed(2)} एकड़`;
+          }
+        }
+
+        // Katha
+        const kt = query.match(/(\d+(?:\.\d+)?)\s*(katha|kattha|कट्ठा|कत्था|कठ्ठा)/i);
+        if (kt) {
+          const v = parseFloat(kt[1]);
+          return `<strong>📐 ${v} कट्ठा (Katha) की मापी:</strong><br><br>• <strong>बीघा:</strong> ${(v/20).toFixed(2)} बीघा<br>• <strong>धुर:</strong> ${v*20} धुर<br>• <strong>क्षेत्रफल (5.5 हाथ लगी - पटना):</strong> ${Math.round(v*1361.25).toLocaleString('en-IN')} sq ft<br>• <strong>क्षेत्रफल (6 हाथ लगी - उत्तर बिहार):</strong> ${Math.round(v*1620).toLocaleString('en-IN')} sq ft`;
+        }
+
+        // Decimal
+        const dc = query.match(/(\d+(?:\.\d+)?)\s*(decimal|dismil|डिसमिल|डेसिमल)/i);
+        if (dc) {
+          const v = parseFloat(dc[1]);
+          const sq = Math.round(v * 435.6);
+          return `<strong>📐 ${v} डिसमिल (Decimal) की मापी:</strong><br><br>• <strong>वर्ग फीट:</strong> ${sq.toLocaleString('en-IN')} sq ft<br>• <strong>कट्ठा (5.5 हाथ लगी):</strong> ${(sq/1361.25).toFixed(2)} कट्ठा<br>• <strong>कट्ठा (6 हाथ लगी):</strong> ${(sq/1620).toFixed(2)} कट्ठा`;
+        }
+        return null;
+      }
+
+      function getResponse(q) {
+        const lang = detectLang(q);
+        const lower = q.toLowerCase();
+
+        const calc = processCalc(q, lang);
+        if (calc) return { text: calc, lang };
+
+        if (/cricket|bollywood|movie|weather|modi|rahul|pizza|game/i.test(lower)) {
+          return { text: `माफ़ कीजिए, मैं सिर्फ़ बिहार की ज़मीन, बीघा मापी, दाखिल-खारिज, जमाबंदी, सरकारी रेट (MVR) और रजिस्ट्री से जुड़े सवालों में मदद कर सकता हूँ। 🌾`, lang };
+        }
+
+        if (/dakhil|kharij|mutation|दाखिल|खारिज/i.test(lower)) {
+          return {
+            text: `<strong>📝 बिहार में दाखिल-खारिज (Land Mutation) की ऑनलाइन प्रक्रिया:</strong><br><br>` +
+              `1. <a href="https://biharbhumi.bihar.gov.in" target="_blank" rel="noopener" style="color:#2E7D32;font-weight:bold;">biharbhumi.bihar.gov.in</a> पर जाएँ।<br>` +
+              `2. 'ऑनलाइन दाखिल ख़ारिज आवेदन करें' पर क्लिक करें।<br>` +
+              `3. केवाला (Sale Deed PDF) और शपथ पत्र अपलोड करें।<br>` +
+              `4. 35 दिनों के भीतर हलका कर्मचारी और CO द्वारा शुद्धि पत्र जारी किया जाता है।<br><br>` +
+              `💰 <strong>सरकारी शुल्क:</strong> पोर्टल पर ऑनलाइन आवेदन पूर्णतः <strong>निःशुल्क (₹0)</strong> है।`,
+            lang
+          };
+        }
+
+        if (/bhulekh|jamabandi|khata|khasra|भूलेख|जमाबंदी|खाता|खेसरा/i.test(lower)) {
+          return {
+            text: `<strong>🔍 बिहार भूलेख एवं जमाबंदी (Jamabandi Panji-2) देखें:</strong><br><br>` +
+              `1. <a href="https://biharbhumi.bihar.gov.in" target="_blank" rel="noopener" style="color:#2E7D32;font-weight:bold;">biharbhumi.bihar.gov.in</a> पर जाएँ।<br>` +
+              `2. <strong>'जमाबंदी पंजी देखें'</strong> पर क्लिक करें।<br>` +
+              `3. ज़िला, अंचल और मौजा का चयन करें।<br>` +
+              `4. खाता संख्या, खेसरा या रैयत के नाम से खोजकर जमाबंदी कॉपी डाउनलोड करें।`,
+            lang
+          };
+        }
+
+        if (/rate|mvr|patna|circle|रेट|सर्किल/i.test(lower)) {
+          return {
+            text: `<strong>💰 बिहार सरकारी सर्किल रेट (MVR Rates 2026):</strong><br><br>` +
+              `• <strong>पटना (Patna):</strong> कमर्शियल ₹80 लाख - ₹2.5 करोड़/कट्ठा | आवासीय ₹25 लाख - ₹75 लाख/कट्ठा<br>` +
+              `• <strong>मुजफ्फरपुर / भागलपुर / गया:</strong> ₹10 लाख - ₹35 लाख/कट्ठा<br>` +
+              `• <strong>कृषि भूमि:</strong> ₹2 लाख - ₹8 लाख/बीघा<br><br>` +
+              `जांचें: <a href="https://bhumijankari.bihar.gov.in" target="_blank" rel="noopener" style="color:#2E7D32;font-weight:bold;">bhumijankari.bihar.gov.in</a>`,
+            lang
+          };
+        }
+
+        if (/stamp|duty|registry|रजिस्ट्री|स्टाम्प/i.test(lower)) {
+          return {
+            text: `<strong>📜 बिहार जमीन रजिस्ट्री खर्च (Stamp Duty):</strong><br><br>` +
+              `• <strong>पुरुष क्रेता:</strong> 6% स्टाम्प ड्यूटी + 2% निबंधन शुल्क = <strong>8%</strong><br>` +
+              `• <strong>महिला क्रेता (1% छूट):</strong> 5% स्टाम्प ड्यूटी + 2% निबंधन शुल्क = <strong>7%</strong><br>` +
+              `• <strong>नगर निगम:</strong> 1% अतिरिक्त सरचार्ज।`,
+            lang
+          };
+        }
+
+        return {
+          text: `इस बारे में सटीक जानकारी के लिए कृपया अपने अंचल अधिकारी (CO Office) से संपर्क करें या <a href="https://biharbhumi.bihar.gov.in" target="_blank" rel="noopener" style="color:#2E7D32;font-weight:bold;">biharbhumi.bihar.gov.in</a> देखें।`,
+          lang
+        };
+      }
+
+      // UI bindings
+      const trigger = document.getElementById('bw-floating-btn');
+      const box = document.getElementById('bw-chat-box');
+      const close = document.getElementById('bw-btn-close');
+      const clear = document.getElementById('bw-btn-clear');
+      const form = document.getElementById('bw-w-form');
+      const input = document.getElementById('bw-w-input');
+      const msgs = document.getElementById('bw-w-messages');
+      const langBtns = document.querySelectorAll('.bw-w-lang-btn');
+      const quickBtns = document.querySelectorAll('.bw-w-quick-btn');
+
+      trigger.addEventListener('click', () => {
+        box.classList.toggle('open');
+        if (box.classList.contains('open')) input.focus();
+      });
+
+      close.addEventListener('click', () => box.classList.remove('open'));
+
+      clear.addEventListener('click', () => {
+        msgs.innerHTML = `<div class="bw-w-msg-row bot"><div class="bw-w-tag">🌐 RESET</div><div class="bw-w-bubble">चैट साफ़ कर दिया गया है। नया सवाल पूछें! 🌾</div></div>`;
+      });
+
+      langBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          langBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          currentLang = btn.getAttribute('data-lang');
+        });
+      });
+
+      quickBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const q = btn.getAttribute('data-query');
+          if (q) submitMsg(q);
+        });
+      });
+
+      function submitMsg(q) {
+        if (!q.trim()) return;
+        input.value = '';
+
+        // Add user bubble
+        const uRow = document.createElement('div');
+        uRow.className = 'bw-w-msg-row user';
+        uRow.innerHTML = `<div class="bw-w-bubble">${q}</div>`;
+        msgs.appendChild(uRow);
+
+        // Typing
+        const tRow = document.createElement('div');
+        tRow.className = 'bw-w-msg-row bot';
+        tRow.innerHTML = `<div class="bw-w-typing"><div class="bw-w-dot-anim"></div><div class="bw-w-dot-anim"></div><div class="bw-w-dot-anim"></div></div>`;
+        msgs.appendChild(tRow);
+        msgs.scrollTop = msgs.scrollHeight;
+
+        setTimeout(() => {
+          tRow.remove();
+          const res = getResponse(q);
+          const bRow = document.createElement('div');
+          bRow.className = 'bw-w-msg-row bot';
+          const langMap = { hi: 'हिंदी', bho: 'भोजपुरी', mai: 'मैथिली', en: 'English' };
+          bRow.innerHTML = `<div class="bw-w-tag">🌐 ${langMap[res.lang] || 'RESPONSE'}</div><div class="bw-w-bubble">${res.text}</div>`;
+          msgs.appendChild(bRow);
+          msgs.scrollTop = msgs.scrollHeight;
+        }, 400);
+      }
+
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        submitMsg(input.value);
+      });
+    })();
+  </script>
+  <!-- BighaWala AI Chatbot Widget End -->
+
+</body>
+</html>
