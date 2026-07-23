@@ -1,0 +1,1100 @@
+<!DOCTYPE html>
+<html lang="hi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    
+    <!-- SEO Meta Tags -->
+    <title>साथी — Bihar Land Voice Helper | बिहार जमीन सहायक | BighaWala.com</title>
+    <meta name="description" content="Bihar ki zameen ki koi bhi samasya — Saathi se baat karein. Hindi, Maithili, Bhojpuri mein voice help. 24/7 free. Dakhil Kharij, LPC, Bhulekh." />
+    <meta name="keywords" content="saathi voice bot, bihar land helper, bihar bhumi AI, dakhil kharij voice help, bighawala saathi, maithili land helper, bhojpuri land helper" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://www.bighawala.com/saathi-bot.html" />
+
+    <!-- Open Graph / WhatsApp Social Preview -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.bighawala.com/saathi-bot.html">
+    <meta property="og:site_name" content="BighaWala.com">
+    <meta property="og:title" content="साथी — Bihar Land Voice Helper | BighaWala.com">
+    <meta property="og:description" content="Bihar ki zameen ki koi bhi samasya — Saathi se baat karein. Hindi, Maithili, Bhojpuri mein voice help. 24/7 free.">
+    <meta property="og:image" content="https://www.bighawala.com/og-image.jpg">
+    <meta property="og:locale" content="hi_IN">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="साथी — Bihar Land Voice Helper | BighaWala.com">
+    <meta name="twitter:description" content="Bihar ki zameen ki koi bhi samasya — Saathi se baat karein. Hindi, Maithili, Bhojpuri mein voice help.">
+    <meta name="twitter:image" content="https://www.bighawala.com/og-image.jpg">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primaryGreen: '#2E7D32',
+              darkGreen: '#1B5E20',
+              accentSaffron: '#FF6F00',
+              lightGreen: '#E8F5E9',
+              chatBg: '#FFF8E1',
+            },
+            fontFamily: {
+              sans: ['Poppins', 'Noto Sans Devanagari', 'sans-serif'],
+            }
+          }
+        }
+      }
+    </script>
+
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7577953323229534" crossorigin="anonymous"></script>
+
+    <!-- Google Analytics 4 (GA4) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z1T8BNYBTE"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-Z1T8BNYBTE', { 'send_page_view': true });
+
+      setTimeout(function() {
+        gtag('event', 'user_engagement', { 'engagement_time_msec': 5000 });
+      }, 5000);
+
+      var scrollFired = false;
+      window.addEventListener('scroll', function() {
+        if (!scrollFired) {
+          scrollFired = true;
+          gtag('event', 'scroll', { 'percent_scrolled': 10 });
+        }
+      }, {passive: true});
+    </script>
+
+    <style>
+      * { box-sizing: border-box; }
+      body { font-family: 'Poppins', 'Noto Sans Devanagari', sans-serif; background-color: #F8FAFC; }
+      
+      /* Navigation header */
+      .nav-wrapper {
+        background: white;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+        position: sticky;
+        top: 0;
+        z-index: 9999;
+        width: 100%;
+      }
+      .nav-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 10px 16px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .nav-logo-name {
+        font-size: clamp(18px, 4vw, 24px);
+        font-weight: 800;
+        color: #FF6F00;
+        line-height: 1;
+      }
+      .nav-logo-name span { color: #2E7D32; }
+
+      .dropdown-relative { position: relative; }
+      .dropdown-btn {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        font-weight: 600;
+        font-size: 14px;
+        color: #334155;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 6px 10px;
+        border-radius: 10px;
+        transition: all 0.2s;
+      }
+      .dropdown-btn:hover, .dropdown-btn.open {
+        color: #2E7D32;
+        background: #F0FDF4;
+      }
+      .dropdown-arrow { font-size: 10px; transition: transform 0.2s; }
+      .dropdown-btn.open .dropdown-arrow { transform: rotate(180deg); }
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        top: calc(100% + 8px);
+        left: 0;
+        background: white;
+        border: 1px solid #E2E8F0;
+        border-radius: 16px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+        min-width: 230px;
+        z-index: 99999;
+        overflow: hidden;
+        padding: 6px;
+      }
+      .dropdown-content.show { display: block !important; }
+      .dropdown-content a {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 10px 14px;
+        color: #1E293B;
+        text-decoration: none;
+        font-size: 13px;
+        font-weight: 600;
+        border-radius: 10px;
+        transition: background 0.15s, color 0.15s;
+      }
+      .dropdown-content a:hover {
+        background: #F0FDF4;
+        color: #2E7D32;
+      }
+
+      /* Mobile Drawer */
+      .hamburger-btn {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+        width: 40px;
+        height: 40px;
+        border-radius: 12px;
+        background: #F1F5F9;
+        border: none;
+        cursor: pointer;
+      }
+      .hamburger-btn span {
+        display: block;
+        width: 20px;
+        height: 2.5px;
+        background: #1E293B;
+        border-radius: 3px;
+      }
+      .mobile-menu {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: white;
+        z-index: 99999;
+        overflow-y: auto;
+        padding: 20px 16px 80px 16px;
+      }
+      .mobile-menu.open { display: block !important; }
+      .mobile-menu-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-bottom: 16px;
+        border-bottom: 2px solid #F1F5F9;
+        margin-bottom: 16px;
+      }
+      .mobile-close-btn {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        background: #F1F5F9;
+        border: none;
+        font-size: 20px;
+        font-weight: bold;
+        color: #334155;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .mobile-menu a {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 12px 10px;
+        color: #1E293B;
+        text-decoration: none;
+        font-size: 15px;
+        font-weight: 700;
+        border-radius: 12px;
+      }
+
+      /* Pulsing Avatar & Mic Button */
+      @keyframes pulseRing {
+        0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(46, 125, 50, 0.5); }
+        70% { transform: scale(1.05); box-shadow: 0 0 0 20px rgba(46, 125, 50, 0); }
+        100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(46, 125, 50, 0); }
+      }
+      @keyframes micPulse {
+        0% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.6); transform: scale(1); }
+        50% { box-shadow: 0 0 0 18px rgba(239, 68, 68, 0); transform: scale(1.08); }
+        100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.6); transform: scale(1); }
+      }
+      @keyframes typingDot {
+        0%, 100% { opacity: 0.2; transform: translateY(0); }
+        50% { opacity: 1; transform: translateY(-4px); }
+      }
+
+      .saathi-avatar-circle {
+        animation: pulseRing 3s infinite ease-in-out;
+      }
+      .mic-btn-listening {
+        animation: micPulse 1.5s infinite ease-in-out !important;
+        background-color: #DC2626 !important;
+      }
+
+      /* Chat Bubble styling */
+      .chat-box {
+        background-color: #FFF8E1;
+        border: 1px solid #FEF08A;
+      }
+      .msg-user {
+        background-color: #2E7D32;
+        color: white;
+        border-radius: 18px 18px 4px 18px;
+      }
+      .msg-saathi {
+        background-color: #FFFFFF;
+        color: #1E293B;
+        border: 2px solid #A7F3D0;
+        border-radius: 18px 18px 18px 4px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+      }
+
+      .typing-dot {
+        display: inline-block;
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background-color: #2E7D32;
+        animation: typingDot 1.4s infinite ease-in-out both;
+      }
+      .typing-dot:nth-child(1) { animation-delay: 0s; }
+      .typing-dot:nth-child(2) { animation-delay: 0.2s; }
+      .typing-dot:nth-child(3) { animation-delay: 0.4s; }
+
+      /* Sticky Mobile Bar */
+      .mob-bar {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: #1B5E20;
+        color: white;
+        display: flex;
+        justify-content: space-around;
+        padding: 6px 0;
+        z-index: 9999;
+        box-shadow: 0 -2px 10px rgba(0,0,0,0.25);
+      }
+      .mob-bar a {
+        color: white;
+        text-decoration: none;
+        font-size: 10px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2px;
+        flex: 1;
+      }
+      .mob-bar .mi { font-size: 18px; }
+      @media(min-width: 768px) {
+        .mob-bar { display: none; }
+        .float-btn { bottom: 25px; }
+      }
+
+      .float-btn {
+        position: fixed;
+        bottom: 75px;
+        z-index: 9998;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.25);
+        font-size: 24px;
+        transition: transform 0.2s;
+      }
+      .float-btn:hover { transform: scale(1.1); }
+      .float-wa { right: 16px; background: #25D366; }
+      .float-ai { left: 16px; background: #FF6F00; }
+    </style>
+  </head>
+  <body class="min-h-screen flex flex-col">
+
+    <!-- NAVIGATION HEADER -->
+    <header class="nav-wrapper">
+      <div class="nav-container">
+        <a href="index.html" class="flex items-center gap-2 text-decoration-none">
+          <span class="text-2xl">🌱</span>
+          <div class="nav-logo-name">Bigha<span>Wala</span>.com</div>
+        </a>
+
+        <!-- Desktop Navigation -->
+        <nav class="hidden md:flex items-center gap-2">
+          <a href="index.html" class="dropdown-btn">🏠 Home</a>
+          
+          <div class="dropdown-relative">
+            <button class="dropdown-btn" onclick="toggleDropdown('nav-tools')">
+              🧮 Tools & Calcs <span class="dropdown-arrow">▼</span>
+            </button>
+            <div id="nav-tools" class="dropdown-content">
+              <a href="bigha-calculator.html">🧮 Bigha Calculator</a>
+              <a href="saathi-bot.html">🎙️ साथी Voice Bot</a>
+              <a href="zameen-moolyankan.html">💰 Zameen Moolyankan</a>
+              <a href="land-cost-calculator.html">📊 Registry Cost Calculator</a>
+              <a href="zameen-comparison.html">⚖️ Zameen Comparison</a>
+              <a href="document-checker.html">📋 Document Checker</a>
+              <a href="document-explainer.html">🔍 Document Explainer</a>
+            </div>
+          </div>
+
+          <div class="dropdown-relative">
+            <button class="dropdown-btn" onclick="toggleDropdown('nav-guides')">
+              📖 Bihar Revenue Guides <span class="dropdown-arrow">▼</span>
+            </button>
+            <div id="nav-guides" class="dropdown-content">
+              <a href="apna-khata-dekhe.html">📑 Apna Khata Dekhe</a>
+              <a href="dakhil-kharij.html">📝 Dakhil Kharij Guide</a>
+              <a href="lpc-bihar.html">📜 LPC Certificate Bihar</a>
+              <a href="jamabandi.html">📖 Jamabandi Nakal</a>
+              <a href="bhulekh.html">🌐 Bhulekh Bihar Portal</a>
+              <a href="registry-bihar.html">🏢 Registry Process</a>
+            </div>
+          </div>
+
+          <a href="land-rates.html" class="dropdown-btn">📍 Land Rates 2026</a>
+          <a href="saathi-bot.html" class="dropdown-btn font-bold text-emerald-700 bg-emerald-50 border border-emerald-200">🎙️ साथी AI</a>
+        </nav>
+
+        <!-- Right Side Buttons -->
+        <div class="flex items-center gap-2">
+          <a href="https://wa.me/919835102324" target="_blank" rel="noopener noreferrer" class="hidden sm:flex items-center gap-1.5 px-3 py-1.5 bg-emerald-700 text-white font-bold text-xs rounded-lg hover:bg-emerald-800 transition">
+            <span>💬</span> WhatsApp Expert
+          </a>
+          <button class="hamburger-btn md:hidden" onclick="toggleMobile()" aria-label="Open Menu">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- MOBILE DRAWER MENU -->
+    <div id="mobile-menu" class="mobile-menu">
+      <div class="mobile-menu-header">
+        <div class="nav-logo-name">Bigha<span>Wala</span>.com</div>
+        <button class="mobile-close-btn" onclick="toggleMobile()">✕</button>
+      </div>
+      <div class="space-y-1">
+        <a href="index.html">🏠 Home</a>
+        <a href="saathi-bot.html" class="bg-emerald-100 text-emerald-800">🎙️ साथी Voice Bot</a>
+        <a href="bigha-calculator.html">🧮 Bigha Calculator</a>
+        <a href="apna-khata-dekhe.html">📑 Apna Khata Dekhe</a>
+        <a href="dakhil-kharij.html">📝 Dakhil Kharij Guide</a>
+        <a href="lpc-bihar.html">📜 LPC Bihar</a>
+        <a href="jamabandi.html">📖 Jamabandi Nakal</a>
+        <a href="land-rates.html">📍 Bihar Land Rates 2026</a>
+        <a href="document-explainer.html">🔍 Document Explainer</a>
+        <a href="community-qa.html">🤝 Community Q&A</a>
+        <a href="https://wa.me/919835102324" class="text-emerald-700">📱 WhatsApp Help: 9835102324</a>
+      </div>
+    </div>
+
+    <!-- MAIN CONTAINER -->
+    <main class="flex-1 max-w-4xl w-full mx-auto px-4 py-6">
+
+      <!-- HERO SECTION -->
+      <section class="text-center mb-6">
+        <!-- Big Circular Avatar -->
+        <div class="relative inline-block mb-3">
+          <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-full bg-emerald-700 border-4 border-white shadow-xl flex items-center justify-center saathi-avatar-circle mx-auto">
+            <span class="text-4xl sm:text-5xl">🤝</span>
+          </div>
+          <span class="absolute bottom-1 right-1 bg-emerald-500 w-5 h-5 rounded-full border-2 border-white shadow" title="24/7 Active"></span>
+        </div>
+
+        <h1 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mb-1">साथी (Saathi)</h1>
+        <p class="text-base sm:text-lg font-bold text-emerald-800 mb-4">"आपका जमीन का दोस्त"</p>
+        <p class="text-xs sm:text-sm text-slate-600 max-w-md mx-auto mb-4 font-semibold">
+          बिहार की जमीन, दाखिल-खारिज, जमाबंदी, एलपीसी या रसीद से जुड़ी कोई भी समस्या हो — बेझिझक बोलें या लिखें। साथी आपकी पूरी मदद करेगा।
+        </p>
+
+        <!-- LANGUAGE SELECTOR -->
+        <div class="flex flex-wrap items-center justify-center gap-2 mb-4">
+          <button id="lang-hindi" onclick="selectLanguage('hindi', 'hi-IN')" class="lang-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-bold border-2 transition bg-emerald-700 text-white border-emerald-700 shadow-sm">
+            हिंदी
+          </button>
+          <button id="lang-maithili" onclick="selectLanguage('maithili', 'hi-IN')" class="lang-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-bold border-2 transition bg-white text-slate-700 border-slate-200 hover:border-emerald-500">
+            मैथिली
+          </button>
+          <button id="lang-bhojpuri" onclick="selectLanguage('bhojpuri', 'hi-IN')" class="lang-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-bold border-2 transition bg-white text-slate-700 border-slate-200 hover:border-emerald-500">
+            भोजपुरी
+          </button>
+          <button id="lang-english" onclick="selectLanguage('english', 'en-IN')" class="lang-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-bold border-2 transition bg-white text-slate-700 border-slate-200 hover:border-emerald-500">
+            English
+          </button>
+        </div>
+
+        <!-- BROWSER / IOS COMPATIBILITY NOTICE -->
+        <div id="compat-notice" class="hidden max-w-md mx-auto bg-amber-50 border border-amber-200 rounded-xl p-3 text-xs text-amber-800 font-bold mb-4">
+          ℹ️ <span id="compat-msg">Aapke browser mein voice support nahi hai. Kripya Chrome browser use karein, ya neeche text mein apna sawaal likhein.</span>
+        </div>
+      </section>
+
+      <!-- VOICE INTERFACE & MIC BUTTON -->
+      <section class="bg-white rounded-3xl p-6 shadow-xl border border-slate-200 mb-6 text-center">
+        
+        <!-- Big Microphone Button -->
+        <div class="mb-3">
+          <button id="mic-btn" onclick="toggleVoiceRecognition()" class="w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-emerald-700 hover:bg-emerald-800 text-white flex flex-col items-center justify-center shadow-2xl transition transform active:scale-95 mx-auto border-4 border-emerald-100 cursor-pointer">
+            <span id="mic-icon" class="text-3xl sm:text-4xl">🎤</span>
+          </button>
+        </div>
+
+        <!-- Status Indicator Text -->
+        <div id="voice-status" class="text-sm sm:text-base font-extrabold text-slate-700 mb-4 min-h-[24px]">
+          बोलें या लिखें
+        </div>
+
+        <!-- Text Input Alternative -->
+        <div class="max-w-xl mx-auto mb-5">
+          <div class="flex items-center gap-2 bg-slate-50 border-2 border-slate-200 focus-within:border-emerald-600 rounded-2xl p-2 transition shadow-inner">
+            <input type="text" id="user-input" placeholder="या यहाँ लिखें अपना सवाल..." class="flex-1 bg-transparent px-3 py-2 text-sm sm:text-base text-slate-900 outline-none font-semibold placeholder:text-slate-400" onkeydown="if(event.key==='Enter') sendMessage()" />
+            <button onclick="sendMessage()" class="bg-emerald-700 hover:bg-emerald-800 text-white font-bold px-5 py-2.5 rounded-xl text-sm transition flex items-center gap-1 shrink-0">
+              <span>भेजें</span>
+              <span>➔</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Quick Question Buttons (8 Buttons) -->
+        <div class="max-w-2xl mx-auto">
+          <p class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">जल्दी पूछें (Quick Suggestions):</p>
+          <div class="flex flex-wrap items-center justify-center gap-2">
+            <button onclick="sendQuickQuery('दाखिल खारिज की ऑनलाइन प्रक्रिया क्या है?')" class="px-3 py-1.5 bg-slate-100 hover:bg-emerald-100 text-slate-800 hover:text-emerald-900 rounded-xl text-xs font-bold transition border border-slate-200">
+              दाखिल खारिज
+            </button>
+            <button onclick="sendQuickQuery('अपना खाता ऑनलाइन कैसे देखें?')" class="px-3 py-1.5 bg-slate-100 hover:bg-emerald-100 text-slate-800 hover:text-emerald-900 rounded-xl text-xs font-bold transition border border-slate-200">
+              अपना खाता
+            </button>
+            <button onclick="sendQuickQuery('जमाबंदी नकल कैसे निकालें?')" class="px-3 py-1.5 bg-slate-100 hover:bg-emerald-100 text-slate-800 hover:text-emerald-900 rounded-xl text-xs font-bold transition border border-slate-200">
+              जमाबंदी
+            </button>
+            <button onclick="sendQuickQuery('एलपीसी (LPC) प्रमाण पत्र कैसे बनवाएं?')" class="px-3 py-1.5 bg-slate-100 hover:bg-emerald-100 text-slate-800 hover:text-emerald-900 rounded-xl text-xs font-bold transition border border-slate-200">
+              एलपीसी
+            </button>
+            <button onclick="sendQuickQuery('बिहार में जमीन का सरकारी रेट कैसे जानें?')" class="px-3 py-1.5 bg-slate-100 hover:bg-emerald-100 text-slate-800 hover:text-emerald-900 rounded-xl text-xs font-bold transition border border-slate-200">
+              जमीन का रेट
+            </button>
+            <button onclick="sendQuickQuery('भू-लगान ऑनलाइन कैसे रसीद काटें?')" class="px-3 py-1.5 bg-slate-100 hover:bg-emerald-100 text-slate-800 hover:text-emerald-900 rounded-xl text-xs font-bold transition border border-slate-200">
+              भू लगान
+            </button>
+            <button onclick="sendQuickQuery('जमीन की रजिस्ट्री कराने का खर्च और प्रक्रिया?')" class="px-3 py-1.5 bg-slate-100 hover:bg-emerald-100 text-slate-800 hover:text-emerald-900 rounded-xl text-xs font-bold transition border border-slate-200">
+              रजिस्ट्री
+            </button>
+            <button onclick="sendQuickQuery('जमीन परिमार्जन या खसरा सुधार कैसे करें?')" class="px-3 py-1.5 bg-slate-100 hover:bg-emerald-100 text-slate-800 hover:text-emerald-900 rounded-xl text-xs font-bold transition border border-slate-200">
+              और सवाल
+            </button>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- CONVERSATION / CHAT WINDOW -->
+      <section class="chat-box rounded-3xl p-4 sm:p-6 shadow-xl mb-8">
+        <div class="flex items-center justify-between pb-3 mb-4 border-b border-amber-200/80">
+          <div class="flex items-center gap-2 font-extrabold text-slate-800 text-sm sm:text-base">
+            <span class="text-xl">💬</span>
+            <span>साथी के साथ बातचीत (Conversation with Saathi)</span>
+          </div>
+          <button onclick="clearChatHistory()" class="text-xs font-bold text-slate-500 hover:text-red-600 transition">
+            🔄 नया चैट (Clear)
+          </button>
+        </div>
+
+        <!-- Chat Messages Container -->
+        <div id="chat-messages" class="space-y-4 max-h-[500px] overflow-y-auto pr-1">
+          
+          <!-- Default Greeting Message from Saathi -->
+          <div class="msg-saathi p-4 max-w-[85%] sm:max-w-[80%]">
+            <div class="flex items-center gap-2 mb-2 pb-1 border-b border-slate-100">
+              <span class="text-lg">🤝</span>
+              <span class="font-extrabold text-emerald-800 text-xs sm:text-sm">साथी (Saathi)</span>
+            </div>
+            <div class="text-xs sm:text-sm font-semibold leading-relaxed text-slate-800">
+              नमस्कार प्रणाम! मैं आपका साथी हूँ। बिहार जमीन से जुड़ी कोई भी समस्या या सवाल हो — जैसे दाखिल ख़ारिज, जमाबंदी, परिमार्जन, एलपीसी या जमीन नापी, आप मुझसे पूछ सकते हैं। आप बटन दबाकर बोल भी सकते हैं या लिखकर सवाल पूछ सकते हैं।
+            </div>
+            <div class="flex items-center gap-3 mt-3 pt-2 border-t border-slate-100 text-xs">
+              <button onclick="speakText('नमस्कार प्रणाम! मैं आपका साथी हूँ। बिहार जमीन से जुड़ी कोई भी समस्या या सवाल हो, आप मुझसे बेझिझक पूछ सकते हैं।')" class="flex items-center gap-1 font-bold text-emerald-800 hover:underline">
+                <span>🔊</span> Phir Sunein
+              </button>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Typing Indicator (Hidden by default) -->
+        <div id="typing-indicator" class="hidden mt-3">
+          <div class="msg-saathi p-3 max-w-[200px] flex items-center gap-2">
+            <span class="text-base">🤝</span>
+            <span class="text-xs font-bold text-slate-600">साथी सोच रहा है...</span>
+            <div class="flex items-center gap-1 ml-1">
+              <span class="typing-dot"></span>
+              <span class="typing-dot"></span>
+              <span class="typing-dot"></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Automatic / Manual WhatsApp Escalation Container -->
+        <div id="whatsapp-escalation-container" class="mt-4 hidden">
+          <div class="bg-emerald-50 border-2 border-emerald-500 rounded-2xl p-4 text-center shadow-md">
+            <p class="font-extrabold text-emerald-900 text-sm mb-1">📱 Expert Se Baat Karein: 9835102324</p>
+            <p class="text-xs font-semibold text-emerald-800 mb-3">
+              यदि यह मामला कानूनी विवाद या जटिल कागजी प्रक्रिया से जुड़ा है, तो BighaWala के विशेषज्ञ से सीधे व्हाट्सएप पर बात करें।
+            </p>
+            <a id="wa-escalate-btn" href="https://wa.me/919835102324" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-6 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-xs sm:text-sm rounded-xl shadow transition">
+              <span>💬</span> WhatsApp Par Expert Se Milein →
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- EMOTIONAL SUPPORT SECTION -->
+      <section class="mb-10">
+        <div class="text-center mb-6">
+          <h2 class="text-xl sm:text-2xl font-black text-slate-900">🙏 साथी आपके साथ है (Saathi Support)</h2>
+          <p class="text-xs sm:text-sm font-semibold text-slate-600">हम आपकी हर परेशानी समझते हैं और सही रास्ता दिखाने के लिए तैयार हैं।</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          
+          <!-- Card 1: Green (Zameen Vivad) -->
+          <div class="bg-emerald-900 text-white rounded-2xl p-5 shadow-lg flex flex-col justify-between border-2 border-emerald-800">
+            <div>
+              <div class="text-3xl mb-2">😟</div>
+              <h3 class="font-extrabold text-base mb-1">ज़मीन विवाद से परेशान हैं?</h3>
+              <p class="text-xs font-medium text-emerald-100 leading-relaxed mb-4">
+                बताइए — हम सुनेंगे और सही रास्ता दिखाएंगे। घबराएं नहीं, हर समस्या का कानूनी और शांत समाधान होता है।
+              </p>
+            </div>
+            <button onclick="sendQuickQuery('मुझे जमीन विवाद में क्या करना चाहिए? मार्गदर्शन करें।')" class="w-full py-2.5 bg-emerald-500 hover:bg-emerald-400 text-white font-extrabold text-xs rounded-xl transition shadow text-center">
+              बात करें →
+            </button>
+          </div>
+
+          <!-- Card 2: Saffron (Documents) -->
+          <div class="bg-amber-800 text-white rounded-2xl p-5 shadow-lg flex flex-col justify-between border-2 border-amber-700">
+            <div>
+              <div class="text-3xl mb-2">📋</div>
+              <h3 class="font-extrabold text-base mb-1">Documents समझ नहीं आ रहे?</h3>
+              <p class="text-xs font-medium text-amber-100 leading-relaxed mb-4">
+                अपने कागज़ (केवाला, खतियान, रसीद) का टेक्स्ट यहाँ पेस्ट करें — साथी बहुत ही सरल हिंदी में समझाएगा।
+              </p>
+            </div>
+            <a href="document-explainer.html" class="w-full py-2.5 bg-amber-500 hover:bg-amber-400 text-white font-extrabold text-xs rounded-xl transition shadow text-center block">
+              Document देखें →
+            </a>
+          </div>
+
+          <!-- Card 3: Blue (Sahi Rate) -->
+          <div class="bg-sky-900 text-white rounded-2xl p-5 shadow-lg flex flex-col justify-between border-2 border-sky-800">
+            <div>
+              <div class="text-3xl mb-2">💰</div>
+              <h3 class="font-extrabold text-base mb-1">सही Rate नहीं पता?</h3>
+              <p class="text-xs font-medium text-sky-100 leading-relaxed mb-4">
+                अपने जिले और अंचल का सही और नया सरकारी एमवीआर (MVR) और मार्केट रेट साथी से पूछें।
+              </p>
+            </div>
+            <button onclick="sendQuickQuery('मेरे जिले का जमीन का सरकारी सर्किल रेट क्या है?')" class="w-full py-2.5 bg-sky-500 hover:bg-sky-400 text-white font-extrabold text-xs rounded-xl transition shadow text-center">
+              Rate पूछें →
+            </button>
+          </div>
+
+        </div>
+      </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-950 text-slate-300 py-10 mt-auto border-t border-slate-800">
+      <div class="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8 text-xs">
+        <div>
+          <div class="nav-logo-name text-lg mb-2">Bigha<span>Wala</span>.com</div>
+          <p class="text-slate-400 font-medium leading-relaxed">
+            बिहार का #1 निशुल्क डिजिटल जमीन पोर्टल। बीघा कैलकुलेटर, दाखिल ख़ारिज, जमाबंदी, एलपीसी और साथी एआई वॉइस हेल्प।
+          </p>
+        </div>
+        <div>
+          <p class="font-extrabold text-white text-sm uppercase mb-2">साथी एवं टूल्स</p>
+          <ul class="space-y-1.5 font-semibold text-slate-400">
+            <li><a href="saathi-bot.html" class="hover:text-emerald-400">साथी Voice Bot</a></li>
+            <li><a href="bigha-calculator.html" class="hover:text-emerald-400">Bigha Calculator</a></li>
+            <li><a href="apna-khata-dekhe.html" class="hover:text-emerald-400">Apna Khata Bihar</a></li>
+            <li><a href="dakhil-kharij.html" class="hover:text-emerald-400">Dakhil Kharij Guide</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="font-extrabold text-white text-sm uppercase mb-2">महत्वपूर्ण लिंक</p>
+          <ul class="space-y-1.5 font-semibold text-slate-400">
+            <li><a href="lpc-bihar.html" class="hover:text-emerald-400">LPC Certificate</a></li>
+            <li><a href="jamabandi.html" class="hover:text-emerald-400">Jamabandi Panjee</a></li>
+            <li><a href="land-rates.html" class="hover:text-emerald-400">Bihar Land Rates 2026</a></li>
+            <li><a href="community-qa.html" class="hover:text-emerald-400">Community Q&A</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="font-extrabold text-white text-sm uppercase mb-2">हेल्पलाइन</p>
+          <p class="text-slate-400 font-semibold mb-2">WhatsApp: +91 9835102324</p>
+          <p class="text-slate-500 text-[11px]">24x7 निशुल्क मार्गदर्शन उपलब्ध</p>
+        </div>
+      </div>
+      <div class="max-w-6xl mx-auto px-4 pt-6 mt-6 border-t border-slate-900 text-center text-slate-500 font-bold space-x-4 text-xs">
+        <span>© 2026 BighaWala.com</span>
+        <a href="disclaimer.html" class="hover:underline">Disclaimer</a>
+        <a href="privacy-policy/index.html" class="hover:underline">Privacy Policy</a>
+      </div>
+    </footer>
+
+    <!-- FLOATING BUTTONS -->
+    <a href="https://wa.me/919835102324" target="_blank" rel="noopener noreferrer" class="float-btn float-wa" aria-label="WhatsApp">📱</a>
+    <a href="saathi-bot.html" class="float-btn float-ai" aria-label="साथी से बात करें" title="साथी से बात करें">🎙️</a>
+
+    <!-- STICKY MOBILE BOTTOM BAR -->
+    <div class="mob-bar">
+      <a href="index.html">
+        <span class="mi">🏠</span>Home
+      </a>
+      <a href="bigha-calculator.html">
+        <span class="mi">🧮</span>Calculator
+      </a>
+      <a href="apna-khata-dekhe.html">
+        <span class="mi">📋</span>Khata
+      </a>
+      <a href="saathi-bot.html">
+        <span class="mi">🎙️</span>साथी
+      </a>
+      <a href="community-qa.html">
+        <span class="mi">🤝</span>Community
+      </a>
+    </div>
+
+    <!-- JAVASCRIPT & SPEECH ENGINE -->
+    <script>
+      // Global State
+      var currentLang = 'hindi';
+      var currentLangCode = 'hi-IN';
+      var isListening = false;
+      var messageCount = 0;
+      var conversationHistory = [];
+      var recognition = null;
+
+      // Bhojpuri and Maithili word lists
+      var bhojpuriWords = ['raur','hamar','tohar','bani','bate','rahli','kaheli','ailu','gailu','kari','kaha','kehu','bhaiya','raua'];
+      var maithiliWords = ['apan','hank','tahan','katay','chhi','achi','kono','bhay','mai','bapu','bhaiya','didi','hummer'];
+
+      function detectLanguage(text) {
+        if (!text) return 'hindi';
+        var lower = text.toLowerCase();
+        var bhojpuri = bhojpuriWords.some(function(w) { return lower.includes(w); });
+        var maithili = maithiliWords.some(function(w) { return lower.includes(w); });
+
+        if (bhojpuri) return 'bhojpuri';
+        if (maithili) return 'maithili';
+        if (/[a-zA-Z]/.test(text)) return 'english';
+        return 'hindi';
+      }
+
+      function selectLanguage(lang, code) {
+        currentLang = lang;
+        currentLangCode = code || (lang === 'english' ? 'en-IN' : 'hi-IN');
+
+        document.querySelectorAll('.lang-btn').forEach(function(btn) {
+          btn.className = 'lang-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-bold border-2 transition bg-white text-slate-700 border-slate-200 hover:border-emerald-500';
+        });
+
+        var activeBtn = document.getElementById('lang-' + lang);
+        if (activeBtn) {
+          activeBtn.className = 'lang-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-bold border-2 transition bg-emerald-700 text-white border-emerald-700 shadow-sm';
+        }
+
+        if (recognition) {
+          recognition.lang = currentLangCode;
+        }
+
+        var statusEl = document.getElementById('voice-status');
+        if (statusEl) {
+          statusEl.textContent = lang === 'english' ? 'Speak or write your question' : 'बोलें या लिखें';
+        }
+      }
+
+      // Initialize Web Speech API
+      function initSpeechRecognition() {
+        var SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+        
+        // iOS Safari check note
+        var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+        if (isIOS) {
+          var noticeEl = document.getElementById('compat-notice');
+          var msgEl = document.getElementById('compat-msg');
+          if (noticeEl && msgEl) {
+            msgEl.textContent = "iPhone par Chrome se voice best kaam karta hai. Aap likhkar bhi sawaal pooch sakte hain.";
+            noticeEl.classList.remove('hidden');
+          }
+        }
+
+        if (!SpeechRecognition) {
+          var noticeEl = document.getElementById('compat-notice');
+          if (noticeEl) noticeEl.classList.remove('hidden');
+          return;
+        }
+
+        try {
+          recognition = new SpeechRecognition();
+          recognition.continuous = false;
+          recognition.interimResults = true;
+          recognition.lang = currentLangCode;
+
+          recognition.onstart = function() {
+            isListening = true;
+            updateMicState('LISTENING');
+          };
+
+          recognition.onresult = function(event) {
+            var transcript = '';
+            for (var i = event.resultIndex; i < event.results.length; ++i) {
+              transcript += event.results[i][0].transcript;
+            }
+            document.getElementById('user-input').value = transcript;
+            var statusEl = document.getElementById('voice-status');
+            if (statusEl) statusEl.textContent = "सुन रहा हूँ: " + transcript + " 🎤";
+          };
+
+          recognition.onerror = function(event) {
+            console.warn("Speech recognition error:", event.error);
+            isListening = false;
+            updateMicState('IDLE');
+          };
+
+          recognition.onend = function() {
+            isListening = false;
+            var text = document.getElementById('user-input').value.trim();
+            if (text) {
+              updateMicState('PROCESSING');
+              sendMessage(text, true);
+            } else {
+              updateMicState('IDLE');
+            }
+          };
+        } catch(e) {
+          console.error("Speech Recognition setup error:", e);
+        }
+      }
+
+      function toggleVoiceRecognition() {
+        if (!recognition) {
+          alert("Aapke browser mein voice recognition available nahi hai. Kripya neeche text box mein likhein.");
+          return;
+        }
+
+        if (isListening) {
+          try { recognition.stop(); } catch(e){}
+          isListening = false;
+          updateMicState('IDLE');
+        } else {
+          try {
+            recognition.lang = currentLangCode;
+            recognition.start();
+          } catch(e) {
+            console.error("Speech start error:", e);
+          }
+        }
+      }
+
+      function updateMicState(state) {
+        var micBtn = document.getElementById('mic-btn');
+        var micIcon = document.getElementById('mic-icon');
+        var statusEl = document.getElementById('voice-status');
+
+        if (!micBtn || !statusEl) return;
+
+        micBtn.classList.remove('mic-btn-listening');
+
+        if (state === 'LISTENING') {
+          micBtn.classList.add('mic-btn-listening');
+          micIcon.textContent = '🎙️';
+          statusEl.textContent = "सुन रहा हूँ... 🎤";
+        } else if (state === 'PROCESSING') {
+          micIcon.textContent = '🤔';
+          statusEl.textContent = "सोच रहा हूँ... 🤔";
+        } else if (state === 'SPEAKING') {
+          micIcon.textContent = '🔊';
+          statusEl.textContent = "बोल रहा हूँ... 🔊";
+        } else {
+          micIcon.textContent = '🎤';
+          statusEl.textContent = "बोलें या लिखें";
+        }
+      }
+
+      // Speech Synthesis (Text To Speech)
+      function speakText(text) {
+        if (!('speechSynthesis' in window)) return;
+
+        window.speechSynthesis.cancel(); // Stop any active speech
+
+        // Clean formatting markdown for spoken output
+        var cleanText = text.replace(/[*#✅❌➔👍👎]/g, '').replace(/\n+/g, ' , ');
+        
+        var utterance = new SpeechSynthesisUtterance(cleanText);
+        utterance.lang = currentLangCode;
+        utterance.rate = 0.85; // Slightly slow for clear village understanding
+        utterance.pitch = 1.0;
+        utterance.volume = 1.0;
+
+        var voices = speechSynthesis.getVoices();
+        var hindiVoice = voices.find(function(v) { return v.lang.includes('hi'); });
+        if (hindiVoice) utterance.voice = hindiVoice;
+
+        utterance.onstart = function() {
+          updateMicState('SPEAKING');
+        };
+
+        utterance.onend = function() {
+          updateMicState('IDLE');
+        };
+
+        utterance.onerror = function() {
+          updateMicState('IDLE');
+        };
+
+        speechSynthesis.speak(utterance);
+      }
+
+      // Send Message Function
+      async function sendMessage(customText, isVoiceInput) {
+        var inputEl = document.getElementById('user-input');
+        var text = customText || (inputEl ? inputEl.value.trim() : '');
+
+        if (!text) return;
+
+        if (inputEl) inputEl.value = '';
+
+        var autoDetectedLang = detectLanguage(text);
+
+        // Render User Message in Chat
+        appendUserMessage(text);
+        
+        // Track message count for WhatsApp escalation
+        messageCount++;
+
+        // Show typing indicator
+        showTyping(true);
+        updateMicState('PROCESSING');
+
+        // Add to conversation history
+        conversationHistory.push({ role: 'user', content: text });
+
+        try {
+          var response = await fetch('/api/saathi', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              messages: conversationHistory,
+              detectedLanguage: autoDetectedLang || currentLang,
+              isVoice: !!isVoiceInput
+            })
+          });
+
+          var data = await response.json();
+          showTyping(false);
+
+          if (data.error) {
+            appendSaathiMessage("क्षमा करें, उत्तर प्राप्त करने में समस्या हुई। कृपया पुनः प्रयास करें।");
+            updateMicState('IDLE');
+            return;
+          }
+
+          var reply = data.message || "माफ़ी चाहते हैं, उत्तर नहीं मिल सका।";
+          conversationHistory.push({ role: 'assistant', content: reply });
+
+          appendSaathiMessage(reply, data.needsEscalation, text);
+
+          // Voice speak out response
+          speakText(reply);
+
+          // Check for WhatsApp Escalation after 3 messages or explicit escalation flag
+          if (data.needsEscalation || messageCount % 3 === 0) {
+            showWhatsAppEscalation(text);
+          }
+
+        } catch (err) {
+          console.error("Saathi fetch error:", err);
+          showTyping(false);
+          appendSaathiMessage("नेटवर्क समस्या के कारण जवाब नहीं आ सका। कृपया अपना इंटरनेट चेक करें।");
+          updateMicState('IDLE');
+        }
+      }
+
+      function sendQuickQuery(queryText) {
+        var inputEl = document.getElementById('user-input');
+        if (inputEl) inputEl.value = queryText;
+        sendMessage(queryText, false);
+      }
+
+      function appendUserMessage(text) {
+        var container = document.getElementById('chat-messages');
+        if (!container) return;
+
+        var div = document.createElement('div');
+        div.className = "flex justify-end mb-3";
+        div.innerHTML = `
+          <div class="msg-user p-3 sm:p-4 max-w-[85%] sm:max-w-[75%] shadow">
+            <div class="text-xs sm:text-sm font-bold text-white whitespace-pre-wrap">${escapeHtml(text)}</div>
+          </div>
+        `;
+        container.appendChild(div);
+        container.scrollTop = container.scrollHeight;
+      }
+
+      function appendSaathiMessage(replyText, needsEscalation, lastQuestion) {
+        var container = document.getElementById('chat-messages');
+        if (!container) return;
+
+        var formattedText = formatMarkdownText(replyText);
+
+        var div = document.createElement('div');
+        div.className = "flex justify-start mb-4";
+
+        var id = 'msg-' + Date.now();
+
+        div.innerHTML = `
+          <div class="msg-saathi p-4 max-w-[90%] sm:max-w-[80%] shadow">
+            <div class="flex items-center gap-2 mb-2 pb-1 border-b border-slate-100">
+              <span class="text-lg">🤝</span>
+              <span class="font-extrabold text-emerald-800 text-xs sm:text-sm">साथी (Saathi)</span>
+            </div>
+            <div id="${id}" class="text-xs sm:text-sm font-semibold leading-relaxed text-slate-800 space-y-2">
+              ${formattedText}
+            </div>
+            
+            <div class="flex flex-wrap items-center justify-between gap-2 mt-3 pt-2 border-t border-slate-100 text-xs">
+              <button onclick="speakText('${escapeForJs(replyText)}')" class="flex items-center gap-1 font-bold text-emerald-800 hover:underline">
+                <span>🔊</span> Phir Sunein
+              </button>
+              
+              <div class="flex items-center gap-2 font-bold text-slate-500">
+                <button onclick="recordFeedback(this, true)" class="hover:text-emerald-700 transition" title="Helpful">👍</button>
+                <button onclick="recordFeedback(this, false)" class="hover:text-red-600 transition" title="Not Helpful">👎</button>
+              </div>
+            </div>
+          </div>
+        `;
+
+        container.appendChild(div);
+        container.scrollTop = container.scrollHeight;
+      }
+
+      function showWhatsAppEscalation(lastQuestion) {
+        var container = document.getElementById('whatsapp-escalation-container');
+        var btn = document.getElementById('wa-escalate-btn');
+        if (container && btn) {
+          var q = encodeURIComponent("Namaskar! Main BighaWala Saathi se baat kar raha tha lekin mujhe aur madad chahiye. Meri problem: " + (lastQuestion || "Land query"));
+          btn.href = "https://wa.me/919835102324?text=" + q;
+          container.classList.remove('hidden');
+        }
+      }
+
+      function showTyping(show) {
+        var el = document.getElementById('typing-indicator');
+        if (el) {
+          if (show) el.classList.remove('hidden');
+          else el.classList.add('hidden');
+        }
+      }
+
+      function recordFeedback(btn, isHelpful) {
+        var parent = btn.parentElement;
+        if (parent) {
+          parent.innerHTML = '<span class="text-emerald-700 font-bold">धन्यवाद! (Feedback Saved)</span>';
+        }
+      }
+
+      function clearChatHistory() {
+        conversationHistory = [];
+        messageCount = 0;
+        var container = document.getElementById('chat-messages');
+        if (container) {
+          container.innerHTML = `
+            <div class="msg-saathi p-4 max-w-[85%] sm:max-w-[80%]">
+              <div class="flex items-center gap-2 mb-2 pb-1 border-b border-slate-100">
+                <span class="text-lg">🤝</span>
+                <span class="font-extrabold text-emerald-800 text-xs sm:text-sm">साथी (Saathi)</span>
+              </div>
+              <div class="text-xs sm:text-sm font-semibold leading-relaxed text-slate-800">
+                चैट रीसेट कर दी गई है। आपका नया सवाल क्या है? मैं सुनने के लिए तैयार हूँ।
+              </div>
+            </div>
+          `;
+        }
+        var esc = document.getElementById('whatsapp-escalation-container');
+        if (esc) esc.classList.add('hidden');
+      }
+
+      function formatMarkdownText(text) {
+        if (!text) return '';
+        var str = escapeHtml(text);
+        str = str.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+        str = str.replace(/\n\n/g, '<br><br>');
+        str = str.replace(/\n/g, '<br>');
+        return str;
+      }
+
+      function escapeHtml(text) {
+        return text
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/"/g, "&quot;")
+          .replace(/'/g, "&#039;");
+      }
+
+      function escapeForJs(text) {
+        return text.replace(/['"\n\r\\]/g, ' ');
+      }
+
+      function toggleDropdown(id) {
+        var dd = document.getElementById(id);
+        if (!dd) return;
+        var isOpen = dd.classList.contains('show');
+        document.querySelectorAll('.dropdown-content').forEach(function(d) { d.classList.remove('show'); });
+        if (!isOpen) dd.classList.add('show');
+      }
+
+      function toggleMobile() {
+        var menu = document.getElementById('mobile-menu');
+        if (menu) menu.classList.toggle('open');
+      }
+
+      // On DOM Loaded
+      document.addEventListener('DOMContentLoaded', function() {
+        initSpeechRecognition();
+
+        // Populate speechSynthesis voices asynchronously
+        if ('speechSynthesis' in window) {
+          speechSynthesis.onvoiceschanged = function() {
+            speechSynthesis.getVoices();
+          };
+        }
+      });
+    </script>
+  </body>
+</html>
