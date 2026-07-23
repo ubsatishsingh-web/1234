@@ -54,12 +54,7 @@
     </script>
 
     
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-Z1T8BNYBTE');
-    </script>
+    
 
     <!-- Google AdSense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7577953323229534"
@@ -68,73 +63,81 @@
     
     <link rel="stylesheet" href="css/premium-style.css?v=1.0.12">
 <!-- Google Analytics GA4 -->
+
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var links = document.querySelectorAll('a[href]');
+  links.forEach(function(link) {
+    var href = link.getAttribute('href');
+    if (!href) return;
+    
+    // These are EXTERNAL — open in new tab
+    var externalDomains = [
+      'bihar.gov.in',
+      'nic.in',
+      'pmayg.nic.in',
+      'pmaymis.gov.in',
+      'bankbazaar.com',
+      'sbi.co.in',
+      'bankofindia.co.in',
+      'wa.me',
+      'nibandhan.bihar.gov.in',
+      'bhulagan.bihar.gov.in',
+      'emapi.bihar.gov.in',
+      'land.bihar.gov.in',
+      'emutation.bihar.gov.in',
+      'bhuabhilekh.bihar.gov.in',
+      'parimarjanplus.bihar.gov.in',
+      'biharbhumiplus.bihar.gov.in',
+      'biharbhumi.bihar.gov.in',
+      'pmkisan.gov.in',
+      'agriculture.bihar.gov.in'
+    ];
+    
+    var isExternal = externalDomains.some(function(domain) {
+      return href.includes(domain);
+    });
+    
+    if (isExternal) {
+      link.setAttribute('target', '_blank');
+      link.setAttribute('rel', 'noopener noreferrer');
+    } else {
+      // Internal links — same tab
+      link.removeAttribute('target');
+    }
+  });
+});
+</script>
+<!-- Google Analytics 4 — BighaWala.com -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z1T8BNYBTE"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
   gtag('config', 'G-Z1T8BNYBTE', {
-    'send_page_view': true,
-    'engagement_time_msec': 100
+    'send_page_view': true
   });
-  
-  // Force engagement event after 10 seconds
+
+  // Fire engagement event after 5 seconds
+  // This tells GA4 user is engaged
   setTimeout(function() {
     gtag('event', 'user_engagement', {
-      'engagement_time_msec': 10000
+      'engagement_time_msec': 5000
     });
-  }, 10000);
+  }, 5000);
 
-  // Track scroll depth
-  var scrollTracked = false;
+  // Track scroll — fires when user scrolls
+  var scrollFired = false;
   window.addEventListener('scroll', function() {
-    if (!scrollTracked && window.scrollY > 200) {
-      scrollTracked = true;
+    if (!scrollFired) {
+      scrollFired = true;
       gtag('event', 'scroll', {
-        'percent_scrolled': 25
+        'percent_scrolled': 10
       });
     }
-  });
-
-  // Track all internal link clicks
-  document.addEventListener('click', function(e) {
-    var link = e.target.closest('a');
-    if (link && link.href && link.href.includes('bighawala.com')) {
-      gtag('event', 'internal_click', {
-        'link_url': link.href
-      });
-    }
-  });
-
-  // Track external portal clicks
-  document.addEventListener('click', function(e) {
-    var link = e.target.closest('a');
-    if (link && link.href && !link.href.includes('bighawala.com') && !link.href.includes('wa.me')) {
-      gtag('event', 'portal_click', {
-        'portal_url': link.href
-      });
-    }
-  });
-</script>
-
-<script>
-// Auto open external links in new tab
-document.addEventListener('DOMContentLoaded', function() {
-  var links = document.querySelectorAll('a[href]');
-  links.forEach(function(link) {
-    var href = link.getAttribute('href');
-    if (href && 
-        !href.startsWith('#') &&
-        !href.startsWith('/') &&
-        !href.includes('bighawala.com') &&
-        !href.startsWith('tel:') &&
-        !href.startsWith('mailto:') &&
-        !href.startsWith('javascript')) {
-      link.setAttribute('target', '_blank');
-      link.setAttribute('rel', 'noopener noreferrer');
-    }
-  });
-});
+  }, {passive: true});
 </script>
 </head>
   <body class="pb-16 bg-slate-50 text-slate-800 font-sans min-h-screen flex flex-col selection:bg-orange-100 selection:text-orange-900">
@@ -1688,5 +1691,127 @@ window.addEventListener('popstate', function() {
   }
 });
 </script>
+
+<style>
+.sticky-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #1B5E20;
+  color: white;
+  padding: 8px 15px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 9999;
+  box-shadow: 0 -2px 10px rgba(0,0,0,0.2);
+}
+.sticky-bar a {
+  color: white;
+  text-decoration: none;
+  font-size: 11px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+.sticky-bar .bar-icon {
+  font-size: 18px;
+}
+@media (min-width: 768px) {
+  .sticky-bar { display: none; }
+}
+</style>
+
+<div class="sticky-bar">
+  <a href="index.html">
+    <span class="bar-icon">🏠</span>
+    <span>Home</span>
+  </a>
+  <a href="bigha-calculator.html">
+    <span class="bar-icon">🧮</span>
+    <span>Calculator</span>
+  </a>
+  <a href="ask-expert.html">
+    <span class="bar-icon">🤖</span>
+    <span>AI Expert</span>
+  </a>
+  <a href="community-qa.html">
+    <span class="bar-icon">🤝</span>
+    <span>Community</span>
+  </a>
+  <a href="javascript:void(0)" onclick="window.open('https://wa.me/919835102324','_blank')">
+    <span class="bar-icon">📱</span>
+    <span>WhatsApp</span>
+  </a>
+</div>
+
+<script>
+// Open external links in new tab only
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('a[href]').forEach(function(link) {
+    var href = link.href || '';
+    var isExternal = (
+      href.includes('bihar.gov.in') ||
+      href.includes('nic.in') ||
+      href.includes('bhulagan') ||
+      href.includes('emapi') ||
+      href.includes('nibandhan') ||
+      href.includes('pmayg') ||
+      href.includes('pmaymis') ||
+      href.includes('bankbazaar') ||
+      href.includes('sbi.co.in') ||
+      href.includes('wa.me')
+    );
+    var isInternal = (
+      href.includes('bighawala.com') ||
+      href.startsWith('/') ||
+      href.endsWith('.html') ||
+      href.startsWith('#') ||
+      href.startsWith('tel:') ||
+      href.startsWith('mailto:')
+    );
+    if (isExternal && !isInternal) {
+      link.target = '_blank';
+      link.rel = 'noopener noreferrer';
+    } else if (isInternal) {
+      link.target = '_self';
+    }
+  });
+});
+</script>
+
+<script>
+setTimeout(function() {
+  var popup = document.createElement('div');
+  popup.innerHTML = 
+    '<div style="position:fixed;bottom:80px;' +
+    'right:15px;background:#2E7D32;color:white;' +
+    'padding:12px 15px;border-radius:10px;' +
+    'max-width:220px;z-index:9998;' +
+    'box-shadow:0 4px 15px rgba(0,0,0,0.2);' +
+    'font-size:13px;">' +
+    '<div style="font-weight:bold;margin-bottom:5px;">' +
+    '💡 यह भी देखें:</div>' +
+    '<a href="bigha-calculator.html" ' +
+    'style="color:#FFD54F;display:block;' +
+    'margin:3px 0;">🧮 Bigha Calculator</a>' +
+    '<a href="dakhil-kharij.html" ' +
+    'style="color:#FFD54F;display:block;' +
+    'margin:3px 0;">📋 Dakhil Kharij Guide</a>' +
+    '<a href="land-rates.html" ' +
+    'style="color:#FFD54F;display:block;' +
+    'margin:3px 0;">💰 Land Rates 2026</a>' +
+    '<div onclick="this.parentElement.' +
+    'parentElement.remove()" ' +
+    'style="text-align:right;cursor:pointer;' +
+    'margin-top:5px;opacity:0.7;">✕ बंद करें</div>' +
+    '</div>';
+  document.body.appendChild(popup);
+}, 30000);
+</script>
+
 </body>
 </html>

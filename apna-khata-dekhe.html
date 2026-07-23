@@ -53,88 +53,39 @@
       }
     </script>
 
-    
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-Z1T8BNYBTE');
-    </script>
-
     <!-- Google AdSense -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7577953323229534"
-     crossorigin="anonymous"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7577953323229534" crossorigin="anonymous"></script>
 
-    
     <link rel="stylesheet" href="css/premium-style.css?v=1.0.12">
-<!-- Google Analytics GA4 -->
+
+<!-- Google Analytics 4 — BighaWala.com -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z1T8BNYBTE"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
   gtag('config', 'G-Z1T8BNYBTE', {
-    'send_page_view': true,
-    'engagement_time_msec': 100
+    'send_page_view': true
   });
-  
-  // Force engagement event after 10 seconds
+
+  // Fire engagement event after 5 seconds
+  // This tells GA4 user is engaged
   setTimeout(function() {
     gtag('event', 'user_engagement', {
-      'engagement_time_msec': 10000
+      'engagement_time_msec': 5000
     });
-  }, 10000);
+  }, 5000);
 
-  // Track scroll depth
-  var scrollTracked = false;
+  // Track scroll — fires when user scrolls
+  var scrollFired = false;
   window.addEventListener('scroll', function() {
-    if (!scrollTracked && window.scrollY > 200) {
-      scrollTracked = true;
+    if (!scrollFired) {
+      scrollFired = true;
       gtag('event', 'scroll', {
-        'percent_scrolled': 25
+        'percent_scrolled': 10
       });
     }
-  });
-
-  // Track all internal link clicks
-  document.addEventListener('click', function(e) {
-    var link = e.target.closest('a');
-    if (link && link.href && link.href.includes('bighawala.com')) {
-      gtag('event', 'internal_click', {
-        'link_url': link.href
-      });
-    }
-  });
-
-  // Track external portal clicks
-  document.addEventListener('click', function(e) {
-    var link = e.target.closest('a');
-    if (link && link.href && !link.href.includes('bighawala.com') && !link.href.includes('wa.me')) {
-      gtag('event', 'portal_click', {
-        'portal_url': link.href
-      });
-    }
-  });
-</script>
-
-<script>
-// Auto open external links in new tab
-document.addEventListener('DOMContentLoaded', function() {
-  var links = document.querySelectorAll('a[href]');
-  links.forEach(function(link) {
-    var href = link.getAttribute('href');
-    if (href && 
-        !href.startsWith('#') &&
-        !href.startsWith('/') &&
-        !href.includes('bighawala.com') &&
-        !href.startsWith('tel:') &&
-        !href.startsWith('mailto:') &&
-        !href.startsWith('javascript')) {
-      link.setAttribute('target', '_blank');
-      link.setAttribute('rel', 'noopener noreferrer');
-    }
-  });
-});
+  }, {passive: true});
 </script>
 </head>
   <body class="pb-16 bg-slate-50 text-slate-800 font-sans min-h-screen flex flex-col selection:bg-orange-100 selection:text-orange-900">
@@ -376,6 +327,7 @@ document.addEventListener('DOMContentLoaded', function() {
   .mobile-menu { display: none !important; }
 }
 </style>
+
   <div class="nav-wrapper">
   <div class="nav-container">
     <a href="index.html" class="nav-logo">
@@ -394,7 +346,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     <ul class="nav-menu">
       <li><a href="index.html">Home</a></li>
-      <li><a href="apna-khata-dekhe.html">अपना खाता</a></li>
+      <li><a href="apna-khata-dekhe.html" class="active">अपना खाता</a></li>
       
       <li>
         <button class="dropdown-btn" 
@@ -470,8 +422,7 @@ document.addEventListener('DOMContentLoaded', function() {
         </span>
       </div>
     </a>
-    <button class="mobile-close" 
-            onclick="toggleMobile()">✕</button>
+    <button class="mobile-close" onclick="toggleMobile()">✕</button>
   </div>
 
   <div class="mobile-section">
@@ -579,13 +530,8 @@ document.querySelectorAll('.mobile-menu a')
   });
 </script>
 
-    
-    
-    
-    
-
     <!-- HERO SECTION -->
-    <section class="hero-gradient text-slate-900 py-12 sm:py-16 px-4 relative overflow-hidden border-b border-emerald-500/10">
+    <section class="hero-gradient text-slate-900 py-10 sm:py-14 px-4 relative overflow-hidden border-b border-emerald-500/10">
       <div class="absolute -top-12 -left-12 w-64 h-64 rounded-full bg-white/5 blur-2xl"></div>
       <div class="absolute -bottom-20 -right-20 w-80 h-80 rounded-full bg-orange-500/10 blur-3xl"></div>
 
@@ -602,1407 +548,460 @@ document.querySelectorAll('.mobile-menu a')
       </div>
     </section>
 
-    <!-- MAIN GRID CONTAINER -->
-    <main class="max-w-4xl mx-auto px-4 -mt-8 sm:-mt-10 mb-16 relative z-20 space-y-10 w-full text-[16px]">
+    <!-- MAIN CONTAINER -->
+    <main class="max-w-4xl mx-auto px-4 mt-6 mb-16 relative z-20 space-y-10 w-full text-[16px]">
 
-      <!-- SECTION 1 — HERO SUB-HEADING -->
-      <section class="bg-amber-50 rounded-2xl border border-amber-200 p-4 text-center shadow-sm">
-        <p class="text-sm sm:text-base text-amber-950 font-extrabold">
-          नीचे दिए गए 3 आसान स्टेप्स पूरे करें — फिर Official Portal खोलें!
-        </p>
-      </section>
-
-      <!-- ENGAGEMENT BOOSTERS (FIX 3) -->
-      
-      <!-- ELEMENT A — Interactive District Selector: "अपना जिला चुनें — Step 1" -->
-      <section id="step-district-section" class="bg-gradient-to-br from-emerald-900 to-slate-900 text-white rounded-3xl p-6 sm:p-8 shadow-xl border border-emerald-500/30 space-y-6 relative overflow-hidden">
-        <div class="absolute -right-10 -bottom-10 w-40 h-40 bg-emerald-500/10 rounded-full blur-2xl pointer-events-none"></div>
-        <div class="space-y-2">
-          <div class="inline-flex items-center gap-2 bg-emerald-500/20 text-emerald-300 border border-emerald-400/30 font-extrabold text-xs px-3 py-1 rounded-full uppercase tracking-wider">
-            <span>📍 Step 1 — Select District</span>
-          </div>
-          <h2 class="text-xl sm:text-2xl font-black tracking-tight text-white flex items-center gap-2">
-            अपना जिला चुनें (Select Your District)
-          </h2>
-          <p class="text-xs sm:text-sm text-emerald-100 font-semibold leading-relaxed">
-            बिहार के सभी 38 जिलों की सूची नीचे दी गई है। अपने जिले पर क्लिक करके खतियान/खाता प्रक्रिया शुरू करें:
-          </p>
-        </div>
-
-        <!-- Selected District Confirmation Alert Box -->
-        <div id="district-confirmation-alert" class="hidden bg-emerald-500/20 border-2 border-emerald-400 text-emerald-100 p-4 rounded-2xl flex items-center justify-between gap-3 animate-in fade-in">
-          <div class="flex items-center gap-3">
-            <span class="text-2xl">✅</span>
-            <div>
-              <p class="font-extrabold text-sm sm:text-base text-white" id="selected-district-text">
-                [District] चुना गया!
-              </p>
-              <p class="text-xs text-emerald-200 font-medium">
-                अब नीचे Step 2 (Quick Quiz) और Checklist को पूरा करें।
-              </p>
-            </div>
-          </div>
-          <a href="#step-quiz-section" class="bg-emerald-400 hover:bg-emerald-300 text-slate-950 font-black text-xs px-3.5 py-2 rounded-xl transition-all shadow-xs shrink-0">
-            Step 2 देखें ↓
-          </a>
-        </div>
-
-        <!-- 38 District Buttons Grid -->
-        <div id="districts-grid-container" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2 pt-1 max-h-72 overflow-y-auto p-1 scrollbar-thin scrollbar-thumb-emerald-600">
-        </div>
-      </section>
-
-      <!-- ELEMENT B — Quick Quiz before Portal -->
-      <section id="step-quiz-section" class="bg-white rounded-3xl border border-slate-200 p-6 sm:p-8 shadow-md space-y-5">
-        <div class="border-b border-slate-100 pb-3 flex items-center justify-between flex-wrap gap-2">
-          <h2 class="text-lg sm:text-xl font-black text-slate-900 flex items-center gap-2">
-            <span class="text-orange-500">❓</span> Step 2: पहले यह Check करें (Quick Quiz)
-          </h2>
-          <span class="text-xs font-bold text-slate-400 bg-slate-100 px-2.5 py-1 rounded-full">2 Quick Questions</span>
-        </div>
-
-        <!-- Q1 -->
-        <div class="bg-slate-50 border border-slate-200 rounded-2xl p-4 sm:p-5 space-y-3">
-          <p class="font-extrabold text-sm sm:text-base text-slate-900">
-            Q1: क्या आपके पास अपना Khata Number या Khesra Number है?
-          </p>
-          <div class="flex items-center gap-3 flex-wrap">
-            <button onclick="handleQuizQ1(true)" id="quiz-q1-yes" class="bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-xs sm:text-sm px-5 py-2.5 rounded-xl shadow-xs transition-all">
-              क. हाँ, है (Yes)
-            </button>
-            <button onclick="handleQuizQ1(false)" id="quiz-q1-no" class="bg-slate-200 hover:bg-slate-300 text-slate-800 font-extrabold text-xs sm:text-sm px-5 py-2.5 rounded-xl transition-all">
-              ख. नहीं पता (Don't know)
-            </button>
-          </div>
-          <div id="quiz-q1-result" class="hidden p-3.5 rounded-xl text-xs sm:text-sm font-extrabold transition-all"></div>
-        </div>
-
-        <!-- Q2 -->
-        <div class="bg-slate-50 border border-slate-200 rounded-2xl p-4 sm:p-5 space-y-3">
-          <p class="font-extrabold text-sm sm:text-base text-slate-900">
-            Q2: क्या आप अपनी जमीन का रिकॉर्ड नाम (Owner Name) से खोजना चाहते हैं?
-          </p>
-          <div class="flex items-center gap-3 flex-wrap">
-            <button onclick="handleQuizQ2(true)" id="quiz-q2-yes" class="bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-xs sm:text-sm px-5 py-2.5 rounded-xl shadow-xs transition-all">
-              हाँ, नाम से खोजना है
-            </button>
-            <button onclick="handleQuizQ2(false)" id="quiz-q2-no" class="bg-slate-200 hover:bg-slate-300 text-slate-800 font-extrabold text-xs sm:text-sm px-5 py-2.5 rounded-xl transition-all">
-              खाता / खेसरा से खोजना है
-            </button>
-          </div>
-          <div id="quiz-q2-result" class="hidden p-3.5 rounded-xl text-xs sm:text-sm font-extrabold transition-all"></div>
-        </div>
-      </section>
-
-      <!-- ELEMENT C — Preparation Checklist & Gated Portal Button -->
-      <section id="step-checklist-section" class="bg-gradient-to-br from-amber-500/10 via-orange-500/5 to-emerald-500/10 rounded-3xl border-2 border-orange-200 p-6 sm:p-8 shadow-md space-y-6">
-        <div class="space-y-2">
-          <span class="bg-orange-100 text-orange-950 font-black text-xs px-3 py-1 rounded-full">
-            📋 Step 3 — Preparation Checklist
+      <!-- STEP B: INTERACTIVE CHECKLIST AT VERY TOP AFTER H1 -->
+      <section id="top-checklist-section" class="bg-gradient-to-br from-amber-500/10 via-orange-500/5 to-emerald-500/10 rounded-3xl border-2 border-orange-300 p-6 sm:p-8 shadow-lg space-y-6">
+        <div class="space-y-2 text-center sm:text-left">
+          <span class="inline-block bg-orange-100 text-orange-950 font-black text-xs px-3.5 py-1 rounded-full uppercase tracking-wider">
+            ✅ Verification Step
           </span>
           <h2 class="text-xl sm:text-2xl font-black text-slate-900 tracking-tight">
-            Portal खोलने से पहले यह तैयार रखें:
+            अपना खाता देखने के लिए तैयार हैं? ✅ पहले यह 5 चीज़ें confirm करें:
           </h2>
           <p class="text-xs sm:text-sm text-slate-600 font-bold">
-            नीचे दिए गए 5 बिन्दुओं को टिक (tick) करें। सभी 5 बिंदु पूरे होने पर ही "Official Portal Button" अनलॉक होगा:
+            नीचे दिए गए 5 बिन्दुओं को टिक (tick) करें। सही जानकारी होने पर ही आधिकारिक पोर्टल खोलें:
           </p>
         </div>
 
         <!-- Checklist items -->
-        <div class="space-y-2.5 bg-white p-4 sm:p-6 rounded-2xl border border-orange-200 shadow-xs">
-          <label class="flex items-center gap-3 cursor-pointer p-2.5 rounded-xl hover:bg-orange-50/50 transition-all">
-            <input type="checkbox" class="prep-check w-5 h-5 text-emerald-600 rounded focus:ring-emerald-500 border-slate-300" onchange="updateChecklistProgress()">
-            <span class="text-xs sm:text-sm font-extrabold text-slate-800">1. Apna District (जिला) नाम पता है</span>
+        <div class="space-y-3 bg-white p-4 sm:p-6 rounded-2xl border border-orange-200 shadow-xs">
+          <label class="flex items-center gap-3 cursor-pointer p-3 rounded-xl hover:bg-orange-50/60 transition-all border border-transparent hover:border-orange-200">
+            <input type="checkbox" class="top-prep-check w-5 h-5 text-emerald-600 rounded focus:ring-emerald-500 border-slate-300" onchange="handleTopChecklistProgress()">
+            <span class="text-xs sm:text-sm font-extrabold text-slate-800">1. [ ] मुझे अपना जिला (District) पता है</span>
           </label>
-          <label class="flex items-center gap-3 cursor-pointer p-2.5 rounded-xl hover:bg-orange-50/50 transition-all">
-            <input type="checkbox" class="prep-check w-5 h-5 text-emerald-600 rounded focus:ring-emerald-500 border-slate-300" onchange="updateChecklistProgress()">
-            <span class="text-xs sm:text-sm font-extrabold text-slate-800">2. Apna Anchal/Block (अंचल) नाम पता है</span>
+          <label class="flex items-center gap-3 cursor-pointer p-3 rounded-xl hover:bg-orange-50/60 transition-all border border-transparent hover:border-orange-200">
+            <input type="checkbox" class="top-prep-check w-5 h-5 text-emerald-600 rounded focus:ring-emerald-500 border-slate-300" onchange="handleTopChecklistProgress()">
+            <span class="text-xs sm:text-sm font-extrabold text-slate-800">2. [ ] मुझे अपना अंचल (Block) पता है</span>
           </label>
-          <label class="flex items-center gap-3 cursor-pointer p-2.5 rounded-xl hover:bg-orange-50/50 transition-all">
-            <input type="checkbox" class="prep-check w-5 h-5 text-emerald-600 rounded focus:ring-emerald-500 border-slate-300" onchange="updateChecklistProgress()">
-            <span class="text-xs sm:text-sm font-extrabold text-slate-800">3. Apna Gaon/Mauja (मौजा) नाम पता है</span>
+          <label class="flex items-center gap-3 cursor-pointer p-3 rounded-xl hover:bg-orange-50/60 transition-all border border-transparent hover:border-orange-200">
+            <input type="checkbox" class="top-prep-check w-5 h-5 text-emerald-600 rounded focus:ring-emerald-500 border-slate-300" onchange="handleTopChecklistProgress()">
+            <span class="text-xs sm:text-sm font-extrabold text-slate-800">3. [ ] मुझे अपना हल्का/मौज़ा पता है</span>
           </label>
-          <label class="flex items-center gap-3 cursor-pointer p-2.5 rounded-xl hover:bg-orange-50/50 transition-all">
-            <input type="checkbox" class="prep-check w-5 h-5 text-emerald-600 rounded focus:ring-emerald-500 border-slate-300" onchange="updateChecklistProgress()">
-            <span class="text-xs sm:text-sm font-extrabold text-slate-800">4. Khata number या मालिक का नाम पता है</span>
+          <label class="flex items-center gap-3 cursor-pointer p-3 rounded-xl hover:bg-orange-50/60 transition-all border border-transparent hover:border-orange-200">
+            <input type="checkbox" class="top-prep-check w-5 h-5 text-emerald-600 rounded focus:ring-emerald-500 border-slate-300" onchange="handleTopChecklistProgress()">
+            <span class="text-xs sm:text-sm font-extrabold text-slate-800">4. [ ] मेरे पास खाता नंबर या मालिक का नाम है</span>
           </label>
-          <label class="flex items-center gap-3 cursor-pointer p-2.5 rounded-xl hover:bg-orange-50/50 transition-all">
-            <input type="checkbox" class="prep-check w-5 h-5 text-emerald-600 rounded focus:ring-emerald-500 border-slate-300" onchange="updateChecklistProgress()">
-            <span class="text-xs sm:text-sm font-extrabold text-slate-800">5. Mobile ready hai (for screenshot)</span>
+          <label class="flex items-center gap-3 cursor-pointer p-3 rounded-xl hover:bg-orange-50/60 transition-all border border-transparent hover:border-orange-200">
+            <input type="checkbox" class="top-prep-check w-5 h-5 text-emerald-600 rounded focus:ring-emerald-500 border-slate-300" onchange="handleTopChecklistProgress()">
+            <span class="text-xs sm:text-sm font-extrabold text-slate-800">5. [ ] मेरा Chrome browser open है</span>
           </label>
         </div>
 
-        <!-- Progress Bar -->
-        <div class="space-y-2">
+        <!-- Progress Bar & Hint Box -->
+        <div class="space-y-3">
           <div class="flex justify-between items-center text-xs font-black">
-            <span id="checklist-status-text" class="text-slate-700">0/5 items ready</span>
-            <span id="checklist-percent-text" class="text-emerald-700">0%</span>
+            <span id="top-checklist-status-text" class="text-slate-700">Progress: 0/5 complete</span>
+            <span id="top-checklist-percent-text" class="text-emerald-700">0%</span>
           </div>
-          <div class="w-full bg-slate-200 h-3 rounded-full overflow-hidden">
-            <div id="checklist-progress-bar" class="bg-emerald-500 h-full w-0 transition-all duration-300"></div>
+          <div class="w-full bg-slate-200 h-3.5 rounded-full overflow-hidden shadow-inner">
+            <div id="top-checklist-progress-bar" class="bg-emerald-500 h-full w-0 transition-all duration-300"></div>
+          </div>
+          
+          <!-- Notice when 3+ items checked -->
+          <div id="guide-read-notice" class="hidden p-3.5 rounded-xl text-xs sm:text-sm font-black bg-blue-50 text-blue-900 border border-blue-200 animate-in fade-in">
+            💡 बढ़िया! अब नीचे Step by Step Guide पढ़ें
           </div>
         </div>
 
-        <!-- Gated Portal Button -->
-        <div class="pt-2 text-center">
-          <a id="gated-portal-btn" href="https://land.bihar.gov.in/Ror2025/RoR.aspx" target="_blank" rel="noopener noreferrer" onclick="handlePortalButtonClick(event)" class="w-full inline-flex items-center justify-center gap-2 bg-slate-300 text-slate-500 font-black text-base py-4 rounded-2xl shadow-none cursor-not-allowed transition-all border border-slate-300">
-            <span id="gated-btn-text">🔒 Pehle Upar Ki List Complete Karein (0/5 Checked)</span>
+        <!-- Portal Unlock Button Container -->
+        <div class="pt-2 text-center" id="top-portal-btn-container">
+          <div id="top-portal-locked-msg" class="p-3.5 rounded-2xl bg-slate-100 text-slate-500 font-extrabold text-xs sm:text-sm border border-slate-200">
+            🔒 ऊपर के 5 चीज़ें Confirm (Tick) करें — Official Portal Button अनलॉक होगा!
+          </div>
+          <a id="top-portal-unlocked-btn" href="https://land.bihar.gov.in/Ror2025/RoR.aspx" target="_blank" rel="noopener noreferrer" class="hidden w-full inline-flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-black text-base py-4 rounded-2xl shadow-xl transition-all border border-emerald-500 animate-bounce">
+            <span>✅ आप तैयार हैं! Official Portal खोलें 🔗</span>
           </a>
         </div>
       </section>
 
-      <!-- ELEMENT D — Portal Toast & Common Problems FAQ -->
-      <!-- Portal Launch Toast Popup (shown when portal button is clicked) -->
-      <div id="portal-launch-toast" class="hidden fixed top-20 left-1/2 -translate-x-1/2 z-50 bg-slate-950 text-emerald-100 border-2 border-emerald-400 px-6 py-4 rounded-2xl shadow-2xl max-w-md w-11/12 text-center space-y-2 animate-in fade-in">
-        <div class="text-2xl">🟢</div>
-        <p class="font-extrabold text-sm sm:text-base text-white">
-          Portal nayi tab mein khul raha hai!
-        </p>
-        <p class="text-xs text-emerald-200 font-semibold leading-relaxed">
-          BighaWala tab band mat karna — koi samasya aane par wapas aakar niche FAQ guide padhen 🙏
-        </p>
-        <button onclick="document.getElementById('portal-launch-toast').classList.add('hidden')" class="text-xs text-emerald-400 font-bold underline pt-1">
-          ठीक है (Got it)
-        </button>
-      </div>
-
-      <!-- FAQ Section: Portal Common Problems -->
-      <section class="bg-white rounded-3xl border border-slate-200 p-6 sm:p-8 shadow-md space-y-5">
-        <h2 class="text-lg sm:text-xl font-black text-slate-900 flex items-center gap-2 border-b border-slate-100 pb-3">
-          <span class="text-rose-500">⚠️</span> Portal use karte waqt common problems aur solution:
-        </h2>
-
-        <div class="space-y-3 text-xs sm:text-sm font-semibold">
-          <div class="bg-slate-50 border border-slate-200 p-4 rounded-2xl space-y-1">
-            <p class="font-extrabold text-slate-900 text-sm">1. Website Slow / Server Not Responding</p>
-            <p class="text-slate-600 leading-relaxed">
-              बिहार भूमि पोर्टल पर दोपहर 12 बजे से 4 बजे के बीच अत्यधिक ट्रैफिक रहता है। यदि पेज लोड न हो तो सुबह 8-10 बजे या रात 9 बजे के बाद प्रयास करें।
-            </p>
-          </div>
-
-          <div class="bg-slate-50 border border-slate-200 p-4 rounded-2xl space-y-1">
-            <p class="font-extrabold text-slate-900 text-sm">2. Record Not Found (डेटा प्रदर्शित नहीं हुआ)</p>
-            <p class="text-slate-600 leading-relaxed">
-              हिन्दी नाम की स्पेलिंग में अंतर के कारण ऐसा होता है। नाम के बजाय केवल खाता नंबर (Khata Number) या खेसरा नंबर दर्ज करके सर्च करें।
-            </p>
-          </div>
-
-          <div class="bg-slate-50 border border-slate-200 p-4 rounded-2xl space-y-1">
-            <p class="font-extrabold text-slate-900 text-sm">3. Session Expired Error</p>
-            <p class="text-slate-600 leading-relaxed">
-              पोर्टल 5 मिनट से अधिक निष्क्रिय रहने पर सेशन एक्सपायर कर देता है। BighaWala पर वापस आकर दोबारा पोर्टल बटन दबाएं।
-            </p>
-          </div>
-
-          <div class="bg-slate-50 border border-slate-200 p-4 rounded-2xl space-y-1">
-            <p class="font-extrabold text-slate-900 text-sm">4. Internal Server Error 500</p>
-            <p class="text-slate-600 leading-relaxed">
-              सरकारी सर्वर में डेटाबेस अपडेट जारी रहने पर यह त्रुटि आती है। 15 मिनट प्रतीक्षा करके पुनः प्रयास करें।
-            </p>
-          </div>
-
-          <div class="bg-slate-50 border border-slate-200 p-4 rounded-2xl space-y-1">
-            <p class="font-extrabold text-slate-900 text-sm">5. Mobile Display Issue / Map Not Opening</p>
-            <p class="text-slate-600 leading-relaxed">
-              मोबाइल क्रोम ब्राउज़र के ऊपर 3 डॉट्स पर क्लिक करके "Desktop Site" चालू करें, जिससे पूरा नक्शा व खाता सूची साफ दिखाई देगी।
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <script>
-        const biharDistrictsList = [
-          "Patna", "Nalanda", "Bhojpur", "Buxar", "Rohtas", "Kaimur", "Gaya", "Jehanabad", 
-          "Arwal", "Nawada", "Aurangabad", "Muzaffarpur", "Sitamarhi", "Sheohar", "Vaishali", 
-          "Darbhanga", "Madhubani", "Samastipur", "Begusarai", "Munger", "Lakhisarai", "Sheikhpura", 
-          "Jamui", "Khagaria", "Bhagalpur", "Banka", "Saharsa", "Supaul", "Madhepura", "Purnia", 
-          "Araria", "Kishanganj", "Katihar", "Saran", "Siwan", "Gopalganj", "East Champaran", "West Champaran"
-        ];
-
-        var selectedDistrictName = "";
-        function renderDistrictsGrid() {
-          var container = document.getElementById("districts-grid-container");
-          if (!container) return;
-          container.innerHTML = "";
-          biharDistrictsList.forEach(function(dist) {
-            var btn = document.createElement("button");
-            btn.type = "button";
-            btn.className = "district-select-btn bg-emerald-800/60 hover:bg-emerald-600 text-emerald-100 font-bold text-xs py-2 px-2.5 rounded-xl border border-emerald-600/40 transition-all text-center truncate";
-            btn.textContent = dist;
-            btn.onclick = function() {
-              selectDistrict(dist, btn);
-            };
-            container.appendChild(btn);
-          });
-        }
-
-        function selectDistrict(distName, clickedBtn) {
-          selectedDistrictName = distName;
-          document.querySelectorAll(".district-select-btn").forEach(function(b) {
-            b.className = "district-select-btn bg-emerald-800/60 hover:bg-emerald-600 text-emerald-100 font-bold text-xs py-2 px-2.5 rounded-xl border border-emerald-600/40 transition-all text-center truncate";
-          });
-          if (clickedBtn) {
-            clickedBtn.className = "district-select-btn bg-emerald-400 text-slate-950 font-black text-xs py-2 px-2.5 rounded-xl border-2 border-white shadow-md transition-all text-center truncate scale-105";
-          }
-          var alertBox = document.getElementById("district-confirmation-alert");
-          var alertText = document.getElementById("selected-district-text");
-          if (alertBox && alertText) {
-            alertText.textContent = "✅ " + distName + " चुना गया!";
-            alertBox.classList.remove("hidden");
-          }
-          
-          if (typeof gtag === 'function') {
-            gtag('event', 'district_selected', {
-              'district_name': distName
-            });
-          }
-
-          var quizSec = document.getElementById("step-quiz-section");
-          if (quizSec) {
-            quizSec.scrollIntoView({ behavior: 'smooth' });
-          }
-        }
-
-        function handleQuizQ1(hasKhata) {
-          var yesBtn = document.getElementById("quiz-q1-yes");
-          var noBtn = document.getElementById("quiz-q1-no");
-          var resBox = document.getElementById("quiz-q1-result");
-          if (!resBox) return;
-          resBox.classList.remove("hidden");
-          if (hasKhata) {
-            yesBtn.className = "bg-emerald-700 text-white font-extrabold text-xs sm:text-sm px-5 py-2.5 rounded-xl shadow-xs transition-all ring-2 ring-emerald-400";
-            noBtn.className = "bg-slate-200 text-slate-600 font-bold text-xs sm:text-sm px-5 py-2.5 rounded-xl opacity-60";
-            resBox.className = "p-3.5 rounded-xl text-xs sm:text-sm font-extrabold bg-emerald-100 text-emerald-950 border border-emerald-300";
-            resBox.textContent = "✅ बढ़िया! Khata number se directly search kar sakte hain. Step 3 checklist complete karein.";
-          } else {
-            noBtn.className = "bg-orange-600 text-white font-extrabold text-xs sm:text-sm px-5 py-2.5 rounded-xl shadow-xs transition-all ring-2 ring-orange-400";
-            yesBtn.className = "bg-slate-200 text-slate-600 font-bold text-xs sm:text-sm px-5 py-2.5 rounded-xl opacity-60";
-            resBox.className = "p-3.5 rounded-xl text-xs sm:text-sm font-extrabold bg-orange-100 text-orange-950 border border-orange-300";
-            resBox.textContent = "💡 Koi baat nahi! Naam (Owner Name) se bhi khatiyan search ho sakta hai.";
-          }
-        }
-
-        function handleQuizQ2(isNameSearch) {
-          var yesBtn = document.getElementById("quiz-q2-yes");
-          var noBtn = document.getElementById("quiz-q2-no");
-          var resBox = document.getElementById("quiz-q2-result");
-          if (!resBox) return;
-          resBox.classList.remove("hidden");
-          if (isNameSearch) {
-            yesBtn.className = "bg-emerald-700 text-white font-extrabold text-xs sm:text-sm px-5 py-2.5 rounded-xl shadow-xs transition-all ring-2 ring-emerald-400";
-            noBtn.className = "bg-slate-200 text-slate-600 font-bold text-xs sm:text-sm px-5 py-2.5 rounded-xl opacity-60";
-            resBox.className = "p-3.5 rounded-xl text-xs sm:text-sm font-extrabold bg-emerald-100 text-emerald-950 border border-emerald-300";
-            resBox.textContent = "✅ Portal par 'समस्त खातों को नामानुसार देखें' ऑप्शन सिलेक्ट करें!";
-          } else {
-            noBtn.className = "bg-blue-600 text-white font-extrabold text-xs sm:text-sm px-5 py-2.5 rounded-xl shadow-xs transition-all ring-2 ring-blue-400";
-            yesBtn.className = "bg-slate-200 text-slate-600 font-bold text-xs sm:text-sm px-5 py-2.5 rounded-xl opacity-60";
-            resBox.className = "p-3.5 rounded-xl text-xs sm:text-sm font-extrabold bg-blue-100 text-blue-950 border border-blue-300";
-            resBox.textContent = "✅ Portal par 'खाता संख्या से खोजें' या 'खेसरा संख्या से खोजें' चुनें!";
-          }
-        }
-
-        var checklistCompleted = false;
-        function updateChecklistProgress() {
-          var checkboxes = document.querySelectorAll(".prep-check");
-          var total = checkboxes.length;
-          var checkedCount = 0;
-          checkboxes.forEach(function(cb) {
-            if (cb.checked) checkedCount++;
-          });
-
-          var percent = Math.round((checkedCount / total) * 100);
-          var statusText = document.getElementById("checklist-status-text");
-          var percentText = document.getElementById("checklist-percent-text");
-          var progressBar = document.getElementById("checklist-progress-bar");
-          var portalBtn = document.getElementById("gated-portal-btn");
-          var btnText = document.getElementById("gated-btn-text");
-
-          if (statusText) statusText.textContent = checkedCount + "/" + total + " items ready";
-          if (percentText) percentText.textContent = percent + "%";
-          if (progressBar) progressBar.style.width = percent + "%";
-
-          if (checkedCount === total) {
-            checklistCompleted = true;
-            if (statusText) statusText.textContent = "5/5 items ready — Ab Portal Kholen! ✅";
-            if (portalBtn) {
-              portalBtn.className = "w-full inline-flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-black text-base py-4 rounded-2xl shadow-lg hover:shadow-xl transition-all border border-emerald-500 animate-bounce";
-            }
-            if (btnText) btnText.textContent = "✅ Aap Taiyaar Hain! Portal Kholen 🔗";
-          } else {
-            checklistCompleted = false;
-            if (portalBtn) {
-              portalBtn.className = "w-full inline-flex items-center justify-center gap-2 bg-slate-300 text-slate-500 font-black text-base py-4 rounded-2xl shadow-none cursor-not-allowed transition-all border border-slate-300";
-            }
-            if (btnText) btnText.textContent = "🔒 Pehle Upar Ki List Complete Karein (" + checkedCount + "/5 Checked)";
-          }
-        }
-
-        function handlePortalButtonClick(e) {
-          if (!checklistCompleted) {
-            e.preventDefault();
-            alert("कृपया पहले ऊपर दिए गए 5 चेकलिस्ट आइटम्स को टिक (tick) करके पूरा करें!");
-            var chkSec = document.getElementById("step-checklist-section");
-            if (chkSec) chkSec.scrollIntoView({ behavior: 'smooth' });
-            return false;
-          }
-          var toast = document.getElementById("portal-launch-toast");
-          if (toast) {
-            toast.classList.remove("hidden");
-            setTimeout(function() {
-              toast.classList.add("hidden");
-            }, 12000);
-          }
-          if (typeof gtag === 'function') {
-            gtag('event', 'portal_unlocked_and_clicked', {
-              'district': selectedDistrictName || 'none'
-            });
-          }
-        }
-
-        document.addEventListener("DOMContentLoaded", function() {
-          renderDistrictsGrid();
-        });
-      </script>
-
-      <!-- SECTION 2: IMPORTANT INFO FIRST -->
+      <!-- STEP C: MINI BIGHA CALCULATOR -->
       <section class="bg-white rounded-3xl border border-slate-200 p-6 sm:p-8 shadow-md space-y-6">
-        <h2 class="text-xl sm:text-2xl font-black text-slate-900 flex items-center gap-2 border-b border-slate-100 pb-3">
-          <span class="text-primaryGreen">📝</span> अपना खाता देखने से पहले यह जानें:
-        </h2>
-        
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <!-- Card 1 -->
-          <div class="bg-emerald-50/50 border border-emerald-100 p-5 rounded-2xl space-y-3">
-            <div class="w-10 h-10 rounded-full bg-emerald-100 text-primaryGreen flex items-center justify-center text-lg font-bold">1</div>
-            <h3 class="font-extrabold text-slate-900 text-base">आपको क्या चाहिए?</h3>
-            <ul class="space-y-1.5 text-xs text-slate-600 font-bold">
-              <li class="flex items-center gap-1.5">📌 Apna District (जिला)</li>
-              <li class="flex items-center gap-1.5">📌 Apna Anchal/Block (अंचल)</li>
-              <li class="flex items-center gap-1.5">📌 Apna Halka (हल्का)</li>
-              <li class="flex items-center gap-1.5">📌 Apna Mauja/Gaon (मौजा)</li>
-              <li class="flex items-center gap-1.5">📌 Khata / Khesra / Malik Naam</li>
-            </ul>
-          </div>
-
-          <!-- Card 2 -->
-          <div class="bg-orange-50/50 border border-orange-100 p-5 rounded-2xl space-y-3">
-            <div class="w-10 h-10 rounded-full bg-orange-100 text-accentSaffron flex items-center justify-center text-lg font-bold">2</div>
-            <h3 class="font-extrabold text-slate-900 text-base">यह FREE Service है</h3>
-            <ul class="space-y-1.5 text-xs text-slate-600 font-bold">
-              <li class="flex items-center gap-1.5">✅ Bilkul free — koi fees nahi</li>
-              <li class="flex items-center gap-1.5">✅ Government official service</li>
-              <li class="flex items-center gap-1.5">✅ 24/7 details online access</li>
-              <li class="flex items-center gap-1.5">✅ Mobile par bhi perfect kaam</li>
-            </ul>
-          </div>
-
-          <!-- Card 3 -->
-          <div class="bg-blue-50/50 border border-blue-100 p-5 rounded-2xl space-y-3">
-            <div class="w-10 h-10 rounded-full bg-blue-100 text-blue-700 flex items-center justify-center text-lg font-bold">3</div>
-            <h3 class="font-extrabold text-slate-900 text-base">Kya Milega?</h3>
-            <ul class="space-y-1.5 text-xs text-slate-600 font-bold">
-              <li class="flex items-center gap-1.5">📄 Malik ka legal naam</li>
-              <li class="flex items-center gap-1.5">📐 Zameen size (Bigha/Katha)</li>
-              <li class="flex items-center gap-1.5">🔢 Khata & Khesra number</li>
-              <li class="flex items-center gap-1.5">🏡 Land category / type</li>
-            </ul>
-          </div>
+        <div class="border-b border-slate-100 pb-3 flex items-center justify-between flex-wrap gap-2">
+          <h2 class="text-xl sm:text-2xl font-black text-slate-900 flex items-center gap-2">
+            <span class="text-primaryGreen">🧮</span> जब तक तैयार हों — जमीन का size calculate करें:
+          </h2>
+          <span class="text-xs font-bold text-slate-400 bg-slate-100 px-2.5 py-1 rounded-full">Instant Converter</span>
         </div>
-      </section>
-
-      <!-- SECTION 3: BIGHA CALCULATOR -->
-      <section class="bg-white rounded-3xl border border-slate-200 p-6 sm:p-8 shadow-md space-y-6">
-        <h2 class="text-xl sm:text-2xl font-black text-slate-900 flex items-center gap-2 border-b border-slate-100 pb-3">
-          <span class="text-primaryGreen">🧮</span> जब तक Portal Load हो — Bigha Calculate करें!
-        </h2>
-        <p class="text-sm text-slate-600 font-bold">
-          बिहार के अलग-अलग क्षेत्रों में बीघा का माप अलग हो सकता है। नीचे दिए गए कनवर्टर से आप बीघा को कट्ठा, धुर और स्क्वायर फीट में बदल सकते हैं:
+        <p class="text-xs sm:text-sm text-slate-600 font-bold">
+          अपनी जमीन की माप तुरंत समझें। बीघा संख्या दर्ज करें और कट्ठा, धुर व स्क्वायर फीट देखें:
         </p>
 
-        <div class="bg-slate-50 border border-slate-200 rounded-2xl p-6 max-w-xl mx-auto space-y-4">
+        <div class="bg-slate-50 border border-slate-200 rounded-2xl p-5 max-w-xl mx-auto space-y-4">
           <div class="space-y-2">
-            <label class="block text-sm font-black text-slate-700">बीघा दर्ज करें (Enter Bigha Amount):</label>
-            <input type="number" id="bighaInput" value="1" min="0" step="any" class="w-full bg-white border border-slate-300 rounded-xl px-4 py-3 text-slate-900 font-bold focus:outline-none focus:border-primaryGreen focus:ring-1 focus:ring-primaryGreen" placeholder="उदा. 1, 5, 10">
+            <label class="block text-xs sm:text-sm font-black text-slate-700">बीघा (Bigha) दर्ज करें:</label>
+            <input type="number" id="miniBighaInput" value="1" min="0" step="any" oninput="runMiniBighaCalc()" class="w-full bg-white border border-slate-300 rounded-xl px-4 py-3 text-slate-900 font-bold text-base focus:outline-none focus:border-primaryGreen focus:ring-1 focus:ring-primaryGreen" placeholder="उदा. 1">
           </div>
 
-          <button onclick="calculateBighaMini()" class="w-full bg-primaryGreen hover:bg-customGreenHover text-white font-black py-3 rounded-xl shadow-md transition-all">
-            Calculate Now ⚡
-          </button>
-
-          <div class="grid grid-cols-3 gap-2 pt-3 text-center">
-            <div class="bg-white p-3 rounded-xl border border-slate-200">
-              <p class="text-xs text-slate-500 font-bold">कट्ठा (Katha)</p>
-              <p id="kathaResult" class="text-lg sm:text-xl font-black text-primaryGreen">20</p>
+          <div class="grid grid-cols-3 gap-2 pt-2 text-center">
+            <div class="bg-white p-3 rounded-xl border border-slate-200 shadow-xs">
+              <p class="text-[11px] text-slate-500 font-extrabold">कट्ठा (Katha)</p>
+              <p id="miniKathaRes" class="text-base sm:text-xl font-black text-primaryGreen">20</p>
             </div>
-            <div class="bg-white p-3 rounded-xl border border-slate-200">
-              <p class="text-xs text-slate-500 font-bold">धुर (Dhur)</p>
-              <p id="dhurResult" class="text-lg sm:text-xl font-black text-accentSaffron">400</p>
+            <div class="bg-white p-3 rounded-xl border border-slate-200 shadow-xs">
+              <p class="text-[11px] text-slate-500 font-extrabold">धुर (Dhur)</p>
+              <p id="miniDhurRes" class="text-base sm:text-xl font-black text-accentSaffron">400</p>
             </div>
-            <div class="bg-white p-3 rounded-xl border border-slate-200">
-              <p class="text-xs text-slate-500 font-bold">Sq. Feet (वर्ग फीट)</p>
-              <p id="sqftResult" class="text-base sm:text-lg font-black text-slate-800">27,225</p>
+            <div class="bg-white p-3 rounded-xl border border-slate-200 shadow-xs">
+              <p class="text-[11px] text-slate-500 font-extrabold">Sq. Feet</p>
+              <p id="miniSqftRes" class="text-xs sm:text-base font-black text-slate-800">27,225</p>
             </div>
           </div>
         </div>
 
         <script>
-          function calculateBighaMini() {
-            const bigha = parseFloat(document.getElementById('bighaInput').value) || 0;
-            const katha = bigha * 20;
-            const dhur = bigha * 400;
-            const sqft = bigha * 27225;
-            document.getElementById('kathaResult').textContent = Number(katha.toFixed(2));
-            document.getElementById('dhurResult').textContent = Number(dhur.toFixed(2));
-            document.getElementById('sqftResult').textContent = sqft.toLocaleString('en-IN');
+          function runMiniBighaCalc() {
+            var bigha = parseFloat(document.getElementById('miniBighaInput').value) || 0;
+            var katha = bigha * 20;
+            var dhur = bigha * 400;
+            var sqft = bigha * 27225;
+            document.getElementById('miniKathaRes').textContent = Number(katha.toFixed(2));
+            document.getElementById('miniDhurRes').textContent = Number(dhur.toFixed(2));
+            document.getElementById('miniSqftRes').textContent = sqft.toLocaleString('en-IN');
           }
         </script>
       </section>
 
-      <!-- SECTION 1 — Apna Khata Kya Hota Hai? (H2) -->
-      <section class="bg-white rounded-3xl border border-slate-200 p-6 sm:p-8 shadow-md space-y-4">
-        <h2 class="text-xl sm:text-2xl font-black text-slate-900 flex items-center gap-2 border-b border-slate-100 pb-3">
-          <span class="text-primaryGreen">📔</span> अपना खाता क्या होता है?
-        </h2>
-        <div class="text-sm sm:text-base text-slate-600 leading-relaxed space-y-4 font-semibold">
-          <p>
-            <strong>अपना खाता (Apna Khata)</strong> बिहार सरकार के राजस्व एवं भूमि सुधार विभाग द्वारा संधारित किया जाने वाला वह अधिकार अभिलेख (Record of Rights - ROR) है जिसमें राज्य के सभी भू-स्वामियों और उनकी जमीनों का संपूर्ण सरकारी ब्यौरा संचित रहता है।
-          </p>
-          <div class="bg-slate-50 border border-slate-200 rounded-2xl p-5 text-sm space-y-2 text-slate-700">
-            <h3 class="text-slate-900 font-black">📝 इस रिकॉर्ड में निम्नलिखित मुख्य विवरण उपलब्ध होते हैं:</h3>
-            <ul class="list-disc pl-5 space-y-1">
-              <li>जमीन के असली मालिक का नाम और उनके पिता/पति का नाम</li>
-              <li>जमीन का विशिष्ट <strong>खाता नंबर (Khata Number)</strong></li>
-              <li>व्यक्तिगत भूखंडों का <strong>खेसरा नंबर (Plot/Khesra Number)</strong></li>
-              <li>जमीन का कुल रकबा (साइज) - बीघा, कट्ठा, धुर या डेसिमल में</li>
-              <li>जमीन की श्रेणी या प्रकार (कृषि, आवासीय, व्यावसायिक आदि)</li>
-              <li>वार्षिक लगान का ब्यौरा (Land Revenue/Tax)</li>
-            </ul>
-          </div>
-          <p>
-            बिहार सरकार के विशेष पोर्टल पर इसे ऑनलाइन बिल्कुल मुफ्त में देखा और डाउनलोड किया जा सकता है। इसे ROR (Record of Rights) या खतियान भी कहते हैं। जमीन खरीदने-बेचने से पहले इसका ब्यौरा जरूर चेक करें। यह कोर्ट के मुकदमों में एक महत्वपूर्ण कानूनी दस्तावेज है और बैंकों से कृषि लोन/केसीसी प्राप्त करने के लिए भी अत्यंत आवश्यक है।
-          </p>
-        </div>
-      </section>
-
-      <!-- SECTION 4 — Step by Step Guide with Tips -->
+      <!-- STEP D: FULL STEP BY STEP GUIDE -->
       <section class="bg-white rounded-3xl border border-slate-200 p-6 sm:p-8 shadow-md space-y-8">
         <h2 class="text-xl sm:text-2xl font-black text-slate-900 flex items-center gap-2 border-b border-slate-100 pb-3">
-          <span class="text-primaryGreen">🛠️</span> अपना खाता कैसे देखें? — Step by Step Guide
+          <span class="text-primaryGreen">🛠️</span> अपना खाता कैसे देखें? — Detailed Step by Step Guide
         </h2>
 
         <p class="text-sm sm:text-base text-slate-600 font-bold leading-relaxed">
-          बिहार के डिजिटल खतियान रिकॉर्ड पोर्टल पर अपना खाता खोजने की प्रक्रिया नीचे सरल हिंदी और अंग्रेजी भाषा में दी गई है। सभी चरणों का क्रमवार पालन करें:
+          बिहार के ऑनलाइन खतियान/अधिकार अभिलेख (RoR) पोर्टल पर अपनी जमीन का विवरण खोजने के लिए नीचे दिए गए चरणों का क्रमवार पालन करें:
         </p>
 
-        <!-- STEP BY STEP CARDS WITH CIRCLES -->
-        <div class="space-y-8">
+        <!-- STEP CARDS -->
+        <div class="space-y-6">
           <!-- Step 1 -->
-          <div class="flex gap-4 items-start">
+          <div class="flex gap-4 items-start bg-slate-50 border border-slate-200 p-5 rounded-2xl">
             <span class="w-10 h-10 rounded-full bg-emerald-100 border-2 border-emerald-500 text-primaryGreen flex items-center justify-center font-black text-lg shrink-0">1</span>
             <div class="space-y-2 w-full">
               <h3 class="text-base sm:text-lg font-black text-slate-950">Step 1: Portal Kholen (पोर्टल खोलें)</h3>
               <p class="text-xs sm:text-sm text-slate-600 font-semibold leading-relaxed">
-                सबसे पहले अपने मोबाइल या कंप्यूटर पर बिहार सरकार का आधिकारिक खतियान/RoR पोर्टल खोलें।
+                सबसे पहले अपने मोबाइल या कंप्यूटर में बिहार सरकार का आधिकारिक पोर्टल खोलें।
               </p>
-              <div class="bg-emerald-50 border-l-4 border-emerald-500 p-3 rounded-r-xl">
-                <p class="text-xs sm:text-sm text-emerald-950 font-bold">
-                  💡 <strong>Tip:</strong> Chrome browser use karein — sabse fast kaam karta hai aur lag/hang nahi hoga.
-                </p>
+              <div class="bg-emerald-50 border-l-4 border-emerald-500 p-2.5 rounded-r-xl text-xs text-emerald-950 font-bold">
+                💡 <strong>Tip:</strong> Chrome Browser का प्रयोग करें — सर्वर तेजी से लोड होता है।
               </div>
             </div>
           </div>
 
           <!-- Step 2 -->
-          <div class="flex gap-4 items-start">
+          <div class="flex gap-4 items-start bg-slate-50 border border-slate-200 p-5 rounded-2xl">
             <span class="w-10 h-10 rounded-full bg-emerald-100 border-2 border-emerald-500 text-primaryGreen flex items-center justify-center font-black text-lg shrink-0">2</span>
-            <div class="space-y-3 w-full">
-              <div>
-                <h3 class="text-base sm:text-lg font-black text-slate-950">Step 2: District Select Karein (जिला चुनें)</h3>
-                <p class="text-xs sm:text-sm text-slate-600 font-semibold leading-relaxed">
-                  अब आपके सामने बिहार का डिजिटल मानचित्र दिखाई देगा। इस नक़्शे में अपने संबंधित जिले पर क्लिक करें।
-                </p>
-              </div>
-              <div class="bg-emerald-50 border-l-4 border-emerald-500 p-3 rounded-r-xl">
-                <p class="text-xs sm:text-sm text-emerald-950 font-bold">
-                  💡 <strong>Tip:</strong> Bihar map par apna district dhundhen — कुल 38 districts (जिले) दिए गए हैं। सही जिले पर ध्यान से टैप करें।
-                </p>
+            <div class="space-y-2 w-full">
+              <h3 class="text-base sm:text-lg font-black text-slate-950">Step 2: District Select Karein (जिला चुनें)</h3>
+              <p class="text-xs sm:text-sm text-slate-600 font-semibold leading-relaxed">
+                स्क्रीन पर बिहार के नक्शे (Bihar Map) में अपने संबंधित जिले (District) पर क्लिक करें।
+              </p>
+              <div class="bg-emerald-50 border-l-4 border-emerald-500 p-2.5 rounded-r-xl text-xs text-emerald-950 font-bold">
+                💡 <strong>Tip:</strong> कुल 38 जिलों का नक्शा दिया गया है — अपने जिले के नाम पर टैप करें।
               </div>
             </div>
           </div>
 
           <!-- Step 3 -->
-          <div class="flex gap-4 items-start">
+          <div class="flex gap-4 items-start bg-slate-50 border border-slate-200 p-5 rounded-2xl">
             <span class="w-10 h-10 rounded-full bg-emerald-100 border-2 border-emerald-500 text-primaryGreen flex items-center justify-center font-black text-lg shrink-0">3</span>
             <div class="space-y-2 w-full">
-              <h3 class="text-base sm:text-lg font-black text-slate-950">Step 3: Apna Anchal (Block) Select Karein (अंचल/ब्लॉक चुनें)</h3>
+              <h3 class="text-base sm:text-lg font-black text-slate-950">Step 3: Anchal/Block Select Karein (अंचल चुनें)</h3>
               <p class="text-xs sm:text-sm text-slate-600 font-semibold leading-relaxed">
-                जिले के चयन के बाद उस जिले के सभी अंचलों (Blocks) की सूची स्क्रीन पर दिखाई देगी। अपने संबंधित अंचल या ब्लॉक पर क्लिक करें।
+                जिले के बाद उस जिले के सभी अंचलों (Blocks) की सूची खुलेगी। अपने प्रखंड या अंचल का चयन करें।
               </p>
-              <div class="bg-emerald-50 border-l-4 border-emerald-500 p-3 rounded-r-xl">
-                <p class="text-xs sm:text-sm text-emerald-950 font-bold">
-                  💡 <strong>Tip:</strong> Aapke jila ke anusar sahi anchal/block hi chunein — गलत ब्लॉक चुनने से आपका गाँव सूची में नहीं आएगा।
-                </p>
-              </div>
             </div>
           </div>
 
           <!-- Step 4 -->
-          <div class="flex gap-4 items-start">
+          <div class="flex gap-4 items-start bg-slate-50 border border-slate-200 p-5 rounded-2xl">
             <span class="w-10 h-10 rounded-full bg-emerald-100 border-2 border-emerald-500 text-primaryGreen flex items-center justify-center font-black text-lg shrink-0">4</span>
             <div class="space-y-2 w-full">
-              <h3 class="text-base sm:text-lg font-black text-slate-950">Step 4: Halka aur Mauja Select Karein (हल्का और मौजा चुनें)</h3>
+              <h3 class="text-base sm:text-lg font-black text-slate-950">Step 4: Halka aur Mauja Select Karein (हल्का व मौजा चुनें)</h3>
               <p class="text-xs sm:text-sm text-slate-600 font-semibold leading-relaxed">
-                अपने हल्का (Halka) का चयन करने के बाद, अपने संबंधित ग्राम या मौजा (Mauja) का चयन सूची में से करें।
+                अपने गांव या मौजे (Mauja) का नाम चुनें। हर मौजे के आगे उसका थाना नंबर दर्ज रहता है।
               </p>
-              <div class="bg-emerald-50 border-l-4 border-emerald-500 p-3 rounded-r-xl">
-                <p class="text-xs sm:text-sm text-emerald-950 font-bold">
-                  💡 <strong>Tip:</strong> Apne Mauja ka sahi naam check karein, gaon ke purane naam bhi ho sakte hain. हर मौजे का एक विशिष्ट थाना नंबर भी होता है, उसे ध्यान से मिलान करें।
-                </p>
-              </div>
             </div>
           </div>
 
           <!-- Step 5 -->
-          <div class="flex gap-4 items-start">
+          <div class="flex gap-4 items-start bg-slate-50 border border-slate-200 p-5 rounded-2xl">
             <span class="w-10 h-10 rounded-full bg-emerald-100 border-2 border-emerald-500 text-primaryGreen flex items-center justify-center font-black text-lg shrink-0">5</span>
-            <div class="space-y-3 w-full">
-              <h3 class="text-base sm:text-lg font-black text-slate-950">Step 5: Search Ka Tarika Chunein (खोजने का विकल्प चुनें)</h3>
+            <div class="space-y-2 w-full">
+              <h3 class="text-base sm:text-lg font-black text-slate-950">Step 5: Search Option Chunein (खोजने का विकल्प चुनें)</h3>
               <p class="text-xs sm:text-sm text-slate-600 font-semibold leading-relaxed">
-                जमीन के खतियान को ढूंढने के लिए दिए गए विकल्पों में से किसी एक को चुनें (जैसे खाता नंबर से, खेसरा नंबर से, या रैयत/मालिक के नाम से)।
+                खाता संख्या से, खेसरा संख्या से, अथवा मालिक के नाम से सर्च करें।
               </p>
-              <div class="bg-emerald-50 border-l-4 border-emerald-500 p-3 rounded-r-xl">
-                <p class="text-xs sm:text-sm text-emerald-950 font-bold">
-                  💡 <strong>Tip:</strong> Agar naam se na mile toh khesra number (plot number) ya khata number se khojein — क्योंकि स्पेलिंग की गलतियों के कारण नाम सर्च कभी-कभी फेल हो जाता है।
-                </p>
+              <div class="bg-emerald-50 border-l-4 border-emerald-500 p-2.5 rounded-r-xl text-xs text-emerald-950 font-bold">
+                💡 <strong>Tip:</strong> स्पेलिंग समस्या से बचने के लिए खाता नंबर या खेसरा नंबर का प्रयोग सर्वोत्तम है।
               </div>
             </div>
           </div>
 
           <!-- Step 6 -->
-          <div class="flex gap-4 items-start">
+          <div class="flex gap-4 items-start bg-slate-50 border border-slate-200 p-5 rounded-2xl">
             <span class="w-10 h-10 rounded-full bg-emerald-100 border-2 border-emerald-500 text-primaryGreen flex items-center justify-center font-black text-lg shrink-0">6</span>
             <div class="space-y-2 w-full">
-              <h3 class="text-base sm:text-lg font-black text-slate-950">Step 6: Search Button Dabayein (खोजें बटन दबाएं)</h3>
+              <h3 class="text-base sm:text-lg font-black text-slate-950">Step 6: "खोजें" बटन दबाएं aur Record Dekhen</h3>
               <p class="text-xs sm:text-sm text-slate-600 font-semibold leading-relaxed">
-                सभी आवश्यक जानकारियां दर्ज करने के बाद नीचे दिए गए "खोजें" या "अधिकार अभिलेख देखें" बटन पर क्लिक करें।
+                सर्च रिजल्ट स्क्रीन पर आने पर "देखें" पर क्लिक कर अपना खतियान / खाता पत्र देखें और PDF सेव करें।
               </p>
-              <div class="bg-emerald-50 border-l-4 border-emerald-500 p-3 rounded-r-xl">
-                <p class="text-xs sm:text-sm text-emerald-950 font-bold">
-                  💡 <strong>Tip:</strong> Button click karne ke baad thoda wait karein. Government server kabhi-kabhi data process karne mein 5-10 seconds ka samay leta hai.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Step 7 -->
-          <div class="flex gap-4 items-start">
-            <span class="w-10 h-10 rounded-full bg-emerald-100 border-2 border-emerald-500 text-primaryGreen flex items-center justify-center font-black text-lg shrink-0">7</span>
-            <div class="space-y-2 w-full">
-              <h3 class="text-base sm:text-lg font-black text-slate-950">Step 7: Record Dekhen aur Print Karein (विवरण देखें और सेव करें)</h3>
-              <p class="text-xs sm:text-sm text-slate-600 font-semibold leading-relaxed">
-                सर्च परिणाम स्क्रीन पर आने पर "देखें" पर क्लिक कर संपूर्ण अधिकार अभिलेख (Record of Rights) खतियान प्राप्त करें।
-              </p>
-              <div class="bg-emerald-50 border-l-4 border-emerald-500 p-3 rounded-r-xl">
-                <p class="text-xs sm:text-sm text-emerald-950 font-bold">
-                  💡 <strong>Tip:</strong> Aapka khata khulte hi uska screenshot le kar save kar lein, ya fir Ctrl+P दबाकर PDF के रूप में डाउनलोड कर लें ताकि इंटरनेट न होने पर भी आप इसे देख सकें।
-                </p>
-              </div>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- SECTION 3 — Apna Khata Mein Kya Kya Hota Hai? (H2) -->
-      <section class="bg-white rounded-3xl border border-slate-200 p-6 sm:p-8 shadow-md space-y-4">
-        <h2 class="text-xl sm:text-2xl font-black text-slate-900 flex items-center gap-2 border-b border-slate-100 pb-3">
-          <span class="text-primaryGreen">📊</span> अपने खाते में क्या जानकारी मिलती है?
-        </h2>
-        <p class="text-sm sm:text-base text-slate-600 font-medium leading-relaxed">
-          डिजिटल खतियान/खाता पत्र डाउनलोड करने पर आपको जमीन से संबंधित निम्नलिखित महत्वपूर्ण ब्यौरे प्राप्त होते हैं:
-        </p>
-
-        <!-- TABLE OF FIELDS -->
-        <div class="overflow-x-auto border border-slate-200 rounded-2xl">
-          <table class="w-full text-left border-collapse text-sm sm:text-base">
-            <thead>
-              <tr class="bg-slate-50 border-b border-slate-200 text-slate-700 font-extrabold">
-                <th class="p-4">फील्ड (Field)</th>
-                <th class="p-4 text-primaryGreen">मतलब (Matlab & Significance)</th>
-              </tr>
-            </thead>
-            <tbody class="divide-y divide-slate-200 font-semibold text-slate-600">
-              <tr class="hover:bg-slate-50/50">
-                <td class="p-4 bg-slate-50/50 text-slate-900">Khata Number</td>
-                <td class="p-4 text-slate-700">Aapka land account number - यह जमीन की खाता बही का मुख्य खाता नंबर होता है।</td>
-              </tr>
-              <tr class="hover:bg-slate-50/50">
-                <td class="p-4 bg-slate-50/50 text-slate-900">Malik ka Naam</td>
-                <td class="p-4 text-slate-700">Zameen ke owner ka naam - जमीन के वर्तमान या मूल कानूनी मालिक का नाम।</td>
-              </tr>
-              <tr class="hover:bg-slate-50/50">
-                <td class="p-4 bg-slate-50/50 text-slate-900">Pita/Pati Naam</td>
-                <td class="p-4 text-slate-700">Father/Husband name - भू-स्वामी की पहचान को स्पष्ट करने के लिए उनके पिता या पति का नाम।</td>
-              </tr>
-              <tr class="hover:bg-slate-50/50">
-                <td class="p-4 bg-slate-50/50 text-slate-900">Khesra Number</td>
-                <td class="p-4 text-slate-700">Individual plot number - उस विशिष्ट भूखंड या प्लॉट का सरकारी नक्शा सर्वे नंबर।</td>
-              </tr>
-              <tr class="hover:bg-slate-50/50">
-                <td class="p-4 bg-slate-50/50 text-slate-900">Raqba</td>
-                <td class="p-4 text-slate-700">Zameen ka size (Bigha/Katha/Dhur) - जमीन का कुल क्षेत्रफल या आकार।</td>
-              </tr>
-              <tr class="hover:bg-slate-50/50">
-                <td class="p-4 bg-slate-50/50 text-slate-900">Jameen ka Prakar</td>
-                <td class="p-4 text-slate-700">Agricultural/Residential - जमीन किस प्रकार की है (कृषि, आवासीय, व्यावसायिक आदि)।</td>
-              </tr>
-              <tr class="hover:bg-slate-50/50">
-                <td class="p-4 bg-slate-50/50 text-slate-900">Lagaan</td>
-                <td class="p-4 text-slate-700">Land tax amount - सरकार को दी जाने वाली वार्षिक राजस्व या कर राशि।</td>
-              </tr>
-              <tr class="hover:bg-slate-50/50">
-                <td class="p-4 bg-slate-50/50 text-slate-900">Bojh</td>
-                <td class="p-4 text-slate-700">Koi loan/mortgage hai toh - जमीन पर किसी भी प्रकार का बैंक ऋण या सरकारी भार का ब्यौरा।</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </section>
-
-      <!-- SECTION 5 — THE PORTAL BUTTON (Official Portals with Trust Messages) -->
+      <!-- PORTAL LINK SECTION & STEP E CARDS -->
       <section class="bg-gradient-to-br from-emerald-500/5 to-emerald-500/10 rounded-3xl border-2 border-emerald-500/20 p-6 sm:p-8 shadow-md space-y-6">
         <div class="text-center space-y-3">
           <span class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-emerald-100 text-primaryGreen text-2xl">🔗</span>
-          <h2 id="official-portal-section" class="text-xl sm:text-2xl font-black text-slate-900">
-            अपना खाता देखें — OFFICIAL PORTAL
+          <h2 class="text-xl sm:text-2xl font-black text-slate-900">
+            अपना खाता ऑनलाइन देखें — Official Government Links
           </h2>
-          <p class="text-xs sm:text-sm text-slate-600 font-bold max-w-2xl mx-auto leading-relaxed">
-            नीचे दिए गए लिंक पर क्लिक करके आप सीधे बिहार सरकार के आधिकारिक भूमि रिकॉर्ड (Apna Khata) पोर्टल पर जा सकते हैं और बिल्कुल मुफ्त में अपना खतियान देख सकते हैं।
-          </p>
         </div>
-
-        <!-- Portals Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <!-- Main Khatyan Portal Button -->
-          <div class="bg-white border border-emerald-500/30 rounded-2xl p-5 shadow-sm space-y-4 flex flex-col justify-between">
-            <div class="space-y-1.5">
-              <span class="text-xs font-black text-emerald-800 uppercase tracking-wider bg-emerald-100 px-2.5 py-1 rounded-full">Primary Server</span>
-              <h3 class="text-base font-black text-slate-950">अपना खाता / अधिकार अभिलेख (RoR) पोर्टल</h3>
-              <p class="text-[11px] sm:text-xs text-slate-500 font-semibold leading-relaxed">
-                यह खतियान खोजने और अपना खाता देखने के लिए सबसे प्रमुख सरकारी लिंक है।
-              </p>
-            </div>
-            <a href="https://land.bihar.gov.in/Ror2025/RoR.aspx" target="_blank" rel="noopener noreferrer" class="w-full inline-flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-black text-sm py-3.5 rounded-xl shadow-md transition-all">
-              <span>🟢 Official Apna Khata Portal Kholen 🔗</span>
-            </a>
-          </div>
-
-          <!-- Alternative Services Portal Button -->
-          <div class="bg-white border border-orange-500/20 rounded-2xl p-5 shadow-sm space-y-4 flex flex-col justify-between">
-            <div class="space-y-1.5">
-              <span class="text-xs font-black text-orange-800 uppercase tracking-wider bg-orange-100 px-2.5 py-1 rounded-full">All-in-One Bihar Bhumi</span>
-              <h3 class="text-base font-black text-slate-950">दाखिल-खारिज, LPC, जमाबंदी व ई-मापी पोर्टल</h3>
-              <p class="text-[11px] sm:text-xs text-slate-500 font-semibold leading-relaxed">
-                यदि आपको दाखिल खारिज, एलपीसी, जमाबंदी पंजी या ई-मापी सेवाओं का उपयोग करना है, तो इस आधिकारिक लिंक का उपयोग करें।
-              </p>
-            </div>
-            <a href="https://biharbhumi.bihar.gov.in/Biharbhumi/" target="_blank" rel="noopener noreferrer" class="w-full inline-flex items-center justify-center gap-2 bg-orange-600 hover:bg-orange-700 text-white font-black text-sm py-3.5 rounded-xl shadow-md transition-all">
-              <span>🟠 Other Land Services Portal 🔗</span>
-            </a>
-          </div>
-        </div>
-
-        <!-- Privacy & Trust Statement Card -->
-        <div class="bg-white/80 rounded-2xl border border-slate-200 p-4 text-center space-y-2">
-          <p class="text-slate-700 text-xs font-black flex items-center justify-center gap-1.5">
-            🛡️ <span>100% Secure & Privacy Protected</span>
-          </p>
-          <p class="text-slate-500 text-[11px] font-bold leading-relaxed max-w-xl mx-auto">
-            <strong>BighaWala.com</strong> केवल एक गाइड और सूचनात्मक मंच है। हम आपका कोई भी निजी डेटा, नाम, खाता नंबर, या मोबाइल नंबर अपने सर्वर पर स्टोर नहीं करते हैं। सारा डेटा सीधे सरकारी सर्वर से प्रदर्शित होता है। यह सेवा आपके लिए बिल्कुल सुरक्षित और पूर्णतः निःशुल्क है।
-          </p>
-        </div>
-      </section>
-
-      <!-- SECTION 6 — PROBLEM SOLVING SECTION (Keep users engaged on the page) -->
-      <section class="bg-white rounded-3xl border border-slate-200 p-6 sm:p-8 shadow-md space-y-6">
-        <h2 class="text-xl sm:text-2xl font-black text-slate-900 flex items-center gap-2 border-b border-slate-100 pb-3">
-          <span class="text-primaryGreen">💡</span> पोर्टल काम न करे या कोई एरर आये तो क्या करें? (Problem Solving)
-        </h2>
-        <p class="text-sm sm:text-base text-slate-600 font-bold">
-          अक्सर सरकारी डिजिटल डेटा में या सर्वर डाउन होने पर कुछ गलतियाँ देखने को मिलती हैं। यदि आपको खतियान खोजने में परेशानी हो रही है, तो नीचे दिए गए उपायों को अपनाएँ:
-        </p>
-
-        <!-- Accordions of common problems -->
-        <div class="space-y-3">
-          <!-- Problem 1: Server Slow / Not Opening -->
-          <div class="border border-slate-200 rounded-2xl overflow-hidden bg-slate-50/50">
-            <button class="w-full text-left p-4 sm:p-5 font-bold text-slate-900 flex justify-between items-center hover:bg-slate-100/50 transition-colors gap-4" onclick="toggleCorrection(1)">
-              <span class="text-sm sm:text-base flex items-center gap-2 text-amber-900">
-                <span>⚠️</span> 1. सरकारी वेबसाइट बहुत धीमी चल रही है या खुल नहीं रही है?
-              </span>
-              <span class="text-emerald-700 font-extrabold" id="corr-icon-1">➕</span>
-            </button>
-            <div class="hidden border-t border-slate-200 p-5 text-xs sm:text-sm text-slate-600 font-semibold space-y-2 bg-white" id="corr-content-1">
-              <p><strong>कारण:</strong> बिहार भूमि पोर्टल पर एक साथ लाखों लोग विज़िट करते हैं, जिसके कारण सर्वर पर लोड बढ़ जाता है।</p>
-              <p class="text-emerald-800"><strong>समाधान:</strong> सुबह जल्दी (6 AM से 9 AM) या रात में देर से (9 PM के बाद) प्रयास करें। उस समय सर्वर बिल्कुल खाली रहता है और काफी तेज काम करता है।</p>
-            </div>
-          </div>
-
-          <!-- Problem 2: Village / Mauja not in list -->
-          <div class="border border-slate-200 rounded-2xl overflow-hidden bg-slate-50/50">
-            <button class="w-full text-left p-4 sm:p-5 font-bold text-slate-900 flex justify-between items-center hover:bg-slate-100/50 transition-colors gap-4" onclick="toggleCorrection(2)">
-              <span class="text-sm sm:text-base flex items-center gap-2 text-amber-900">
-                <span>⚠️</span> 2. हल्का या मौजा (गाँव) का नाम सूची में दिखाई नहीं दे रहा है?
-              </span>
-              <span class="text-emerald-700 font-extrabold" id="corr-icon-2">➕</span>
-            </button>
-            <div class="hidden border-t border-slate-200 p-5 text-xs sm:text-sm text-slate-600 font-semibold space-y-2 bg-white" id="corr-content-2">
-              <p><strong>कारण:</strong> कई गांवों के नाम सरकारी रिकॉर्ड में पुराने या वर्तनी में अलग दर्ज होते हैं, या फिर उस हल्का का डेटा अपलोड हो रहा होता है।</p>
-              <p class="text-emerald-800"><strong>समाधान:</strong> अपने गांव के पहले अक्षर से खोजने के लिए कीबोर्ड के हिंदी वर्णमाला फ़िल्टर का उपयोग करें। यदि फिर भी न मिले, तो अपने ब्लॉक के राजस्व कर्मचारी से रजिस्टर-II में विवरण जांचने का अनुरोध करें।</p>
-            </div>
-          </div>
-
-          <!-- Problem 3: No Record Found -->
-          <div class="border border-slate-200 rounded-2xl overflow-hidden bg-slate-50/50">
-            <button class="w-full text-left p-4 sm:p-5 font-bold text-slate-900 flex justify-between items-center hover:bg-slate-100/50 transition-colors gap-4" onclick="toggleCorrection(3)">
-              <span class="text-sm sm:text-base flex items-center gap-2 text-amber-900">
-                <span>⚠️</span> 3. सर्च करने पर "No Record Found" या "कोई रिकॉर्ड नहीं मिला" दिखा रहा है?
-              </span>
-              <span class="text-emerald-700 font-extrabold" id="corr-icon-3">➕</span>
-            </button>
-            <div class="hidden border-t border-slate-200 p-5 text-xs sm:text-sm text-slate-600 font-semibold space-y-2 bg-white" id="corr-content-3">
-              <p><strong>कारण:</strong> आपके द्वारा दर्ज की गई जानकारी (जैसे नाम की स्पेलिंग, खाता संख्या या खेसरा संख्या) में थोड़ी सी भी गलती होने पर सिस्टम डेटा नहीं दिखा पाता।</p>
-              <p class="text-emerald-800"><strong>समाधान:</strong> रैयत के नाम से खोजने की जगह 'खाता नंबर' या 'खेसरा (प्लॉट) नंबर' का विकल्प चुनें। यह सबसे सटीक विकल्प है क्योंकि नंबरों में कोई वर्तनी त्रुटि नहीं हो सकती।</p>
-            </div>
-          </div>
-
-          <!-- Problem 4: Wrong Details / Spelling errors in records -->
-          <div class="border border-slate-200 rounded-2xl overflow-hidden bg-slate-50/50">
-            <button class="w-full text-left p-4 sm:p-5 font-bold text-slate-900 flex justify-between items-center hover:bg-slate-100/50 transition-colors gap-4" onclick="toggleCorrection(4)">
-              <span class="text-sm sm:text-base flex items-center gap-2 text-amber-900">
-                <span>⚠️</span> 4. खतियान में नाम की स्पेलिंग, पिता का नाम या रकबा (जमीन साइज) गलत दर्ज है?
-              </span>
-              <span class="text-emerald-700 font-extrabold" id="corr-icon-4">➕</span>
-            </button>
-            <div class="hidden border-t border-slate-200 p-5 text-xs sm:text-sm text-slate-600 font-semibold space-y-2 bg-white" id="corr-content-4">
-              <p><strong>कारण:</strong> पुराने मैनुअल कागजातों से डिजिटल सर्वर पर डेटा एंट्री करते समय टाइपिंग मिस्टेक हो जाती है।</p>
-              <p class="text-emerald-800"><strong>समाधान:</strong> ऐसी गलतियों के डिजिटल सुधार के लिए बिहार सरकार के परिमार्जन (Parimarjan) पोर्टल पर ऑनलाइन आवेदन करें। यदि पुरानी रजिस्ट्री है तो अंचल अधिकारी (CO) को सुधार हेतु लिखित आवेदन भी दे सकते हैं।</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- SECTION 7 — RELATED TOOLS -->
-      <section class="bg-white rounded-3xl border border-slate-200 p-6 sm:p-8 shadow-md space-y-6">
-        <h2 class="text-xl sm:text-2xl font-black text-slate-900 flex items-center gap-2 border-b border-slate-100 pb-3">
-          <span class="text-primaryGreen">🛠️</span> BighaWala Useful Tools & Guides
-        </h2>
-        <p class="text-sm sm:text-base text-slate-600 font-bold">
-          अपना खाता देखने के अलावा, बिहार भूमि से संबंधित अन्य महत्वपूर्ण सेवाओं के लिए हमारे इन विस्तृत गाइड्स को पढ़ें:
-        </p>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <!-- Bhulekh Guide -->
-          <a href="bhulekh.html" class="group p-5 bg-slate-50 border border-slate-200 hover:border-emerald-500/30 rounded-2xl space-y-2 hover:bg-emerald-50/25 transition-all">
-            <div class="flex justify-between items-start">
-              <span class="text-2xl">📖</span>
-              <span class="text-xs font-black text-slate-400 group-hover:text-primaryGreen transition-colors">यहाँ क्लिक करें →</span>
-            </div>
-            <h3 class="font-extrabold text-sm sm:text-base text-slate-900 group-hover:text-primaryGreen transition-colors">1. बिहार भूलेख गाइड (Bhulekh Bihar)</h3>
-            <p class="text-xs text-slate-500 font-semibold leading-relaxed">
-              भूलेख खसरा-खतौनी की नकल ऑनलाइन देखने और डाउनलोड करने की पूरी प्रक्रिया।
-            </p>
+          <a href="https://land.bihar.gov.in/Ror2025/RoR.aspx" target="_blank" rel="noopener noreferrer" class="p-5 bg-white border border-emerald-500/40 rounded-2xl shadow-sm text-center space-y-2 hover:bg-emerald-50/50 transition-all">
+            <span class="text-xs font-black text-emerald-800 bg-emerald-100 px-3 py-1 rounded-full uppercase">Main RoR Server</span>
+            <h3 class="font-extrabold text-slate-900 text-base pt-1">1. Apna Khata / Khatyan Portal 🔗</h3>
+            <p class="text-xs text-slate-500 font-semibold">land.bihar.gov.in/Ror2025/RoR.aspx</p>
           </a>
 
-          <!-- Jamabandi Guide -->
-          <a href="jamabandi.html" class="group p-5 bg-slate-50 border border-slate-200 hover:border-emerald-500/30 rounded-2xl space-y-2 hover:bg-emerald-50/25 transition-all">
-            <div class="flex justify-between items-start">
+          <a href="https://biharbhumi.bihar.gov.in/Biharbhumi/" target="_blank" rel="noopener noreferrer" class="p-5 bg-white border border-orange-500/40 rounded-2xl shadow-sm text-center space-y-2 hover:bg-orange-50/50 transition-all">
+            <span class="text-xs font-black text-orange-800 bg-orange-100 px-3 py-1 rounded-full uppercase">All Land Services</span>
+            <h3 class="font-extrabold text-slate-900 text-base pt-1">2. Bihar Bhumi Portal 🔗</h3>
+            <p class="text-xs text-slate-500 font-semibold">biharbhumi.bihar.gov.in/Biharbhumi/</p>
+          </a>
+        </div>
+
+        <!-- STEP E: AFTER PORTAL BUTTON SECTION -->
+        <div class="pt-6 border-t border-emerald-200/60 space-y-4">
+          <h3 class="text-lg sm:text-xl font-black text-slate-900 text-center sm:text-left">
+            Portal खोल लिया? अब यह भी करें:
+          </h3>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <!-- Card 1 -->
+            <a href="dakhil-kharij.html" class="p-5 bg-white border border-slate-200 rounded-2xl shadow-xs hover:border-emerald-500 transition-all space-y-2">
               <span class="text-2xl">📋</span>
-              <span class="text-xs font-black text-slate-400 group-hover:text-primaryGreen transition-colors">यहाँ क्लिक करें →</span>
-            </div>
-            <h3 class="font-extrabold text-sm sm:text-base text-slate-900 group-hover:text-primaryGreen transition-colors">2. जमाबंदी पंजी देखें (Jamabandi Bihar)</h3>
-            <p class="text-xs text-slate-500 font-semibold leading-relaxed">
-              अपनी भूमि का जमाबंदी रजिस्टर-II ऑनलाइन चेक करें और रसीद काटें।
-            </p>
-          </a>
+              <h4 class="font-black text-slate-900 text-sm">Dakhil Kharij Guide</h4>
+              <p class="text-xs text-slate-500 font-semibold leading-relaxed">अपनी नई जमीन का दाखिल खारिज स्टेटस चेक करें।</p>
+              <span class="text-xs font-bold text-emerald-700 block pt-1">गाइड पढ़ें →</span>
+            </a>
 
-          <!-- Dakhil Kharij Guide -->
-          <a href="dakhil-kharij.html" class="group p-5 bg-slate-50 border border-slate-200 hover:border-emerald-500/30 rounded-2xl space-y-2 hover:bg-emerald-50/25 transition-all">
-            <div class="flex justify-between items-start">
-              <span class="text-2xl">🔄</span>
-              <span class="text-xs font-black text-slate-400 group-hover:text-primaryGreen transition-colors">यहाँ क्लिक करें →</span>
-            </div>
-            <h3 class="font-extrabold text-sm sm:text-base text-slate-900 group-hover:text-primaryGreen transition-colors">3. दाखिल खारिज ऑनलाइन (Mutation Guide)</h3>
-            <p class="text-xs text-slate-500 font-semibold leading-relaxed">
-              नई खरीदी गई जमीन का दाखिल खारिज करने और उसका स्टेटस चेक करने की विधि।
-            </p>
-          </a>
+            <!-- Card 2 -->
+            <a href="lpc-bihar.html" class="p-5 bg-white border border-slate-200 rounded-2xl shadow-xs hover:border-emerald-500 transition-all space-y-2">
+              <span class="text-2xl">📄</span>
+              <h4 class="font-black text-slate-900 text-sm">LPC Apply</h4>
+              <p class="text-xs text-slate-500 font-semibold leading-relaxed">भूमि स्वामित्व प्रमाण पत्र के लिए ऑनलाइन आवेदन करें।</p>
+              <span class="text-xs font-bold text-emerald-700 block pt-1">आवेदन गाइड →</span>
+            </a>
 
-          <!-- LPC Guide -->
-          <a href="lpc-bihar.html" class="group p-5 bg-slate-50 border border-slate-200 hover:border-emerald-500/30 rounded-2xl space-y-2 hover:bg-emerald-50/25 transition-all">
-            <div class="flex justify-between items-start">
-              <span class="text-2xl">📜</span>
-              <span class="text-xs font-black text-slate-400 group-hover:text-primaryGreen transition-colors">यहाँ क्लिक करें →</span>
-            </div>
-            <h3 class="font-extrabold text-sm sm:text-base text-slate-900 group-hover:text-primaryGreen transition-colors">4. एलपीसी बिहार (LPC status)</h3>
-            <p class="text-xs text-slate-500 font-semibold leading-relaxed">
-              भूमि स्वामित्व प्रमाण पत्र (Land Possession Certificate) के आवेदन की स्टेप-बाय-स्टेप गाइड।
-            </p>
-          </a>
+            <!-- Card 3 -->
+            <a href="land-rates.html" class="p-5 bg-white border border-slate-200 rounded-2xl shadow-xs hover:border-emerald-500 transition-all space-y-2">
+              <span class="text-2xl">💰</span>
+              <h4 class="font-black text-slate-900 text-sm">Land Rates 2026</h4>
+              <p class="text-xs text-slate-500 font-semibold leading-relaxed">अपने जिले का सर्किल रेट और न्यूनतम मूल्य देखें।</p>
+              <span class="text-xs font-bold text-emerald-700 block pt-1">रेट सूची →</span>
+            </a>
+          </div>
         </div>
       </section>
 
-      <!-- SECTION 8 — COMMUNITY QUESTIONS (Mock forum to keep users on-site) -->
+      <!-- STEP F: ADD FAQ SECTION (12 QUESTIONS) ABOUT APNA KHATA -->
       <section class="bg-white rounded-3xl border border-slate-200 p-6 sm:p-8 shadow-md space-y-6">
-        <h2 class="text-xl sm:text-2xl font-black text-slate-900 flex items-center gap-2 border-b border-slate-100 pb-3">
-          <span class="text-primaryGreen">💬</span> बिहार भूमि हेल्प डेस्क — सवाल-जवाब मंच
-        </h2>
-        <p class="text-sm sm:text-base text-slate-600 font-bold">
-          क्या आपको भी अपना खाता खोजने में कोई परेशानी आ रही है? नीचे अपना प्रश्न लिखें या अन्य उपयोगकर्ताओं द्वारा पूछे गए सवालों के जवाब पढ़ें:
-        </p>
-
-        <!-- Ask Question Box -->
-        <div class="bg-slate-50 border border-slate-200 rounded-2xl p-5 space-y-4">
-          <h3 class="font-extrabold text-sm sm:text-base text-slate-900">अपना सवाल यहाँ पूछें:</h3>
-          <form onsubmit="event.preventDefault(); alert('धन्यवाद! आपका प्रश्न सबमिट हो गया है। हमारी टीम जल्द ही इसका जवाब देगी।'); this.reset();" class="space-y-3">
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-              <input type="text" placeholder="आपका नाम (Your Name)" required class="w-full px-4 py-2.5 bg-white border border-slate-200 rounded-xl text-xs sm:text-sm font-semibold focus:outline-none focus:border-emerald-500" />
-              <input type="text" placeholder="आपका जिला (Your District)" required class="w-full px-4 py-2.5 bg-white border border-slate-200 rounded-xl text-xs sm:text-sm font-semibold focus:outline-none focus:border-emerald-500" />
-            </div>
-            <textarea placeholder="अपना सवाल विस्तार से लिखें (जैसे: सर्वर स्लो है, खाता नहीं खुल रहा...)" required rows="3" class="w-full px-4 py-2.5 bg-white border border-slate-200 rounded-xl text-xs sm:text-sm font-semibold focus:outline-none focus:border-emerald-500"></textarea>
-            <button type="submit" class="bg-emerald-600 hover:bg-emerald-700 text-white font-black text-xs sm:text-sm px-5 py-2.5 rounded-xl shadow-sm transition-colors">
-              सवाल पोस्ट करें 📤
-            </button>
-          </form>
+        <div class="border-b border-slate-100 pb-3 flex items-center justify-between flex-wrap gap-2">
+          <h2 class="text-xl sm:text-2xl font-black text-slate-900 flex items-center gap-2">
+            <span class="text-primaryGreen">🤔</span> Apna Khata FAQ (12 मुख्य सवाल व उनके जवाब)
+          </h2>
+          <span class="text-xs font-bold text-slate-400 bg-slate-100 px-2.5 py-1 rounded-full">Help Desk</span>
         </div>
 
-        <!-- Preloaded Q&As -->
-        <div class="space-y-4 divide-y divide-slate-100">
-          <!-- Question 1 -->
-          <div class="pt-4 first:pt-0 space-y-2">
-            <div class="flex justify-between text-xs font-bold text-slate-400">
-              <span>👤 सतीश कुमार, पटना</span>
-              <span>2 घंटे पहले</span>
-            </div>
-            <p class="font-extrabold text-sm text-slate-900 leading-relaxed">
-              <strong>प्रश्न:</strong> सर, मैं 'अपना खाता देखें' बटन पर क्लिक कर रहा हूँ पर वेबसाइट ही लोड नहीं हो रही। कल से ट्राई कर रहा हूँ।
-            </p>
-            <div class="p-3.5 bg-emerald-50/50 border border-emerald-100/50 rounded-xl text-xs sm:text-sm text-slate-700 font-semibold leading-relaxed">
-              <span class="text-emerald-800 font-black">🟢 BighaWala Expert Response:</span>
-              <p class="mt-1">
-                सतीश जी, पटना जिले का सर्वर कल शाम से मेंटेनेंस में है। आप आज रात 10 बजे के बाद प्रयास करें। उस समय लोड कम होने से साइट खुल जाएगी। आप क्रोम ब्राउज़र की कैशे हिस्ट्री (Cache History) भी क्लियर कर सकते हैं।
-              </p>
-            </div>
-          </div>
-
-          <!-- Question 2 -->
-          <div class="pt-4 space-y-2">
-            <div class="flex justify-between text-xs font-bold text-slate-400">
-              <span>👤 मुकेश सिंह, गया</span>
-              <span>1 दिन पहले</span>
-            </div>
-            <p class="font-extrabold text-sm text-slate-900 leading-relaxed">
-              <strong>प्रश्न:</strong> क्या खतियान की ऑनलाइन कॉपी से बैंक से केसीसी (KCC) लोन मिल सकता है?
-            </p>
-            <div class="p-3.5 bg-emerald-50/50 border border-emerald-100/50 rounded-xl text-xs sm:text-sm text-slate-700 font-semibold leading-relaxed">
-              <span class="text-emerald-800 font-black">🟢 BighaWala Expert Response:</span>
-              <p class="mt-1">
-                मुकेश जी, ऑनलाइन कॉपी केवल जानकारी के लिए है। बैंक से केसीसी लोन के लिए आपको अपने अंचल कार्यालय (Anchal Office) से प्रमाणित प्रति (Certified Copy) निकालनी होगी, जिसपर अंचल अधिकारी के हस्ताक्षर और मुहर होती है। इसकी पूरी प्रक्रिया ऊपर 'Certified Copy' सेक्शन में दी गई है।
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- SECTION 9 — WHATSAPP HELP (Community building) -->
-      <section class="bg-gradient-to-br from-emerald-600 to-emerald-700 text-white rounded-3xl p-6 sm:p-8 shadow-lg space-y-4">
-        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
-          <div class="space-y-1.5 max-w-xl">
-            <span class="text-xs font-black bg-emerald-800/60 px-3 py-1 rounded-full uppercase tracking-wider">Free Support Group</span>
-            <h3 class="text-lg sm:text-xl font-black">💬 BighaWala बिहार भूमि व्हाट्सएप्प ग्रुप</h3>
-            <p class="text-xs sm:text-sm text-slate-600 font-bold leading-relaxed">
-              हमारे निःशुल्क व्हाट्सएप्प ग्रुप से जुड़ें, जहाँ बिहार के 10,000+ किसान और जमीन खरीदार आपस में अपनी समस्याओं और समाधानों पर चर्चा करते हैं।
-            </p>
-          </div>
-          <a href="https://chat.whatsapp.com/mock-link-bighawala" target="_blank" class="bg-white hover:bg-emerald-50 text-emerald-700 font-black text-xs sm:text-sm px-6 py-3.5 rounded-xl shadow transition-all shrink-0 flex items-center gap-2">
-            <span>WhatsApp Group Join Karein 📲</span>
-          </a>
-        </div>
-      </section>
-
-      <!-- SECTION 7 — Apna Khata Mein Galti Ho Toh? (H2) -->
-      <section class="bg-white rounded-3xl border border-slate-200 p-6 sm:p-8 shadow-md space-y-6">
-        <h2 class="text-xl sm:text-2xl font-black text-slate-900 flex items-center gap-2 border-b border-slate-100 pb-3">
-          <span class="text-primaryGreen">🛠️</span> खाते में गलती है तो क्या करें?
-        </h2>
-        <p class="text-sm sm:text-base text-slate-600 font-bold">
-          अक्सर सरकारी डिजिटल डेटा में कुछ गलतियाँ देखने को मिलती हैं। यदि आपके खाते में भी कोई विसंगति है, तो नीचे दिए गए उपायों को अपनाएँ:
-        </p>
-
-        <!-- Accordions of 4 common problems -->
         <div class="space-y-3">
-          <!-- Problem 1 -->
-          <div class="border border-slate-200 rounded-2xl overflow-hidden bg-slate-50/50">
-            <button class="w-full text-left p-4 sm:p-5 font-bold text-slate-900 flex justify-between items-center hover:bg-slate-100/50 transition-colors gap-4" onclick="toggleCorrection(1)">
-              <span class="text-sm sm:text-base flex items-center gap-2 text-red-900">
-                <span>⚠️</span> Problem 1: नाम गलत लिखा है
-              </span>
-              <span class="text-emerald-700 font-extrabold" id="corr-icon-1">➕</span>
-            </button>
-            <div class="hidden border-t border-slate-200 p-5 text-xs sm:text-sm text-slate-600 font-semibold space-y-2 bg-white" id="corr-content-1">
-              <p><strong>Solution:</strong> यदि खतियान या खाते में मालिक का नाम स्पेलिंग त्रुटि या पूरी तरह गलत है, तो अपने अंचल कार्यालय (Anchal Office) में सुधार हेतु लिखित आवेदन (Correction Application) दें।</p>
-              <p class="text-slate-500">साथ में अपना आधार कार्ड, पुराना रजिस्ट्री पेपर तथा वंशावली की प्रति अवश्य संलग्न करें ताकि सुधार आसानी से हो सके।</p>
-            </div>
-          </div>
-
-          <!-- Problem 2 -->
-          <div class="border border-slate-200 rounded-2xl overflow-hidden bg-slate-50/50">
-            <button class="w-full text-left p-4 sm:p-5 font-bold text-slate-900 flex justify-between items-center hover:bg-slate-100/50 transition-colors gap-4" onclick="toggleCorrection(2)">
-              <span class="text-sm sm:text-base flex items-center gap-2 text-red-900">
-                <span>⚠️</span> Problem 2: जमीन का साइज (Raqba) गलत है
-              </span>
-              <span class="text-emerald-700 font-extrabold" id="corr-icon-2">➕</span>
-            </button>
-            <div class="hidden border-t border-slate-200 p-5 text-xs sm:text-sm text-slate-600 font-semibold space-y-2 bg-white" id="corr-content-2">
-              <p><strong>Solution:</strong> यदि खतियान या खाते में रकबा का विवरण गलत दर्ज हो गया है, तो इसके लिए आपको जिला भूमि सर्वेक्षण कार्यालय या अंचल पैमाइश कार्यालय में आवेदन करना होगा।</p>
-              <p class="text-slate-500">दस्तावेजों के सत्यापन के बाद पुनः री-सर्वे (re-survey) करवाकर रकबा का सुधार सरकारी स्तर पर किया जाएगा।</p>
-            </div>
-          </div>
-
-          <!-- Problem 3 -->
-          <div class="border border-slate-200 rounded-2xl overflow-hidden bg-slate-50/50">
-            <button class="w-full text-left p-4 sm:p-5 font-bold text-slate-900 flex justify-between items-center hover:bg-slate-100/50 transition-colors gap-4" onclick="toggleCorrection(3)">
-              <span class="text-sm sm:text-base flex items-center gap-2 text-red-900">
-                <span>⚠️</span> Problem 3: मेरा नाम नहीं है खाते में
-              </span>
-              <span class="text-emerald-700 font-extrabold" id="corr-icon-3">➕</span>
-            </button>
-            <div class="hidden border-t border-slate-200 p-5 text-xs sm:text-sm text-slate-600 font-semibold space-y-2 bg-white" id="corr-content-3">
-              <p><strong>Solution:</strong> यदि आपने जमीन नई खरीदी है और खाते में आपका नाम नहीं है, तो तुरंत दाखिल खारिज (Land Mutation) करवाएं। इसके लिए ऑनलाइन पोर्टल पर रजिस्ट्रेशन करना होगा।</p>
-              <p class="text-emerald-800">पूरी जानकारी के लिए हमारे <a href="dakhil-kharij.html" class="underline font-black">दाखिल खारिज गाइड (dakhil-kharij.html)</a> को देखें। पोर्टल: <code class="bg-slate-100 px-1 py-0.5 rounded">biharbhumi.bihar.gov.in/Biharbhumi/</code></p>
-            </div>
-          </div>
-
-          <!-- Problem 4 -->
-          <div class="border border-slate-200 rounded-2xl overflow-hidden bg-slate-50/50">
-            <button class="w-full text-left p-4 sm:p-5 font-bold text-slate-900 flex justify-between items-center hover:bg-slate-100/50 transition-colors gap-4" onclick="toggleCorrection(4)">
-              <span class="text-sm sm:text-base flex items-center gap-2 text-red-900">
-                <span>⚠️</span> Problem 4: पुरानी जमीन रिकॉर्ड में नहीं है
-              </span>
-              <span class="text-emerald-700 font-extrabold" id="corr-icon-4">➕</span>
-            </button>
-            <div class="hidden border-t border-slate-200 p-5 text-xs sm:text-sm text-slate-600 font-semibold space-y-2 bg-white" id="corr-content-4">
-              <p><strong>Solution:</strong> बहुत पुरानी पैतृक जमीनों का ऑनलाइन रिकॉर्ड कभी-कभी सर्वर पर उपलब्ध नहीं रहता। इसके लिए अपने अंचल कार्यालय के रिकॉर्ड रूम से संपर्क करें।</p>
-              <p class="text-slate-500">वहां रखे मैनुअल रजिस्टर (Register II) में आपकी जमीन का ब्यौरा अवश्य मिल जाएगा, जिसके बाद इसे ऑनलाइन चढ़ाया जा सकता है।</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- SECTION 8 — Certified Copy Kaise Milegi? (H2) -->
-      <section class="bg-white rounded-3xl border border-slate-200 p-6 sm:p-8 shadow-md space-y-4">
-        <h2 class="text-xl sm:text-2xl font-black text-slate-900 flex items-center gap-2 border-b border-slate-100 pb-3">
-          <span class="text-primaryGreen">📜</span> खाते की Certified Copy कैसे मिलेगी?
-        </h2>
-        <div class="text-sm sm:text-base text-slate-600 leading-relaxed space-y-4 font-semibold">
-          <p>
-            ऑनलाइन मिलने वाली कॉपी और आधिकारिक प्रमाणित प्रति (Certified Copy) में बहुत बड़ा अंतर होता है। इसे ध्यान से समझें:
-          </p>
-
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div class="p-5 bg-slate-50 border border-slate-200 rounded-2xl space-y-2">
-              <p class="text-emerald-800 font-black">🖥️ Online Copy:</p>
-              <p class="text-xs text-slate-600 font-semibold leading-relaxed">
-                यह बिल्कुल फ्री है। केवल त्वरित संदर्भ (reference) और अपनी जमीन की जानकारी की जांच के लिए है। यह सीधे कोर्ट या बैंकों में मान्य नहीं होती है।
-              </p>
-            </div>
-            <div class="p-5 bg-slate-50 border border-slate-200 rounded-2xl space-y-2">
-              <p class="text-orange-800 font-black">🏛️ Certified Copy:</p>
-              <p class="text-xs text-slate-600 font-semibold leading-relaxed">
-                यह सरकारी मुहर (Official Stamp) और राजस्व अधिकारी के हस्ताक्षर के साथ मिलती है। यह पूर्णतः आधिकारिक है और कोर्ट व बैंकों में कानूनी रूप से मान्य है।
-              </p>
-            </div>
-          </div>
-
-          <div class="bg-emerald-50/50 border border-emerald-100 rounded-2xl p-5 space-y-2 text-xs sm:text-sm text-emerald-950 font-bold">
-            <p>📝 Certified Copy (प्रमाणित प्रति) प्राप्त करने की विधि:</p>
-            <ul class="list-disc pl-5 space-y-1.5 text-slate-700 font-medium">
-              <li>अपने स्थानीय अंचल कार्यालय (Circle Office / SRO) में जाएँ।</li>
-              <li>वहां खतियान/खाता प्रमाणित प्रति के लिए काउंटर से आवेदन पत्र (Application Form) लें।</li>
-              <li>आवेदन पत्र में मांगी गई सभी जानकारियां (खाता, खेसरा, मौजा आदि) भरें।</li>
-              <li>उस पर ₹10 से ₹50 मूल्य का आवश्यक कोर्ट फी स्टांप (Court Fee Stamp) लगाएँ।</li>
-              <li>अधिकारी द्वारा रजिस्टर से मिलान के बाद 3 से 7 दिनों के भीतर आपको प्रमाणित प्रति दे दी जाएगी।</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <!-- SECTION 9 — Apna Khata Se Kya Kya Kaam Hota Hai? (H2) -->
-      <section class="bg-white rounded-3xl border border-slate-200 p-6 sm:p-8 shadow-md space-y-6">
-        <h2 class="text-xl sm:text-2xl font-black text-slate-900 flex items-center gap-2 border-b border-slate-100 pb-3">
-          <span class="text-primaryGreen">💼</span> अपना खाता से क्या क्या काम होता है?
-        </h2>
-        <p class="text-sm sm:text-base text-slate-600 font-medium">
-          अपनी जमीन का खतियान या खाता नंबर पास होने से आपके कई काम बेहद आसान हो जाते हैं:
-        </p>
-
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 text-xs sm:text-sm font-bold text-slate-700">
-          <!-- Use Case 1 -->
-          <div class="p-5 bg-emerald-50 border border-emerald-100 rounded-2xl space-y-1.5">
-            <span class="text-2xl">🏦</span>
-            <h3 class="font-extrabold text-slate-900">Bank Loan</h3>
-            <p class="text-slate-600 text-xs font-semibold leading-relaxed">
-              बैंक से एग्रीकल्चर लोन (KCC) या होम लोन लेते समय मालिकाना हक साबित करने के लिए खाता नंबर और खतियान देना आवश्यक है।
-            </p>
-          </div>
-
-          <!-- Use Case 2 -->
-          <div class="p-5 bg-orange-50 border border-orange-100 rounded-2xl space-y-1.5">
-            <span class="text-2xl">⚖️</span>
-            <h3 class="font-extrabold text-slate-900">Court Case</h3>
-            <p class="text-slate-600 text-xs font-semibold leading-relaxed">
-              जमीन के किसी भी कानूनी विवाद, आपसी बंटवारे या सीमा विवाद की स्थिति में कोर्ट में यह सबसे प्रमुख साक्ष्य के रूप में प्रस्तुत होता है।
-            </p>
-          </div>
-
-          <!-- Use Case 3 -->
-          <div class="p-5 bg-blue-50 border border-blue-100 rounded-2xl space-y-1.5">
-            <span class="text-2xl">🔄</span>
-            <h3 class="font-extrabold text-slate-900">Dakhil Kharij</h3>
-            <p class="text-slate-600 text-xs font-semibold leading-relaxed">
-              जमीन खरीदने के बाद नए मालिक के नाम पर दाखिल खारिज (Mutation) कराने की सरकारी प्रक्रिया में खाता नंबर की जरूरत पड़ती है।
-            </p>
-          </div>
-
-          <!-- Use Case 4 -->
-          <div class="p-5 bg-purple-50 border border-purple-100 rounded-2xl space-y-1.5">
-            <span class="text-2xl">💰</span>
-            <h3 class="font-extrabold text-slate-900">Zameen Bechna</h3>
-            <p class="text-slate-600 text-xs font-semibold leading-relaxed">
-              अपनी जमीन बेचते समय खरीदार (Buyer) जमीन के रिकॉर्ड को वेरीफाई करने के लिए आपसे खतियान की मांग करता है।
-            </p>
-          </div>
-
-          <!-- Use Case 5 -->
-          <div class="p-5 bg-rose-50 border border-rose-100 rounded-2xl space-y-1.5">
-            <span class="text-2xl">🏗️</span>
-            <h3 class="font-extrabold text-slate-900">Construction</h3>
-            <p class="text-slate-600 text-xs font-semibold leading-relaxed">
-              शहरी या नगर निगम क्षेत्रों में भवन निर्माण की सरकारी मंजूरी या नक्शा पास कराने के लिए मालिकाना हक का प्रमाण देना होता है।
-            </p>
-          </div>
-
-          <!-- Use Case 6 -->
-          <div class="p-5 bg-amber-50 border border-amber-100 rounded-2xl space-y-1.5">
-            <span class="text-2xl">📋</span>
-            <h3 class="font-extrabold text-slate-900">Government Scheme</h3>
-            <p class="text-slate-600 text-xs font-semibold leading-relaxed">
-              सरकारी योजनाओं जैसे पीएम किसान सम्मान निधि, पीएम आवास योजना या फसल बीमा का लाभ लेने के लिए भू-अभिलेख देना जरूरी होता है।
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <!-- SECTION 10 — District Wise Apna Khata (H2) -->
-      <section class="bg-white rounded-3xl border border-slate-200 p-6 sm:p-8 shadow-md space-y-6">
-        <h2 class="text-xl sm:text-2xl font-black text-slate-900 flex items-center gap-2 border-b border-slate-100 pb-3">
-          <span class="text-primaryGreen">🌍</span> जिलेवार अपना खाता देखें
-        </h2>
-        <p class="text-sm sm:text-base text-slate-600 font-semibold leading-relaxed">
-          बिहार के सभी 38 जिलों का खतियान देखने के लिए लिंक नीचे दिए गए हैं। अपने संबंधित जिले के बटन पर क्लिक करें। सभी बटन सीधे बिहार सरकार के अधिकार अभिलेख पोर्टल (RoR Website) पर खुलेंगे:
-        </p>
-
-        <!-- District buttons green grid -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
-          <a href="https://land.bihar.gov.in/Ror2025/RoR.aspx" target="_blank" class="p-3 bg-emerald-50 border border-emerald-200 text-emerald-900 hover:bg-emerald-600 hover:text-white font-extrabold text-sm rounded-xl text-center shadow-sm transition-all">Patna Ka Khata Dekhe</a>
-          <a href="https://land.bihar.gov.in/Ror2025/RoR.aspx" target="_blank" class="p-3 bg-emerald-50 border border-emerald-200 text-emerald-900 hover:bg-emerald-600 hover:text-white font-extrabold text-sm rounded-xl text-center shadow-sm transition-all">Gaya Ka Khata Dekhe</a>
-          <a href="https://land.bihar.gov.in/Ror2025/RoR.aspx" target="_blank" class="p-3 bg-emerald-50 border border-emerald-200 text-emerald-900 hover:bg-emerald-600 hover:text-white font-extrabold text-sm rounded-xl text-center shadow-sm transition-all">Muzaffarpur Ka Khata Dekhe</a>
-          <a href="https://land.bihar.gov.in/Ror2025/RoR.aspx" target="_blank" class="p-3 bg-emerald-50 border border-emerald-200 text-emerald-900 hover:bg-emerald-600 hover:text-white font-extrabold text-sm rounded-xl text-center shadow-sm transition-all">Darbhanga Ka Khata Dekhe</a>
-          <a href="https://land.bihar.gov.in/Ror2025/RoR.aspx" target="_blank" class="p-3 bg-emerald-50 border border-emerald-200 text-emerald-900 hover:bg-emerald-600 hover:text-white font-extrabold text-sm rounded-xl text-center shadow-sm transition-all">Bhagalpur Ka Khata Dekhe</a>
-          <a href="https://land.bihar.gov.in/Ror2025/RoR.aspx" target="_blank" class="p-3 bg-emerald-50 border border-emerald-200 text-emerald-900 hover:bg-emerald-600 hover:text-white font-extrabold text-sm rounded-xl text-center shadow-sm transition-all">Nalanda Ka Khata Dekhe</a>
-          <a href="https://land.bihar.gov.in/Ror2025/RoR.aspx" target="_blank" class="p-3 bg-emerald-50 border border-emerald-200 text-emerald-900 hover:bg-emerald-600 hover:text-white font-extrabold text-sm rounded-xl text-center shadow-sm transition-all">Vaishali Ka Khata Dekhe</a>
-          <a href="https://land.bihar.gov.in/Ror2025/RoR.aspx" target="_blank" class="p-3 bg-emerald-50 border border-emerald-200 text-emerald-900 hover:bg-emerald-600 hover:text-white font-extrabold text-sm rounded-xl text-center shadow-sm transition-all">Sitamarhi Ka Khata Dekhe</a>
-          <a href="https://land.bihar.gov.in/Ror2025/RoR.aspx" target="_blank" class="p-3 bg-emerald-50 border border-emerald-200 text-emerald-900 hover:bg-emerald-600 hover:text-white font-extrabold text-sm rounded-xl text-center shadow-sm transition-all">Madhubani Ka Khata Dekhe</a>
-          <a href="https://land.bihar.gov.in/Ror2025/RoR.aspx" target="_blank" class="p-3 bg-emerald-50 border border-emerald-200 text-emerald-900 hover:bg-emerald-600 hover:text-white font-extrabold text-sm rounded-xl text-center shadow-sm transition-all">Samastipur Ka Khata Dekhe</a>
-          <a href="https://land.bihar.gov.in/Ror2025/RoR.aspx" target="_blank" class="p-3 bg-emerald-50 border border-emerald-200 text-emerald-900 hover:bg-emerald-600 hover:text-white font-extrabold text-sm rounded-xl text-center shadow-sm transition-all">Begusarai Ka Khata Dekhe</a>
-          <a href="https://land.bihar.gov.in/Ror2025/RoR.aspx" target="_blank" class="p-3 bg-emerald-50 border border-emerald-200 text-emerald-900 hover:bg-emerald-600 hover:text-white font-extrabold text-sm rounded-xl text-center shadow-sm transition-all">Munger Ka Khata Dekhe</a>
-          <a href="https://land.bihar.gov.in/Ror2025/RoR.aspx" target="_blank" class="p-3 bg-emerald-50 border border-emerald-200 text-emerald-900 hover:bg-emerald-600 hover:text-white font-extrabold text-sm rounded-xl text-center shadow-sm transition-all">Purnia Ka Khata Dekhe</a>
-          <a href="https://land.bihar.gov.in/Ror2025/RoR.aspx" target="_blank" class="p-3 bg-emerald-50 border border-emerald-200 text-emerald-900 hover:bg-emerald-600 hover:text-white font-extrabold text-sm rounded-xl text-center shadow-sm transition-all">Araria Ka Khata Dekhe</a>
-          <a href="https://land.bihar.gov.in/Ror2025/RoR.aspx" target="_blank" class="p-3 bg-emerald-50 border border-emerald-200 text-emerald-900 hover:bg-emerald-600 hover:text-white font-extrabold text-sm rounded-xl text-center shadow-sm transition-all">Supaul Ka Khata Dekhe</a>
-          <a href="https://land.bihar.gov.in/Ror2025/RoR.aspx" target="_blank" class="p-3 bg-emerald-50 border border-emerald-200 text-emerald-900 hover:bg-emerald-600 hover:text-white font-extrabold text-sm rounded-xl text-center shadow-sm transition-all">Saharsa Ka Khata Dekhe</a>
-          <a href="https://land.bihar.gov.in/Ror2025/RoR.aspx" target="_blank" class="p-3 bg-emerald-50 border border-emerald-200 text-emerald-900 hover:bg-emerald-600 hover:text-white font-extrabold text-sm rounded-xl text-center shadow-sm transition-all">Khagaria Ka Khata Dekhe</a>
-          <a href="https://land.bihar.gov.in/Ror2025/RoR.aspx" target="_blank" class="p-3 bg-emerald-50 border border-emerald-200 text-emerald-900 hover:bg-emerald-600 hover:text-white font-extrabold text-sm rounded-xl text-center shadow-sm transition-all">East Champaran Ka Khata Dekhe</a>
-          <a href="https://land.bihar.gov.in/Ror2025/RoR.aspx" target="_blank" class="p-3 bg-emerald-50 border border-emerald-200 text-emerald-900 hover:bg-emerald-600 hover:text-white font-extrabold text-sm rounded-xl text-center shadow-sm transition-all">West Champaran Ka Khata Dekhe</a>
-          <a href="https://land.bihar.gov.in/Ror2025/RoR.aspx" target="_blank" class="p-3 bg-emerald-50 border border-emerald-200 text-emerald-900 hover:bg-emerald-600 hover:text-white font-extrabold text-sm rounded-xl text-center shadow-sm transition-all">Gopalganj Ka Khata Dekhe</a>
-          <a href="https://land.bihar.gov.in/Ror2025/RoR.aspx" target="_blank" class="p-3 bg-emerald-50 border border-emerald-200 text-emerald-900 hover:bg-emerald-600 hover:text-white font-extrabold text-sm rounded-xl text-center shadow-sm transition-all">Siwan Ka Khata Dekhe</a>
-          <a href="https://land.bihar.gov.in/Ror2025/RoR.aspx" target="_blank" class="p-3 bg-emerald-50 border border-emerald-200 text-emerald-900 hover:bg-emerald-600 hover:text-white font-extrabold text-sm rounded-xl text-center shadow-sm transition-all">Saran Ka Khata Dekhe</a>
-          <a href="https://land.bihar.gov.in/Ror2025/RoR.aspx" target="_blank" class="p-3 bg-emerald-50 border border-emerald-200 text-emerald-900 hover:bg-emerald-600 hover:text-white font-extrabold text-sm rounded-xl text-center shadow-sm transition-all">Bhojpur Ka Khata Dekhe</a>
-          <a href="https://land.bihar.gov.in/Ror2025/RoR.aspx" target="_blank" class="p-3 bg-emerald-50 border border-emerald-200 text-emerald-900 hover:bg-emerald-600 hover:text-white font-extrabold text-sm rounded-xl text-center shadow-sm transition-all">Buxar Ka Khata Dekhe</a>
-          <a href="https://land.bihar.gov.in/Ror2025/RoR.aspx" target="_blank" class="p-3 bg-emerald-50 border border-emerald-200 text-emerald-900 hover:bg-emerald-600 hover:text-white font-extrabold text-sm rounded-xl text-center shadow-sm transition-all">Rohtas Ka Khata Dekhe</a>
-          <a href="https://land.bihar.gov.in/Ror2025/RoR.aspx" target="_blank" class="p-3 bg-emerald-50 border border-emerald-200 text-emerald-900 hover:bg-emerald-600 hover:text-white font-extrabold text-sm rounded-xl text-center shadow-sm transition-all">Kaimur Ka Khata Dekhe</a>
-          <a href="https://land.bihar.gov.in/Ror2025/RoR.aspx" target="_blank" class="p-3 bg-emerald-50 border border-emerald-200 text-emerald-900 hover:bg-emerald-600 hover:text-white font-extrabold text-sm rounded-xl text-center shadow-sm transition-all">Aurangabad Ka Khata Dekhe</a>
-          <a href="https://land.bihar.gov.in/Ror2025/RoR.aspx" target="_blank" class="p-3 bg-emerald-50 border border-emerald-200 text-emerald-900 hover:bg-emerald-600 hover:text-white font-extrabold text-sm rounded-xl text-center shadow-sm transition-all">Nawada Ka Khata Dekhe</a>
-          <a href="https://land.bihar.gov.in/Ror2025/RoR.aspx" target="_blank" class="p-3 bg-emerald-50 border border-emerald-200 text-emerald-900 hover:bg-emerald-600 hover:text-white font-extrabold text-sm rounded-xl text-center shadow-sm transition-all">Jehanabad Ka Khata Dekhe</a>
-          <a href="https://land.bihar.gov.in/Ror2025/RoR.aspx" target="_blank" class="p-3 bg-emerald-50 border border-emerald-200 text-emerald-900 hover:bg-emerald-600 hover:text-white font-extrabold text-sm rounded-xl text-center shadow-sm transition-all">Arwal Ka Khata Dekhe</a>
-          <a href="https://land.bihar.gov.in/Ror2025/RoR.aspx" target="_blank" class="p-3 bg-emerald-50 border border-emerald-200 text-emerald-900 hover:bg-emerald-600 hover:text-white font-extrabold text-sm rounded-xl text-center shadow-sm transition-all">Sheikhpura Ka Khata Dekhe</a>
-          <a href="https://land.bihar.gov.in/Ror2025/RoR.aspx" target="_blank" class="p-3 bg-emerald-50 border border-emerald-200 text-emerald-900 hover:bg-emerald-600 hover:text-white font-extrabold text-sm rounded-xl text-center shadow-sm transition-all">Lakhisarai Ka Khata Dekhe</a>
-          <a href="https://land.bihar.gov.in/Ror2025/RoR.aspx" target="_blank" class="p-3 bg-emerald-50 border border-emerald-200 text-emerald-900 hover:bg-emerald-600 hover:text-white font-extrabold text-sm rounded-xl text-center shadow-sm transition-all">Jamui Ka Khata Dekhe</a>
-          <a href="https://land.bihar.gov.in/Ror2025/RoR.aspx" target="_blank" class="p-3 bg-emerald-50 border border-emerald-200 text-emerald-900 hover:bg-emerald-600 hover:text-white font-extrabold text-sm rounded-xl text-center shadow-sm transition-all">Banka Ka Khata Dekhe</a>
-          <a href="https://land.bihar.gov.in/Ror2025/RoR.aspx" target="_blank" class="p-3 bg-emerald-50 border border-emerald-200 text-emerald-900 hover:bg-emerald-600 hover:text-white font-extrabold text-sm rounded-xl text-center shadow-sm transition-all">Madhepura Ka Khata Dekhe</a>
-          <a href="https://land.bihar.gov.in/Ror2025/RoR.aspx" target="_blank" class="p-3 bg-emerald-50 border border-emerald-200 text-emerald-900 hover:bg-emerald-600 hover:text-white font-extrabold text-sm rounded-xl text-center shadow-sm transition-all">Kishanganj Ka Khata Dekhe</a>
-          <a href="https://land.bihar.gov.in/Ror2025/RoR.aspx" target="_blank" class="p-3 bg-emerald-50 border border-emerald-200 text-emerald-900 hover:bg-emerald-600 hover:text-white font-extrabold text-sm rounded-xl text-center shadow-sm transition-all">Katihar Ka Khata Dekhe</a>
-          <a href="https://land.bihar.gov.in/Ror2025/RoR.aspx" target="_blank" class="p-3 bg-emerald-50 border border-emerald-200 text-emerald-900 hover:bg-emerald-600 hover:text-white font-extrabold text-sm rounded-xl text-center shadow-sm transition-all">Sheohar Ka Khata Dekhe</a>
-        </div>
-      </section>
-
-      <!-- SECTION 11 — FAQ (H2) -->
-      <section class="bg-white rounded-3xl border border-slate-200 p-6 sm:p-8 shadow-md space-y-6">
-        <h2 class="text-xl sm:text-2xl font-black text-slate-900 flex items-center gap-2 border-b border-slate-100 pb-3">
-          <span class="text-primaryGreen">🤔</span> अक्सर पूछे जाने वाले सवाल (FAQs)
-        </h2>
-
-        <!-- 12 Clickable FAQ Accordions -->
-        <div class="space-y-4">
           <!-- Q1 -->
           <div class="border border-slate-200 rounded-2xl overflow-hidden">
-            <button class="w-full text-left p-4 sm:p-5 font-extrabold text-slate-900 bg-slate-50 flex justify-between items-center hover:bg-slate-100 transition-all gap-4" onclick="toggleFaq(1)">
-              <span class="text-sm sm:text-base">Q1: Apna khata kaise dekhe Bihar mein 2026?</span>
-              <span class="text-emerald-700 font-extrabold" id="faq-icon-1">➕</span>
+            <button class="w-full text-left p-4 sm:p-5 font-extrabold text-slate-900 bg-slate-50 flex justify-between items-center hover:bg-slate-100 transition-all gap-4" onclick="toggleApnaFaq(1)">
+              <span class="text-xs sm:text-sm">Q1: Apna khata kaise dekhe Bihar mein 2026?</span>
+              <span class="text-emerald-700 font-extrabold" id="apna-icon-1">➕</span>
             </button>
-            <div class="hidden p-5 text-xs sm:text-sm text-slate-600 font-bold leading-relaxed space-y-2 bg-white" id="faq-content-1">
-              <p>बिहार में अपना खाता देखने के लिए सबसे पहले भूमि संसाधन विभाग की अधिकार अभिलेख खतियान वेबसाइट <code class="bg-slate-100 px-1 py-0.5 rounded">https://land.bihar.gov.in/Ror2025/RoR.aspx</code> पर जाएँ। इसके बाद अपने जिला, अंचल, हल्का और मौजा (गांव) का चयन करें और खाता नंबर, खेसरा नंबर या रैयत के नाम से अपना खतियान सर्च करें।</p>
+            <div class="hidden p-4 sm:p-5 text-xs sm:text-sm text-slate-600 font-bold leading-relaxed space-y-2 bg-white" id="apna-content-1">
+              <p>बिहार में अपना खाता ऑनलाइन देखने के लिए आधिकारिक पोर्टल <code class="bg-slate-100 px-1 py-0.5 rounded">https://land.bihar.gov.in/Ror2025/RoR.aspx</code> खोलें। अपना जिला, अंचल, हल्का और मौजा चुनें। इसके बाद खाता नंबर, खेसरा नंबर या मालिक के नाम से सर्च करें।</p>
             </div>
           </div>
 
           <!-- Q2 -->
           <div class="border border-slate-200 rounded-2xl overflow-hidden">
-            <button class="w-full text-left p-4 sm:p-5 font-extrabold text-slate-900 bg-slate-50 flex justify-between items-center hover:bg-slate-100 transition-all gap-4" onclick="toggleFaq(2)">
-              <span class="text-sm sm:text-base">Q2: Apna khata dekhne ki official website kya hai?</span>
-              <span class="text-emerald-700 font-extrabold" id="faq-icon-2">➕</span>
+            <button class="w-full text-left p-4 sm:p-5 font-extrabold text-slate-900 bg-slate-50 flex justify-between items-center hover:bg-slate-100 transition-all gap-4" onclick="toggleApnaFaq(2)">
+              <span class="text-xs sm:text-sm">Q2: Official website kya hai apna khata dekhne ki?</span>
+              <span class="text-emerald-700 font-extrabold" id="apna-icon-2">➕</span>
             </button>
-            <div class="hidden p-5 text-xs sm:text-sm text-slate-600 font-bold leading-relaxed space-y-2 bg-white" id="faq-content-2">
-              <p>बिहार सरकार के खतियान व अधिकार अभिलेख देखने का आधिकारिक पोर्टल <code class="bg-slate-100 px-1 py-0.5 rounded">https://land.bihar.gov.in/Ror2025/RoR.aspx</code> है। पूर्व में प्रयुक्त होने वाली अन्य वेबसाइटें अब खतियान के लिए मान्य नहीं हैं। दाखिल खारिज व जमाबंदी हेतु आप <code class="bg-slate-100 px-1 py-0.5 rounded">https://biharbhumi.bihar.gov.in/Biharbhumi/</code> का प्रयोग कर सकते हैं।</p>
+            <div class="hidden p-4 sm:p-5 text-xs sm:text-sm text-slate-600 font-bold leading-relaxed space-y-2 bg-white" id="apna-content-2">
+              <p>बिहार सरकार के राजस्व एवं भूमि सुधार विभाग का आधिकारिक खतियान/RoR पोर्टल <code class="bg-slate-100 px-1 py-0.5 rounded">https://land.bihar.gov.in/Ror2025/RoR.aspx</code> है। अन्य भूमि सेवाओं के लिए <code class="bg-slate-100 px-1 py-0.5 rounded">biharbhumi.bihar.gov.in</code> का प्रयोग करें।</p>
             </div>
           </div>
 
           <!-- Q3 -->
           <div class="border border-slate-200 rounded-2xl overflow-hidden">
-            <button class="w-full text-left p-4 sm:p-5 font-extrabold text-slate-900 bg-slate-50 flex justify-between items-center hover:bg-slate-100 transition-all gap-4" onclick="toggleFaq(3)">
-              <span class="text-sm sm:text-base">Q3: Khata number kya hota hai?</span>
-              <span class="text-emerald-700 font-extrabold" id="faq-icon-3">➕</span>
+            <button class="w-full text-left p-4 sm:p-5 font-extrabold text-slate-900 bg-slate-50 flex justify-between items-center hover:bg-slate-100 transition-all gap-4" onclick="toggleApnaFaq(3)">
+              <span class="text-xs sm:text-sm">Q3: Khata Number aur Khesra Number mein kya fark hai?</span>
+              <span class="text-emerald-700 font-extrabold" id="apna-icon-3">➕</span>
             </button>
-            <div class="hidden p-5 text-xs sm:text-sm text-slate-600 font-bold leading-relaxed space-y-2 bg-white" id="faq-content-3">
-              <p>खाता नंबर (Khata Number) वह विशिष्ट संख्या होती है जो सरकारी लैंड रिकॉर्ड लेजर (रजिस्टर) में किसी भू-स्वामी या परिवार के खाते को आवंटित की जाती है। इस एक खाता नंबर के अंतर्गत एक से अधिक भूखंड या प्लॉट (खेसरा नंबर) दर्ज हो सकते हैं।</p>
+            <div class="hidden p-4 sm:p-5 text-xs sm:text-sm text-slate-600 font-bold leading-relaxed space-y-2 bg-white" id="apna-content-3">
+              <p>खाता नंबर पूरे परिवार या भू-स्वामी के लेजर खाते की संख्या होती है। खेसरा नंबर (Khesra/Plot Number) उस खाते के अंतर्गत आने वाले किसी एक विशिष्ट जमीन के टुकड़े का सर्वे प्लॉट नंबर होता है।</p>
             </div>
           </div>
 
           <!-- Q4 -->
           <div class="border border-slate-200 rounded-2xl overflow-hidden">
-            <button class="w-full text-left p-4 sm:p-5 font-extrabold text-slate-900 bg-slate-50 flex justify-between items-center hover:bg-slate-100 transition-all gap-4" onclick="toggleFaq(4)">
-              <span class="text-sm sm:text-base">Q4: Apna khata dekhna free hai?</span>
-              <span class="text-emerald-700 font-extrabold" id="faq-icon-4">➕</span>
+            <button class="w-full text-left p-4 sm:p-5 font-extrabold text-slate-900 bg-slate-50 flex justify-between items-center hover:bg-slate-100 transition-all gap-4" onclick="toggleApnaFaq(4)">
+              <span class="text-xs sm:text-sm">Q4: Kya apna khata dekhna free hai?</span>
+              <span class="text-emerald-700 font-extrabold" id="apna-icon-4">➕</span>
             </button>
-            <div class="hidden p-5 text-xs sm:text-sm text-slate-600 font-bold leading-relaxed space-y-2 bg-white" id="faq-content-4">
-              <p>हाँ, बिहार सरकार के डिजिटल पोर्टल पर अपनी जमीन का खतियान व अधिकार अभिलेख (ROR) ऑनलाइन देखना, खोजना और प्रिंट/डाउनलोड करना बिल्कुल फ्री है। इसके लिए कोई सरकारी शुल्क नहीं देना पड़ता।</p>
+            <div class="hidden p-4 sm:p-5 text-xs sm:text-sm text-slate-600 font-bold leading-relaxed space-y-2 bg-white" id="apna-content-4">
+              <p>हाँ, बिहार सरकार के पोर्टल पर अपना खाता देखना और डाउनलोड करना बिल्कुल 100% फ्री है। इसके लिए कोई शुल्क नहीं देना होता।</p>
             </div>
           </div>
 
           <!-- Q5 -->
           <div class="border border-slate-200 rounded-2xl overflow-hidden">
-            <button class="w-full text-left p-4 sm:p-5 font-extrabold text-slate-900 bg-slate-50 flex justify-between items-center hover:bg-slate-100 transition-all gap-4" onclick="toggleFaq(5)">
-              <span class="text-sm sm:text-base">Q5: Mobile se apna khata dekh sakte hain?</span>
-              <span class="text-emerald-700 font-extrabold" id="faq-icon-5">➕</span>
+            <button class="w-full text-left p-4 sm:p-5 font-extrabold text-slate-900 bg-slate-50 flex justify-between items-center hover:bg-slate-100 transition-all gap-4" onclick="toggleApnaFaq(5)">
+              <span class="text-xs sm:text-sm">Q5: Mobile phone se apna khata kaise nikalein?</span>
+              <span class="text-emerald-700 font-extrabold" id="apna-icon-5">➕</span>
             </button>
-            <div class="hidden p-5 text-xs sm:text-sm text-slate-600 font-bold leading-relaxed space-y-2 bg-white" id="faq-content-5">
-              <p>हाँ, बिहार सरकार की वेबसाइट पूरी तरह से मोबाइल फ्रेंडली है। आप अपने स्मार्टफोन के क्रोम ब्राउज़र में जाकर वेबसाइट पर अपना जिला, अंचल आदि चुनकर बहुत ही आसानी से अपना खतियान पीडीएफ रूप में सेव कर सकते हैं।</p>
+            <div class="hidden p-4 sm:p-5 text-xs sm:text-sm text-slate-600 font-bold leading-relaxed space-y-2 bg-white" id="apna-content-5">
+              <p>अपने स्मार्टफोन पर गूगल क्रोम खोलें। लिंक पर क्लिक करें और "Desktop Site" चालू करें। इसके बाद बहुत आसानी से जिला, ब्लॉक व गांव चुनकर खतियान की प्रति पीडीएफ के रूप में डाउनलोड कर सकते हैं।</p>
             </div>
           </div>
 
           <!-- Q6 -->
           <div class="border border-slate-200 rounded-2xl overflow-hidden">
-            <button class="w-full text-left p-4 sm:p-5 font-extrabold text-slate-900 bg-slate-50 flex justify-between items-center hover:bg-slate-100 transition-all gap-4" onclick="toggleFaq(6)">
-              <span class="text-sm sm:text-base">Q6: Khata number nahi pata toh kaise dekhen?</span>
-              <span class="text-emerald-700 font-extrabold" id="faq-icon-6">➕</span>
+            <button class="w-full text-left p-4 sm:p-5 font-extrabold text-slate-900 bg-slate-50 flex justify-between items-center hover:bg-slate-100 transition-all gap-4" onclick="toggleApnaFaq(6)">
+              <span class="text-xs sm:text-sm">Q6: Agar Khata number nahi pata ho toh kaise khojein?</span>
+              <span class="text-emerald-700 font-extrabold" id="apna-icon-6">➕</span>
             </button>
-            <div class="hidden p-5 text-xs sm:text-sm text-slate-600 font-bold leading-relaxed space-y-2 bg-white" id="faq-content-6">
-              <p>यदि आपको खाता संख्या याद नहीं है, तो आप केवल भू-स्वामी या रैयत के नाम (Name) से खोज सकते हैं। इसके अलावा यदि आपके पास खेसरा संख्या (Plot Number) है, तो उस विकल्प का चयन करके भी खाता खोजा जा सकता है।</p>
+            <div class="hidden p-4 sm:p-5 text-xs sm:text-sm text-slate-600 font-bold leading-relaxed space-y-2 bg-white" id="apna-content-6">
+              <p>यदि खाता संख्या याद नहीं है तो आप पोर्टल पर "रैयत के नाम से खोजें" (Name Search) का विकल्प चुनकर या खेसरा नंबर द्वारा भी अपनी जमीन खोज सकते हैं।</p>
             </div>
           </div>
 
           <!-- Q7 -->
           <div class="border border-slate-200 rounded-2xl overflow-hidden">
-            <button class="w-full text-left p-4 sm:p-5 font-extrabold text-slate-900 bg-slate-50 flex justify-between items-center hover:bg-slate-100 transition-all gap-4" onclick="toggleFaq(7)">
-              <span class="text-sm sm:text-base">Q7: Dakhil Kharij ke liye kaun sa portal use karein?</span>
-              <span class="text-emerald-700 font-extrabold" id="faq-icon-7">➕</span>
+            <button class="w-full text-left p-4 sm:p-5 font-extrabold text-slate-900 bg-slate-50 flex justify-between items-center hover:bg-slate-100 transition-all gap-4" onclick="toggleApnaFaq(7)">
+              <span class="text-xs sm:text-sm">Q7: Dakhil Kharij aur Jamabandi online kaise check karein?</span>
+              <span class="text-emerald-700 font-extrabold" id="apna-icon-7">➕</span>
             </button>
-            <div class="hidden p-5 text-xs sm:text-sm text-slate-600 font-bold leading-relaxed space-y-2 bg-white" id="faq-content-7">
-              <p>दाखिल खारिज (Mutation), भूमि स्वामित्व प्रमाण पत्र (LPC) और जमाबंदी नकल देखने के लिए आपको बिहार भूमि के आधिकारिक पोर्टल <code class="bg-slate-100 px-1 py-0.5 rounded">https://biharbhumi.bihar.gov.in/Biharbhumi/</code> का प्रयोग करना होगा।</p>
+            <div class="hidden p-4 sm:p-5 text-xs sm:text-sm text-slate-600 font-bold leading-relaxed space-y-2 bg-white" id="apna-content-7">
+              <p>दाखिल खारिज स्टेटस और जमाबंदी पंजी देखने के लिए <code class="bg-slate-100 px-1 py-0.5 rounded">biharbhumi.bihar.gov.in</code> का प्रयोग करें या BighaWala के "Dakhil Kharij Guide" पेज पर जाएँ।</p>
             </div>
           </div>
 
           <!-- Q8 -->
           <div class="border border-slate-200 rounded-2xl overflow-hidden">
-            <button class="w-full text-left p-4 sm:p-5 font-extrabold text-slate-900 bg-slate-50 flex justify-between items-center hover:bg-slate-100 transition-all gap-4" onclick="toggleFaq(8)">
-              <span class="text-sm sm:text-base">Q8: Online khata court mein valid hai?</span>
-              <span class="text-emerald-700 font-extrabold" id="faq-icon-8">➕</span>
+            <button class="w-full text-left p-4 sm:p-5 font-extrabold text-slate-900 bg-slate-50 flex justify-between items-center hover:bg-slate-100 transition-all gap-4" onclick="toggleApnaFaq(8)">
+              <span class="text-xs sm:text-sm">Q8: Kya online khata copy bank loan mein chalti hai?</span>
+              <span class="text-emerald-700 font-extrabold" id="apna-icon-8">➕</span>
             </button>
-            <div class="hidden p-5 text-xs sm:text-sm text-slate-600 font-bold leading-relaxed space-y-2 bg-white" id="faq-content-8">
-              <p>ऑनलाइन निकाली गई डिजिटल कॉपी मुख्य रूप से केवल त्वरित संदर्भ और जानकारी के लिए होती है। बैंकों से लोन लेने या न्यायालय में साक्ष्य के रूप में प्रस्तुत करने के लिए अंचल कार्यालय से प्रमाणित मुहर लगी 'Certified Copy' ही कानूनी रूप से पूरी तरह मान्य होती है।</p>
+            <div class="hidden p-4 sm:p-5 text-xs sm:text-sm text-slate-600 font-bold leading-relaxed space-y-2 bg-white" id="apna-content-8">
+              <p>ऑनलाइन कॉपी केवल प्राथमिक जानकारी हेतु है। बैंक से लोन या कोर्ट कचहरी के कानूनी कार्यों के लिए अंचल कार्यालय से मुहर लगी "प्रमाणित प्रति" (Certified Copy) की आवश्यकता होती है।</p>
             </div>
           </div>
 
           <!-- Q9 -->
           <div class="border border-slate-200 rounded-2xl overflow-hidden">
-            <button class="w-full text-left p-4 sm:p-5 font-extrabold text-slate-900 bg-slate-50 flex justify-between items-center hover:bg-slate-100 transition-all gap-4" onclick="toggleFaq(9)">
-              <span class="text-sm sm:text-base">Q9: Apna khata aur khatyan ek hi hai?</span>
-              <span class="text-emerald-700 font-extrabold" id="faq-icon-9">➕</span>
+            <button class="w-full text-left p-4 sm:p-5 font-extrabold text-slate-900 bg-slate-50 flex justify-between items-center hover:bg-slate-100 transition-all gap-4" onclick="toggleApnaFaq(9)">
+              <span class="text-xs sm:text-sm">Q9: Khata record mein "Record Not Found" kyun aata hai?</span>
+              <span class="text-emerald-700 font-extrabold" id="apna-icon-9">➕</span>
             </button>
-            <div class="hidden p-5 text-xs sm:text-sm text-slate-600 font-bold leading-relaxed space-y-2 bg-white" id="faq-content-9">
-              <p>हाँ, बिहार में व्यावहारिक रूप से "अपना खाता देखना" और "खतियान निकालना" एक ही संदर्भ में प्रयुक्त होता है। अपना खाता के अंतर्गत ही आपकी जमीन के खतियान और अधिकार अभिलेख का सारा डेटा निहित रहता है।</p>
+            <div class="hidden p-4 sm:p-5 text-xs sm:text-sm text-slate-600 font-bold leading-relaxed space-y-2 bg-white" id="apna-content-9">
+              <p>नाम में वर्तनी (spelling) की गलती होने या सर्वर अपडेट न होने पर ऐसा आता है। नाम के बजाय सीधे खाता या खेसरा नंबर डालकर प्रयास करें।</p>
             </div>
           </div>
 
           <!-- Q10 -->
           <div class="border border-slate-200 rounded-2xl overflow-hidden">
-            <button class="w-full text-left p-4 sm:p-5 font-extrabold text-slate-900 bg-slate-50 flex justify-between items-center hover:bg-slate-100 transition-all gap-4" onclick="toggleFaq(10)">
-              <span class="text-sm sm:text-base">Q10: Khata mein galti hai — kaise theek karein?</span>
-              <span class="text-emerald-700 font-extrabold" id="faq-icon-10">➕</span>
+            <button class="w-full text-left p-4 sm:p-5 font-extrabold text-slate-900 bg-slate-50 flex justify-between items-center hover:bg-slate-100 transition-all gap-4" onclick="toggleApnaFaq(10)">
+              <span class="text-xs sm:text-sm">Q10: Khata mein galti theek karwane ke liye kisse milein?</span>
+              <span class="text-emerald-700 font-extrabold" id="apna-icon-10">➕</span>
             </button>
-            <div class="hidden p-5 text-xs sm:text-sm text-slate-600 font-bold leading-relaxed space-y-2 bg-white" id="faq-content-10">
-              <p>खतियान या खाते में किसी भी प्रकार की त्रुटि (जैसे नाम गलत होना, रकबा गलत दर्ज होना) को सुधारने के लिए आपको अपने क्षेत्र के राजस्व कर्मचारी या अंचल अधिकारी (Circle Officer) के पास वंशावली, आधार और पुराने पुख्ता रजिस्ट्री दस्तावेजों के साथ सुधार हेतु आवेदन देना होगा।</p>
+            <div class="hidden p-4 sm:p-5 text-xs sm:text-sm text-slate-600 font-bold leading-relaxed space-y-2 bg-white" id="apna-content-10">
+              <p>नाम, पिता का नाम या रकबा गलत होने पर अपने अंचल कार्यालय (Block Revenue Office) में परिमार्जन आवेदन पत्र और पुरानी रजिस्ट्री पेपर के साथ आवेदन दें।</p>
             </div>
           </div>
 
           <!-- Q11 -->
           <div class="border border-slate-200 rounded-2xl overflow-hidden">
-            <button class="w-full text-left p-4 sm:p-5 font-extrabold text-slate-900 bg-slate-50 flex justify-between items-center hover:bg-slate-100 transition-all gap-4" onclick="toggleFaq(11)">
-              <span class="text-sm sm:text-base">Q11: Certified copy aur online copy mein fark?</span>
-              <span class="text-emerald-700 font-extrabold" id="faq-icon-11">➕</span>
+            <button class="w-full text-left p-4 sm:p-5 font-extrabold text-slate-900 bg-slate-50 flex justify-between items-center hover:bg-slate-100 transition-all gap-4" onclick="toggleApnaFaq(11)">
+              <span class="text-xs sm:text-sm">Q11: Certified copy kahan se prapt karein?</span>
+              <span class="text-emerald-700 font-extrabold" id="apna-icon-11">➕</span>
             </button>
-            <div class="hidden p-5 text-xs sm:text-sm text-slate-600 font-bold leading-relaxed space-y-2 bg-white" id="faq-content-11">
-              <p>ऑनलाइन कॉपी निशुल्क डाउनलोड की जा सकती है जो कि केवल अनौपचारिक सूचना मात्र है। प्रमाणित प्रति (Certified Copy) सरकारी रिकॉर्ड रूम से मुहर एवं दस्तखत के साथ जारी की जाती है, जो कि न्यायालयों, बैंको एवं रजिस्ट्री ऑफिस में मान्य होती है।</p>
+            <div class="hidden p-4 sm:p-5 text-xs sm:text-sm text-slate-600 font-bold leading-relaxed space-y-2 bg-white" id="apna-content-11">
+              <p>प्रमाणित प्रति के लिए अंचल कार्यालय या जिला अभिलेखागार (Record Room) में ₹10-₹50 के कोर्ट फी स्टाम्प के साथ आवेदन जमा करें। 3-7 दिनों में प्रति मिल जाती है।</p>
             </div>
           </div>
 
           <!-- Q12 -->
           <div class="border border-slate-200 rounded-2xl overflow-hidden">
-            <button class="w-full text-left p-4 sm:p-5 font-extrabold text-slate-900 bg-slate-50 flex justify-between items-center hover:bg-slate-100 transition-all gap-4" onclick="toggleFaq(12)">
-              <span class="text-sm sm:text-base">Q12: Bihar Bhumi app kahan se download karein?</span>
-              <span class="text-emerald-700 font-extrabold" id="faq-icon-12">➕</span>
+            <button class="w-full text-left p-4 sm:p-5 font-extrabold text-slate-900 bg-slate-50 flex justify-between items-center hover:bg-slate-100 transition-all gap-4" onclick="toggleApnaFaq(12)">
+              <span class="text-xs sm:text-sm">Q12: Bihar land survey 2026 ke baad khata update hoga?</span>
+              <span class="text-emerald-700 font-extrabold" id="apna-icon-12">➕</span>
             </button>
-            <div class="hidden p-5 text-xs sm:text-sm text-slate-600 font-bold leading-relaxed space-y-2 bg-white" id="faq-content-12">
-              <p>बिहार भूमि का आधिकारिक मोबाइल ऐप डाउनलोड करने के लिए आप गूगल प्ले स्टोर में 'Bihar Bhumi' टाइप कर सर्च कर सकते हैं। यह ऐप पूरी तरह निशुल्क उपलब्ध है और इस पर आप जमीन का संपूर्ण विवरण फोन पर ही देख सकते हैं।</p>
+            <div class="hidden p-4 sm:p-5 text-xs sm:text-sm text-slate-600 font-bold leading-relaxed space-y-2 bg-white" id="apna-content-12">
+              <p>हाँ, बिहार में वर्तमान में चल रहे विशेष भूमि सर्वेक्षण (Special Land Survey 2026) के बाद सभी नए अधिकार अभिलेख एवं खतियान ऑनलाइन अपडेट कर दिए जाएंगे।</p>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- WHATSAPP HELP BOX (PROMINENT SAFFRON) -->
+      <!-- WHATSAPP SUPPORT BOX -->
       <section class="bg-gradient-to-br from-amber-500 to-orange-600 text-white rounded-3xl p-6 sm:p-8 shadow-lg text-center space-y-4">
         <h3 class="text-xl sm:text-2xl font-black">
-          अपना खाता देखने में कोई problem? हम help करेंगे
+          अपना खाता देखने में कोई समस्या? हम सहायता करेंगे
         </h3>
         <p class="text-sm font-semibold max-w-lg mx-auto opacity-90">
-          यदि आपको खतियान खोजने, अपना खाता निकालने या भूमि रिकॉर्ड डाउनलोड करने में कोई समस्या आ रही है, तो हमारी टीम से सीधे संपर्क करें।
+          यदि आपको खतियान खोजने या ऑनलाइन रिकॉर्ड में कोई तकनीकी दिक्कत आ रही है, तो हमारी टीम से संपर्क करें।
         </p>
         <div class="pt-2">
           <a href="https://wa.me/919835102324" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-white text-orange-700 font-black px-6 py-4 rounded-2xl shadow hover:scale-105 transition-transform text-base sm:text-lg">
-            <span>WhatsApp par Poochein 💬</span>
+            <span>WhatsApp पर पूछें 💬</span>
           </a>
         </div>
         <p class="text-xs font-bold opacity-80">WhatsApp No: 9835102324</p>
       </section>
 
-      <!-- WHATSAPP SHARE BUTTON -->
-      <section class="text-center">
-        <button onclick="shareOnWhatsApp()" class="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-black px-6 py-3.5 rounded-2xl shadow-md hover:shadow-lg transition-all text-sm sm:text-base">
-          <span>📲 दोस्तों को शेयर करें</span>
-        </button>
-      </section>
-
-      <!-- INTERNAL LINKS — "यह भी पढ़ें" -->
-      <section class="bg-white rounded-3xl border border-slate-200 p-6 sm:p-8 shadow-md space-y-4">
-        <h3 class="text-lg sm:text-xl font-black text-slate-900 border-b border-slate-100 pb-2">
-          📖 यह भी पढ़ें — महत्वपूर्ण भूलेख गाइड्स
-        </h3>
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs sm:text-sm font-bold">
-          <a href="dakhil-kharij.html" class="p-3 bg-slate-50 border border-slate-200 rounded-xl text-slate-800 hover:text-primaryGreen hover:bg-emerald-50/50 flex items-center gap-2 transition-all">
-            <span>➡️</span> दाखिल खारिज गाइड (Dakhil Kharij Bihar)
-          </a>
-          <a href="jamabandi.html" class="p-3 bg-slate-50 border border-slate-200 rounded-xl text-slate-800 hover:text-primaryGreen hover:bg-emerald-50/50 flex items-center gap-2 transition-all">
-            <span>➡️</span> जमाबंदी नकल (Jamabandi Nakal Bihar)
-          </a>
-          <a href="lpc-bihar.html" class="p-3 bg-slate-50 border border-slate-200 rounded-xl text-slate-800 hover:text-primaryGreen hover:bg-emerald-50/50 flex items-center gap-2 transition-all">
-            <span>➡️</span> एलपीसी गाइड (LPC Bihar Guide)
-          </a>
-          <a href="bhulekh.html" class="p-3 bg-slate-50 border border-slate-200 rounded-xl text-slate-800 hover:text-primaryGreen hover:bg-emerald-50/50 flex items-center gap-2 transition-all">
-            <span>➡️</span> भूलेख बिहार गाइड (Bhulekh Bihar Guide)
-          </a>
-          <a href="bigha-calculator.html" class="p-3 bg-slate-50 border border-slate-200 rounded-xl text-slate-800 hover:text-primaryGreen hover:bg-emerald-50/50 flex items-center gap-2 transition-all">
-            <span>➡️</span> बीघा कैलकुलेटर (Bigha Area Converter)
-          </a>
-        </div>
-      </section>
-
-      <!-- HELPFUL LINKS BOX -->
-      <section class="bg-slate-900 text-white rounded-3xl p-6 sm:p-8 shadow-lg space-y-4">
-        <h3 class="text-base sm:text-lg font-black text-orange-400">
-          🔗 महत्वपूर्ण सरकारी वेबसाइटों की सीधी लिंक (Helpful Links)
-        </h3>
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 font-semibold text-xs sm:text-sm">
-          <a href="https://land.bihar.gov.in/Ror2025/RoR.aspx" target="_blank" class="p-4 bg-slate-800/80 border border-slate-700 hover:bg-slate-700 rounded-2xl flex flex-col gap-1 transition-all">
-            <span class="text-orange-400 font-extrabold">1. Apna Khata/Khatyan</span>
-            <span class="text-slate-400 text-[11px] break-all">land.bihar.gov.in/Ror2025/RoR.aspx</span>
-          </a>
-          <a href="https://biharbhumi.bihar.gov.in/Biharbhumi/" target="_blank" class="p-4 bg-slate-800/80 border border-slate-700 hover:bg-slate-700 rounded-2xl flex flex-col gap-1 transition-all">
-            <span class="text-orange-400 font-extrabold">2. Dakhil Kharij/LPC/Jamabandi</span>
-            <span class="text-slate-400 text-[11px] break-all">biharbhumi.bihar.gov.in/Biharbhumi/</span>
-          </a>
-          <a href="https://biharbhumi.bihar.gov.in/Biharbhumi/" target="_blank" class="p-4 bg-slate-800/80 border border-slate-700 hover:bg-slate-700 rounded-2xl flex flex-col gap-1 transition-all">
-            <span class="text-orange-400 font-extrabold">3. Bihar Bhumi Portal</span>
-            <span class="text-slate-400 text-[11px] break-all">biharbhumi.bihar.gov.in/Biharbhumi/</span>
-          </a>
-        </div>
-      </section>
-
     </main>
 
     <!-- FOOTER -->
-    <footer class="bg-slate-900 text-white border-t-4 border-primaryGreen pt-16 pb-8 mt-auto">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+    <footer class="bg-slate-900 text-white border-t-4 border-primaryGreen pt-12 pb-8 mt-auto">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
         <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-          <!-- Column 1 -->
           <div class="space-y-4">
             <div class="text-2xl font-black flex items-center gap-2">
               <span class="text-accentSaffron">Bigha</span><span>Wala</span><span class="text-primaryGreen">.com</span>
             </div>
             <p class="text-slate-400 text-xs font-bold leading-relaxed">
-              बिहार की जमीनों के क्षेत्रफल, सरकारी रेट, रजिस्ट्री नियमों और भूलेख की बिल्कुल सटीक जानकारी सरल हिंदी में देने वाला नंबर वन डिजिटल मंच।
+              बिहार की जमीनों के क्षेत्रफल, सरकारी रेट, रजिस्ट्री नियमों और भूलेख की बिल्कुल सटीक जानकारी सरल हिंदी में।
             </p>
           </div>
 
-          <!-- Column 2 -->
           <div class="space-y-4">
-            <h4 class="text-orange-400 font-black text-sm uppercase tracking-wider">महत्वपूर्ण सर्विसेज</h4>
+            <h4 class="text-orange-400 font-black text-sm uppercase tracking-wider">टूल्स व गाइड्स</h4>
             <div class="flex flex-col gap-2 font-bold text-xs text-slate-300">
               <a href="bigha-calculator.html" class="hover:text-white transition-colors">बीघा कनवर्टर (Bigha Calculator)</a>
-              <a href="jamabandi.html" class="hover:text-white transition-colors">जमाबंदी पंजी देखें (Bihar Jamabandi)</a>
-              <a href="registry-bihar.html" class="hover:text-white transition-colors">रजिस्ट्री फीस और नियम 2026</a>
-              <a href="dakhil-kharij.html" class="hover:text-white transition-colors">दाखिल खारिज ऑनलाइन गाइड</a>
+              <a href="jamabandi.html" class="hover:text-white transition-colors">जमाबंदी पंजी देखें</a>
+              <a href="dakhil-kharij.html" class="hover:text-white transition-colors">दाखिल खारिज ऑनलाइन</a>
+              <a href="land-rates.html" class="hover:text-white transition-colors">जमीन का सरकारी रेट</a>
             </div>
           </div>
 
-          <!-- Column 3 -->
           <div class="space-y-4">
             <h4 class="text-orange-400 font-black text-sm uppercase tracking-wider">सरकारी योजनाएं</h4>
             <div class="flex flex-col gap-2 font-bold text-xs text-slate-300">
               <a href="kisan-credit-card-bihar.html" class="hover:text-white transition-colors">KCC किसान क्रेडिट कार्ड</a>
-              <a href="pm-awas-yojana-bihar.html" class="hover:text-white transition-colors">प्रधानमंत्री आवास योजना सूची</a>
-              <a href="jamin-ka-rate-bihar.html" class="hover:text-white transition-colors">जमीन का सरकारी रेट जानें</a>
+              <a href="pm-awas-yojana-bihar.html" class="hover:text-white transition-colors">PM Awas Yojana</a>
               <a href="apna-khata-dekhe.html" class="hover:text-white text-emerald-400 font-black transition-colors">अपना खाता देखें बिहार</a>
             </div>
           </div>
 
-          <!-- Column 4 -->
           <div class="space-y-4">
             <h4 class="text-orange-400 font-black text-sm uppercase tracking-wider">संपर्क व सहायता</h4>
             <div class="flex flex-col gap-2 font-bold text-xs text-slate-300">
@@ -2013,149 +1012,189 @@ document.querySelectorAll('.mobile-menu a')
           </div>
         </div>
 
-        <div class="border-t border-slate-800 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 font-bold text-xs text-slate-400">
+        <div class="border-t border-slate-800 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 font-bold text-xs text-slate-400">
           <p>© 2026 BighaWala.com. All Rights Reserved.</p>
           <div class="flex gap-4">
-            <a href="privacy.html" class="hover:text-orange-400 transition-colors">Privacy Policy</a>
-            <a href="terms.html" class="hover:text-orange-400 transition-colors">Terms of Service</a>
-            <a href="about.html" class="hover:text-orange-400 transition-colors">About Us</a>
-          </div>
-          <div class="text-slate-500">
-            AdSense compliant & Secure SSL 🔒
+            <a href="privacy.html" class="hover:text-orange-400">Privacy Policy</a>
+            <a href="terms.html" class="hover:text-orange-400">Terms of Service</a>
+            <a href="about.html" class="hover:text-orange-400">About Us</a>
           </div>
         </div>
       </div>
     </footer>
 
-    <!-- INTERACTIVE SCRIPTS -->
+    <!-- INTERACTIVE SCRIPT FOR CHECKLIST & FAQ -->
     <script>
-      // Header sticky and Mobile drawer controls
-      
+      function handleTopChecklistProgress() {
+        var checkboxes = document.querySelectorAll(".top-prep-check");
+        var total = checkboxes.length;
+        var checkedCount = 0;
+        checkboxes.forEach(function(cb) {
+          if (cb.checked) checkedCount++;
+        });
 
-      // Correction accordion toggles
-      function toggleCorrection(id) {
-        const content = document.getElementById(`corr-content-${id}`);
-        const icon = document.getElementById(`corr-icon-${id}`);
-        
-        if (content.classList.contains('hidden')) {
-          content.classList.remove('hidden');
-          icon.textContent = '➖';
+        var percent = Math.round((checkedCount / total) * 100);
+        var statusText = document.getElementById("top-checklist-status-text");
+        var percentText = document.getElementById("top-checklist-percent-text");
+        var progressBar = document.getElementById("top-checklist-progress-bar");
+        var guideNotice = document.getElementById("guide-read-notice");
+        var lockedMsg = document.getElementById("top-portal-locked-msg");
+        var unlockedBtn = document.getElementById("top-portal-unlocked-btn");
+
+        if (statusText) statusText.textContent = "Progress: " + checkedCount + "/" + total + " complete";
+        if (percentText) percentText.textContent = percent + "%";
+        if (progressBar) progressBar.style.width = percent + "%";
+
+        // Show guide notice when 3+ items checked
+        if (checkedCount >= 3) {
+          if (guideNotice) guideNotice.classList.remove("hidden");
         } else {
-          content.classList.add('hidden');
-          icon.textContent = '➕';
+          if (guideNotice) guideNotice.classList.add("hidden");
+        }
+
+        // Show portal button when all 5 checked
+        if (checkedCount === total) {
+          if (lockedMsg) lockedMsg.classList.add("hidden");
+          if (unlockedBtn) unlockedBtn.classList.remove("hidden");
+        } else {
+          if (lockedMsg) lockedMsg.classList.remove("hidden");
+          if (unlockedBtn) unlockedBtn.classList.add("hidden");
         }
       }
 
-      // FAQ accordion toggles
-      function toggleFaq(id) {
-        const content = document.getElementById(`faq-content-${id}`);
-        const icon = document.getElementById(`faq-icon-${id}`);
-
-        if (content.classList.contains('hidden')) {
-          content.classList.remove('hidden');
-          icon.textContent = '➖';
+      function toggleApnaFaq(id) {
+        var content = document.getElementById("apna-content-" + id);
+        var icon = document.getElementById("apna-icon-" + id);
+        if (!content) return;
+        if (content.classList.contains("hidden")) {
+          content.classList.remove("hidden");
+          if (icon) icon.textContent = "➖";
         } else {
-          content.classList.add('hidden');
-          icon.textContent = '➕';
+          content.classList.add("hidden");
+          if (icon) icon.textContent = "➕";
         }
-      }
-
-      // Share on WhatsApp functionality
-      function shareOnWhatsApp() {
-        const text = encodeURIComponent("Bihar mein Apna Khata online kaise dekhen 2026 — Step by step guide: BighaWala.com/apna-khata-dekhe");
-        window.open('https://api.whatsapp.com/send?text=' + text, '_blank');
       }
     </script>
-  
-  
-  
-<!-- STICKY BOTTOM BAR (FIX 4) -->
-<div id="sticky-bottom-bar" class="fixed bottom-0 left-0 right-0 z-40 bg-slate-900/95 backdrop-blur-md text-white border-t border-emerald-500/30 px-3 py-2.5 shadow-2xl transition-all duration-300">
-  <div class="max-w-5xl mx-auto flex items-center justify-between gap-2 text-xs sm:text-sm font-bold overflow-x-auto no-scrollbar">
-    <a href="ask-expert.html" class="flex items-center gap-1.5 bg-emerald-600/90 hover:bg-emerald-500 text-white px-3 py-1.5 rounded-xl whitespace-nowrap transition-all shadow-xs shrink-0">
-      <span>🤖</span> <span>Koi sawaal?</span>
-    </a>
-    <a href="https://wa.me/919835102324" target="_blank" rel="noopener noreferrer" class="flex items-center gap-1.5 bg-green-600 hover:bg-green-500 text-white px-3 py-1.5 rounded-xl whitespace-nowrap transition-all shadow-xs shrink-0">
-      <span>📱</span> <span>WhatsApp: 9835102324</span>
-    </a>
-    <a href="bigha-calculator.html" class="flex items-center gap-1.5 bg-slate-800 hover:bg-slate-700 text-slate-200 hover:text-white px-3 py-1.5 rounded-xl whitespace-nowrap transition-all border border-slate-700 shrink-0">
-      <span>🧮</span> <span>Bigha Calculator</span>
-    </a>
-    <a href="dakhil-kharij.html" class="flex items-center gap-1.5 bg-slate-800 hover:bg-slate-700 text-slate-200 hover:text-white px-3 py-1.5 rounded-xl whitespace-nowrap transition-all border border-slate-700 shrink-0">
-      <span>📋</span> <span>Dakhil Kharij</span>
-    </a>
-  </div>
-</div>
 
-<!-- EXIT INTENT POPUP (FIX 5) -->
-<div id="exit-intent-modal" class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-xs flex items-center justify-center p-4 hidden transition-opacity duration-300">
-  <div class="bg-white rounded-3xl max-w-md w-full p-6 sm:p-8 border border-slate-200 shadow-2xl relative space-y-5 text-slate-800 animate-in fade-in zoom-in-95">
-    <button onclick="closeExitPopup()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-700 bg-slate-100 hover:bg-slate-200 w-8 h-8 rounded-full flex items-center justify-center font-bold transition-all" aria-label="Close">✕</button>
-    <div class="text-center space-y-2">
-      <div class="text-4xl">रुकिए! 🙏</div>
-      <h3 class="text-xl sm:text-2xl font-black text-slate-900 tracking-tight leading-snug">
-        क्या आपको अपनी जमीन के बारे में कोई और जानकारी चाहिए?
-      </h3>
-      <p class="text-xs sm:text-sm text-slate-600 font-semibold">
-        जाने से पहले हमारे इन मुफ्त टूल्स का उपयोग करें:
-      </p>
-    </div>
-    <div class="grid grid-cols-1 gap-2.5 pt-1">
-      <a href="bigha-calculator.html" class="flex items-center justify-between bg-emerald-50 hover:bg-emerald-100 border border-emerald-200/80 p-3.5 rounded-xl font-extrabold text-emerald-950 text-sm transition-all shadow-xs">
-        <span>🧮 Bigha Calculate करें</span>
-        <span class="text-emerald-700 font-extrabold text-xs">खोलें →</span>
-      </a>
-      <a href="dakhil-kharij.html" class="flex items-center justify-between bg-orange-50 hover:bg-orange-100 border border-orange-200/80 p-3.5 rounded-xl font-extrabold text-orange-950 text-sm transition-all shadow-xs">
-        <span>📋 Dakhil Kharij Guide</span>
-        <span class="text-orange-700 font-extrabold text-xs">देखें →</span>
-      </a>
-      <a href="land-rates.html" class="flex items-center justify-between bg-blue-50 hover:bg-blue-100 border border-blue-200/80 p-3.5 rounded-xl font-extrabold text-blue-950 text-sm transition-all shadow-xs">
-        <span>💰 Land Rates देखें</span>
-        <span class="text-blue-700 font-extrabold text-xs">रेट देखें →</span>
-      </a>
-    </div>
-    <div class="pt-2 text-center">
-      <button onclick="closeExitPopup()" class="text-xs text-slate-400 hover:text-slate-600 font-bold underline transition-all">
-        ❌ नहीं, जाना है
-      </button>
-    </div>
-  </div>
+<style>
+.sticky-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #1B5E20;
+  color: white;
+  padding: 8px 15px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 9999;
+  box-shadow: 0 -2px 10px rgba(0,0,0,0.2);
+}
+.sticky-bar a {
+  color: white;
+  text-decoration: none;
+  font-size: 11px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+.sticky-bar .bar-icon {
+  font-size: 18px;
+}
+@media (min-width: 768px) {
+  .sticky-bar { display: none; }
+}
+</style>
+
+<div class="sticky-bar">
+  <a href="index.html">
+    <span class="bar-icon">🏠</span>
+    <span>Home</span>
+  </a>
+  <a href="bigha-calculator.html">
+    <span class="bar-icon">🧮</span>
+    <span>Calculator</span>
+  </a>
+  <a href="ask-expert.html">
+    <span class="bar-icon">🤖</span>
+    <span>AI Expert</span>
+  </a>
+  <a href="community-qa.html">
+    <span class="bar-icon">🤝</span>
+    <span>Community</span>
+  </a>
+  <a href="javascript:void(0)" onclick="window.open('https://wa.me/919835102324','_blank')">
+    <span class="bar-icon">📱</span>
+    <span>WhatsApp</span>
+  </a>
 </div>
 
 <script>
-var exitShown = false;
-function showExitPopup() {
-  if (exitShown) return;
-  var modal = document.getElementById('exit-intent-modal');
-  if (modal) {
-    exitShown = true;
-    modal.classList.remove('hidden');
-    if (typeof gtag === 'function') {
-      gtag('event', 'exit_intent_shown');
+// Open external links in new tab only
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('a[href]').forEach(function(link) {
+    var href = link.href || '';
+    var isExternal = (
+      href.includes('bihar.gov.in') ||
+      href.includes('nic.in') ||
+      href.includes('bhulagan') ||
+      href.includes('emapi') ||
+      href.includes('nibandhan') ||
+      href.includes('pmayg') ||
+      href.includes('pmaymis') ||
+      href.includes('bankbazaar') ||
+      href.includes('sbi.co.in') ||
+      href.includes('wa.me')
+    );
+    var isInternal = (
+      href.includes('bighawala.com') ||
+      href.startsWith('/') ||
+      href.endsWith('.html') ||
+      href.startsWith('#') ||
+      href.startsWith('tel:') ||
+      href.startsWith('mailto:')
+    );
+    if (isExternal && !isInternal) {
+      link.target = '_blank';
+      link.rel = 'noopener noreferrer';
+    } else if (isInternal) {
+      link.target = '_self';
     }
-  }
-}
-function closeExitPopup() {
-  var modal = document.getElementById('exit-intent-modal');
-  if (modal) {
-    modal.classList.add('hidden');
-  }
-}
-
-// Mouseleave top detection
-document.addEventListener('mouseleave', function(e) {
-  if (e.clientY < 10 && !exitShown) {
-    showExitPopup();
-  }
+  });
 });
+</script>
 
-// Mobile back button detection
-window.addEventListener('popstate', function() {
-  if (!exitShown) {
-    showExitPopup();
-    history.pushState(null, '', window.location.href);
-  }
-});
+<script>
+setTimeout(function() {
+  var popup = document.createElement('div');
+  popup.innerHTML = 
+    '<div style="position:fixed;bottom:80px;' +
+    'right:15px;background:#2E7D32;color:white;' +
+    'padding:12px 15px;border-radius:10px;' +
+    'max-width:220px;z-index:9998;' +
+    'box-shadow:0 4px 15px rgba(0,0,0,0.2);' +
+    'font-size:13px;">' +
+    '<div style="font-weight:bold;margin-bottom:5px;">' +
+    '💡 यह भी देखें:</div>' +
+    '<a href="bigha-calculator.html" ' +
+    'style="color:#FFD54F;display:block;' +
+    'margin:3px 0;">🧮 Bigha Calculator</a>' +
+    '<a href="dakhil-kharij.html" ' +
+    'style="color:#FFD54F;display:block;' +
+    'margin:3px 0;">📋 Dakhil Kharij Guide</a>' +
+    '<a href="land-rates.html" ' +
+    'style="color:#FFD54F;display:block;' +
+    'margin:3px 0;">💰 Land Rates 2026</a>' +
+    '<div onclick="this.parentElement.' +
+    'parentElement.remove()" ' +
+    'style="text-align:right;cursor:pointer;' +
+    'margin-top:5px;opacity:0.7;">✕ बंद करें</div>' +
+    '</div>';
+  document.body.appendChild(popup);
+}, 30000);
 </script>
 </body>
 </html>
