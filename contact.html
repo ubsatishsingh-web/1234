@@ -1,37 +1,40 @@
 <!DOCTYPE html>
 <html lang="hi">
   <head>
+    <!-- Primary SEO Meta Tags -->
+    <meta name="title" content="Contact BighaWala | Bihar Land Help | बिहार जमीन सहायता">
 
     <!-- Open Graph / Facebook / WhatsApp Social Media Preview -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.bighawala.com/contact.html">
+    <meta property="og:url" content="https://ais-pre-2xwvub246bqhpcdwchburw-478417890916.asia-east1.run.app/contact.html">
     <meta property="og:site_name" content="BighaWala.com">
     <meta property="og:title" content="Contact BighaWala | Bihar Land Help | बिहार जमीन सहायता">
     <meta property="og:description" content="Bihar zameen se judi koi bhi samasya? BighaWala se sampark karein. Free advice for Dakhil Kharij, LPC, Bhulekh, land rates. WhatsApp available.">
-    <meta property="og:image" content="https://www.bighawala.com/og-image.jpg">
-    <meta property="og:image:secure_url" content="https://www.bighawala.com/og-image.jpg">
+    <meta property="og:image" content="https://ais-pre-2xwvub246bqhpcdwchburw-478417890916.asia-east1.run.app/og-image.jpg">
+    <meta property="og:image:secure_url" content="https://ais-pre-2xwvub246bqhpcdwchburw-478417890916.asia-east1.run.app/og-image.jpg">
     <meta property="og:image:type" content="image/jpeg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:image:alt" content="BighaWala.com - Bihar का #1 जमीन पोर्टल">
     <meta property="og:locale" content="hi_IN">
 
+    <!-- Secondary Fallback OG Image for Custom Domain -->
+    <meta property="og:image" content="https://www.bighawala.com/og-image.jpg">
+
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:url" content="https://www.bighawala.com/contact.html">
+    <meta name="twitter:url" content="https://ais-pre-2xwvub246bqhpcdwchburw-478417890916.asia-east1.run.app/contact.html">
     <meta name="twitter:title" content="Contact BighaWala | Bihar Land Help | बिहार जमीन सहायता">
     <meta name="twitter:description" content="Bihar zameen se judi koi bhi samasya? BighaWala se sampark karein. Free advice for Dakhil Kharij, LPC, Bhulekh, land rates. WhatsApp available.">
-    <meta name="twitter:image" content="https://www.bighawala.com/og-image.jpg">
+    <meta name="twitter:image" content="https://ais-pre-2xwvub246bqhpcdwchburw-478417890916.asia-east1.run.app/og-image.jpg">
 
-    <!-- Schema & Link Image Source for Legacy Scrapers -->
-    <link rel="image_src" href="https://www.bighawala.com/og-image.jpg">
+    <!-- Legacy Scraper Fallback -->
+    <link rel="image_src" href="https://ais-pre-2xwvub246bqhpcdwchburw-478417890916.asia-east1.run.app/og-image.jpg">
 
     <!-- WhatsApp specific -->
-    
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
     <title>Contact BighaWala | Bihar Land Help | बिहार जमीन सहायता</title>
-    
     <!-- SEO Meta Tags -->
     <meta name="description" content="Bihar zameen se judi koi bhi samasya? BighaWala se sampark karein. Free advice for Dakhil Kharij, LPC, Bhulekh, land rates. WhatsApp available." />
     <meta name="keywords" content="bigha wala contact, bihar land help, zameen help bihar, dakhil kharij help, lpc help bihar, bihar bhumi contact" />
@@ -74,7 +77,6 @@ document.addEventListener('DOMContentLoaded', function() {
   links.forEach(function(link) {
     var href = link.getAttribute('href');
     if (!href) return;
-    
     // These are EXTERNAL — open in new tab
     var externalDomains = [
       'bihar.gov.in',
@@ -97,11 +99,9 @@ document.addEventListener('DOMContentLoaded', function() {
       'pmkisan.gov.in',
       'agriculture.bihar.gov.in'
     ];
-    
     var isExternal = externalDomains.some(function(domain) {
       return href.includes(domain);
     });
-    
     if (isExternal) {
       link.setAttribute('target', '_blank');
       link.setAttribute('rel', 'noopener noreferrer');
@@ -141,25 +141,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }, {passive: true});
 </script>
-
-    <script id="og-dynamic-updater">
-      (function(){
-        try {
-          var origin = window.location.origin;
-          if (origin && !origin.includes('file:')) {
-            var fullImg = origin + '/og-image.jpg';
-            var ogImg = document.querySelector('meta[property="og:image"]');
-            if (ogImg) ogImg.setAttribute('content', fullImg);
-            var ogSec = document.querySelector('meta[property="og:image:secure_url"]');
-            if (ogSec) ogSec.setAttribute('content', fullImg);
-            var twImg = document.querySelector('meta[name="twitter:image"]');
-            if (twImg) twImg.setAttribute('content', fullImg);
-            var linkImg = document.querySelector('link[rel="image_src"]');
-            if (linkImg) linkImg.setAttribute('href', fullImg);
-          }
-        } catch(e) {}
-      })();
-    </script>
 
 </head>
   <body class="pb-16 bg-slate-50 text-slate-800 font-sans min-h-screen flex flex-col selection:bg-orange-100 selection:text-orange-900">

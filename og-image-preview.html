@@ -5,11 +5,8 @@
   <title>BighaWala.com OG Image Preview</title>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@700;800;900&family=Poppins:wght@700;800;900&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
-  
       <link rel="stylesheet" href="css/premium-style.css?v=1.0.12">
 <!-- Google Analytics GA4 -->
-
-
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
@@ -17,7 +14,6 @@ document.addEventListener('DOMContentLoaded', function() {
   links.forEach(function(link) {
     var href = link.getAttribute('href');
     if (!href) return;
-    
     // These are EXTERNAL — open in new tab
     var externalDomains = [
       'bihar.gov.in',
@@ -40,11 +36,9 @@ document.addEventListener('DOMContentLoaded', function() {
       'pmkisan.gov.in',
       'agriculture.bihar.gov.in'
     ];
-    
     var isExternal = externalDomains.some(function(domain) {
       return href.includes(domain);
     });
-    
     if (isExternal) {
       link.setAttribute('target', '_blank');
       link.setAttribute('rel', 'noopener noreferrer');
