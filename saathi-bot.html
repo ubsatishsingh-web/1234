@@ -697,109 +697,202 @@
       var messageCount = 0;
       var conversationHistory = [];
 
-      // API Key and URL for Gemini API
-      const GEMINI_API_KEY = 'AIzaSyCy60HKc39mbfA4xp8o0qZ3-uFX4KmfsRk';
-      const GEMINI_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=' + GEMINI_API_KEY;
+      // API Key for Gemini API
+      const API_KEY = 'AIzaSyCy60HKc39mbfA4xp8o0qZ3-uFX4KmfsRk';
 
-      async function getSaathiResponse(userMessage, language) {
-        const systemPrompt = `You are Saathi (साथी) — 
-a warm, emotionally intelligent land helper
-for Bihar farmers and common people.
-Like a trusted elder brother.
-Always patient, never judging.
-Acknowledge feelings before giving advice.
-Use simple words — no complex legal jargon.
+      async function getSaathiResponse(userMessage, detectedLang) {
+        console.log('Calling Gemini API...');
+        console.log('Message:', userMessage);
+        console.log('Language:', detectedLang);
 
-LANGUAGE: Respond in ${language}. 
-If Hindi — use simple Hindi.
-If Maithili — use Maithili mixed Hindi.
-If Bhojpuri — use Bhojpuri mixed Hindi.
-If English — use simple English.
+        const prompt = `Tu Bihar ka ek dost hai 
+jiska naam Saathi hai. Tu zameen ke baare 
+mein sab jaanta hai. Tu aam log ki madad 
+karta hai — kisan, garib, padhe-likhe 
+aur an-padhe sabki.
 
-BIHAR LAND KNOWLEDGE:
-1 Bigha = 20 Katha = 400 Dhur = 27225 sqft
-1 Katha = 1361.25 sqft = 20 Dhur
+Bhasha: ${detectedLang || 'hindi'} mein jawab de.
+Hindi mein to seedhi baat kar.
+Bhojpuri mein to "raur", "hamar", "bani" 
+waale shabd use kar.
+Maithili mein to "apan", "hank", "chhi" 
+waale shabd use kar.
+
+ZAROORI JANKARI:
+Bihar mein:
+1 Bigha = 20 Katha
+1 Katha = 20 Dhur  
 1 Dhur = 68.0625 sqft
-1 Bigha = 0.625 Acre = 31.25 Decimal
+1 Katha = 1361.25 sqft
+1 Bigha = 27225 sqft
+1 Bigha = 0.625 Acre
+1 Bigha = 31.25 Decimal
 
-CORRECT PORTAL URLS:
-Apna Khata: land.bihar.gov.in/Ror2025/RoR.aspx
-Dakhil Kharij/LPC/Jamabandi: 
+SAHI PORTAL LINKS:
+Apna Khata dekhna ho to:
+land.bihar.gov.in/Ror2025/RoR.aspx
+
+Dakhil Kharij, LPC, Jamabandi ke liye:
 biharbhumi.bihar.gov.in/Biharbhumi/
-Registry: nibandhan.bihar.gov.in
-Bhu Lagan: bhulagan.bihar.gov.in
-eMapi: emapi.bihar.gov.in
-Jan Shikayat: biharbhumiplus.bihar.gov.in/pg/
 
-RESPONSE RULES:
-- Keep voice responses SHORT (max 80 words)
-- Use commas for natural pauses
-- Be warm and encouraging
-- End with: "Koi aur sawaal ho toh bataiye"
-- If cannot help: say to contact 9835102324
+Registry ke liye:
+nibandhan.bihar.gov.in
 
-If user seems stressed or emotional:
-First say "Aapki baat sun ke dukh hua.
-Par ghabrayein nahi — hum saath hain."
+Bhu Lagan bharna ho to:
+bhulagan.bihar.gov.in
 
-User question: ${userMessage}`;
+Naksha dekhna ho to:
+emapi.bihar.gov.in
+
+Shikayat karni ho to:
+biharbhumiplus.bihar.gov.in/pg/
+
+JAWAB DENE KA TARIKA:
+- Chhota jawab de — 60 se 80 shabd max
+- Agar koi dukhi ya pareshaan lage to 
+  pehle ye kaho: "Aapki baat sunke dukh 
+  hua, par ghabrana nahi — hum hain na"
+- Aam bhasha use kar — court wali nahi
+- Akhir mein hamesha ye kaho:
+  "Koi aur sawaal ho to bataiye"
+- Agar sawaal bahut mushkil ho to kaho:
+  "Yeh thoda pechida hai — seedha 
+  madad ke liye WhatsApp karein"
+
+Sawaal: ${userMessage}`;
+
+        const requestBody = {
+          contents: [
+            {
+              role: "user",
+              parts: [{ text: prompt }]
+            }
+          ],
+          generationConfig: {
+            temperature: 0.8,
+            maxOutputTokens: 250,
+            topP: 0.9
+          }
+        };
+
+        const url = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=' + API_KEY;
 
         try {
-          const response = await fetch(GEMINI_URL, {
+          const response = await fetch(url, {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json'
             },
-            body: JSON.stringify({
-              contents: [{
-                parts: [{
-                  text: systemPrompt
-                }]
-              }],
-              generationConfig: {
-                temperature: 0.7,
-                maxOutputTokens: 300
-              }
-            })
+            body: JSON.stringify(requestBody)
           });
 
           if (!response.ok) {
-            const errorData = await response.json();
-            console.error('API Error:', errorData);
-            throw new Error('API response not ok: ' + response.status);
+            const err = await response.text();
+            console.error('API Error:', err);
+            throw new Error('HTTP ' + response.status);
           }
 
-          const data = await response.json();
-          
-          if (data.candidates && 
-              data.candidates[0] && 
-              data.candidates[0].content &&
-              data.candidates[0].content.parts &&
-              data.candidates[0].content.parts[0]) {
-            return data.candidates[0].content.parts[0].text;
+          const result = await response.json();
+          console.log('API Response received');
+          console.log('Response:', result);
+
+          if (result.candidates && 
+              result.candidates[0] && 
+              result.candidates[0].content && 
+              result.candidates[0].content.parts && 
+              result.candidates[0].content.parts[0]) {
+            return result.candidates[0].content.parts[0].text;
           } else {
             throw new Error('Unexpected response format');
           }
-          
-        } catch (error) {
-          console.error('Saathi Error:', error);
-          
-          // Return helpful fallback message
-          return 'Maafi chahta hoon — abhi server se connect nahi ho pa raha. Seedha WhatsApp par poochein: 9835102324 — hum turant jawab denge!';
+        } catch(err) {
+          console.error('API Failed:', err);
+          throw err;
         }
       }
 
+      function prepareTextForSpeech(text) {
+        if (!text) return '';
+        
+        // Fix phone numbers — read digit by digit
+        // 9835102324 becomes 
+        // "नौ आठ तीन पाँच एक शून्य दो तीन दो चार"
+        var hindiDigits = {
+          '0': 'शून्य',
+          '1': 'एक',
+          '2': 'दो', 
+          '3': 'तीन',
+          '4': 'चार',
+          '5': 'पाँच',
+          '6': 'छह',
+          '7': 'सात',
+          '8': 'आठ',
+          '9': 'नौ'
+        };
+        
+        // Replace phone numbers (10 digit)
+        text = text.replace(
+          /\b(\d{10})\b/g, 
+          function(match) {
+            return match.split('').map(function(d) {
+              return hindiDigits[d] || d;
+            }).join(' ');
+          }
+        );
+        
+        // Replace any remaining long numbers
+        text = text.replace(
+          /\b(\d{5,})\b/g,
+          function(match) {
+            return match.split('').map(function(d) {
+              return hindiDigits[d] || d;
+            }).join(' ');
+          }
+        );
+        
+        // Fix common abbreviations for speech
+        text = text.replace(/LPC/g, 'एल पी सी');
+        text = text.replace(/KCC/g, 'के सी सी');
+        text = text.replace(/MVR/g, 'एम वी आर');
+        text = text.replace(/PM/g, 'प्रधानमंत्री');
+        text = text.replace(/BJP/g, 'बीजेपी');
+        
+        // Remove URLs — don't read them
+        text = text.replace(
+          /https?:\/\/[^\s]+/g,
+          'portal par jayein');
+        
+        // Remove markdown formatting
+        text = text.replace(/\*\*/g, '');
+        text = text.replace(/\*/g, '');
+        text = text.replace(/#/g, '');
+        text = text.replace(/`/g, '');
+        
+        // Remove emojis for cleaner speech
+        text = text.replace(/[\u{1F300}-\u{1F9FF}]/gu, '');
+        text = text.replace(/[\u{2600}-\u{26FF}]/gu, '');
+        text = text.replace(/[\u{2700}-\u{27BF}]/gu, '');
+        
+        // Fix WhatsApp number specifically
+        text = text.replace(
+          /9835102324/g,
+          'नौ आठ तीन पाँच एक शून्य दो तीन दो चार');
+        
+        // Add natural pauses
+        text = text.replace(/\. /g, '. ');
+        text = text.replace(/। /g, '। ');
+        
+        return text.trim();
+      }
+
       function saathiSpeak(text, lang) {
+        if (!('speechSynthesis' in window)) return;
+        
         // Stop any current speech
         window.speechSynthesis.cancel();
         
-        // Clean text for speech
-        // Remove emojis and special chars
-        var cleanText = text
-          .replace(/[🤝✅❌🔊📱💬🙏]/g, '')
-          .replace(/\*\*/g, '')
-          .replace(/#{1,6}/g, '')
-          .trim();
+        // ALWAYS call prepareTextForSpeech first
+        var cleanText = prepareTextForSpeech(text);
         
         var utterance = new SpeechSynthesisUtterance(cleanText);
         
@@ -818,18 +911,20 @@ User question: ${userMessage}`;
           var voices = window.speechSynthesis.getVoices();
           
           // Priority: Hindi India voice
-          var preferred = voices.find(v => 
-            v.lang === 'hi-IN' && 
-            v.name.includes('Google'));
+          var preferred = voices.find(function(v) { 
+            return v.lang === 'hi-IN' && v.name.includes('Google');
+          });
           
           if (!preferred) {
-            preferred = voices.find(v => 
-              v.lang === 'hi-IN');
+            preferred = voices.find(function(v) { 
+              return v.lang === 'hi-IN';
+            });
           }
           
           if (!preferred) {
-            preferred = voices.find(v => 
-              v.lang.startsWith('hi'));
+            preferred = voices.find(function(v) { 
+              return v.lang.startsWith('hi');
+            });
           }
           
           if (preferred) {
@@ -862,12 +957,15 @@ User question: ${userMessage}`;
         };
       }
 
+      function speakText(text, lang) {
+        saathiSpeak(text, lang || currentLang);
+      }
+
       var recognition;
       var isListening = false;
 
       function initRecognition() {
-        var SR = window.SpeechRecognition || 
-                 window.webkitSpeechRecognition;
+        var SR = window.SpeechRecognition || window.webkitSpeechRecognition;
         
         if (!SR) {
           var micBtn = document.getElementById('mic-btn') || document.getElementById('micBtn');
@@ -1021,8 +1119,12 @@ User question: ${userMessage}`;
         updateBotStatus('idle');
       }
 
-      function speakText(text) {
-        saathiSpeak(text, currentLang);
+      function addMessageToChat(role, message) {
+        if (role === 'user') {
+          appendUserMessage(message);
+        } else {
+          appendSaathiMessage(message);
+        }
       }
 
       async function sendMessage(customText) {
@@ -1033,27 +1135,44 @@ User question: ${userMessage}`;
 
         if (inputEl) inputEl.value = '';
 
-        // Step 1: Render User Message
-        appendUserMessage(text);
+        // 1. Add user message to chat
+        addMessageToChat('user', text);
         messageCount++;
 
-        // Step 2: Show "Saathi soch raha hai..." 🤔
+        // 2. Show thinking indicator
         showTyping(true);
         updateBotStatus('thinking');
 
-        // Step 3: Call getSaathiResponse()
-        var replyText = await getSaathiResponse(text, currentLang);
+        // 3. Detect language
+        var lang = currentLang;
 
-        showTyping(false);
+        try {
+          // 4. Get response from Gemini
+          var response = await getSaathiResponse(text, lang);
 
-        // Step 4 & 5: Get text response & Display text in chat bubble
-        appendSaathiMessage(replyText);
+          // 5. Remove thinking indicator
+          showTyping(false);
 
-        // Step 6 & 7: IMMEDIATELY call saathiSpeak(text) -> sets "speaking", on end sets "idle"
-        saathiSpeak(replyText, currentLang);
+          // 6. Add response to chat
+          addMessageToChat('saathi', response);
 
-        if (messageCount % 3 === 0) {
-          showWhatsAppEscalation(text);
+          // 7. AUTO-SPEAK the response
+          updateBotStatus('speaking');
+          speakText(response, lang);
+
+          if (messageCount % 3 === 0) {
+            showWhatsAppEscalation(text);
+          }
+        } catch(error) {
+          console.error('Error in sendMessage flow:', error);
+          showTyping(false);
+
+          var fallbackText = 'Maafi — abhi connection mein thodi dikkat hai. Seedha WhatsApp karein: नौ आठ तीन पाँच एक शून्य दो तीन दो चार';
+          var fallbackHindi = 'माफी — अभी connection में थोड़ी दिक्कत है। Seedha WhatsApp karein: 9835102324 — turant jawab milega!';
+
+          addMessageToChat('saathi', fallbackHindi);
+          speakText(fallbackText, 'hindi');
+          updateBotStatus('idle');
         }
       }
 
@@ -1207,6 +1326,35 @@ User question: ${userMessage}`;
             speechSynthesis.getVoices();
           };
         }
+      });
+
+      // Welcome message on page load
+      window.addEventListener('load', function() {
+        setTimeout(function() {
+          var welcomeText = 
+            'Namaskar! Main Saathi hoon — ' +
+            'aapka Bihar zameen ka dost. ' +
+            'Dakhil Kharij, LPC, Apna Khata, ' +
+            'ya koi bhi zameen ki samasya — ' +
+            'bas poochh lijiye. ' +
+            'Main Hindi, Maithili aur ' +
+            'Bhojpuri mein jawab de sakta hoon.';
+          
+          var welcomeHindi = 
+            'नमस्कार! मैं साथी हूँ — ' +
+            'आपका बिहार जमीन का दोस्त। ' +
+            'दाखिल खारिज, एलपीसी, अपना खाता, ' +
+            'या कोई भी जमीन की समस्या — ' +
+            'बस पूछ लीजिए। ' +
+            'मैं हिंदी, मैथिली और ' +
+            'भोजपुरी में जवाब दे सकता हूँ।';
+          
+          // Add to chat
+          addMessageToChat('saathi', welcomeHindi);
+          
+          // Speak welcome
+          speakText(welcomeText, 'hindi');
+        }, 1000);
       });
     </script>
   </body>
