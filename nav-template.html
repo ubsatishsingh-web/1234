@@ -1,0 +1,426 @@
+<!-- ==================================================================== -->
+<!-- BIGHAWALA.COM REUSABLE NAVIGATION & FOOTER TEMPLATE REFERENCE       -->
+<!-- Reference file containing GA4, Navigation, Footer, and Navigation JS -->
+<!-- WhatsApp: 9835102324 | Saathi Bot: saathi-bot.html                   -->
+<!-- ==================================================================== -->
+
+
+<!-- === GA4 CODE (paste in <head>) === -->
+<!-- Google Analytics 4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Z1T8BNYBTE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-Z1T8BNYBTE', { 'send_page_view': true });
+
+  // Fire engagement event after 5 seconds
+  setTimeout(function() {
+    gtag('event', 'user_engagement', { 'engagement_time_msec': 5000 });
+  }, 5000);
+
+  // Track scroll
+  var scrollFired = false;
+  window.addEventListener('scroll', function() {
+    if (!scrollFired) {
+      scrollFired = true;
+      gtag('event', 'scroll', { 'percent_scrolled': 10 });
+    }
+  }, {passive: true});
+</script>
+
+
+<!-- === NAVIGATION HTML (paste after <body>) === -->
+<!-- STICKY NAVIGATION HEADER -->
+<div class="nav-wrapper">
+  <div class="nav-container">
+    <!-- Logo -->
+    <a href="index.html" class="flex items-center gap-2">
+      <div class="w-10 h-10 rounded-xl bg-emerald-700 text-white font-black text-xl flex items-center justify-center shadow-md">
+        BW
+      </div>
+      <div class="flex flex-col">
+        <span class="nav-logo-name"><span>Bigha</span>Wala.com</span>
+        <span class="text-[10px] font-bold text-emerald-800 tracking-tight">बिहार का #1 जमीन पोर्टल</span>
+      </div>
+    </a>
+
+    <!-- Desktop Menu -->
+    <nav class="hidden lg:flex items-center gap-2 font-semibold text-sm text-slate-700">
+      <a href="index.html" class="px-3 py-1.5 rounded-lg text-emerald-700 font-bold bg-emerald-50">Home</a>
+      <a href="apna-khata-dekhe.html" class="px-3 py-1.5 rounded-lg hover:text-emerald-700 hover:bg-emerald-50/60 transition">अपना खाता</a>
+      <a href="bigha-calculator.html" class="px-3 py-1.5 rounded-lg hover:text-emerald-700 hover:bg-emerald-50/60 transition">बीघा Calculator</a>
+      
+      <!-- Tools Dropdown -->
+      <div class="dropdown-relative">
+        <button class="dropdown-btn" onclick="toggleDropdown('tools-dd')">
+          Tools ⚡ <span class="dropdown-arrow">▼</span>
+        </button>
+        <div class="dropdown-content" id="tools-dd">
+          <a href="bigha-calculator.html">🧮 Bigha Calculator</a>
+          <a href="saathi-bot.html" class="font-bold text-emerald-800 bg-emerald-50">🎙️ साथी Voice Helper</a>
+          <a href="zameen-moolyankan.html">🏡 Zameen Moolyankan</a>
+          <a href="land-cost-calculator.html">💰 Cost Calculator</a>
+          <a href="zameen-comparison.html">⚖️ Zameen Compare</a>
+          <a href="bihar-land-quiz.html">🎯 Bihar Land Quiz</a>
+          <a href="document-checker.html">📄 Document Checker</a>
+        </div>
+      </div>
+
+      <!-- Guides Dropdown -->
+      <div class="dropdown-relative">
+        <button class="dropdown-btn" onclick="toggleDropdown('guides-dd')">
+          Guides 📋 <span class="dropdown-arrow">▼</span>
+        </button>
+        <div class="dropdown-content" id="guides-dd">
+          <a href="dakhil-kharij.html">📋 Dakhil Kharij Guide</a>
+          <a href="apna-khata-dekhe.html">🗺️ Apna Khata Kaise Dekhen</a>
+          <a href="bhulekh.html">🗺️ Bhulekh Bihar</a>
+          <a href="jamabandi.html">📑 Jamabandi Nakal</a>
+          <a href="lpc-bihar.html">📄 LPC Bihar Certificate</a>
+          <a href="registry-bihar.html">📜 Registry Process Guide</a>
+          <a href="kisan-credit-card-bihar.html">🌾 Kisan Credit Card</a>
+          <a href="pm-awas-yojana-bihar.html">🏠 PM Awas Yojana</a>
+          <a href="bihar-bhumi-portal.html">🏛️ Bihar Bhumi Portal</a>
+        </div>
+      </div>
+
+      <!-- Rates Dropdown -->
+      <div class="dropdown-relative">
+        <button class="dropdown-btn" onclick="toggleDropdown('rates-dd')">
+          Rates 💰 <span class="dropdown-arrow">▼</span>
+        </button>
+        <div class="dropdown-content" id="rates-dd">
+          <a href="land-rates.html">💰 Bihar Land Rates 2026</a>
+          <a href="mvr-rate-bihar.html">📊 MVR Rate Bihar</a>
+          <a href="jamin-ka-rate-bihar.html">🏘️ Jamin Ka Rate</a>
+          <a href="circle-rate-bihar.html">🔢 Circle Rate Bihar</a>
+          <a href="patna-land-rate.html">📍 Patna Land Rate</a>
+          <a href="bihar-all-districts-land-rate.html">🗺️ All 38 Districts</a>
+        </div>
+      </div>
+
+      <a href="community-qa.html" class="px-3 py-1.5 rounded-lg hover:text-emerald-700 hover:bg-emerald-50/60 transition">Community 🤝</a>
+    </nav>
+
+    <!-- Right Header Controls -->
+    <div class="flex items-center gap-2 sm:gap-3">
+      <button onclick="toggleSearchPanel()" class="p-2.5 rounded-xl bg-slate-100 hover:bg-emerald-100 text-slate-700 hover:text-emerald-800 transition flex items-center justify-center" aria-label="Search">
+        🔍
+      </button>
+      
+      <a href="saathi-bot.html" class="hidden sm:inline-flex items-center gap-1.5 bg-amber-500 hover:bg-amber-600 text-slate-950 font-black text-xs px-4 py-2.5 rounded-xl shadow-md transition">
+        🎙️ साथी Voice AI
+      </a>
+
+      <!-- Mobile / Tablet Hamburger Button -->
+      <button class="hamburger-btn lg:hidden" onclick="toggleMobile()" aria-label="Toggle Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </div>
+
+  <!-- SLIDE DOWN SEARCH BAR -->
+  <div id="search-panel" class="bg-white border-t border-slate-200 shadow-xl px-4 py-4">
+    <div class="max-w-3xl mx-auto space-y-3">
+      <div class="relative">
+        <input type="text" id="headerSearchInput" oninput="handleHeaderSearch(this.value)" placeholder="खोजें... जैसे: Dakhil Kharij, Bigha Calculator, Patna Land Rate" class="w-full bg-slate-50 border-2 border-emerald-500 rounded-2xl px-4 py-3 text-slate-900 font-bold text-sm sm:text-base focus:outline-none focus:bg-white pl-10 shadow-inner">
+        <span class="absolute left-3.5 top-3.5 text-slate-400">🔍</span>
+      </div>
+      <!-- Live Results Container -->
+      <div id="headerSearchResults" class="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-lg empty:hidden"></div>
+    </div>
+  </div>
+</div>
+
+<!-- FULL MOBILE MENU OVERLAY -->
+<div class="mobile-menu" id="mobile-menu">
+  <div class="mobile-menu-header">
+    <a href="index.html" class="flex items-center gap-2">
+      <div class="w-9 h-9 rounded-xl bg-emerald-700 text-white font-black text-lg flex items-center justify-center shadow-md">
+        BW
+      </div>
+      <span class="text-lg font-black text-amber-600"><span class="text-emerald-700">Bigha</span>Wala.com</span>
+    </a>
+    <button class="mobile-close-btn" onclick="toggleMobile()" aria-label="Close Menu">✕</button>
+  </div>
+
+  <!-- Quick Search inside Mobile Drawer -->
+  <div class="mb-4">
+    <input type="text" oninput="handleHeaderSearch(this.value); toggleSearchPanelIfClosed();" placeholder="🔍 खोजें... (Dakhil Kharij, Rates)" class="w-full bg-slate-100 border border-slate-200 rounded-xl px-3.5 py-2.5 text-sm font-bold text-slate-800 focus:outline-none focus:border-emerald-600">
+  </div>
+
+  <div class="mobile-section">
+    <div class="mobile-section-title">मुख्य (Main Pages)</div>
+    <a href="index.html" onclick="toggleMobile()">🏠 Home (होम)</a>
+    <a href="apna-khata-dekhe.html" onclick="toggleMobile()">📋 अपना खाता देखें</a>
+    <a href="bigha-calculator.html" onclick="toggleMobile()">🧮 बीघा Calculator</a>
+    <a href="saathi-bot.html" onclick="toggleMobile()">🎙️ साथी Voice Helper AI</a>
+  </div>
+
+  <div class="mobile-section">
+    <div class="mobile-section-title">⚡ Free Tools</div>
+    <a href="bigha-calculator.html" onclick="toggleMobile()">🧮 Bigha Calculator</a>
+    <a href="saathi-bot.html" onclick="toggleMobile()">🎙️ साथी Voice AI</a>
+    <a href="zameen-moolyankan.html" onclick="toggleMobile()">🏡 Zameen Moolyankan</a>
+    <a href="land-cost-calculator.html" onclick="toggleMobile()">💰 Registry Cost Calculator</a>
+    <a href="zameen-comparison.html" onclick="toggleMobile()">⚖️ Zameen Compare</a>
+    <a href="bihar-land-quiz.html" onclick="toggleMobile()">🎯 Bihar Land Quiz</a>
+    <a href="document-checker.html" onclick="toggleMobile()">📄 Document Checker</a>
+  </div>
+
+  <div class="mobile-section">
+    <div class="mobile-section-title">📋 Step-by-Step Guides</div>
+    <a href="dakhil-kharij.html" onclick="toggleMobile()">📋 Dakhil Kharij Complete Guide</a>
+    <a href="apna-khata-dekhe.html" onclick="toggleMobile()">🗺️ Apna Khata Kaise Dekhen</a>
+    <a href="bhulekh.html" onclick="toggleMobile()">🗺️ Bhulekh Bihar Guide</a>
+    <a href="jamabandi.html" onclick="toggleMobile()">📑 Jamabandi Nakal Download</a>
+    <a href="lpc-bihar.html" onclick="toggleMobile()">📄 LPC Bihar Certificate</a>
+    <a href="registry-bihar.html" onclick="toggleMobile()">📜 Registry Process Guide</a>
+    <a href="kisan-credit-card-bihar.html" onclick="toggleMobile()">🌾 Kisan Credit Card (KCC)</a>
+    <a href="pm-awas-yojana-bihar.html" onclick="toggleMobile()">🏠 PM Awas Yojana List</a>
+    <a href="bihar-bhumi-portal.html" onclick="toggleMobile()">🏛️ Bihar Bhumi Portal Guide</a>
+  </div>
+
+  <div class="mobile-section">
+    <div class="mobile-section-title">💰 Land Rates 2026</div>
+    <a href="land-rates.html" onclick="toggleMobile()">💰 Bihar Land Rates 2026</a>
+    <a href="mvr-rate-bihar.html" onclick="toggleMobile()">📊 MVR Rate Bihar</a>
+    <a href="jamin-ka-rate-bihar.html" onclick="toggleMobile()">🏘️ Jamin Ka Rate Check</a>
+    <a href="circle-rate-bihar.html" onclick="toggleMobile()">🔢 Circle Rate Guide</a>
+    <a href="patna-land-rate.html" onclick="toggleMobile()">📍 Patna Land Rate</a>
+    <a href="bihar-all-districts-land-rate.html" onclick="toggleMobile()">🗺️ All 38 Districts Rates</a>
+  </div>
+
+  <div class="mobile-section">
+    <div class="mobile-section-title">Community & News</div>
+    <a href="community-qa.html" onclick="toggleMobile()">🤝 Community Q&A (सवाल-जवाब)</a>
+    <a href="bihar-land-news.html" onclick="toggleMobile()">📰 Bihar Land News</a>
+    <a href="whatsapp-alerts.html" onclick="toggleMobile()">📱 WhatsApp Community</a>
+    <a href="about.html" onclick="toggleMobile()">ℹ️ About BighaWala</a>
+    <a href="contact.html" onclick="toggleMobile()">📞 Contact Us</a>
+  </div>
+
+  <a href="saathi-bot.html" onclick="toggleMobile()" class="block w-full bg-emerald-700 hover:bg-emerald-800 text-white text-center font-black py-3.5 rounded-2xl shadow-lg mt-4 text-base">
+    🎙️ साथी से बात करें (Voice AI)
+  </a>
+</div>
+
+
+<!-- === FOOTER HTML (paste before </body>) === -->
+<footer class="bg-slate-950 text-slate-300 pt-12 pb-24 border-t-4 border-emerald-600">
+  <div class="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8">
+    <div class="space-y-3">
+      <div class="flex items-center gap-2">
+        <div class="w-8 h-8 rounded-lg bg-emerald-700 text-white font-black text-lg flex items-center justify-center shadow-md">
+          BW
+        </div>
+        <span class="text-xl font-black text-white">Bigha<span class="text-emerald-400">Wala</span>.com</span>
+      </div>
+      <p class="text-xs text-slate-400 font-semibold leading-relaxed">
+        बिहार का #1 मुफ्त जमीन सूचना एवं कैलकुलेटर पोर्टल। 38 जिलों की भूमि दरें, दाखिल खारिज, अपना खाता, बीघा रूपांतरण एवं साथी वॉइस AI सहायता।
+      </p>
+      <a href="https://wa.me/919835102324" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-emerald-800 hover:bg-emerald-700 text-white font-bold text-xs px-3 py-2 rounded-xl border border-emerald-600 transition">
+        📱 Helpline: 9835102324
+      </a>
+    </div>
+
+    <div class="space-y-2">
+      <p class="font-extrabold text-white text-sm uppercase tracking-wider">Quick Tools</p>
+      <ul class="space-y-1.5 font-semibold text-slate-400 text-xs sm:text-sm">
+        <li><a href="bigha-calculator.html" class="hover:text-emerald-400">Bigha Calculator</a></li>
+        <li><a href="saathi-bot.html" class="hover:text-emerald-400 font-bold text-emerald-400">🎙️ साथी Voice AI</a></li>
+        <li><a href="zameen-moolyankan.html" class="hover:text-emerald-400">Zameen Moolyankan</a></li>
+        <li><a href="land-cost-calculator.html" class="hover:text-emerald-400">Registry Cost Calculator</a></li>
+        <li><a href="zameen-comparison.html" class="hover:text-emerald-400">Zameen Compare</a></li>
+        <li><a href="bihar-land-quiz.html" class="hover:text-emerald-400">Land Quiz</a></li>
+        <li><a href="document-checker.html" class="hover:text-emerald-400">Document Checker</a></li>
+      </ul>
+    </div>
+
+    <div class="space-y-2">
+      <p class="font-extrabold text-white text-sm uppercase tracking-wider">Step Guides</p>
+      <ul class="space-y-1.5 font-semibold text-slate-400 text-xs sm:text-sm">
+        <li><a href="apna-khata-dekhe.html" class="hover:text-emerald-400">Apna Khata Dekhe</a></li>
+        <li><a href="dakhil-kharij.html" class="hover:text-emerald-400">Dakhil Kharij Guide</a></li>
+        <li><a href="lpc-bihar.html" class="hover:text-emerald-400">LPC Bihar</a></li>
+        <li><a href="jamabandi.html" class="hover:text-emerald-400">Jamabandi Nakal</a></li>
+        <li><a href="registry-bihar.html" class="hover:text-emerald-400">Registry Guide</a></li>
+        <li><a href="bihar-bhumi-portal.html" class="hover:text-emerald-400">Bihar Bhumi Portal</a></li>
+        <li><a href="land-rates.html" class="hover:text-emerald-400">Land Rates 2026</a></li>
+      </ul>
+    </div>
+
+    <div class="space-y-2">
+      <p class="font-extrabold text-white text-sm uppercase tracking-wider">Top Districts</p>
+      <div class="flex flex-wrap gap-1.5 font-semibold text-slate-400 text-xs sm:text-sm">
+        <a href="patna-land-rate.html" class="hover:text-emerald-400">Patna</a> |
+        <a href="gaya-land-rate.html" class="hover:text-emerald-400">Gaya</a> |
+        <a href="muzaffarpur-land-rate.html" class="hover:text-emerald-400">Muzaffarpur</a> |
+        <a href="darbhanga-land-rate.html" class="hover:text-emerald-400">Darbhanga</a> |
+        <a href="bhagalpur-land-rate.html" class="hover:text-emerald-400">Bhagalpur</a> |
+        <a href="nalanda-land-rate.html" class="hover:text-emerald-400">Nalanda</a>
+      </div>
+      <a href="bihar-all-districts-land-rate.html" class="text-amber-400 font-bold block pt-2 text-xs sm:text-sm">All 38 Districts →</a>
+    </div>
+  </div>
+
+  <div class="max-w-6xl mx-auto px-4 pt-8 mt-8 border-t border-slate-900 text-center text-slate-500 font-bold text-xs sm:text-sm space-x-4">
+    <span>© 2026 BighaWala.com</span>
+    <a href="disclaimer.html" class="hover:underline">Disclaimer</a>
+    <a href="privacy-policy/index.html" class="hover:underline">Privacy Policy</a>
+    <a href="about.html" class="hover:underline">About Us</a>
+    <a href="contact.html" class="hover:underline">Contact</a>
+  </div>
+</footer>
+
+<!-- FLOATING BUTTONS -->
+<a href="https://wa.me/919835102324" target="_blank" rel="noopener noreferrer" class="float-btn float-wa" aria-label="WhatsApp">📱</a>
+<a href="saathi-bot.html" class="float-btn float-ai" aria-label="साथी से बात करें" title="साथी से बात करें">🎙️</a>
+
+<!-- STICKY MOBILE BOTTOM BAR -->
+<div class="mob-bar">
+  <a href="index.html">
+    <span class="mi">🏠</span>Home
+  </a>
+  <a href="bigha-calculator.html">
+    <span class="mi">🧮</span>Calculator
+  </a>
+  <a href="apna-khata-dekhe.html">
+    <span class="mi">📋</span>Khata
+  </a>
+  <a href="saathi-bot.html">
+    <span class="mi">🎙️</span>साथी
+  </a>
+  <a href="community-qa.html">
+    <span class="mi">🤝</span>Community
+  </a>
+</div>
+
+
+<!-- === NAVIGATION JAVASCRIPT (paste before </footer>) === -->
+<script>
+  // 1. External Links target setup
+  document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('a[href]').forEach(function(a) {
+      var h = a.href || '';
+      var ext = ['bihar.gov.in','nic.in','bhulagan','emapi','nibandhan','pmayg','bankbazaar','wa.me','sbi.co.in','pmaymis'];
+      var isExt = ext.some(function(d) { return h.includes(d); });
+      var isInt = h.includes('bighawala.com') || h.startsWith('/') || h.endsWith('.html') || h.startsWith('#') || h.startsWith('tel:') || h.startsWith('mailto:');
+
+      if (isExt && !isInt) {
+        a.target = '_blank';
+        a.rel = 'noopener noreferrer';
+      } else if (isInt) {
+        a.target = '_self';
+      }
+    });
+  });
+
+  // 2. Header Search Panel Toggle
+  function toggleSearchPanel() {
+    var p = document.getElementById('search-panel');
+    if (!p) return;
+    p.classList.toggle('open');
+    if (p.classList.contains('open')) {
+      var input = document.getElementById('headerSearchInput');
+      if (input) input.focus();
+    }
+  }
+
+  // 3. Search Data & Logic
+  var searchData = [
+    {t:'Bigha Calculator', d:'Bigha, Katha, Dhur convert', u:'bigha-calculator.html', k:'bigha katha calculator beegh'},
+    {t:'Saathi Voice AI', d:'Voice assistant for land issues', u:'saathi-bot.html', k:'saathi voice bot ai assistant saathi-bot'},
+    {t:'Apna Khata Dekhe', d:'Apna khata online dekhen', u:'apna-khata-dekhe.html', k:'apna khata khatiyan khesra'},
+    {t:'Dakhil Kharij', d:'Mutation guide Bihar', u:'dakhil-kharij.html', k:'dakhil kharij mutation dakhal'},
+    {t:'LPC Bihar', d:'Land Possession Certificate', u:'lpc-bihar.html', k:'lpc land possession certificate'},
+    {t:'Jamabandi', d:'Jamabandi nakal download', u:'jamabandi.html', k:'jamabandi nakal panjee'},
+    {t:'Bhulekh Bihar', d:'Bhulekh guide', u:'bhulekh.html', k:'bhulekh bhu lekh'},
+    {t:'Registry Guide', d:'Zameen registry kaise karein', u:'registry-bihar.html', k:'registry stamp duty nibandhan'},
+    {t:'Land Rates Bihar', d:'38 districts land rates', u:'land-rates.html', k:'zameen rate kimat bhav'},
+    {t:'MVR Rate Bihar', d:'Sarkari MVR rate', u:'mvr-rate-bihar.html', k:'mvr minimum valuation rate'},
+    {t:'Circle Rate Bihar', d:'Circle rate guide', u:'circle-rate-bihar.html', k:'circle rate sarkari'},
+    {t:'Zameen Moolyankan', d:'Property valuation tool', u:'zameen-moolyankan.html', k:'moolyankan valuation kimat'},
+    {t:'Cost Calculator', d:'Registry cost calculator', u:'land-cost-calculator.html', k:'cost kharcha stamp duty'},
+    {t:'Zameen Compare', d:'Compare two plots', u:'zameen-comparison.html', k:'compare comparison'},
+    {t:'Bihar Land Quiz', d:'Test your knowledge', u:'bihar-land-quiz.html', k:'quiz test'},
+    {t:'Document Checker', d:'AI document checker', u:'document-checker.html', k:'document kagaz checker'},
+    {t:'Community Q&A', d:'Ask questions', u:'community-qa.html', k:'community sawaal jawab'},
+    {t:'Bihar Land News', d:'Latest land news', u:'bihar-land-news.html', k:'news samachar update'},
+    {t:'Patna Land Rate', d:'Patna zameen rate', u:'patna-land-rate.html', k:'patna land rate zameen'},
+    {t:'Gaya Land Rate', d:'Gaya zameen rate', u:'gaya-land-rate.html', k:'gaya land rate'},
+    {t:'Muzaffarpur Land Rate', d:'Muzaffarpur zameen rate', u:'muzaffarpur-land-rate.html', k:'muzaffarpur land rate'}
+  ];
+
+  function doSearch(query) {
+    if (!query || query.trim().length < 2) return [];
+    var q = query.toLowerCase().trim();
+    return searchData.filter(function(item) {
+      return item.t.toLowerCase().includes(q) || item.d.toLowerCase().includes(q) || item.k.toLowerCase().includes(q);
+    }).slice(0, 5);
+  }
+
+  function renderSearchResults(results, containerEl) {
+    if (!containerEl) return;
+    if (results.length === 0) {
+      containerEl.innerHTML = '<div class="p-3 text-xs text-slate-500 font-bold">❌ Koi result nahi mila. <a href="https://wa.me/919835102324" target="_blank" class="text-emerald-700 underline">WhatsApp par poochein →</a></div>';
+      return;
+    }
+    containerEl.innerHTML = results.map(function(r) {
+      return '<a href="' + r.u + '" class="flex items-center gap-3 p-3 hover:bg-emerald-50 border-b border-slate-100 transition text-slate-800 text-xs sm:text-sm font-bold">' +
+        '<span class="text-base">🔍</span>' +
+        '<div><div>' + r.t + '</div><div class="text-[11px] text-slate-500 font-semibold">' + r.d + '</div></div>' +
+        '</a>';
+    }).join('');
+  }
+
+  function handleHeaderSearch(v) {
+    var results = doSearch(v);
+    renderSearchResults(results, document.getElementById('headerSearchResults'));
+  }
+
+  // 4. Navigation Dropdowns Logic
+  function toggleDropdown(id) {
+    var dd = document.getElementById(id);
+    if (!dd) return;
+    var allDDs = document.querySelectorAll('.dropdown-content');
+    var allBtns = document.querySelectorAll('.dropdown-btn');
+    var isOpen = dd.classList.contains('show');
+
+    allDDs.forEach(function(d) { d.classList.remove('show'); });
+    allBtns.forEach(function(b) { b.classList.remove('open'); });
+
+    if (!isOpen) {
+      dd.classList.add('show');
+      if (dd.previousElementSibling) {
+        dd.previousElementSibling.classList.add('open');
+      }
+    }
+  }
+
+  // 5. Mobile Menu Drawer Toggle
+  function toggleMobile() {
+    var menu = document.getElementById('mobile-menu');
+    if (!menu) return;
+    menu.classList.toggle('open');
+    document.body.style.overflow = menu.classList.contains('open') ? 'hidden' : '';
+  }
+
+  function toggleSearchPanelIfClosed() {
+    var p = document.getElementById('search-panel');
+    if (p && !p.classList.contains('open')) {
+      p.classList.add('open');
+    }
+  }
+
+  // Close dropdowns on outside click
+  document.addEventListener('click', function(e) {
+    if (!e.target.closest('.dropdown-btn') && !e.target.closest('.dropdown-content')) {
+      document.querySelectorAll('.dropdown-content').forEach(function(d) { d.classList.remove('show'); });
+      document.querySelectorAll('.dropdown-btn').forEach(function(b) { b.classList.remove('open'); });
+    }
+  });
+</script>
