@@ -394,162 +394,59 @@ app.get(["/privacy-policy", "/privacy-policy/", "/privacy-policy/index.html"], (
   }
 });
 
-// Helper to serve HTML files correctly in both Dev and Prod
+// Dynamic router helper to serve any HTML file correctly
 function serveHtmlPage(req: express.Request, res: express.Response, fileName: string) {
-  const prodPath = path.join(process.cwd(), "dist", fileName);
-  const devPath = path.join(process.cwd(), fileName);
-  if (process.env.NODE_ENV === "production") {
-    if (fs.existsSync(prodPath)) {
-      res.sendFile(prodPath);
-    } else if (fs.existsSync(devPath)) {
-      res.sendFile(devPath);
-    } else {
-      res.status(404).send("Page not found / पेज नहीं मिला");
+  const cleanName = fileName.replace(/^\//, "");
+  const candidates = [
+    path.join(process.cwd(), cleanName),
+    path.join(process.cwd(), "dist", cleanName),
+    path.join(process.cwd(), "public", cleanName),
+    path.join(process.cwd(), "public", cleanName.replace(/\.html$/, ""), "index.html"),
+  ];
+
+  for (const candidate of candidates) {
+    if (fs.existsSync(candidate) && fs.statSync(candidate).isFile()) {
+      return res.sendFile(candidate);
     }
-  } else {
-    res.sendFile(devPath);
   }
+  return res.status(404).send("Page not found / पेज नहीं मिला");
 }
 
-// Explicitly serve SEO-friendly static tool and guide pages directly from the workspace root or dist
-app.get(["/", "/index", "/index.html"], (req, res) => {
-  serveHtmlPage(req, res, "index.html");
-});
+// Global Dynamic Route Handler for all static HTML pages and tools
+app.use((req, res, next) => {
+  if (req.method !== "GET") return next();
 
-app.get(["/bigha-calculator", "/bigha-calculator/", "/bigha-calculator.html"], (req, res) => {
-  serveHtmlPage(req, res, "bigha-calculator.html");
-});
+  // Pass API requests and static assets to next handlers
+  if (req.path.startsWith("/api") || /\.(js|css|png|jpg|jpeg|svg|json|ico|woff|woff2|ttf|map|xml|txt)$/i.test(req.path)) {
+    return next();
+  }
 
-app.get(["/bihar-bhumi-portal", "/bihar-bhumi-portal/", "/bihar-bhumi-portal.html"], (req, res) => {
-  serveHtmlPage(req, res, "bihar-bhumi-portal.html");
-});
+  let rawPath = req.path.replace(/^\//, "").trim();
+  if (!rawPath) rawPath = "index.html";
 
-app.get(["/zameen-moolyankan", "/zameen-moolyankan/", "/zameen-moolyankan.html"], (req, res) => {
-  serveHtmlPage(req, res, "zameen-moolyankan.html");
-});
+  // Route alias mappings
+  if (rawPath === "land-rate-patna" || rawPath === "land-rate-patna.html") {
+    rawPath = "patna-land-rate.html";
+  }
 
-app.get(["/bihar-land-quiz", "/bihar-land-quiz/", "/bihar-land-quiz.html"], (req, res) => {
-  serveHtmlPage(req, res, "bihar-land-quiz.html");
-});
+  const htmlName = rawPath.endsWith(".html") ? rawPath : `${rawPath}.html`;
+  const cleanName = rawPath.replace(/\.html$/, "");
 
-app.get(["/dakhil-kharij", "/dakhil-kharij/", "/dakhil-kharij.html", "/dakhil-kharij-bihar", "/dakhil-kharij-bihar/"], (req, res) => {
-  serveHtmlPage(req, res, "dakhil-kharij.html");
-});
+  const candidates = [
+    path.join(process.cwd(), htmlName),
+    path.join(process.cwd(), "dist", htmlName),
+    path.join(process.cwd(), "public", htmlName),
+    path.join(process.cwd(), "public", cleanName, "index.html"),
+    path.join(process.cwd(), rawPath),
+  ];
 
-app.get(["/land-rate-patna", "/land-rate-patna/", "/land-rate-patna.html"], (req, res) => {
-  serveHtmlPage(req, res, "land-rate-patna.html");
-});
+  for (const candidate of candidates) {
+    if (fs.existsSync(candidate) && fs.statSync(candidate).isFile()) {
+      return res.sendFile(candidate);
+    }
+  }
 
-app.get(["/rohtas-land-rate", "/rohtas-land-rate/", "/rohtas-land-rate.html"], (req, res) => {
-  serveHtmlPage(req, res, "rohtas-land-rate.html");
-});
-
-app.get(["/kaimur-land-rate", "/kaimur-land-rate/", "/kaimur-land-rate.html"], (req, res) => {
-  serveHtmlPage(req, res, "kaimur-land-rate.html");
-});
-
-app.get(["/aurangabad-land-rate", "/aurangabad-land-rate/", "/aurangabad-land-rate.html"], (req, res) => {
-  serveHtmlPage(req, res, "aurangabad-land-rate.html");
-});
-
-app.get(["/nawada-land-rate", "/nawada-land-rate/", "/nawada-land-rate.html"], (req, res) => {
-  serveHtmlPage(req, res, "nawada-land-rate.html");
-});
-
-app.get(["/jehanabad-land-rate", "/jehanabad-land-rate/", "/jehanabad-land-rate.html"], (req, res) => {
-  serveHtmlPage(req, res, "jehanabad-land-rate.html");
-});
-
-app.get(["/arwal-land-rate", "/arwal-land-rate/", "/arwal-land-rate.html"], (req, res) => {
-  serveHtmlPage(req, res, "arwal-land-rate.html");
-});
-
-app.get(["/sheikhpura-land-rate", "/sheikhpura-land-rate/", "/sheikhpura-land-rate.html"], (req, res) => {
-  serveHtmlPage(req, res, "sheikhpura-land-rate.html");
-});
-
-app.get(["/lakhisarai-land-rate", "/lakhisarai-land-rate/", "/lakhisarai-land-rate.html"], (req, res) => {
-  serveHtmlPage(req, res, "lakhisarai-land-rate.html");
-});
-
-app.get(["/jamui-land-rate", "/jamui-land-rate/", "/jamui-land-rate.html"], (req, res) => {
-  serveHtmlPage(req, res, "jamui-land-rate.html");
-});
-
-app.get(["/banka-land-rate", "/banka-land-rate/", "/banka-land-rate.html"], (req, res) => {
-  serveHtmlPage(req, res, "banka-land-rate.html");
-});
-
-app.get(["/land-rates", "/land-rates/", "/land-rates.html"], (req, res) => {
-  serveHtmlPage(req, res, "land-rates.html");
-});
-
-app.get(["/circle-rate-bihar", "/circle-rate-bihar/", "/circle-rate-bihar.html"], (req, res) => {
-  serveHtmlPage(req, res, "circle-rate-bihar.html");
-});
-
-app.get(["/mvr-rate-bihar", "/mvr-rate-bihar/", "/mvr-rate-bihar.html"], (req, res) => {
-  serveHtmlPage(req, res, "mvr-rate-bihar.html");
-});
-
-app.get(["/kisan-credit-card-bihar", "/kisan-credit-card-bihar/", "/kisan-credit-card-bihar.html"], (req, res) => {
-  serveHtmlPage(req, res, "kisan-credit-card-bihar.html");
-});
-
-app.get(["/pm-awas-yojana-bihar", "/pm-awas-yojana-bihar/", "/pm-awas-yojana-bihar.html"], (req, res) => {
-  serveHtmlPage(req, res, "pm-awas-yojana-bihar.html");
-});
-
-app.get(["/jamin-ka-rate-bihar", "/jamin-ka-rate-bihar/", "/jamin-ka-rate-bihar.html"], (req, res) => {
-  serveHtmlPage(req, res, "jamin-ka-rate-bihar.html");
-});
-
-app.get(["/apna-khata-dekhe", "/apna-khata-dekhe/", "/apna-khata-dekhe.html"], (req, res) => {
-  serveHtmlPage(req, res, "apna-khata-dekhe.html");
-});
-
-app.get(["/bhulekh", "/bhulekh/", "/bhulekh.html", "/bhulekh-bihar", "/bhulekh-bihar/"], (req, res) => {
-  serveHtmlPage(req, res, "bhulekh.html");
-});
-
-app.get(["/lpc-bihar", "/lpc-bihar/", "/lpc-bihar.html"], (req, res) => {
-  serveHtmlPage(req, res, "lpc-bihar.html");
-});
-
-app.get(["/land-cost-calculator", "/land-cost-calculator/", "/land-cost-calculator.html"], (req, res) => {
-  serveHtmlPage(req, res, "land-cost-calculator.html");
-});
-
-app.get(["/community-qa", "/community-qa/", "/community-qa.html"], (req, res) => {
-  serveHtmlPage(req, res, "community-qa.html");
-});
-
-app.get(["/ask-expert", "/ask-expert/", "/ask-expert.html"], (req, res) => {
-  serveHtmlPage(req, res, "ask-expert.html");
-});
-
-app.get(["/document-explainer", "/document-explainer/", "/document-explainer.html"], (req, res) => {
-  serveHtmlPage(req, res, "document-explainer.html");
-});
-
-app.get(["/setup-guide", "/setup-guide/", "/setup-guide.html"], (req, res) => {
-  serveHtmlPage(req, res, "setup-guide.html");
-});
-
-app.get(["/contact", "/contact/", "/contact.html"], (req, res) => {
-  serveHtmlPage(req, res, "contact.html");
-});
-
-app.get(["/jamabandi", "/jamabandi/", "/jamabandi.html"], (req, res) => {
-  serveHtmlPage(req, res, "jamabandi.html");
-});
-
-app.get(["/registry-bihar", "/registry-bihar/", "/registry-bihar.html"], (req, res) => {
-  serveHtmlPage(req, res, "registry-bihar.html");
-});
-
-app.get(["/about", "/about/", "/about.html"], (req, res) => {
-  serveHtmlPage(req, res, "about.html");
+  next();
 });
 
 // Serve Frontend App

@@ -1,9 +1,19 @@
 import tailwindcss from '@tailwindcss/vite';
 import react from '@vitejs/plugin-react';
 import path from 'path';
+import fs from 'fs';
 import {defineConfig} from 'vite';
 
 export default defineConfig(() => {
+  // Dynamically discover all .html files in root directory so none are missed during build
+  const rootFiles = fs.readdirSync(__dirname).filter(file => file.endsWith('.html'));
+  const inputEntries: Record<string, string> = {};
+  
+  rootFiles.forEach(file => {
+    const key = file.replace(/\.html$/, '').replace(/[^a-zA-Z0-9]/g, '_');
+    inputEntries[key] = path.resolve(__dirname, file);
+  });
+
   return {
     plugins: [react(), tailwindcss()],
     resolve: {
@@ -13,47 +23,12 @@ export default defineConfig(() => {
     },
     build: {
       rollupOptions: {
-        input: {
-          main: path.resolve(__dirname, 'index.html'),
-          bighaCalculator: path.resolve(__dirname, 'bigha-calculator.html'),
-          dakhilKharij: path.resolve(__dirname, 'dakhil-kharij.html'),
-          landRatePatna: path.resolve(__dirname, 'land-rate-patna.html'),
-          landRates: path.resolve(__dirname, 'land-rates.html'),
-          bhulekh: path.resolve(__dirname, 'bhulekh.html'),
-          lpcBihar: path.resolve(__dirname, 'lpc-bihar.html'),
-          askExpert: path.resolve(__dirname, 'ask-expert.html'),
-          documentExplainer: path.resolve(__dirname, 'document-explainer.html'),
-          setupGuide: path.resolve(__dirname, 'setup-guide.html'),
-          contact: path.resolve(__dirname, 'contact.html'),
-          jamabandi: path.resolve(__dirname, 'jamabandi.html'),
-          registryBihar: path.resolve(__dirname, 'registry-bihar.html'),
-          about: path.resolve(__dirname, 'about.html'),
-          circleRateBihar: path.resolve(__dirname, 'circle-rate-bihar.html'),
-          mvrRateBihar: path.resolve(__dirname, 'mvr-rate-bihar.html'),
-          kisanCreditCardBihar: path.resolve(__dirname, 'kisan-credit-card-bihar.html'),
-          pmAwasYojanaBihar: path.resolve(__dirname, 'pm-awas-yojana-bihar.html'),
-          jaminKaRateBihar: path.resolve(__dirname, 'jamin-ka-rate-bihar.html'),
-          apnaKhataDekhe: path.resolve(__dirname, 'apna-khata-dekhe.html'),
-          zameenMoolyankan: path.resolve(__dirname, 'zameen-moolyankan.html'),
-          biharLandQuiz: path.resolve(__dirname, 'bihar-land-quiz.html'),
-          landCostCalculator: path.resolve(__dirname, 'land-cost-calculator.html'),
-          communityQa: path.resolve(__dirname, 'community-qa.html'),
-          rohtasLandRate: path.resolve(__dirname, 'rohtas-land-rate.html'),
-          kaimurLandRate: path.resolve(__dirname, 'kaimur-land-rate.html'),
-          aurangabadLandRate: path.resolve(__dirname, 'aurangabad-land-rate.html'),
-          nawadaLandRate: path.resolve(__dirname, 'nawada-land-rate.html'),
-          jehanabadLandRate: path.resolve(__dirname, 'jehanabad-land-rate.html'),
-          arwalLandRate: path.resolve(__dirname, 'arwal-land-rate.html'),
-          sheikhpuraLandRate: path.resolve(__dirname, 'sheikhpura-land-rate.html'),
-          lakhisaraiLandRate: path.resolve(__dirname, 'lakhisarai-land-rate.html'),
-          jamuiLandRate: path.resolve(__dirname, 'jamui-land-rate.html'),
-          bankaLandRate: path.resolve(__dirname, 'banka-land-rate.html'),
-        }
-      }
+        input: inputEntries,
+      },
     },
     server: {
       // HMR is disabled in AI Studio via DISABLE_HMR env var.
-      // Do not modifyâfile watching is disabled to prevent flickering during agent edits.
+      // Do not modify—file watching is disabled to prevent flickering during agent edits.
       hmr: process.env.DISABLE_HMR !== 'true',
       // Disable file watching when DISABLE_HMR is true to save CPU during agent edits.
       watch: process.env.DISABLE_HMR === 'true' ? null : {},
