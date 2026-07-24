@@ -604,15 +604,300 @@ document.addEventListener('DOMContentLoaded', function() {
     <!-- MAIN GRID CONTAINER -->
     <main class="max-w-4xl mx-auto px-4 -mt-8 sm:-mt-10 mb-16 relative z-20 space-y-10 w-full text-[16px]">
 
-      <!-- SECTION 1 — HERO SUB-HEADING (Text link instead of prominent button) -->
-      <section class="bg-amber-50 rounded-2xl border border-amber-200 p-4 text-center space-y-1">
-        <p class="text-sm sm:text-base text-amber-950 font-extrabold">
-          नीचे Step by Step Guide पढ़ें — फिर Official Portal खोलें।
-        </p>
-        <p class="text-xs text-slate-500 font-bold">
-          सीधे सरकारी पोर्टल पर जाना चाहते हैं? 
-          <a href="#official-portal-section" class="text-emerald-700 underline font-extrabold hover:text-emerald-800">यहाँ click करें ➜</a>
-        </p>
+      <!-- FIX 1 — INSTANT QUIZ AT VERY TOP -->
+      <section class="bg-white rounded-3xl border-2 border-emerald-500 p-5 sm:p-7 shadow-xl space-y-4">
+        <div class="text-center space-y-1">
+          <span class="inline-block bg-emerald-700 text-white text-xs font-black uppercase tracking-wider px-3.5 py-1 rounded-full shadow-xs">
+            ⚡ Quick Help Guide
+          </span>
+          <h2 class="text-xl sm:text-2xl font-black text-slate-900">
+            Aap kya dhundh rahe hain?
+          </h2>
+          <p class="text-xs sm:text-sm text-slate-600 font-bold">
+            नीचे अपने काम पर क्लिक करें — तुरंत सटीक Step-by-Step गाइड पाएं:
+          </p>
+        </div>
+
+        <!-- 4 Option Buttons -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 pt-2">
+          <button onclick="selectBhulekhOption('khata', this)" class="bhulekh-quiz-btn p-4 rounded-2xl bg-emerald-50 border-2 border-emerald-500 text-slate-900 text-xs sm:text-sm font-black shadow-xs hover:shadow transition-all flex flex-col justify-between h-28 text-left cursor-pointer group">
+            <span class="text-2xl group-hover:scale-110 transition-transform">📋</span>
+            <span>Apna Khata/Khatyan Dekhna Hai</span>
+          </button>
+
+          <button onclick="selectBhulekhOption('dakhil', this)" class="bhulekh-quiz-btn p-4 rounded-2xl bg-slate-50 border-2 border-slate-200 text-slate-800 text-xs sm:text-sm font-bold hover:bg-emerald-50 hover:border-emerald-300 shadow-xs hover:shadow transition-all flex flex-col justify-between h-28 text-left cursor-pointer group">
+            <span class="text-2xl group-hover:scale-110 transition-transform">🔄</span>
+            <span>Dakhil Kharij Status Check</span>
+          </button>
+
+          <button onclick="selectBhulekhOption('jamabandi', this)" class="bhulekh-quiz-btn p-4 rounded-2xl bg-slate-50 border-2 border-slate-200 text-slate-800 text-xs sm:text-sm font-bold hover:bg-emerald-50 hover:border-emerald-300 shadow-xs hover:shadow transition-all flex flex-col justify-between h-28 text-left cursor-pointer group">
+            <span class="text-2xl group-hover:scale-110 transition-transform">📄</span>
+            <span>Jamabandi Download Karni Hai</span>
+          </button>
+
+          <button onclick="selectBhulekhOption('lpc', this)" class="bhulekh-quiz-btn p-4 rounded-2xl bg-slate-50 border-2 border-slate-200 text-slate-800 text-xs sm:text-sm font-bold hover:bg-emerald-50 hover:border-emerald-300 shadow-xs hover:shadow transition-all flex flex-col justify-between h-28 text-left cursor-pointer group">
+            <span class="text-2xl group-hover:scale-110 transition-transform">✅</span>
+            <span>LPC Status Check Karni Hai</span>
+          </button>
+        </div>
+
+        <!-- Dynamic Guide Box -->
+        <div id="bhulekhOptionGuide" class="bg-emerald-50/90 border-2 border-emerald-300 rounded-2xl p-5 text-slate-900 text-xs sm:text-sm font-medium space-y-3 shadow-inner">
+          <div class="font-black text-sm sm:text-base text-emerald-950 flex items-center gap-2">
+            <span>📋</span> <span id="bhulekhOptionTitle">Apna Khata / Khatyan Dekhne ki Step-by-Step Guide:</span>
+          </div>
+          <div id="bhulekhOptionSteps" class="space-y-2 leading-relaxed text-slate-800">
+            <p><strong>Step 1:</strong> नीचे दिए गए हरे बटन <strong>"Khatyan Portal Kholen"</strong> (land.bihar.gov.in) पर क्लिक करें।</p>
+            <p><strong>Step 2:</strong> बिहार के नक्शे पर अपना <strong>जिला (District)</strong> चुनें, फिर अपना <strong>अंचल (Block)</strong> चुनें।</p>
+            <p><strong>Step 3:</strong> अपना <strong>मौजा (Village)</strong> चुनें और खाता नंबर, खेसरा नंबर या खातेदार के नाम से सर्च करें।</p>
+            <p><strong>Step 4:</strong> <strong>"खाता देखें"</strong> पर क्लिक करें — आपका ऑनलाइन खतियान और अधिकार अभिलेख स्क्रीन पर खुल जाएगा।</p>
+          </div>
+          <div class="pt-2 flex flex-wrap items-center gap-3">
+            <a id="bhulekhOptionBtn" href="https://land.bihar.gov.in/Ror2025/RoR.aspx" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-emerald-700 hover:bg-emerald-800 text-white font-black text-xs sm:text-sm px-5 py-3 rounded-xl shadow-md transition">
+              <span>🚀 Khatyan Portal Kholen (land.bihar.gov.in)</span>
+              <span>➜</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- FIX 3 — "Portal mein kya milega?" COMPARISON TABLE -->
+      <section class="bg-white rounded-3xl border border-slate-200 p-6 sm:p-8 shadow-md space-y-4">
+        <div class="space-y-1 text-center sm:text-left">
+          <span class="inline-block bg-amber-100 text-amber-900 text-xs font-black px-3 py-1 rounded-md">
+            📊 Portal Comparison Guide
+          </span>
+          <h2 class="text-xl sm:text-2xl font-black text-slate-900">
+            Portal mein kya milega? (कौन सा काम किस पोर्टल पर होगा)
+          </h2>
+          <p class="text-xs sm:text-sm text-slate-600 font-semibold">
+            बिहार सरकार के दो मुख्य पोर्टल हैं — अपने काम के अनुसार सही पोर्टल चुनें:
+          </p>
+        </div>
+
+        <div class="overflow-x-auto rounded-2xl border border-slate-200 shadow-2xs">
+          <table class="w-full text-xs sm:text-sm text-left border-collapse">
+            <thead>
+              <tr class="bg-slate-800 text-white font-black uppercase text-[11px] tracking-wider">
+                <th class="p-3.5 border-b border-slate-700">आपका काम (Work / Service)</th>
+                <th class="p-3.5 border-b border-slate-700">कौन सा पोर्टल (Website)</th>
+                <th class="p-3.5 border-b border-slate-700">डायरेक्ट लिंक</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-200 font-bold text-slate-800">
+              <tr class="hover:bg-emerald-50/50 transition">
+                <td class="p-3.5 flex items-center gap-2"><span>📋</span> Apna Khata / Khatyan</td>
+                <td class="p-3.5 text-emerald-800 font-black">land.bihar.gov.in</td>
+                <td class="p-3.5">
+                  <a href="https://land.bihar.gov.in/Ror2025/RoR.aspx" target="_blank" rel="noopener noreferrer" class="text-emerald-700 underline font-black hover:text-emerald-900">खोलें ➜</a>
+                </td>
+              </tr>
+              <tr class="hover:bg-amber-50/50 transition">
+                <td class="p-3.5"><span>🔄</span> Dakhil Kharij Apply & Status</td>
+                <td class="p-3.5 text-amber-800 font-black">biharbhumi.bihar.gov.in</td>
+                <td class="p-3.5">
+                  <a href="https://biharbhumi.bihar.gov.in/Biharbhumi/" target="_blank" rel="noopener noreferrer" class="text-amber-700 underline font-black hover:text-amber-900">खोलें ➜</a>
+                </td>
+              </tr>
+              <tr class="hover:bg-amber-50/50 transition">
+                <td class="p-3.5"><span>📄</span> LPC Apply & Certificate</td>
+                <td class="p-3.5 text-amber-800 font-black">biharbhumi.bihar.gov.in</td>
+                <td class="p-3.5">
+                  <a href="https://biharbhumi.bihar.gov.in/Biharbhumi/" target="_blank" rel="noopener noreferrer" class="text-amber-700 underline font-black hover:text-amber-900">खोलें ➜</a>
+                </td>
+              </tr>
+              <tr class="hover:bg-amber-50/50 transition">
+                <td class="p-3.5"><span>📑</span> Jamabandi Panji II Nakal</td>
+                <td class="p-3.5 text-amber-800 font-black">biharbhumi.bihar.gov.in</td>
+                <td class="p-3.5">
+                  <a href="https://biharbhumi.bihar.gov.in/Biharbhumi/" target="_blank" rel="noopener noreferrer" class="text-amber-700 underline font-black hover:text-amber-900">खोलें ➜</a>
+                </td>
+              </tr>
+              <tr class="hover:bg-slate-50 transition">
+                <td class="p-3.5"><span>🗺️</span> Bhu Naksha (Village Map)</td>
+                <td class="p-3.5 text-blue-800 font-black">emapi.bihar.gov.in</td>
+                <td class="p-3.5">
+                  <a href="https://emapi.bihar.gov.in/" target="_blank" rel="noopener noreferrer" class="text-blue-700 underline font-black hover:text-blue-900">खोलें ➜</a>
+                </td>
+              </tr>
+              <tr class="hover:bg-slate-50 transition">
+                <td class="p-3.5"><span>💸</span> Bhu Lagan (Online Lagan Payment)</td>
+                <td class="p-3.5 text-emerald-800 font-black">bhulagan.bihar.gov.in</td>
+                <td class="p-3.5">
+                  <a href="https://bhulagan.bihar.gov.in/" target="_blank" rel="noopener noreferrer" class="text-emerald-700 underline font-black hover:text-emerald-900">खोलें ➜</a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- FIX 4 — INTERACTIVE CHECKLIST ("Portal use karte waqt yeh ready rakhein") -->
+      <section class="bg-white rounded-3xl border-2 border-amber-300 p-6 sm:p-8 shadow-md space-y-5">
+        <div class="space-y-1">
+          <div class="flex items-center justify-between flex-wrap gap-2">
+            <h2 class="text-xl sm:text-2xl font-black text-slate-900 flex items-center gap-2">
+              <span>☑️</span> Portal use karte waqt yeh ready rakhein:
+            </h2>
+            <span id="bhulekhChecklistProgressText" class="bg-amber-100 text-amber-950 text-xs font-black px-3 py-1 rounded-full">
+              0% (0/5 ready)
+            </span>
+          </div>
+          <p class="text-xs sm:text-sm text-slate-600 font-semibold">
+            सरकारी पोर्टल पर जमीन खोजने से पहले इन 5 जानकारियों पर टिक करें:
+          </p>
+        </div>
+
+        <!-- Progress Bar -->
+        <div class="w-full bg-slate-100 rounded-full h-3.5 border border-slate-200 overflow-hidden">
+          <div id="bhulekhChecklistProgressBar" class="bg-gradient-to-r from-amber-500 to-emerald-600 h-full w-0 transition-all duration-300"></div>
+        </div>
+
+        <!-- Checklist Items -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
+          <label class="flex items-start gap-3 bg-slate-50 p-3.5 rounded-2xl border border-slate-200 hover:border-amber-400 cursor-pointer transition">
+            <input type="checkbox" onchange="updateBhulekhChecklistProgress()" class="bhulekh-check-item w-5 h-5 accent-emerald-600 rounded mt-0.5 shrink-0" />
+            <span class="text-xs sm:text-sm font-bold text-slate-800">1. Apna District (जिला) naam pata hai</span>
+          </label>
+
+          <label class="flex items-start gap-3 bg-slate-50 p-3.5 rounded-2xl border border-slate-200 hover:border-amber-400 cursor-pointer transition">
+            <input type="checkbox" onchange="updateBhulekhChecklistProgress()" class="bhulekh-check-item w-5 h-5 accent-emerald-600 rounded mt-0.5 shrink-0" />
+            <span class="text-xs sm:text-sm font-bold text-slate-800">2. Apna Anchal/Block (अंचल) naam pata hai</span>
+          </label>
+
+          <label class="flex items-start gap-3 bg-slate-50 p-3.5 rounded-2xl border border-slate-200 hover:border-amber-400 cursor-pointer transition">
+            <input type="checkbox" onchange="updateBhulekhChecklistProgress()" class="bhulekh-check-item w-5 h-5 accent-emerald-600 rounded mt-0.5 shrink-0" />
+            <span class="text-xs sm:text-sm font-bold text-slate-800">3. Apna Halka (हल्का) naam pata hai</span>
+          </label>
+
+          <label class="flex items-start gap-3 bg-slate-50 p-3.5 rounded-2xl border border-slate-200 hover:border-amber-400 cursor-pointer transition">
+            <input type="checkbox" onchange="updateBhulekhChecklistProgress()" class="bhulekh-check-item w-5 h-5 accent-emerald-600 rounded mt-0.5 shrink-0" />
+            <span class="text-xs sm:text-sm font-bold text-slate-800">4. Apna Mauja/Gaon (मौजा) naam pata hai</span>
+          </label>
+
+          <label class="flex items-start gap-3 bg-slate-50 p-3.5 rounded-2xl border border-slate-200 hover:border-amber-400 cursor-pointer transition sm:col-span-2">
+            <input type="checkbox" onchange="updateBhulekhChecklistProgress()" class="bhulekh-check-item w-5 h-5 accent-emerald-600 rounded mt-0.5 shrink-0" />
+            <span class="text-xs sm:text-sm font-bold text-slate-800">5. Khata ya Khesra number ya malik ka naam pata hai</span>
+          </label>
+        </div>
+
+        <div id="bhulekhReadyNotice" class="hidden bg-emerald-100 border border-emerald-400 text-emerald-950 p-4 rounded-2xl text-xs sm:text-sm font-black text-center space-y-1">
+          <div>🎉 ✅ Aap ready hain! Niche official portal kholen:</div>
+        </div>
+      </section>
+
+      <!-- FIX 2 — TWO PROMINENT PORTAL BUTTONS CLEARLY LABELED -->
+      <section id="official-portal-section" class="space-y-6">
+        <div class="text-center space-y-1">
+          <span class="inline-block bg-slate-900 text-white text-xs font-black uppercase tracking-wider px-3.5 py-1 rounded-full">
+            🌐 Official Government Portals
+          </span>
+          <h2 class="text-2xl sm:text-3xl font-black text-slate-900">
+            Bihar Land Official Online Portals
+          </h2>
+          <p class="text-xs sm:text-sm text-slate-600 font-bold max-w-xl mx-auto">
+            अपने काम के अनुसार सीधा सरकारी पोर्टल खोलें (Open in new tab):
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <!-- PORTAL 1 (Green) -->
+          <div class="bg-gradient-to-br from-emerald-50 to-emerald-100/60 rounded-3xl border-2 border-emerald-500 p-6 sm:p-7 shadow-lg flex flex-col justify-between space-y-4">
+            <div class="space-y-2">
+              <div class="flex items-center gap-2">
+                <span class="text-3xl">📋</span>
+                <span class="bg-emerald-700 text-white text-[11px] font-black uppercase px-2.5 py-0.5 rounded-md">Portal 1</span>
+              </div>
+              <h3 class="text-lg sm:text-xl font-black text-emerald-950">
+                Apna Khata/Khatyan Dekhne ke liye:
+              </h3>
+              <p class="text-xs sm:text-sm text-slate-700 font-bold leading-relaxed">
+                👉 <strong>Yahan Apna Khata aur Khatyan milega</strong><br />
+                बिहार के सभी जिलों का डिजिटल खतियान, अधिकार अभिलेख और मौजा वार खाता सूची।
+              </p>
+            </div>
+
+            <a href="https://land.bihar.gov.in/Ror2025/RoR.aspx" target="_blank" rel="noopener noreferrer" class="w-full bg-emerald-700 hover:bg-emerald-800 text-white text-center font-black text-base py-4 rounded-2xl shadow-md hover:shadow-xl transition transform hover:-translate-y-0.5 flex items-center justify-center gap-2">
+              <span>📋 Khatyan Portal Kholen</span>
+              <span>➜</span>
+            </a>
+          </div>
+
+          <!-- PORTAL 2 (Saffron) -->
+          <div class="bg-gradient-to-br from-amber-50 to-orange-100/60 rounded-3xl border-2 border-amber-500 p-6 sm:p-7 shadow-lg flex flex-col justify-between space-y-4">
+            <div class="space-y-2">
+              <div class="flex items-center gap-2">
+                <span class="text-3xl">🔄</span>
+                <span class="bg-amber-600 text-white text-[11px] font-black uppercase px-2.5 py-0.5 rounded-md">Portal 2</span>
+              </div>
+              <h3 class="text-lg sm:text-xl font-black text-amber-950">
+                Dakhil Kharij, LPC, Jamabandi ke liye:
+              </h3>
+              <p class="text-xs sm:text-sm text-slate-700 font-bold leading-relaxed">
+                👉 <strong>Yahan Mutation, LPC, Jamabandi sabkuch milega</strong><br />
+                बिहार भूमि मुख्य पोर्टल जहाँ दाखिल खारिज, जमाबंदी पंजी-2 और एलपीसी आवेदन होता है।
+              </p>
+            </div>
+
+            <a href="https://biharbhumi.bihar.gov.in/Biharbhumi/" target="_blank" rel="noopener noreferrer" class="w-full bg-amber-600 hover:bg-amber-700 text-white text-center font-black text-base py-4 rounded-2xl shadow-md hover:shadow-xl transition transform hover:-translate-y-0.5 flex items-center justify-center gap-2">
+              <span>🔄 Bihar Bhumi Portal Kholen</span>
+              <span>➜</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- FIX 5 — AFTER PORTAL SECTION ADD 3 ACTION CARDS -->
+      <section class="bg-slate-900 text-white rounded-3xl p-6 sm:p-8 space-y-5 shadow-xl">
+        <div class="text-center space-y-1">
+          <span class="bg-amber-400 text-slate-950 text-xs font-black uppercase px-3 py-1 rounded-full">
+            Next Steps Guide
+          </span>
+          <h2 class="text-xl sm:text-2xl md:text-3xl font-black text-white">
+            Portal use karke wapas aaye? Ab yeh bhi karein:
+          </h2>
+          <p class="text-xs sm:text-sm text-slate-300 font-medium">
+            खतियान देखने के बाद अपनी जमीन सुरक्षा और विकास के लिए आगे के जरूरी कदम:
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2">
+          <!-- Action Card 1 -->
+          <a href="dakhil-kharij.html" class="bg-slate-800/90 hover:bg-emerald-950 border-2 border-slate-700 hover:border-emerald-500 rounded-2xl p-5 transition text-left space-y-2 group">
+            <div class="text-3xl group-hover:scale-110 transition-transform">📋</div>
+            <h3 class="font-black text-base text-white group-hover:text-emerald-400">Dakhil Kharij Guide</h3>
+            <p class="text-xs text-slate-300 font-medium leading-relaxed">
+              अगर जमीन खरीदी है तो तुरंत दाखिल खारिज म्यूटेशन के लिए ऑनलाइन आवेदन की पूरी गाइड देखें।
+            </p>
+            <div class="text-xs font-extrabold text-emerald-400 pt-1 flex items-center gap-1">
+              <span>गाइड देखें</span> <span>➜</span>
+            </div>
+          </a>
+
+          <!-- Action Card 2 -->
+          <a href="lpc-bihar.html" class="bg-slate-800/90 hover:bg-emerald-950 border-2 border-slate-700 hover:border-emerald-500 rounded-2xl p-5 transition text-left space-y-2 group">
+            <div class="text-3xl group-hover:scale-110 transition-transform">📄</div>
+            <h3 class="font-black text-base text-white group-hover:text-emerald-400">LPC Apply</h3>
+            <p class="text-xs text-slate-300 font-medium leading-relaxed">
+              बैंक लोन, कृषि लोन या सरकारी योजनाओं के लिए भूमि स्वामित्व प्रमाण पत्र (LPC) बनवाएं।
+            </p>
+            <div class="text-xs font-extrabold text-emerald-400 pt-1 flex items-center gap-1">
+              <span>LPC प्रक्रिया देखें</span> <span>➜</span>
+            </div>
+          </a>
+
+          <!-- Action Card 3 -->
+          <a href="land-rates.html" class="bg-slate-800/90 hover:bg-emerald-950 border-2 border-slate-700 hover:border-emerald-500 rounded-2xl p-5 transition text-left space-y-2 group">
+            <div class="text-3xl group-hover:scale-110 transition-transform">💰</div>
+            <h3 class="font-black text-base text-white group-hover:text-emerald-400">Zameen Ka Rate</h3>
+            <p class="text-xs text-slate-300 font-medium leading-relaxed">
+              बिहार के सभी 38 जिलों का नया MVR सरकारी जमीन रेट व रजिस्ट्री शुल्क चेक करें।
+            </p>
+            <div class="text-xs font-extrabold text-emerald-400 pt-1 flex items-center gap-1">
+              <span>रेट लिस्ट देखें</span> <span>➜</span>
+            </div>
+          </a>
+        </div>
       </section>
 
       <!-- SECTION 2 — IMPORTANT INFO FIRST -->
@@ -1820,6 +2105,99 @@ window.addEventListener('popstate', function() {
     <span>WhatsApp</span>
   </a>
 </div>
+
+<script>
+// Bhulekh Quiz Option Selector
+function selectBhulekhOption(key, btnEl) {
+  // Reset all buttons styling
+  const allBtns = document.querySelectorAll('.bhulekh-quiz-btn');
+  allBtns.forEach(btn => {
+    btn.className = 'bhulekh-quiz-btn p-4 rounded-2xl bg-slate-50 border-2 border-slate-200 text-slate-800 text-xs sm:text-sm font-bold hover:bg-emerald-50 hover:border-emerald-300 shadow-xs hover:shadow transition-all flex flex-col justify-between h-28 text-left cursor-pointer group';
+  });
+
+  // Highlight active button
+  if (btnEl) {
+    btnEl.className = 'bhulekh-quiz-btn p-4 rounded-2xl bg-emerald-50 border-2 border-emerald-500 text-slate-900 text-xs sm:text-sm font-black shadow-xs hover:shadow transition-all flex flex-col justify-between h-28 text-left cursor-pointer group';
+  }
+
+  const titleEl = document.getElementById('bhulekhOptionTitle');
+  const stepsEl = document.getElementById('bhulekhOptionSteps');
+  const btnLinkEl = document.getElementById('bhulekhOptionBtn');
+
+  if (key === 'khata') {
+    titleEl.textContent = 'Apna Khata / Khatyan Dekhne ki Step-by-Step Guide:';
+    stepsEl.innerHTML = `
+      <p><strong>Step 1:</strong> नीचे दिए गए बटन <strong>"Khatyan Portal Kholen"</strong> पर क्लिक करें।</p>
+      <p><strong>Step 2:</strong> बिहार नक्शे पर अपना <strong>जिला (District)</strong> और <strong>अंचल (Block)</strong> चुनें।</p>
+      <p><strong>Step 3:</strong> अपना <strong>मौजा (Village)</strong> चुनें और खाता/खेसरा नंबर या नाम से खोजें।</p>
+      <p><strong>Step 4:</strong> <strong>"खाता देखें"</strong> पर क्लिक करके अपना ऑनलाइन खतियान देखें व डाउनलोड करें।</p>
+    `;
+    btnLinkEl.href = 'https://land.bihar.gov.in/Ror2025/RoR.aspx';
+    btnLinkEl.innerHTML = '<span>🚀 Khatyan Portal Kholen (land.bihar.gov.in)</span> <span>➜</span>';
+  } else if (key === 'dakhil') {
+    titleEl.textContent = 'Dakhil Kharij Status Check karne ki Step-by-Step Guide:';
+    stepsEl.innerHTML = `
+      <p><strong>Step 1:</strong> नीचे दिए गए बटन <strong>"Bihar Bhumi Portal Kholen"</strong> पर क्लिक करें।</p>
+      <p><strong>Step 2:</strong> मुख्य पृष्ठ पर <strong>"दाखिल खारिज आवेदन स्थिति देखें"</strong> पर क्लिक करें।</p>
+      <p><strong>Step 3:</strong> अपना जिला, अंचल और वित्तीय वर्ष (जैसे 2025-2026) का चयन करें।</p>
+      <p><strong>Step 4:</strong> केवाला Deed Number या Case Number डालकर सर्च करें और CO ऑर्डर शीट देखें।</p>
+    `;
+    btnLinkEl.href = 'https://biharbhumi.bihar.gov.in/Biharbhumi/';
+    btnLinkEl.innerHTML = '<span>🔄 Bihar Bhumi Portal Kholen (biharbhumi.bihar.gov.in)</span> <span>➜</span>';
+  } else if (key === 'jamabandi') {
+    titleEl.textContent = 'Jamabandi Download karne ki Step-by-Step Guide:';
+    stepsEl.innerHTML = `
+      <p><strong>Step 1:</strong> नीचे दिए गए बटन <strong>"Bihar Bhumi Portal Kholen"</strong> पर क्लिक करें।</p>
+      <p><strong>Step 2:</strong> <strong>"जमाबंदी पंजी देखें"</strong> लिंक पर क्लिक करें।</p>
+      <p><strong>Step 3:</strong> अपना जिला, अंचल, हल्का और मौजा चुनें।</p>
+      <p><strong>Step 4:</strong> खाता नंबर या रैयत के नाम से खोजें और डिजिटल जमाबंदी प्रति प्रिंट करें।</p>
+    `;
+    btnLinkEl.href = 'https://biharbhumi.bihar.gov.in/Biharbhumi/';
+    btnLinkEl.innerHTML = '<span>📄 Bihar Bhumi Portal Kholen (Jamabandi)</span> <span>➜</span>';
+  } else if (key === 'lpc') {
+    titleEl.textContent = 'LPC Status Check karne ki Step-by-Step Guide:';
+    stepsEl.innerHTML = `
+      <p><strong>Step 1:</strong> नीचे दिए गए बटन <strong>"Bihar Bhumi Portal Kholen"</strong> पर क्लिक करें।</p>
+      <p><strong>Step 2:</strong> होमपेज पर <strong>"LPC आवेदन स्थिति देखें"</strong> पर क्लिक करें।</p>
+      <p><strong>Step 3:</strong> अपना जिला, अंचल और एप्लीकेशन नंबर दर्ज करें।</p>
+      <p><strong>Step 4:</strong> अप्रूव होने पर अंचलाधिकारी (CO) द्वारा हस्ताक्षरित डिजिटल LPC डाउनलोड करें।</p>
+    `;
+    btnLinkEl.href = 'https://biharbhumi.bihar.gov.in/Biharbhumi/';
+    btnLinkEl.innerHTML = '<span>✅ Bihar Bhumi Portal Kholen (LPC Status)</span> <span>➜</span>';
+  }
+
+  // Smooth scroll to guide if on mobile
+  const guideBox = document.getElementById('bhulekhOptionGuide');
+  if (guideBox && window.innerWidth < 768) {
+    guideBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+}
+
+// Bhulekh Checklist Progress Handler
+function updateBhulekhChecklistProgress() {
+  const items = document.querySelectorAll('.bhulekh-check-item');
+  let checkedCount = 0;
+  items.forEach(item => {
+    if (item.checked) checkedCount++;
+  });
+
+  const total = items.length || 5;
+  const pct = Math.round((checkedCount / total) * 100);
+
+  const pBar = document.getElementById('bhulekhChecklistProgressBar');
+  const pText = document.getElementById('bhulekhChecklistProgressText');
+  const readyNotice = document.getElementById('bhulekhReadyNotice');
+
+  if (pBar) pBar.style.width = pct + '%';
+  if (pText) pText.textContent = pct + '% (' + checkedCount + '/' + total + ' ready)';
+
+  if (checkedCount >= 3) {
+    if (readyNotice) readyNotice.classList.remove('hidden');
+  } else {
+    if (readyNotice) readyNotice.classList.add('hidden');
+  }
+}
+</script>
 
 <script>
 // Open external links in new tab only

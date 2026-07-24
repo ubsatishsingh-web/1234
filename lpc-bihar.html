@@ -603,17 +603,242 @@ document.addEventListener('DOMContentLoaded', function() {
     </section>
 
     <!-- MAIN GRID CONTAINER -->
-    <main class="max-w-4xl mx-auto px-4 -mt-8 sm:-mt-10 mb-16 relative z-20 space-y-10 w-full text-[16px]">
+    <main class="max-w-4xl mx-auto px-4 -mt-8 sm:-mt-10 mb-16 relative z-20 space-y-8 w-full text-[16px]">
 
-      <!-- SECTION 1 — HERO SUB-HEADING (Text link instead of prominent button) -->
-      <section class="bg-amber-50 rounded-2xl border border-amber-200 p-4 text-center space-y-1">
-        <p class="text-sm sm:text-base text-amber-950 font-extrabold">
-          नीचे Step by Step Guide पढ़ें — फिर Official Portal खोलें।
+      <!-- FIX 1 — ENGAGING OPENER CARD -->
+      <section class="bg-gradient-to-br from-amber-50 via-orange-50 to-emerald-50 rounded-3xl border-2 border-amber-300/80 p-6 sm:p-8 shadow-lg space-y-6">
+        <div class="text-center space-y-2">
+          <span class="inline-block bg-amber-500 text-slate-950 text-xs font-black uppercase tracking-wider px-3.5 py-1 rounded-full shadow-xs">
+            ⚡ Quick Facts
+          </span>
+          <h2 class="text-xl sm:text-2xl md:text-3xl font-black text-slate-900 leading-tight">
+            LPC ke baare mein 3 important baatein jo aapko pata honi chahiye:
+          </h2>
+          <p class="text-xs sm:text-sm text-slate-600 font-bold">
+            बिहार में भूमि स्वामित्व प्रमाण पत्र (LPC) बनवाने से पहले इन्हें समझ लें:
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <!-- Card 1 -->
+          <div class="bg-white/90 backdrop-blur-sm border-2 border-emerald-200 rounded-2xl p-5 shadow-sm space-y-2 text-center hover:shadow-md transition">
+            <div class="text-3xl">⏱️</div>
+            <h3 class="font-black text-slate-900 text-base">Kitna time lagta hai?</h3>
+            <p class="text-xs sm:text-sm text-emerald-800 font-black bg-emerald-50 py-1.5 px-3 rounded-xl border border-emerald-200 inline-block">
+              15-30 din mein LPC milta hai
+            </p>
+            <p class="text-xs text-slate-500 font-semibold">CO/Halka Karamchari dwara bhautik satyapan ke baad.</p>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="bg-white/90 backdrop-blur-sm border-2 border-amber-200 rounded-2xl p-5 shadow-sm space-y-2 text-center hover:shadow-md transition">
+            <div class="text-3xl">💰</div>
+            <h3 class="font-black text-slate-900 text-base">Kitna kharcha hai?</h3>
+            <p class="text-xs sm:text-sm text-amber-900 font-black bg-amber-50 py-1.5 px-3 rounded-xl border border-amber-200 inline-block">
+              Sirf ₹10 court fee stamp
+            </p>
+            <p class="text-xs text-slate-500 font-semibold">Online aavedan bilkul mukht hai, koi extra charge nahi.</p>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="bg-white/90 backdrop-blur-sm border-2 border-blue-200 rounded-2xl p-5 shadow-sm space-y-2 text-center hover:shadow-md transition">
+            <div class="text-3xl">📱</div>
+            <h3 class="font-black text-slate-900 text-base">Ghar baithe ho sakta hai?</h3>
+            <p class="text-xs sm:text-sm text-blue-900 font-black bg-blue-50 py-1.5 px-3 rounded-xl border border-blue-200 inline-block">
+              Haan — online apply possible
+            </p>
+            <p class="text-xs text-slate-500 font-semibold">Bihar Bhumi portal se mobile ya laptop se karein.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- FIX 2 — LPC VALIDITY CHECKER TOOL (INTERACTIVE) -->
+      <section class="bg-white rounded-3xl p-6 sm:p-8 border-2 border-emerald-200 shadow-md space-y-6">
+        <div class="border-b border-slate-100 pb-4">
+          <div class="flex items-center gap-2">
+            <span class="text-2xl">🔍</span>
+            <h2 class="text-xl sm:text-2xl font-black text-slate-900">
+              Kya aapka LPC valid hai? Check karein:
+            </h2>
+          </div>
+          <p class="text-xs sm:text-sm text-slate-600 font-semibold mt-1">
+            अपने LPC की जारी होने की तारीख (Issue Date) डालें और तुरंत वैधता की जांच करें (LPC 6 महीने/180 दिन वैध रहता है):
+          </p>
+        </div>
+
+        <div class="bg-slate-50 p-5 sm:p-6 rounded-2xl border border-slate-200 space-y-4">
+          <div class="max-w-md mx-auto space-y-2">
+            <label for="lpcIssueDateTop" class="block text-xs font-black text-slate-800 uppercase tracking-wide">
+              LPC Issue Date daalen (जारी करने की तिथि):
+            </label>
+            <input type="date" id="lpcIssueDateTop" onchange="checkLpcValidityTop(); recordUserInteraction();" class="w-full bg-white border-2 border-emerald-500 rounded-xl px-4 py-3 text-slate-900 font-bold text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-emerald-600 shadow-sm">
+          </div>
+
+          <div class="text-center">
+            <button onclick="checkLpcValidityTop(); recordUserInteraction();" class="bg-emerald-700 hover:bg-emerald-800 text-white font-black text-sm sm:text-base px-8 py-3 rounded-xl shadow-md transition transform active:scale-95 cursor-pointer">
+              🔍 Check Validity Now
+            </button>
+          </div>
+        </div>
+
+        <!-- Output Box Container -->
+        <div id="validityOutputBoxTop" class="hidden rounded-2xl p-6 shadow-lg space-y-4 border-2 transition-all">
+          <div class="border-b pb-3 flex justify-between items-center text-xs font-extrabold uppercase tracking-wide text-slate-600">
+            <span>LPC Status Report</span>
+            <span id="dispReportDateTop" class="font-mono"></span>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs font-bold text-slate-700 bg-white/90 p-3 rounded-xl border">
+            <div>📅 Issue Date: <span id="dispIssueDateTop" class="text-slate-900 font-extrabold"></span></div>
+            <div>📅 Expiry Date: <span id="dispExpiryDateTop" class="text-slate-900 font-extrabold"></span></div>
+            <div>📅 Today's Date: <span id="dispTodayDateTop" class="text-slate-900 font-extrabold"></span></div>
+          </div>
+
+          <!-- Status Card -->
+          <div id="statusMessageCardTop" class="p-4 rounded-xl text-center space-y-2 font-black text-base sm:text-lg">
+            <!-- Dynamic Content Injected via JS -->
+          </div>
+        </div>
+      </section>
+
+      <!-- FIX 3 — "AAPKO LPC KYUN CHAHIYE?" QUIZ / INTERACTIVE PURPOSE SELECTOR -->
+      <section class="bg-white rounded-3xl p-6 sm:p-8 border-2 border-orange-200 shadow-md space-y-6">
+        <div class="border-b border-slate-100 pb-4">
+          <div class="flex items-center gap-2">
+            <span class="text-2xl">🎯</span>
+            <h2 class="text-xl sm:text-2xl font-black text-slate-900">
+              Aap LPC kisliye chahte hain?
+            </h2>
+          </div>
+          <p class="text-xs sm:text-sm text-slate-600 font-semibold mt-1">
+            अपने उद्देश्य पर क्लिक करें — तुरंत जानें कि आपके लिए LPC कैसे बनेगा और क्या-क्या लगेगा:
+          </p>
+        </div>
+
+        <!-- Purpose Buttons Grid -->
+        <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+          <button onclick="selectLpcPurpose('bank_loan', this)" class="lpc-purpose-btn bg-slate-50 hover:bg-emerald-50 hover:border-emerald-500 border-2 border-slate-200 rounded-2xl p-3.5 text-center transition font-black text-xs sm:text-sm text-slate-800 flex flex-col items-center gap-1.5 shadow-2xs cursor-pointer">
+            <span class="text-2xl">🏦</span>
+            <span>Bank Loan</span>
+          </button>
+
+          <button onclick="selectLpcPurpose('pm_awas', this)" class="lpc-purpose-btn bg-slate-50 hover:bg-emerald-50 hover:border-emerald-500 border-2 border-slate-200 rounded-2xl p-3.5 text-center transition font-black text-xs sm:text-sm text-slate-800 flex flex-col items-center gap-1.5 shadow-2xs cursor-pointer">
+            <span class="text-2xl">🏠</span>
+            <span>PM Awas</span>
+          </button>
+
+          <button onclick="selectLpcPurpose('dakhil_kharij', this)" class="lpc-purpose-btn bg-slate-50 hover:bg-emerald-50 hover:border-emerald-500 border-2 border-slate-200 rounded-2xl p-3.5 text-center transition font-black text-xs sm:text-sm text-slate-800 flex flex-col items-center gap-1.5 shadow-2xs cursor-pointer">
+            <span class="text-2xl">📋</span>
+            <span>Dakhil Kharij</span>
+          </button>
+
+          <button onclick="selectLpcPurpose('kcc_loan', this)" class="lpc-purpose-btn bg-slate-50 hover:bg-emerald-50 hover:border-emerald-500 border-2 border-slate-200 rounded-2xl p-3.5 text-center transition font-black text-xs sm:text-sm text-slate-800 flex flex-col items-center gap-1.5 shadow-2xs cursor-pointer">
+            <span class="text-2xl">🌾</span>
+            <span>KCC Loan</span>
+          </button>
+
+          <button onclick="selectLpcPurpose('court_case', this)" class="lpc-purpose-btn bg-slate-50 hover:bg-emerald-50 hover:border-emerald-500 border-2 border-slate-200 rounded-2xl p-3.5 text-center transition font-black text-xs sm:text-sm text-slate-800 flex flex-col items-center gap-1.5 shadow-2xs cursor-pointer">
+            <span class="text-2xl">⚖️</span>
+            <span>Court Case</span>
+          </button>
+
+          <button onclick="selectLpcPurpose('kuch_aur', this)" class="lpc-purpose-btn bg-slate-50 hover:bg-emerald-50 hover:border-emerald-500 border-2 border-slate-200 rounded-2xl p-3.5 text-center transition font-black text-xs sm:text-sm text-slate-800 flex flex-col items-center gap-1.5 shadow-2xs cursor-pointer">
+            <span class="text-2xl">📄</span>
+            <span>Kuch Aur</span>
+          </button>
+        </div>
+
+        <!-- Result Box for Purpose -->
+        <div id="lpcPurposeResultBox" class="hidden bg-emerald-50/80 border-2 border-emerald-300 rounded-2xl p-5 space-y-3">
+          <h3 id="lpcPurposeTitle" class="font-black text-emerald-950 text-base sm:text-lg border-b border-emerald-200 pb-2">
+            <!-- Dynamic Title -->
+          </h3>
+          <div id="lpcPurposeBody" class="text-xs sm:text-sm text-slate-700 font-medium space-y-2 leading-relaxed">
+            <!-- Dynamic Instructions -->
+          </div>
+        </div>
+      </section>
+
+      <!-- FIX 5 — INTERACTIVE DOCUMENT CHECKLIST -->
+      <section class="bg-white rounded-3xl p-6 sm:p-8 border-2 border-blue-200 shadow-md space-y-6">
+        <div class="border-b border-slate-100 pb-4">
+          <div class="flex items-center gap-2">
+            <span class="text-2xl">✅</span>
+            <h2 class="text-xl sm:text-2xl font-black text-slate-900">
+              LPC ke liye taiyaar hain? Pehle check karein:
+            </h2>
+          </div>
+          <p class="text-xs sm:text-sm text-slate-600 font-semibold mt-1">
+            ऑनलाइन अप्लाई करने से पहले इन 5 जरूरी चीजों पर टिक लगायें:
+          </p>
+        </div>
+
+        <!-- Progress Bar -->
+        <div class="space-y-2">
+          <div class="flex justify-between items-center text-xs font-black text-slate-700">
+            <span>Taiyaari Progress:</span>
+            <span id="checklistProgressText" class="text-emerald-700 font-extrabold">0% (0/5 items)</span>
+          </div>
+          <div class="w-full bg-slate-100 h-3.5 rounded-full overflow-hidden border border-slate-200">
+            <div id="checklistProgressBar" class="bg-gradient-to-r from-emerald-500 to-emerald-700 h-full w-0 transition-all duration-300 rounded-full"></div>
+          </div>
+        </div>
+
+        <!-- Checklist items -->
+        <div class="space-y-3">
+          <label class="flex items-center gap-3 p-3.5 bg-slate-50 border border-slate-200 rounded-2xl cursor-pointer hover:bg-emerald-50/60 transition select-none">
+            <input type="checkbox" onchange="updateLpcChecklist()" class="lpc-check-item w-5 h-5 accent-emerald-600 rounded cursor-pointer">
+            <span class="text-xs sm:text-sm font-black text-slate-800">☐ Khata number pata hai (खाता संख्या मालूम है)</span>
+          </label>
+
+          <label class="flex items-center gap-3 p-3.5 bg-slate-50 border border-slate-200 rounded-2xl cursor-pointer hover:bg-emerald-50/60 transition select-none">
+            <input type="checkbox" onchange="updateLpcChecklist()" class="lpc-check-item w-5 h-5 accent-emerald-600 rounded cursor-pointer">
+            <span class="text-xs sm:text-sm font-black text-slate-800">☐ Khesra number pata hai (खेसरा संख्या मालूम है)</span>
+          </label>
+
+          <label class="flex items-center gap-3 p-3.5 bg-slate-50 border border-slate-200 rounded-2xl cursor-pointer hover:bg-emerald-50/60 transition select-none">
+            <input type="checkbox" onchange="updateLpcChecklist()" class="lpc-check-item w-5 h-5 accent-emerald-600 rounded cursor-pointer">
+            <span class="text-xs sm:text-sm font-black text-slate-800">☐ Aadhar Card ready hai (आधार कार्ड तैयार है)</span>
+          </label>
+
+          <label class="flex items-center gap-3 p-3.5 bg-slate-50 border border-slate-200 rounded-2xl cursor-pointer hover:bg-emerald-50/60 transition select-none">
+            <input type="checkbox" onchange="updateLpcChecklist()" class="lpc-check-item w-5 h-5 accent-emerald-600 rounded cursor-pointer">
+            <span class="text-xs sm:text-sm font-black text-slate-800">☐ Photo ready hai (पासपोर्ट साइज फोटो / स्कैन तैयार है)</span>
+          </label>
+
+          <label class="flex items-center gap-3 p-3.5 bg-slate-50 border border-slate-200 rounded-2xl cursor-pointer hover:bg-emerald-50/60 transition select-none">
+            <input type="checkbox" onchange="updateLpcChecklist()" class="lpc-check-item w-5 h-5 accent-emerald-600 rounded cursor-pointer">
+            <span class="text-xs sm:text-sm font-black text-slate-800">☐ ₹10 court fee stamp leni hai (कोर्ट फीस स्टाम्प व्यवस्था की गई है)</span>
+          </label>
+        </div>
+      </section>
+
+      <!-- FIX 4 — PORTAL BUTTON SECTION (AFTER INTERACTIVE TOOLS) -->
+      <section id="official-portal-section" class="bg-gradient-to-br from-emerald-800 via-emerald-900 to-slate-900 text-white rounded-3xl p-6 sm:p-8 shadow-xl text-center space-y-5 border-2 border-emerald-500">
+        <div class="inline-block bg-amber-400 text-slate-950 font-black text-xs uppercase px-3.5 py-1 rounded-full shadow-md">
+          🏛️ Official Bihar Bhumi Portal Access
+        </div>
+        
+        <h2 class="text-2xl sm:text-3xl font-black text-white leading-snug">
+          LPC Online Apply Karne Ke Liye Tayyar Hain?
+        </h2>
+        
+        <p class="text-xs sm:text-sm text-emerald-100 font-semibold max-w-xl mx-auto leading-relaxed">
+          बिहार सरकार के आधिकारिक राजस्व एवं भूमि सुधार विभाग पोर्टल (biharbhumi.bihar.gov.in) पर सीधे आवेदन करने के लिए नीचे क्लिक करें:
         </p>
-        <p class="text-xs text-slate-500 font-bold">
-          सीधे सरकारी पोर्टल पर जाना चाहते हैं? 
-          <a href="#official-portal-section" class="text-emerald-700 underline font-extrabold hover:text-emerald-800">यहाँ click करें ➜</a>
-        </p>
+
+        <!-- Dynamic Portal CTA Button -->
+        <div class="pt-2">
+          <a href="https://biharbhumi.bihar.gov.in/Biharbhumi/" target="_blank" rel="noopener noreferrer" onclick="recordUserInteraction()" class="inline-flex items-center justify-center gap-2 bg-amber-500 hover:bg-amber-400 text-slate-950 font-black text-base sm:text-lg px-8 py-4 rounded-2xl shadow-xl transition transform hover:scale-105 active:scale-95 w-full sm:w-auto">
+            <span>🟢 OFFICIAL LPC PORTAL खोलें</span>
+            <span>➜</span>
+          </a>
+        </div>
+
+        <div class="text-xs text-emerald-200 font-bold space-y-1 border-t border-emerald-700/60 pt-4 max-w-lg mx-auto">
+          <p class="text-amber-300 font-black text-sm">✨ यह बिल्कुल मुफ्त सरकारी सेवा है</p>
+          <p class="text-emerald-100/90 font-medium">LPC बनवाने के लिए किसी भी बिचौलिए या एजेंट की जरूरत नहीं है। आप सीधे खुद से पोर्टल पर आवेदन कर सकते हैं।</p>
+        </div>
       </section>
 
       <!-- SECTION 2 — IMPORTANT INFO FIRST -->
@@ -705,20 +930,7 @@ document.addEventListener('DOMContentLoaded', function() {
             });
           </script>
         </div>
-      </section>ck text-sm sm:text-base px-8 py-4 rounded-xl shadow-md hover:scale-[1.01] transition-transform w-full sm:w-auto">
-            🟢 LPC PORTAL खोलें
-          </a>
-        </div>
-        
-        <div class="text-xs text-emerald-900 font-extrabold space-y-1 border-t border-emerald-200/50 pt-3">
-          <p class="text-sm">✨ यह बिल्कुल मुफ्त सरकारी सेवा है</p>
-          <p class="text-slate-500 font-semibold">LPC बनवाने के लिए किसी भी बिचौलिए या एजेंट की जरूरत नहीं है। आप सीधे खुद से पोर्टल पर आवेदन कर सकते हैं।</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- MAIN CONTAINER -->
-    <main class="max-w-4xl mx-auto px-4 mt-8 mb-16 space-y-10 w-full text-[16px]">
+      </section>
 
       <!-- SECTION 1 — LPC Kya Hota Hai? (H2) -->
       <section class="bg-white rounded-3xl border border-slate-200 p-6 sm:p-8 shadow-sm space-y-4" id="section-1">
@@ -1696,6 +1908,211 @@ document.addEventListener('DOMContentLoaded', function() {
 
       // Mobile Menu Toggle
       
+    </script>
+
+    <!-- LPC INTERACTIVE ENGAGEMENT SCRIPT -->
+    <script>
+      let hasUserInteractedWithTools = false;
+
+      function recordUserInteraction() {
+        if (!hasUserInteractedWithTools) {
+          hasUserInteractedWithTools = true;
+          if (typeof gtag === 'function') {
+            gtag('event', 'user_interaction_lpc', {
+              'event_category': 'Engagement',
+              'event_label': 'LPC Interactive Tool Used'
+            });
+          }
+        }
+      }
+
+      function checkLpcValidityTop() {
+        recordUserInteraction();
+        const inputDateVal = document.getElementById('lpcIssueDateTop').value;
+        const outputBox = document.getElementById('validityOutputBoxTop');
+        if (!inputDateVal) {
+          alert('कृपया अपने LPC की जारी होने की तारीख (Issue Date) चुनें।');
+          return;
+        }
+
+        const issueDate = new Date(inputDateVal);
+        const today = new Date();
+        
+        // Set time to 00:00:00 for accurate day diff
+        issueDate.setHours(0,0,0,0);
+        const todayZero = new Date(today.getFullYear(), today.getMonth(), today.getDate());
+
+        // LPC validity is 180 days (6 months) in Bihar
+        const expiryDate = new Date(issueDate.getTime());
+        expiryDate.setDate(expiryDate.getDate() + 180);
+
+        const diffTime = todayZero.getTime() - issueDate.getTime();
+        const daysElapsed = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+        const daysRemaining = 180 - daysElapsed;
+
+        // Format dates for display
+        const formatDate = (d) => {
+          const day = String(d.getDate()).padStart(2, '0');
+          const month = String(d.getMonth() + 1).padStart(2, '0');
+          const year = d.getFullYear();
+          return `${day}/${month}/${year}`;
+        };
+
+        document.getElementById('dispIssueDateTop').innerText = formatDate(issueDate);
+        document.getElementById('dispExpiryDateTop').innerText = formatDate(expiryDate);
+        document.getElementById('dispTodayDateTop').innerText = formatDate(todayZero);
+        document.getElementById('dispReportDateTop').innerText = formatDate(todayZero);
+
+        const statusCard = document.getElementById('statusMessageCardTop');
+
+        if (daysElapsed < 0) {
+          outputBox.className = "rounded-2xl p-6 shadow-lg space-y-4 border-2 border-amber-300 bg-amber-50/90 text-amber-950";
+          statusCard.className = "p-4 rounded-xl text-center space-y-2 font-black text-base bg-amber-100/90 border border-amber-300 text-amber-950";
+          statusCard.innerHTML = `
+            <div class="text-2xl">⚠️</div>
+            <div>चुनी गई तारीख भविष्य की है!</div>
+            <div class="text-xs font-semibold text-amber-800">कृपया अपने LPC पर छपी सही Issue Date चुनें।</div>
+          `;
+        } else if (daysElapsed <= 180) {
+          outputBox.className = "rounded-2xl p-6 shadow-lg space-y-4 border-2 border-emerald-500 bg-emerald-50/90 text-emerald-950";
+          statusCard.className = "p-4 rounded-xl text-center space-y-2 font-black text-base bg-emerald-100/90 border border-emerald-300 text-emerald-950";
+          statusCard.innerHTML = `
+            <div class="text-3xl">✅</div>
+            <div class="text-lg sm:text-xl font-black text-emerald-900">आपका LPC बिल्कुल VALID (वैध) है!</div>
+            <div class="text-xs sm:text-sm font-extrabold text-emerald-800">
+              यह LPC अभी और <span class="text-base font-black text-emerald-950 bg-white px-2.5 py-0.5 rounded-md border border-emerald-300">${daysRemaining} दिन</span> तक वैध रहेगा।
+            </div>
+            <div class="text-xs text-slate-600 font-semibold pt-1">
+              बैंक लोन, पीएम आवास या अन्य सरकारी योजनाओं के लिए इस LPC का उपयोग कर सकते हैं।
+            </div>
+          `;
+        } else {
+          outputBox.className = "rounded-2xl p-6 shadow-lg space-y-4 border-2 border-red-400 bg-red-50/90 text-red-950";
+          statusCard.className = "p-4 rounded-xl text-center space-y-2 font-black text-base bg-red-100/90 border border-red-300 text-red-950";
+          statusCard.innerHTML = `
+            <div class="text-3xl">❌</div>
+            <div class="text-lg sm:text-xl font-black text-red-900">आपका LPC EXPIRED (अमान्य) हो चुका है!</div>
+            <div class="text-xs sm:text-sm font-extrabold text-red-800">
+              LPC की 180 दिन (6 महीने) की समय-सीमा समाप्त हुए <span class="text-base font-black text-red-950 bg-white px-2 py-0.5 rounded-md border border-red-300">${Math.abs(daysRemaining)} दिन</span> हो चुके हैं।
+            </div>
+            <div class="text-xs text-slate-700 font-semibold pt-1">
+              बैंक या सरकारी योजना में नया LPC जमा करना अनिवार्य है। नीचे दिए गए बटन पर क्लिक करके नया LPC ऑनलाइन अप्लाई करें।
+            </div>
+          `;
+        }
+
+        outputBox.classList.remove('hidden');
+      }
+
+      function selectLpcPurpose(purposeKey, btnEl) {
+        recordUserInteraction();
+
+        // Highlight selected button
+        document.querySelectorAll('.lpc-purpose-btn').forEach(btn => {
+          btn.classList.remove('border-emerald-600', 'bg-emerald-100', 'text-emerald-950');
+          btn.classList.add('bg-slate-50', 'border-slate-200', 'text-slate-800');
+        });
+
+        if (btnEl) {
+          btnEl.classList.remove('bg-slate-50', 'border-slate-200', 'text-slate-800');
+          btnEl.classList.add('border-emerald-600', 'bg-emerald-100', 'text-emerald-950');
+        }
+
+        const resultBox = document.getElementById('lpcPurposeResultBox');
+        const titleEl = document.getElementById('lpcPurposeTitle');
+        const bodyEl = document.getElementById('lpcPurposeBody');
+
+        const purposeData = {
+          'bank_loan': {
+            title: '🏦 Bank Loan के लिए LPC कैसे बनवाएं:',
+            body: `
+              <p><strong>बैंक लोन के नियम:</strong> बैंक मैनेजर 6 महीने से कम पुराना ताजा LPC ही स्वीकार करते हैं।</p>
+              <ul class="list-disc pl-5 space-y-1 text-slate-700">
+                <li><strong>Step 1:</strong> अपनी जमीन की चालू वर्ष की लगान रसीद (Current Year Lagan Receipt) ऑनलाइन काट लें।</li>
+                <li><strong>Step 2:</strong> बिहार भूमि पोर्टल पर LPC आवेदन फॉर्म में उद्देश्य में <strong>"Bank Loan - [Bank Name]"</strong> लिखें।</li>
+                <li><strong>Step 3:</strong> स्व-घोषणा पत्र (Self Declaration) पर हस्ताक्षर कर 2MB PDF में अपलोड करें।</li>
+                <li><strong>Step 4:</strong> CO द्वारा डिजिटल हस्ताक्षर के बाद 15-30 दिनों में LPC डाउनलोड करें।</li>
+              </ul>
+            `
+          },
+          'pm_awas': {
+            title: '🏠 PM Awas Yojana के लिए LPC कैसे बनवाएं:',
+            body: `
+              <p><strong>प्रधानमंत्री आवास योजना नियम:</strong> आवास योजना की किस्त जारी करने से पहले BDO/CO भूमि पर भौतिक कब्जे का प्रमाण मांगते हैं।</p>
+              <ul class="list-disc pl-5 space-y-1 text-slate-700">
+                <li><strong>Step 1:</strong> सुनिश्चित करें कि जमाबंदी लाभार्थी या उसके पिता/दादा के नाम पर दर्ज है।</li>
+                <li><strong>Step 2:</strong> LPC ऑनलाइन आवेदन करते समय Purpose में <strong>"PM Awas Yojana Allotment"</strong> चुनें।</li>
+                <li><strong>Step 3:</strong> हल्का कर्मचारी स्थल निरीक्षण कर रिपोर्ट CO को सौंपेगा, जिसके बाद आपका LPC निर्गत हो जाएगा।</li>
+              </ul>
+            `
+          },
+          'dakhil_kharij': {
+            title: '📋 Dakhil Kharij / Mutation के लिए LPC की आवश्यकता:',
+            body: `
+              <p><strong>दाखिल खारिज/बंटवारा प्रक्रिया:</strong> यदि जमीन बंटवारे या पूर्वज के नाम से अपने नाम जमाबंदी कायम करनी हो, तो LPC कब्जे का मुख्य प्रमाण बनता है।</p>
+              <ul class="list-disc pl-5 space-y-1 text-slate-700">
+                <li><strong>Step 1:</strong> पंजी-2 में अपनी खतियानी या रजिस्ट्री वाली जमीन का खाता-खेसरा जांचें।</li>
+                <li><strong>Step 2:</strong> स्व-घोषणा पत्र में चौहद्दी (Chauhaddi) स्पष्ट रूप से दर्ज करें।</li>
+                <li><strong>Step 3:</strong> LPC जारी होने के बाद इसे परिमार्जन या आपसी बंटवारा शपथ पत्र के साथ संलग्न करें।</li>
+              </ul>
+            `
+          },
+          'kcc_loan': {
+            title: '🌾 KCC (Kisan Credit Card) Loan के लिए LPC:',
+            body: `
+              <p><strong>कृषि ऋण/KCC नियम:</strong> कृषि लोन पर ब्याज सब्सिडी पाने के लिए बैंक खेत का रकबा और कब्जा प्रमाणित करने हेतु LPC मांगते हैं।</p>
+              <ul class="list-disc pl-5 space-y-1 text-slate-700">
+                <li><strong>Step 1:</strong> LPC के ऑनलाइन फॉर्म में रकबा (Dismil/Acre) सही-सही भरें।</li>
+                <li><strong>Step 2:</strong> फसल प्रकार (Rabi/Kharif) तथा KCC Branch Name आवेदन में उल्लेख करें।</li>
+                <li><strong>Step 3:</strong> CO स्वीकृत LPC को कृषि विभाग/बैंक शाखा में जमा करें।</li>
+              </ul>
+            `
+          },
+          'court_case': {
+            title: '⚖️ Court Case / Legal Disputes के लिए LPC:',
+            body: `
+              <p><strong>कानूनी/अदालती कार्यवाही:</strong> राजस्व न्यायालय या सिविल कोर्ट में शांतिपूर्ण भौतिक कब्जे (Possession) को साबित करने के लिए CO द्वारा जारी LPC सर्वमान्य सबूत है।</p>
+              <ul class="list-disc pl-5 space-y-1 text-slate-700">
+                <li><strong>Step 1:</strong> अंचल कार्यालय में भौतिक जांच के समय हल्का कर्मचारी को वर्तमान रसीद व चौहद्दी दिखाएं।</li>
+                <li><strong>Step 2:</strong> LPC पर अंचलाधिकारी की मोहर व डिजिटल हस्ताक्षर सत्यापित करें।</li>
+              </ul>
+            `
+          },
+          'kuch_aur': {
+            title: '📄 सामान्य उपयोग (General Purpose) के लिए LPC:',
+            body: `
+              <p><strong>सामान्य सरकारी कार्यों हेतु:</strong> बिजली कनेक्शन, सोलर पंप, या सरकारी योजनाओं के लाभ हेतु standard LPC प्रक्रिया:</p>
+              <ul class="list-disc pl-5 space-y-1 text-slate-700">
+                <li><strong>Step 1:</strong> बिहार भूमि पोर्टल पर रजिस्टर/लॉगिन करें।</li>
+                <li><strong>Step 2:</strong> "LPC Avedan Karein" पर जाएं, अपनी जमाबंदी चुनें, Self Declaration PDF अपलोड करें और सबमिट करें।</li>
+                <li><strong>Step 3:</strong> 15-30 दिन में ऑनलाइन LPC स्टेटस चेक कर सर्टिफिकेट डाउनलोड करें।</li>
+              </ul>
+            `
+          }
+        };
+
+        if (purposeData[purposeKey]) {
+          titleEl.innerHTML = purposeData[purposeKey].title;
+          bodyEl.innerHTML = purposeData[purposeKey].body;
+          resultBox.classList.remove('hidden');
+        }
+      }
+
+      function updateLpcChecklist() {
+        recordUserInteraction();
+        const checkItems = document.querySelectorAll('.lpc-check-item');
+        let checkedCount = 0;
+        checkItems.forEach(item => {
+          if (item.checked) checkedCount++;
+        });
+
+        const percentage = Math.round((checkedCount / checkItems.length) * 100);
+        const progressBar = document.getElementById('checklistProgressBar');
+        const progressText = document.getElementById('checklistProgressText');
+
+        if (progressBar) progressBar.style.width = percentage + '%';
+        if (progressText) progressText.innerText = `${percentage}% (${checkedCount}/${checkItems.length} ready)`;
+      }
     </script>
   
   

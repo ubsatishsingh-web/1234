@@ -604,15 +604,307 @@ document.addEventListener('DOMContentLoaded', function() {
     <!-- MAIN GRID CONTAINER -->
     <main class="max-w-4xl mx-auto px-4 -mt-8 sm:-mt-10 mb-16 relative z-20 space-y-10 w-full text-[16px]">
 
-      <!-- SECTION 1 — HERO SUB-HEADING (Text link instead of prominent button) -->
-      <section class="bg-amber-50 rounded-2xl border border-amber-200 p-4 text-center space-y-1">
-        <p class="text-sm sm:text-base text-amber-950 font-extrabold">
-          नीचे Step by Step Guide पढ़ें — फिर Official Portal खोलें।
-        </p>
-        <p class="text-xs text-slate-500 font-bold">
-          सीधे सरकारी पोर्टल पर जाना चाहते हैं? 
-          <a href="#official-portal-section" class="text-emerald-700 underline font-extrabold hover:text-emerald-800">यहाँ click करें ➜</a>
-        </p>
+      <!-- FIX 1 — STATUS CHECKER AT VERY TOP -->
+      <section class="bg-white rounded-3xl border-2 border-emerald-500 p-5 sm:p-7 shadow-xl space-y-5">
+        <div class="text-center space-y-1">
+          <span class="inline-block bg-emerald-700 text-white text-xs font-black uppercase tracking-wider px-3.5 py-1 rounded-full shadow-xs">
+            ⚡ Quick Action
+          </span>
+          <h2 class="text-xl sm:text-2xl font-black text-slate-900">
+            Kya aapne pehle se apply kiya hua hai?
+          </h2>
+          <p class="text-xs sm:text-sm text-slate-600 font-bold">
+            नीचे अपने विकल्प पर क्लिक करके तुरंत सही सेवा प्राप्त करें:
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <!-- Button 1: Status Check -->
+          <button onclick="toggleDakhilFlow('status', this)" class="dakhil-flow-btn p-5 rounded-2xl bg-emerald-50 border-2 border-emerald-500 text-slate-900 text-sm font-black shadow-xs hover:shadow transition-all flex items-center justify-between cursor-pointer group">
+            <div class="flex items-center gap-3">
+              <span class="text-3xl group-hover:scale-110 transition-transform">✅</span>
+              <div class="text-left">
+                <div class="text-sm font-black text-emerald-950">Haan — Status Check Karna Hai</div>
+                <div class="text-[11px] text-slate-600 font-semibold">आवेदन की स्थिति व ऑर्डर शीट देखें</div>
+              </div>
+            </div>
+            <span class="text-emerald-700 font-black text-lg">➜</span>
+          </button>
+
+          <!-- Button 2: New Apply -->
+          <button onclick="toggleDakhilFlow('apply', this)" class="dakhil-flow-btn p-5 rounded-2xl bg-slate-50 border-2 border-slate-200 text-slate-800 text-sm font-bold hover:bg-emerald-50 hover:border-emerald-300 shadow-xs hover:shadow transition-all flex items-center justify-between cursor-pointer group">
+            <div class="flex items-center gap-3">
+              <span class="text-3xl group-hover:scale-110 transition-transform">📝</span>
+              <div class="text-left">
+                <div class="text-sm font-black text-slate-900">Nahi — Naya Apply Karna Hai</div>
+                <div class="text-[11px] text-slate-600 font-semibold">ऑनलाइन आवेदन गाइड व दस्तावेज जांच</div>
+              </div>
+            </div>
+            <span class="text-slate-400 font-black text-lg">➜</span>
+          </button>
+        </div>
+
+        <!-- Status Check Box (Default Visible) -->
+        <div id="dakhilStatusBox" class="bg-emerald-50/90 border-2 border-emerald-300 rounded-2xl p-5 text-slate-900 space-y-4 shadow-inner">
+          <div class="font-black text-base text-emerald-950 flex items-center gap-2 border-b border-emerald-200/80 pb-2">
+            <span>🔍</span> Dakhil Kharij Status Check Karein:
+          </div>
+          
+          <div class="space-y-2 text-xs sm:text-sm text-slate-800 font-medium">
+            <p class="font-extrabold text-slate-900">स्टेटस चेक करने के लिए अपने पास ये 4 जानकारियां रखें:</p>
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-1">
+              <div class="bg-white p-2.5 rounded-xl border border-emerald-200 text-center font-bold text-slate-800">
+                ✅ District naam
+              </div>
+              <div class="bg-white p-2.5 rounded-xl border border-emerald-200 text-center font-bold text-slate-800">
+                ✅ Anchal naam
+              </div>
+              <div class="bg-white p-2.5 rounded-xl border border-emerald-200 text-center font-bold text-slate-800">
+                ✅ Case / Deed No.
+              </div>
+              <div class="bg-white p-2.5 rounded-xl border border-emerald-200 text-center font-bold text-slate-800">
+                ✅ Financial Year
+              </div>
+            </div>
+          </div>
+
+          <div class="pt-2">
+            <a href="https://emutation.bihar.gov.in/biharBhumireport/MutationStatusNew" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-emerald-700 hover:bg-emerald-800 text-white font-black text-sm px-6 py-3.5 rounded-xl shadow-md transition transform hover:scale-105">
+              <span>🚀 Status Portal Kholen (emutation.bihar.gov.in)</span>
+              <span>➜</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- New Apply Box (Hidden initially) -->
+        <div id="dakhilApplyBox" class="hidden bg-amber-50/90 border-2 border-amber-300 rounded-2xl p-5 text-slate-900 space-y-3 shadow-inner">
+          <div class="font-black text-base text-amber-950 flex items-center gap-2 border-b border-amber-200 pb-2">
+            <span>📝</span> Naya Dakhil Kharij Apply karne ki Guide:
+          </div>
+          <p class="text-xs sm:text-sm font-semibold text-slate-800 leading-relaxed">
+            नया दाखिल खारिज कराने के लिए सबसे पहले नीचे दिए गए **"Document Readiness Checklist"** में सभी दस्तावेज टिक करें, फिर सरकारी पोर्टल खोलकर आवेदन जमा करें।
+          </p>
+          <a href="#dakhilDocChecklist" class="inline-block bg-amber-600 hover:bg-amber-700 text-white font-black text-xs sm:text-sm px-5 py-2.5 rounded-xl shadow transition">
+            Document Checklist Par Jayein ⬇️
+          </a>
+        </div>
+      </section>
+
+      <!-- FIX 2 — COST CALCULATOR AT TOP -->
+      <section class="bg-white rounded-3xl border border-slate-200 p-6 sm:p-8 shadow-md space-y-5">
+        <div class="space-y-1">
+          <span class="inline-block bg-amber-100 text-amber-900 text-xs font-black px-3 py-1 rounded-md">
+            💰 Cost Savings Calculator
+          </span>
+          <h2 class="text-xl sm:text-2xl font-black text-slate-900">
+            Dakhil Kharij mein kitna kharcha aayega — check karein:
+          </h2>
+          <p class="text-xs sm:text-sm text-slate-600 font-semibold">
+            दलाल (Agent) और खुद ऑनलाइन अप्लाई करने के खर्च का लाइव अंतर देखें:
+          </p>
+        </div>
+
+        <div class="bg-slate-50 border border-slate-200 rounded-2xl p-5 space-y-4">
+          <label class="block text-xs sm:text-sm font-extrabold text-slate-900">
+            क्या आप किसी एजेंट / दलाल के माध्यम से आवेदन करा रहे हैं?
+          </label>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <button id="agentBtnYes" onclick="calcDakhilCost(true)" class="p-3.5 rounded-xl border-2 border-slate-300 bg-white font-bold text-xs sm:text-sm text-slate-800 hover:border-amber-500 cursor-pointer transition flex items-center gap-2">
+              <span class="text-lg">🕵️</span>
+              <span>Haan — Agent se karayein (With Agent)</span>
+            </button>
+            <button id="agentBtnNo" onclick="calcDakhilCost(false)" class="p-3.5 rounded-xl border-2 border-emerald-500 bg-emerald-50 font-black text-xs sm:text-sm text-slate-900 hover:bg-emerald-100 cursor-pointer transition flex items-center gap-2">
+              <span class="text-lg">📱</span>
+              <span>Nahi — Swayam Online karenge (Without Agent)</span>
+            </button>
+          </div>
+
+          <!-- Result Display -->
+          <div id="costResultDisplay" class="bg-emerald-100/90 border-2 border-emerald-400 rounded-2xl p-5 text-slate-900 space-y-2 shadow-xs">
+            <div class="flex items-center justify-between flex-wrap gap-2">
+              <span class="text-xs uppercase font-black tracking-wider text-emerald-900">अनुमानित कुल खर्च (Estimated Cost):</span>
+              <span id="costAmountText" class="text-xl sm:text-2xl font-black text-emerald-800">Only ₹100 (Court Fee Stamp)</span>
+            </div>
+            <div id="savingText" class="text-xs sm:text-sm font-bold text-emerald-950">
+              🎉 Direct Saving: ₹400 - ₹4,900 (दलाल को पैसे देने की बिल्कुल आवश्यकता नहीं है!)
+            </div>
+            <div class="pt-2">
+              <a href="dakhil-kharij-fees.html" class="text-xs sm:text-sm font-black text-emerald-800 underline hover:text-emerald-950">
+                Fees ki poori detail dekhen ➜
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FIX 3 — TIMELINE TOOL -->
+      <section class="bg-white rounded-3xl border border-slate-200 p-6 sm:p-8 shadow-md space-y-5">
+        <div class="space-y-1">
+          <span class="inline-block bg-blue-100 text-blue-900 text-xs font-black px-3 py-1 rounded-md">
+            ⏱️ Expected Completion Date Calculator
+          </span>
+          <h2 class="text-xl sm:text-2xl font-black text-slate-900">
+            Aapka Dakhil Kharij kab hoga?
+          </h2>
+          <p class="text-xs sm:text-sm text-slate-600 font-semibold">
+            आवेदन सबमिट करने की तारीख दर्ज करें — सरकारी 45-दिवसीय टाइमलाइन देखें:
+          </p>
+        </div>
+
+        <div class="bg-slate-50 border border-slate-200 rounded-2xl p-5 space-y-5">
+          <div class="max-w-xs">
+            <label class="block text-xs font-extrabold text-slate-800 uppercase tracking-wider mb-1">
+              आवेदन सबमिट तिथि (Application Submit Date):
+            </label>
+            <input type="date" id="dakhilSubmitDate" onchange="calculateDakhilTimeline()" class="w-full px-4 py-3 bg-white border-2 border-blue-400 rounded-xl text-sm font-bold text-slate-900 focus:outline-none focus:border-blue-600 shadow-xs" />
+          </div>
+
+          <div class="bg-blue-50 border-2 border-blue-200 rounded-2xl p-4 text-blue-950 space-y-1 text-center sm:text-left">
+            <span class="text-xs uppercase font-extrabold text-blue-800">अनुमानित म्यूटेशन पूर्ण तिथि (Expected Completion):</span>
+            <div id="timelineExpectedDate" class="text-xl sm:text-2xl font-black text-blue-900">
+              Calculating...
+            </div>
+          </div>
+
+          <!-- Visual Timeline Steps -->
+          <div class="space-y-2 pt-2">
+            <div class="text-xs font-extrabold text-slate-700 uppercase tracking-wider mb-3">सरकारी 45-दिवसीय समय चक्र (Process Steps):</div>
+            <div class="grid grid-cols-1 sm:grid-cols-5 gap-2 text-center text-xs">
+              <div class="bg-white p-3 rounded-xl border border-slate-200 font-bold space-y-1">
+                <div class="text-emerald-700 font-black">Day 1</div>
+                <div class="text-[11px] text-slate-700">Submit Copy</div>
+              </div>
+              <div class="bg-white p-3 rounded-xl border border-slate-200 font-bold space-y-1">
+                <div class="text-blue-700 font-black">Day 7</div>
+                <div class="text-[11px] text-slate-700">CO Notice</div>
+              </div>
+              <div class="bg-white p-3 rounded-xl border border-slate-200 font-bold space-y-1">
+                <div class="text-amber-700 font-black">Day 15</div>
+                <div class="text-[11px] text-slate-700">Hearing</div>
+              </div>
+              <div class="bg-white p-3 rounded-xl border border-slate-200 font-bold space-y-1">
+                <div class="text-purple-700 font-black">Day 30</div>
+                <div class="text-[11px] text-slate-700">CO Approval</div>
+              </div>
+              <div class="bg-emerald-100 p-3 rounded-xl border border-emerald-300 font-bold space-y-1">
+                <div class="text-emerald-900 font-black">Day 45</div>
+                <div class="text-[11px] text-emerald-950">Certificate ✅</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FIX 4 — DOCUMENT READINESS CHECK -->
+      <section id="dakhilDocChecklist" class="bg-white rounded-3xl border-2 border-emerald-500 p-6 sm:p-8 shadow-md space-y-5">
+        <div class="space-y-1">
+          <div class="flex items-center justify-between flex-wrap gap-2">
+            <h2 class="text-xl sm:text-2xl font-black text-slate-900 flex items-center gap-2">
+              <span>📄</span> Apply karne se pehle check karein:
+            </h2>
+            <span id="dakhilDocProgressText" class="bg-emerald-100 text-emerald-950 text-xs font-black px-3 py-1 rounded-full">
+              0/6 ready
+            </span>
+          </div>
+          <p class="text-xs sm:text-sm text-slate-600 font-semibold">
+            ऑनलाइन फॉर्म भरने से पहले इन सभी 6 दस्तावेजों पर टिक करें:
+          </p>
+        </div>
+
+        <!-- Document Checklist Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <label class="flex items-start gap-3 bg-slate-50 p-3.5 rounded-2xl border border-slate-200 hover:border-emerald-400 cursor-pointer transition">
+            <input type="checkbox" onchange="updateDakhilDocProgress()" class="dakhil-doc-item w-5 h-5 accent-emerald-600 rounded mt-0.5 shrink-0" />
+            <span class="text-xs sm:text-sm font-bold text-slate-800">1. Sale Deed/Bainama copy ready hai (केवाला PDF)</span>
+          </label>
+
+          <label class="flex items-start gap-3 bg-slate-50 p-3.5 rounded-2xl border border-slate-200 hover:border-emerald-400 cursor-pointer transition">
+            <input type="checkbox" onchange="updateDakhilDocProgress()" class="dakhil-doc-item w-5 h-5 accent-emerald-600 rounded mt-0.5 shrink-0" />
+            <span class="text-xs sm:text-sm font-bold text-slate-800">2. Jamabandi nakal hai (biharbhumi.bihar.gov.in se)</span>
+          </label>
+
+          <label class="flex items-start gap-3 bg-slate-50 p-3.5 rounded-2xl border border-slate-200 hover:border-emerald-400 cursor-pointer transition">
+            <input type="checkbox" onchange="updateDakhilDocProgress()" class="dakhil-doc-item w-5 h-5 accent-emerald-600 rounded mt-0.5 shrink-0" />
+            <span class="text-xs sm:text-sm font-bold text-slate-800">3. Aadhar Card ready hai (आधार कार्ड)</span>
+          </label>
+
+          <label class="flex items-start gap-3 bg-slate-50 p-3.5 rounded-2xl border border-slate-200 hover:border-emerald-400 cursor-pointer transition">
+            <input type="checkbox" onchange="updateDakhilDocProgress()" class="dakhil-doc-item w-5 h-5 accent-emerald-600 rounded mt-0.5 shrink-0" />
+            <span class="text-xs sm:text-sm font-bold text-slate-800">4. Passport photo ready hai (पासपोर्ट फोटो)</span>
+          </label>
+
+          <label class="flex items-start gap-3 bg-slate-50 p-3.5 rounded-2xl border border-slate-200 hover:border-emerald-400 cursor-pointer transition">
+            <input type="checkbox" onchange="updateDakhilDocProgress()" class="dakhil-doc-item w-5 h-5 accent-emerald-600 rounded mt-0.5 shrink-0" />
+            <span class="text-xs sm:text-sm font-bold text-slate-800">5. Court fee stamp ₹100 hai (कोर्ट फी स्टाम्प)</span>
+          </label>
+
+          <label class="flex items-start gap-3 bg-slate-50 p-3.5 rounded-2xl border border-slate-200 hover:border-emerald-400 cursor-pointer transition">
+            <input type="checkbox" onchange="updateDakhilDocProgress()" class="dakhil-doc-item w-5 h-5 accent-emerald-600 rounded mt-0.5 shrink-0" />
+            <span class="text-xs sm:text-sm font-bold text-slate-800">6. Mobile number (OTP ke liye)</span>
+          </label>
+        </div>
+
+        <!-- All Ticked Apply Box -->
+        <div id="dakhilApplyReadyNotice" class="hidden bg-emerald-100 border-2 border-emerald-500 text-emerald-950 p-5 rounded-2xl text-center space-y-3 shadow-md">
+          <div class="font-black text-base">🎉 ✅ Aap ready hain! Ab apply karein:</div>
+          <a href="https://biharbhumi.bihar.gov.in/Biharbhumi/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-emerald-700 hover:bg-emerald-800 text-white font-black text-base px-8 py-3.5 rounded-xl shadow-lg transition transform hover:scale-105">
+            <span>🚀 Apply Dakhil Kharij Online (biharbhumi.bihar.gov.in)</span>
+            <span>➜</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- FIX 5 — QUICK LINKS AFTER PORTAL SECTION -->
+      <section class="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white rounded-3xl p-6 sm:p-8 space-y-5 shadow-xl border-2 border-slate-700">
+        <div class="text-center space-y-1">
+          <span class="bg-amber-400 text-slate-950 text-xs font-black uppercase px-3 py-1 rounded-full">
+            Recommended Next Actions
+          </span>
+          <h2 class="text-xl sm:text-2xl md:text-3xl font-black text-white">
+            Dakhil Kharij ke baad zaroor karein:
+          </h2>
+          <p class="text-xs sm:text-sm text-slate-300 font-medium">
+            दाखिल खारिज अप्रूव होने के बाद अपनी जमीन का रिकॉर्ड पक्का करने के लिए ये काम करें:
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2">
+          <!-- Action Link 1 -->
+          <a href="lpc-bihar.html" class="bg-slate-800/90 hover:bg-emerald-950 border-2 border-slate-700 hover:border-emerald-500 rounded-2xl p-5 transition text-left space-y-2 group">
+            <div class="text-3xl group-hover:scale-110 transition-transform">📄</div>
+            <h3 class="font-black text-base text-white group-hover:text-emerald-400">LPC Banwayein</h3>
+            <p class="text-xs text-slate-300 font-medium leading-relaxed">
+              बैंक लोन व सरकारी योजनाओं के लिए तुरंत भूमि स्वामित्व प्रमाण पत्र (LPC) के लिए आवेदन करें।
+            </p>
+            <div class="text-xs font-extrabold text-emerald-400 pt-1 flex items-center gap-1">
+              <span>LPC बनवाएं</span> <span>➜</span>
+            </div>
+          </a>
+
+          <!-- Action Link 2 -->
+          <a href="jamabandi.html" class="bg-slate-800/90 hover:bg-emerald-950 border-2 border-slate-700 hover:border-emerald-500 rounded-2xl p-5 transition text-left space-y-2 group">
+            <div class="text-3xl group-hover:scale-110 transition-transform">📑</div>
+            <h3 class="font-black text-base text-white group-hover:text-emerald-400">Jamabandi Check</h3>
+            <p class="text-xs text-slate-300 font-medium leading-relaxed">
+              डिजिटल जमाबंदी पंजी-2 में अपना नाम और संशोधित खाता/खेसरा नंबर ऑनलाइन चेक व डाउनलोड करें।
+            </p>
+            <div class="text-xs font-extrabold text-emerald-400 pt-1 flex items-center gap-1">
+              <span>जमाबंदी देखें</span> <span>➜</span>
+            </div>
+          </a>
+
+          <!-- Action Link 3 -->
+          <a href="apna-khata-dekhe.html" class="bg-slate-800/90 hover:bg-emerald-950 border-2 border-slate-700 hover:border-emerald-500 rounded-2xl p-5 transition text-left space-y-2 group">
+            <div class="text-3xl group-hover:scale-110 transition-transform">🗺️</div>
+            <h3 class="font-black text-base text-white group-hover:text-emerald-400">Apna Khata Verify</h3>
+            <p class="text-xs text-slate-300 font-medium leading-relaxed">
+              अपने मौजा का खतियान और खाता विवरण ऑनलाइन पोर्टल से मिला कर सत्यापित करें।
+            </p>
+            <div class="text-xs font-extrabold text-emerald-400 pt-1 flex items-center gap-1">
+              <span>खाता जांचें</span> <span>➜</span>
+            </div>
+          </a>
+        </div>
       </section>
 
       <!-- SECTION 2 — IMPORTANT INFO FIRST -->
@@ -1816,6 +2108,112 @@ window.addEventListener('popstate', function() {
     <span>WhatsApp</span>
   </a>
 </div>
+
+<script>
+// Dakhil Kharij Flow Selector (Status vs New Apply)
+function toggleDakhilFlow(type, btnEl) {
+  const allBtns = document.querySelectorAll('.dakhil-flow-btn');
+  allBtns.forEach(btn => {
+    btn.className = 'dakhil-flow-btn p-5 rounded-2xl bg-slate-50 border-2 border-slate-200 text-slate-800 text-sm font-bold hover:bg-emerald-50 hover:border-emerald-300 shadow-xs hover:shadow transition-all flex items-center justify-between cursor-pointer group';
+  });
+
+  if (btnEl) {
+    btnEl.className = 'dakhil-flow-btn p-5 rounded-2xl bg-emerald-50 border-2 border-emerald-500 text-slate-900 text-sm font-black shadow-xs hover:shadow transition-all flex items-center justify-between cursor-pointer group';
+  }
+
+  const statusBox = document.getElementById('dakhilStatusBox');
+  const applyBox = document.getElementById('dakhilApplyBox');
+
+  if (type === 'status') {
+    if (statusBox) statusBox.classList.remove('hidden');
+    if (applyBox) applyBox.classList.add('hidden');
+  } else {
+    if (statusBox) statusBox.classList.add('hidden');
+    if (applyBox) applyBox.classList.remove('hidden');
+  }
+}
+
+// Cost Savings Calculator
+function calcDakhilCost(isAgent) {
+  const btnYes = document.getElementById('agentBtnYes');
+  const btnNo = document.getElementById('agentBtnNo');
+  const costDisplay = document.getElementById('costResultDisplay');
+  const amountText = document.getElementById('costAmountText');
+  const savingText = document.getElementById('savingText');
+
+  if (isAgent) {
+    if (btnYes) btnYes.className = 'p-3.5 rounded-xl border-2 border-amber-500 bg-amber-50 font-black text-xs sm:text-sm text-slate-900 cursor-pointer transition flex items-center gap-2';
+    if (btnNo) btnNo.className = 'p-3.5 rounded-xl border-2 border-slate-300 bg-white font-bold text-xs sm:text-sm text-slate-800 hover:border-emerald-500 cursor-pointer transition flex items-center gap-2';
+
+    if (costDisplay) costDisplay.className = 'bg-amber-100/90 border-2 border-amber-400 rounded-2xl p-5 text-slate-900 space-y-2 shadow-xs';
+    if (amountText) amountText.textContent = '₹500 - ₹5,000 (अनधिकृत दलाल खर्च)';
+    if (savingText) savingText.innerHTML = '⚠️ <strong>सावधान:</strong> दलाल को पैसे देने से प्रक्रिया तेज नहीं होती। स्वयं ऑनलाइन आवेदन केवल ₹100 में करें और ₹4,900 तक बचाएं!';
+  } else {
+    if (btnYes) btnYes.className = 'p-3.5 rounded-xl border-2 border-slate-300 bg-white font-bold text-xs sm:text-sm text-slate-800 hover:border-amber-500 cursor-pointer transition flex items-center gap-2';
+    if (btnNo) btnNo.className = 'p-3.5 rounded-xl border-2 border-emerald-500 bg-emerald-50 font-black text-xs sm:text-sm text-slate-900 hover:bg-emerald-100 cursor-pointer transition flex items-center gap-2';
+
+    if (costDisplay) costDisplay.className = 'bg-emerald-100/90 border-2 border-emerald-400 rounded-2xl p-5 text-slate-900 space-y-2 shadow-xs';
+    if (amountText) amountText.textContent = 'Only ₹100 (Court Fee Stamp)';
+    if (savingText) savingText.innerHTML = '🎉 <strong>Direct Saving: ₹400 - ₹4,900</strong> (दलाल को पैसे देने की बिल्कुल आवश्यकता नहीं है!)';
+  }
+}
+
+// Timeline Date Calculator
+function calculateDakhilTimeline() {
+  const dateInput = document.getElementById('dakhilSubmitDate');
+  const expEl = document.getElementById('timelineExpectedDate');
+  if (!dateInput || !expEl) return;
+
+  let inputVal = dateInput.value;
+  if (!inputVal) {
+    const today = new Date();
+    inputVal = today.toISOString().split('T')[0];
+    dateInput.value = inputVal;
+  }
+
+  const submitDate = new Date(inputVal);
+  if (isNaN(submitDate.getTime())) return;
+
+  const targetDate = new Date(submitDate);
+  targetDate.setDate(targetDate.getDate() + 45);
+
+  const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+  const formattedDate = targetDate.getDate() + ' ' + months[targetDate.getMonth()] + ' ' + targetDate.getFullYear();
+
+  expEl.textContent = formattedDate + ' (45 कार्य दिवस)';
+}
+
+// Document Checklist Progress
+function updateDakhilDocProgress() {
+  const items = document.querySelectorAll('.dakhil-doc-item');
+  let checkedCount = 0;
+  items.forEach(item => {
+    if (item.checked) checkedCount++;
+  });
+
+  const total = items.length || 6;
+  const pText = document.getElementById('dakhilDocProgressText');
+  const readyNotice = document.getElementById('dakhilApplyReadyNotice');
+
+  if (pText) pText.textContent = checkedCount + '/' + total + ' ready';
+
+  if (checkedCount === total) {
+    if (readyNotice) readyNotice.classList.remove('hidden');
+  } else {
+    if (readyNotice) readyNotice.classList.add('hidden');
+  }
+}
+
+// Initialize on Load
+document.addEventListener('DOMContentLoaded', function() {
+  const dateInput = document.getElementById('dakhilSubmitDate');
+  if (dateInput && !dateInput.value) {
+    const today = new Date();
+    dateInput.value = today.toISOString().split('T')[0];
+  }
+  calculateDakhilTimeline();
+});
+</script>
 
 <script>
 // Open external links in new tab only
